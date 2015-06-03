@@ -1,0 +1,5 @@
+url: http://docs-staging.mesosphere.com.s3-website-us-west-2.amazonaws.com
+env: staging
+
+assets:
+  baseurl: '/assets/'

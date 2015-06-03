@@ -1,0 +1,185 @@
+// Solids
+
+@black: #000000;
+@white: #FFFFFF;
+
+@base-gray: #242629;
+@gray-dark: @base-gray;
+@gray-medium: lighten(@base-gray, 45%);
+@gray-light: lighten(@gray-dark, 78%);
+
+@bluepop: #009CFF;
+@violet: #ad58ff;
+@magenta: #FE5EF5;
+@seafoam: #00DBBF;
+@yellow:#e9b707;
+
+@green: #5cb85c;
+@green-medium: #aaffaa;
+@green-light: #ddffdd;
+
+@red: #D9534F;
+@red-medium: #ffaaaa;
+@red-light: lighten(@red, 31%);
+
+// Translucents
+
+@translucent-white: rgba(255, 255, 255, 0.1);
+@translucent-violet: rgba(129, 79, 193, 0.1);
+
+// Gradients
+
+// Two Tone
+.two-tone-gradient(@first-color, @first-color-position, @second-color, @second-color-position) {
+  // Old browsers
+  background: @first-color;
+  // Chrome,Safari4+
+  background: -webkit-gradient(linear, left top, right top, color-stop(@first-color-position, @first-color), color-stop(@second-color-position, @second-color));
+  // Chrome10+, Safari5.1+
+  background: -webkit-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position);
+  // Opera 11.10+
+  background: -o-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position);
+  // IE10+
+  background: -ms-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position);
+  // W3C
+  background: linear-gradient(to right, @first-color @first-color-position, @second-color @second-color-position);
+}
+
+.two-tone-gradient-vertical(@first-color, @first-color-position, @second-color, @second-color-position) {
+  // Old browsers
+  background: @first-color;
+  // Chrome,Safari4+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(@first-color-position, @first-color), color-stop(@second-color-position, @second-color));
+  // Chrome10+, Safari5.1+
+  background: -webkit-linear-gradient(top, @first-color @first-color-position, @second-color @second-color-position);
+  // Opera 11.10+
+  background: -o-linear-gradient(top, @first-color @first-color-position, @second-color @second-color-position);
+  // IE10+
+  background: -ms-linear-gradient(top, @first-color @first-color-position, @second-color @second-color-position);
+  // W3C
+  background: linear-gradient(to bottom, @first-color @first-color-position, @second-color @second-color-position);
+}
+
+// Three Tone
+.three-tone-gradient(@first-color, @first-color-position, @second-color, @second-color-position, @third-color, @third-color-position) {
+  // Old browsers
+  background: @first-color;
+  // Chrome,Safari4+
+  background: -webkit-gradient(linear, left top, right top, color-stop(@first-color-position, @first-color), color-stop(@second-color-position, @second-color), color-stop(@third-color-position, @third-color));
+  // Chrome10+, Safari5.1+
+  background: -webkit-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position, @third-color @third-color-position);
+  // Opera 11.10+
+  background: -o-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position, @third-color @third-color-position);
+  // IE10+
+  background: -ms-linear-gradient(left, @first-color @first-color-position, @second-color @second-color-position, @third-color @third-color-position);
+  // W3C
+  background: linear-gradient(to right, @first-color @first-color-position, @second-color @second-color-position, @third-color @third-color-position);
+}
+
+.three-tone-gradient-magentabluegreen {
+  .three-tone-gradient(#b33fc6, 0%, #5989d8, 35%, #4adcab, 100%);
+}
+
+.text-success {
+  color: @green;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* Blue                                                                                                 */
+/* ---------------------------------------------------------------------------------------------------- */
+
+@blue-gce: #009cff;
+
+// Lighten
+
+@blue-gce-lighten-05: lighten(@blue-gce, 0.05 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-10: lighten(@blue-gce, 0.10 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-15: lighten(@blue-gce, 0.15 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-20: lighten(@blue-gce, 0.20 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-25: lighten(@blue-gce, 0.25 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-30: lighten(@blue-gce, 0.30 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-35: lighten(@blue-gce, 0.35 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-40: lighten(@blue-gce, 0.40 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-45: lighten(@blue-gce, 0.45 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-50: lighten(@blue-gce, 0.50 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-55: lighten(@blue-gce, 0.55 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-60: lighten(@blue-gce, 0.60 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-65: lighten(@blue-gce, 0.65 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-70: lighten(@blue-gce, 0.70 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-75: lighten(@blue-gce, 0.75 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-80: lighten(@blue-gce, 0.80 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-85: lighten(@blue-gce, 0.85 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-90: lighten(@blue-gce, 0.90 * (100 - lightness(@blue-gce)));
+@blue-gce-lighten-95: lighten(@blue-gce, 0.95 * (100 - lightness(@blue-gce)));
+
+// Darken
+
+@blue-gce-darken-05: darken(@blue-gce, 0.05 * lightness(@blue-gce));
+@blue-gce-darken-10: darken(@blue-gce, 0.10 * lightness(@blue-gce));
+@blue-gce-darken-15: darken(@blue-gce, 0.15 * lightness(@blue-gce));
+@blue-gce-darken-20: darken(@blue-gce, 0.20 * lightness(@blue-gce));
+@blue-gce-darken-25: darken(@blue-gce, 0.25 * lightness(@blue-gce));
+@blue-gce-darken-30: darken(@blue-gce, 0.30 * lightness(@blue-gce));
+@blue-gce-darken-35: darken(@blue-gce, 0.35 * lightness(@blue-gce));
+@blue-gce-darken-40: darken(@blue-gce, 0.40 * lightness(@blue-gce));
+@blue-gce-darken-45: darken(@blue-gce, 0.45 * lightness(@blue-gce));
+@blue-gce-darken-50: darken(@blue-gce, 0.50 * lightness(@blue-gce));
+@blue-gce-darken-55: darken(@blue-gce, 0.55 * lightness(@blue-gce));
+@blue-gce-darken-60: darken(@blue-gce, 0.60 * lightness(@blue-gce));
+@blue-gce-darken-65: darken(@blue-gce, 0.65 * lightness(@blue-gce));
+@blue-gce-darken-70: darken(@blue-gce, 0.70 * lightness(@blue-gce));
+@blue-gce-darken-75: darken(@blue-gce, 0.75 * lightness(@blue-gce));
+@blue-gce-darken-80: darken(@blue-gce, 0.80 * lightness(@blue-gce));
+@blue-gce-darken-85: darken(@blue-gce, 0.85 * lightness(@blue-gce));
+@blue-gce-darken-90: darken(@blue-gce, 0.90 * lightness(@blue-gce));
+@blue-gce-darken-95: darken(@blue-gce, 0.95 * lightness(@blue-gce));
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* Violet                                                                                               */
+/* ---------------------------------------------------------------------------------------------------- */
+
+@violet-gce: #ad58ff;
+
+// Lighten
+
+@violet-gce-lighten-05: lighten(@violet-gce, 0.05 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-10: lighten(@violet-gce, 0.10 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-15: lighten(@violet-gce, 0.15 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-20: lighten(@violet-gce, 0.20 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-25: lighten(@violet-gce, 0.25 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-30: lighten(@violet-gce, 0.30 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-35: lighten(@violet-gce, 0.35 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-40: lighten(@violet-gce, 0.40 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-45: lighten(@violet-gce, 0.45 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-50: lighten(@violet-gce, 0.50 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-55: lighten(@violet-gce, 0.55 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-60: lighten(@violet-gce, 0.60 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-65: lighten(@violet-gce, 0.65 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-70: lighten(@violet-gce, 0.70 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-75: lighten(@violet-gce, 0.75 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-80: lighten(@violet-gce, 0.80 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-85: lighten(@violet-gce, 0.85 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-90: lighten(@violet-gce, 0.90 * (100 - lightness(@violet-gce)));
+@violet-gce-lighten-95: lighten(@violet-gce, 0.95 * (100 - lightness(@violet-gce)));
+
+// Darken
+
+@violet-gce-darken-05: darken(@violet-gce, 0.05 * lightness(@violet-gce));
+@violet-gce-darken-10: darken(@violet-gce, 0.10 * lightness(@violet-gce));
+@violet-gce-darken-15: darken(@violet-gce, 0.15 * lightness(@violet-gce));
+@violet-gce-darken-20: darken(@violet-gce, 0.20 * lightness(@violet-gce));
+@violet-gce-darken-25: darken(@violet-gce, 0.25 * lightness(@violet-gce));
+@violet-gce-darken-30: darken(@violet-gce, 0.30 * lightness(@violet-gce));
+@violet-gce-darken-35: darken(@violet-gce, 0.35 * lightness(@violet-gce));
+@violet-gce-darken-40: darken(@violet-gce, 0.40 * lightness(@violet-gce));
+@violet-gce-darken-45: darken(@violet-gce, 0.45 * lightness(@violet-gce));
+@violet-gce-darken-50: darken(@violet-gce, 0.50 * lightness(@violet-gce));
+@violet-gce-darken-55: darken(@violet-gce, 0.55 * lightness(@violet-gce));
+@violet-gce-darken-60: darken(@violet-gce, 0.60 * lightness(@violet-gce));
+@violet-gce-darken-65: darken(@violet-gce, 0.65 * lightness(@violet-gce));
+@violet-gce-darken-70: darken(@violet-gce, 0.70 * lightness(@violet-gce));
+@violet-gce-darken-75: darken(@violet-gce, 0.75 * lightness(@violet-gce));
+@violet-gce-darken-80: darken(@violet-gce, 0.80 * lightness(@violet-gce));
+@violet-gce-darken-85: darken(@violet-gce, 0.85 * lightness(@violet-gce));
+@violet-gce-darken-90: darken(@violet-gce, 0.90 * lightness(@violet-gce));
+@violet-gce-darken-95: darken(@violet-gce, 0.95 * lightness(@violet-gce));

@@ -1,0 +1,26 @@
+lsi: false
+markdown: rdiscount
+permalink: pretty
+highlighter: pygments
+encoding: utf-8
+url: https://docs.mesosphere.com
+
+env: production
+gems:
+  - jekyll-assets
+  - jekyll-redirect-from
+
+assets:
+  baseurl: '/assets/'
+  cache: true
+  css_compressor: yui
+  js_compressor: yui
+  sources:
+    - _assets/css
+    - _assets/fonts
+    - _assets/img
+    - _assets/js
+    - _assets/bower_components
+
+exclude: ['bin', '*.bash', 'README.md', 'Gemfile', 'Gemfile.lock',
+  'Rakefile', 'CNAME', 'apache-aws.profile', 'vendor', 'Makefile', 'Dockerfile', 'utils']

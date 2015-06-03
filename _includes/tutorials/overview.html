@@ -1,0 +1,53 @@
+<div class="item active" id="overview">
+  {% include tutorials/header.html %}
+
+  <div class="row overview-content">
+    <div class="col-md-4 overview-content-left">
+      <a class="btn btn-lg btn-primary btn-start-tutorial"
+          href="#step-0" data-slide="next" data-target="#tutorial-carousel">
+        Start Tutorial
+      </a>
+      <p>{{ tutorial.blurb }}</p>
+      <div class="learn-tutorial-prereqs">
+        <h4 class="overview-prereq-title">You'll need:</h4>
+        {% for resource in tutorial.resources %}
+          <a href="{{ resource.url }}">{{ resource.name }}</a>
+          {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      </div>
+      <ul class="learn-tutorial-meta text-muted list-unstyled list-inline">
+        <li><i class="fa fa-clock-o"></i> {{ tutorial.duration }}</li>
+        <li><i class="fa fa-list-ol"></i> {{ page.steps | size }} Steps</li>
+      </ul>
+    </div>
+    <div class="col-md-8 overview-steps">
+      <div class="media">
+        <a class="pull-left overview-step-icon" href="#">
+          <i class="fa fa-book"></i>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <a href="#">Overview: {{ page.title }}</a>
+          </h4>
+          <p>{{ page.overview }}</p>
+        </div>
+      </div>
+      {% for step in page.steps %}
+        <div class="media">
+          <a class="pull-left overview-step-icon" href="#step-{{ forloop.index0 }}">
+            <i class="fa {{ step.icon }}"></i>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">
+              <a href="#step-{{ forloop.index }}">
+                Step {{ forloop.index0 | plus: 1 }}: {{ step.title }}
+              </a>
+            </h4>
+            <p>{{ step.blurb }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,249 @@
+---
+layout: tutorial
+title: Run Ruby on Rails on Mesos
+tutorial_icon_classname: tutorial-icon-rails
+framework: rails
+tutorial_name: run-ruby-on-rails-on-mesos
+overview: Introduction and prerequisites for getting Ruby on Rails running on Mesos
+steps:
+  - title: Connect to a Mesos master
+    blurb: >
+      SSH to a Mesos master and make sure it is up and running.
+    icon: fa-terminal
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span>
+
+      Welcome to Ubuntu 12.10 (GNU/Linux 3.5.0-41-generic x86_64)
+
+       * Documentation:  https://help.ubuntu.com/
+
+        System information as of Fri Nov  1 18:52:24 UTC 2013
+
+        System load:  0.0               Processes:           74
+
+        Usage of /:   16.1% of 7.87GB   Users logged in:     0
+
+        Memory usage: 3%                IP address for eth0: <span data-replace="master-internal-ip">10.123.92.22</span>
+
+        Swap usage:   0%
+      ubuntu@ec2-184-72-188-41:~$ curl -i localhost:5050/master/health
+
+      HTTP/1.1 200 OK
+
+      Date: Tue, 05 Nov 2013 23:23:47 GMT
+
+      Content-Length: 0
+      </pre></code>
+    instruction: >
+      <p>To run a <a href="http://www.rubyonrails.org/">Ruby on Rails</a> app on Mesos, we'll use <a href="https://github.com/mesosphere/marathon">Marathon</a>. Marathon makes it easy to run any long-lived "always on" application on Mesos.</p>
+      <p>To get started launching Marathon, first ssh into a Mesos master:</p>
+      <pre data-code><code class="codeblock">ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span></code></pre> You can verify that you're on a Mesos master by pinging its health endpoint:</p>
+      <pre data-code><code class="codeblock">curl -i localhost:5050/master/health</code></pre>
+      <p>The response should be an <code>HTTP/1.1 200 OK</code>.</p>
+  - title: Download Marathon
+    blurb: >
+      Download and unpack Marathon
+    icon: fa-cloud-download
+    blackboard: >
+      <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz
+
+      ubuntu@ec2-184-72-188-41:~$ tar xzf marathon.tgz
+
+      ubuntu@ec2-184-72-188-41:~$ cd marathon
+
+      ubuntu@ec2-184-72-188-41:~/marathon$
+      </code></pre>
+    instruction: >
+      <p>Now, download the public tar archive for Marathon.</p>
+      <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz</code></pre>
+      <p>Then unpack it and change to the unpacked directory.</p>
+      <pre data-code><code class="codeblock">tar xzf marathon.tgz &amp;&amp; cd marathon</code></pre>
+      <p>If you don't want to download the tar archive, you can git clone the repo from <a href="https://github.com/mesosphere/marathon">Github</a> and follow the build instructions.</p>
+  - title: Start Marathon
+    blurb: >
+      Use the start script to bring up Marathon and verify that  it's registered to the Mesos master
+    icon: fa-play
+    blackboard: >
+      <pre class="terminal"><code>ubuntu@ec2:~/marathon$ nohup ./bin/start --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">localhost:2181</span> &amp;
+
+      [1] 1824
+
+      ubuntu@ec2:~/marathon$ nohup: ignoring input and appending output to `nohup.out'
+
+
+      ubuntu@ec2:~/marathon$ egrep "(Registered as|Started SelectChannelConnector)" nohup.out
+
+      INFO: Registered as 201311120014-1791840266-5050-825-0000 to master '201311120014-1791840266-5050-825'
+
+      INFO: Started SelectChannelConnector@0.0.0.0:8080</code></pre>
+    instruction: >
+      <p>Use the start script to bring up Marathon. We'll run it in the background and direct output to nohup.out. The options <code>--master</code> and <code>--zk_hosts</code> identify Zookeeper hosts:</p>
+      <pre data-code><code class="codeblock">nohup ./bin/start --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">localhost:2181</span> &amp;</code></pre>
+      <p>Note the different syntax of the arguments. For a full list of options run the start script with <code>--help</code>.</p>
+      <p>Verify that Marathon is registered to the Mesos master and that it started its web server on port 8080.</p>
+      <pre data-code><code class="codeblock">egrep "(Registered as|Started SelectChannelConnector)" nohup.out</code></pre>
+      <p>If everything has started correctly, you'll see output similar to the example shown here.</p>
+  - title: Install Ruby and Bundler
+    blurb: >
+      Install Ruby 2.0 and Bundler on the Mesos slaves
+    icon: fa-wrench
+    blackboard: >
+      <pre class="terminal"><code>tobi@Zwerg ~$ servers=(<span data-replace="slave-external-ip-list">slave1.example.com slave2.example.com slave3.example.com</span>); for s in "${servers[@]}"; do ssh -l ubuntu $s 'sudo DEBIAN_FRONTEND=noninteractive apt-get -y install ruby2.0 &amp;&amp; sudo gem install bundler' ; done
+
+      The authenticity of host '54.197.110.160 (54.197.110.160)' can't be established.
+
+      RSA key fingerprint is bb:53:f0:82:c1:bd:e4:1a:fd:47:60:e1:aa:45:76:ef.
+
+      Are you sure you want to continue connecting (yes/no)? yes
+
+      Warning: Permanently added '54.197.110.160' (RSA) to the list of known hosts.
+
+      Reading package lists...
+
+      Building dependency tree...
+
+      Reading state information...
+
+      The following extra packages will be installed:
+
+        libjs-jquery libruby2.0 rubygems-integration
+
+      Suggested packages:
+
+        javascript-common rubygems bundler
+
+      The following NEW packages will be installed:
+
+        libjs-jquery libruby2.0 ruby2.0 rubygems-integration
+
+      0 upgraded, 4 newly installed, 0 to remove and 22 not upgraded.
+
+      Need to get 4,657 kB of archives.
+
+      After this operation, 14.2 MB of additional disk space will be used.
+
+      Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ saucy/main libjs-jquery all 1.7.2+dfsg-2ubuntu1 [78.8 kB]
+
+      Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ saucy/universe libruby2.0 amd64 2.0.0.299-2 [4,505 kB]
+
+      Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ saucy/universe ruby2.0 amd64 2.0.0.299-2 [68.0 kB]
+
+      Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ saucy/universe rubygems-integration all 1.2 [5,068 B]
+
+      Fetched 4,657 kB in 0s (11.2 MB/s)
+
+      Selecting previously unselected package libjs-jquery.
+
+      (Reading database ... 56048 files and directories currently installed.)
+
+      Unpacking libjs-jquery (from .../libjs-jquery_1.7.2+dfsg-2ubuntu1_all.deb) ...
+
+      Selecting previously unselected package libruby2.0:amd64.
+
+      Unpacking libruby2.0:amd64 (from .../libruby2.0_2.0.0.299-2_amd64.deb) ...
+
+      Selecting previously unselected package ruby2.0.
+
+      Unpacking ruby2.0 (from .../ruby2.0_2.0.0.299-2_amd64.deb) ...
+
+      Selecting previously unselected package rubygems-integration.
+
+      Unpacking rubygems-integration (from .../rubygems-integration_1.2_all.deb) ...
+
+      Processing triggers for man-db ...
+
+      Setting up libjs-jquery (1.7.2+dfsg-2ubuntu1) ...
+
+      Setting up libruby2.0:amd64 (2.0.0.299-2) ...
+
+      Setting up rubygems-integration (1.2) ...
+
+      Setting up ruby2.0 (2.0.0.299-2) ...
+
+      update-alternatives: using /usr/bin/gem2.0 to provide /usr/bin/gem (gem) in auto mode
+
+      update-alternatives: warning: skip creation of /usr/share/man/man1/gem.1.gz because associated file /usr/share/man/man1/gem2.0.1.gz (of link group gem) doesn't exist
+
+      update-alternatives: using /usr/bin/ruby2.0 to provide /usr/bin/ruby (ruby) in auto mode
+
+      update-alternatives: warning: skip creation of /etc/bash_completion.d/gem because associated file /etc/bash_completion.d/gem2.0 (of link group gem) doesn't exist
+
+      update-alternatives: warning: skip creation of /usr/share/man/man1/testrb.1.gz because associated file /usr/share/man/man1/testrb2.0.1.gz (of link group ruby) doesn't exist
+
+      update-alternatives: warning: skip creation of /usr/share/man/man1/rdoc.1.gz because associated file /usr/share/man/man1/rdoc2.0.1.gz (of link group ruby) doesn't exist
+
+      Processing triggers for libc-bin ...
+
+      Successfully installed bundler-1.5.2
+
+      Parsing documentation for bundler-1.5.2
+
+      Installing ri documentation for bundler-1.5.2
+
+      1 gem installed</code></pre>
+    instruction: >
+      <p>We need to install Ruby 2.0 and <a href="http://bundler.io/">Bundler</a> on the Mesos slaves to be able to run Rails apps. Gem dependencies are included in the application tarball and loaded via Bundler. Run the command below from your local machine to install Ruby and Bundler.</p>
+      <pre data-code><code class="codeblock">servers=(<span data-replace="slave-external-ip-list">slave1.example.com slave2.example.com slave3.example.com</span>); for s in "${servers[@]}"; do ssh -l ubuntu $s 'sudo apt-get -y install ruby2.0 &amp;&amp; sudo gem install bundler' ; done</code></pre>
+      <p>Note: Ruby 2.0 is only available on Ubuntu 13.04 or later. On other Linux distributions you might have to use an older version, or add a third party source to get the packages.</p>
+  - title: Launch Rails
+    blurb: >
+      Navigate to the Marathon web UI and launch your Rails app
+    icon: fa-play
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/rails_create.jpg %}"></span>
+    instruction: >
+      <p>Next, navigate to the Marathon web UI at <code>http://<span data-replace="master-ip">54.211.52.241</span>:8080</code>. Click the NEW button to start a new app. Fill in the following:</p>
+
+      <h6>ID</h6>
+      <pre data-code><code class="codeblock">Hello</code></pre>
+      <h6>COMMAND</h6>
+      <pre data-code><code class="codeblock">cd hello &amp;&amp; RAILS_ENV=production bundle exec unicorn -p $PORT</code></pre>
+      <h6>MEMORY</h6>
+      <pre data-code><code class="codeblock">100</code></pre>
+      <h6>CPUS</h6>
+      <pre data-code><code class="codeblock">1</code></pre>
+      <h6>INSTANCES</h6>
+      <pre data-code><code class="codeblock">1</code></pre>
+      <h6>URIS</h6>
+      <pre data-code><code class="codeblock">http://downloads.mesosphere.io/tutorials/RailsHello.tgz</code></pre>
+      <p>Click the start button to launch your app.</p>
+  - title: Explore the Marathon UI
+    blurb: >
+      Play with the Marathon web UI to confirm that Rails is running
+    icon: fa-check
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/rails_running.jpg %}"></span>
+    instruction: >
+      <p>The web UI should now show your running app. Mouse over the row and click to see the details. The UI allows you to scale an app up or down by setting the number of instances to run. You can suspend an app (equal to scaling to 0), and destroy it, which deletes all information about the app and is irreversible.</p>
+  - title: Connect to your Rails app
+    blurb: >
+      Use the Marathon REST API to find out where your Rails app is running and connect to it
+    icon: fa-trophy
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ curl http://<span data-replace="master-ip">54.211.52.241</span>:8080/v1/endpoints
+
+      Hello_12402 12402 ec2-54-221-124-180.compute-1.amazonaws.com:31758</code></pre>
+
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/rails_out.jpg %}"></span>
+    instruction: >
+      <p>Next, let's use the Marathon REST API to find out where your Rails app is running. You can get a list of the app instances like this:</p>
+      <pre data-code><code class="codeblock">curl http://<span data-replace="master-ip">54.211.52.241</span>:8080/v1/endpoints</code></pre>
+      <p>The first column in the output is the app ID and the global app port separated by an underscore. The second column is the global app port. All following columns are hostname and port pairs of the running app instances. Copy &amp; paste the hostname and port into a browser and you should see a running Rails application.</p>
+success:
+  title: Next steps
+  blurb: >
+    A slightly more detailed description for what happens in this step of the tutorial
+  text: >
+    <p>Congratulations! You now have Ruby on Rails running on Mesos!</p>
+    <h4>Bonus Points</h4>
+    <p>If you were wondering what the global app port is, Marathon exposes it for load balancing. For bonus points, try running <a href="http://haproxy.1wt.eu/">HAProxy</a> on each cluster node so that requests to the global app port are proxied to each instance within the cluster. Here is a <a href="https://github.com/mesosphere/marathon/blob/master/bin/haproxy-marathon-bridge">sample script</a> to get started with. <a href="/getting-started/service-discovery/">Read more</a> about service discovery with Mesosphere.</p>
+---

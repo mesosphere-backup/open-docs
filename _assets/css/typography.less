@@ -1,0 +1,112 @@
+@import "colors";
+
+@montserrat: 'Montserrat', Helvetica, Arial, sans-serif;
+@helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+.font-smoothing() {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: @base-gray;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(https://themes.googleusercontent.com/static/fonts/montserrat/v4/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+
+
+h1, h2, h3, h4,
+.h1, .h2, .h3 {
+  font-family: @montserrat;
+  font-weight: 400;
+  line-height: 1.4;
+  .font-smoothing();
+  margin: 1em 0 .5em;
+}
+
+h2, .h2 {
+  font-size: 28px;
+}
+
+h3, .h3 {
+  font-size: 24px;
+}
+
+h4, .h4 {
+  font-size: 18px;
+}
+
+.header-jumbo {
+  font-size: 60px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .header-jumbo {
+    font-size: 50px;
+  }
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400; /* bootstrap's default .lead font-weight is causing legibility issues */
+}
+
+.lead-subtle,
+.text-muted {
+  color: #7f8690;
+}
+
+.text-alternating {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  .gradient(rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.8) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 90%;
+}
+
+.heavy-text {
+  font-weight: 600;
+  .font-smoothing();
+}
+
+.header-strike-back {
+  margin-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-strike-back-body {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  padding: 0 20px;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  &:before { right: 100%; }
+  &:after { left: 100%; }
+}
+
+.header-strike-back-inverted .header-strike-back-body {
+  &:before,
+  &:after {
+    border-top-color: rgba(255, 255, 255, 0.3);
+  }
+}

@@ -1,0 +1,16 @@
+<div class="navbar navbar-default {% if include.extended %}navbar-extended{% endif %} {{page.navbar}}" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      {% capture brandimage %}
+        {% if include.stealth %}
+          <img src="{% asset_path logo-white-296x50.png %}" width="148" height="25" alt="Mesosphere">
+        {% else %}
+          <img src="{% asset_path mesosphere.png %}" width="148" height="25" alt="Mesosphere">
+        {% endif %}
+      {% endcapture %}
+      <a class="navbar-brand" href="http://www.mesosphere.io">
+        {{ brandimage }}
+      </a>
+    </div>
+  </div>
+</div>

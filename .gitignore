@@ -1,0 +1,10 @@
+_build
+_site
+
+bin
+.ssh
+.jekyll-assets-cache
+vendor
+.bundle/
+.DS_Store
+.*.sw*

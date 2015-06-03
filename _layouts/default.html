@@ -1,0 +1,22 @@
+---
+layout: base
+---
+
+<body>
+  {% comment %} Google Tag Manager {% endcomment %}
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WMVN2M"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WMVN2M');</script>
+  {% comment %} End Google Tag Manager {% endcomment %}
+  {% include navbar.html %}
+  <div class="body-light">
+    <div class="container">
+      {{ content }}
+    </div>
+  </div>
+  {% include footer.html %}
+</body>

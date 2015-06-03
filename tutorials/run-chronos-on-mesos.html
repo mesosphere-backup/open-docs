@@ -1,0 +1,283 @@
+---
+redirect_from:
+  - /learn/run-chronos-on-mesos/
+layout: tutorial
+title: How to run Chronos on Apache Mesos
+tutorial_icon_classname: tutorial-icon-chronos
+framework: chronos
+tutorial_name: run-chronos-on-mesos
+overview: Introduction and prerequisites for getting Chronos running on Mesos
+steps:
+  - title: SSH to the Mesos master
+    blurb: >
+      Use SSH to login to the Mesos master and check cluster health
+    icon: fa-terminal
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span>
+
+      Welcome to Ubuntu 12.10 (GNU/Linux 3.5.0-41-generic x86_64)
+
+       * Documentation:  https://help.ubuntu.com/
+
+        System information as of Fri Nov  1 18:52:24 UTC 2013
+
+        System load:  0.0               Processes:           74
+
+        Usage of /:   16.1% of 7.87GB   Users logged in:     0
+
+        Memory usage: 3%                IP address for eth0: <span data-replace="master-internal-ip">10.123.92.22</span>
+
+        Swap usage:   0%
+
+      ubuntu:~$ curl -i localhost:5050/master/health
+
+      HTTP/1.1 200 OK
+
+      Date: Tue, 05 Nov 2013 23:23:47 GMT
+
+      Content-Length: 0
+      </pre></code>
+    instruction: >
+      <p>To get started launching Chronos, first use <code>ssh</code> to login in to a Mesos master:</p>
+      <pre data-code><code class="codeblock">ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span></code></pre> You can verify that you're on a Mesos master by pinging its health endpoint:</p>
+      <pre data-code><code class="codeblock">curl -i localhost:5050/master/health</code></pre>
+      <p>The response should be: <code>HTTP/1.1 200 OK</code>.</p>
+  - title: Setup Chronos
+    blurb: >
+      Download the Chronos package and untar it
+    icon: fa-cloud-download
+    blackboard: >
+      <pre class="terminal"><code>ubuntu:~$ curl -sSfL http://downloads.mesosphere.io/chronos/chronos-2.1.0_mesos-0.14.0-rc4.tgz --output chronos.tgz
+
+      ubuntu:~$ tar xzf chronos.tgz
+
+      ubuntu:~$ cd chronos
+
+      ubuntu:~/chronos$
+      </code></pre>
+    instruction: >
+      <p>Now, download the public tar archive for Chronos.</p>
+      <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/chronos/chronos-2.1.0_mesos-0.14.0-rc4.tgz --output chronos.tgz</code></pre>
+      <p>Then unpack it and change to the unpacked directory.</p>
+      <pre data-code><code class="codeblock">tar xzf chronos.tgz &amp;&amp; cd chronos</code></pre>
+      <p>If you don't want to download the tar archive, you can use <code>git</code> to clone the repo from <a href="https://github.com/airbnb/chronos">Github</a> and follow the build instructions.</p>
+  - title: Launch Chronos
+    blurb: >
+      Launch the Chronos framework driver on the Mesos master node
+    icon: fa-play
+    blackboard: >
+      <pre class="terminal"><code>ubuntu:~/chronos$ ./bin/start-chronos.bash --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">zk://localhost:2181/mesos</span> --http_port 8081
+
+      ...
+
+      Nov 06, 2013 1:34:06 AM com.airbnb.scheduler.mesos.MesosJobFramework registered
+
+      INFO: Master info:id: "201311060033-3542721546-5050-824"
+
+      ip: 3542721546
+
+      port: 5050
+
+      ...
+
+      Nov 06, 2013 1:34:06 AM org.eclipse.jetty.server.AbstractConnector doStart
+
+      INFO: Started SelectChannelConnector@0.0.0.0:8081
+
+      Nov 06, 2013 1:34:11 AM com.airbnb.scheduler.mesos.MesosJobFramework resourceOffers
+
+      INFO: Received resource offers
+
+      Nov 06, 2013 1:34:11 AM com.airbnb.scheduler.mesos.MesosJobFramework getNextTask$1
+
+      INFO: No tasks scheduled! Declining offers</code></pre>
+    instruction: >
+      <p>Then use the start script to bring up Chronos. Use the <code>--master</code> and <code>--zk_hosts</code> command line options to set the Zookeeper hosts:</p>
+      <pre data-code><code class="codeblock">./bin/start-chronos.bash --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">zk://localhost:2181/mesos</span> --http_port 8081</code></pre>
+      <p>Note the different syntax of the arguments. For a full list of options run the start script with <code>--help</code>.</p>
+      <p>You should see that Chronos registered to the Mesos master, and that it started its web server on port <code>8081</code>. At the end there should be notices about resource offers. Since we don't have any tasks launched yet, these offers should be getting declined by Chronos.</p>
+  - title: Go to the Chronos UI
+    blurb: >
+      Explore the rich Chronos UI
+    icon: fa-list-alt
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_00_start.jpg %}"></span>
+    instruction: >
+      <p>Great. Now let's move over to a browser and open the Chronos web UI on port <code>8081</code> of the Mesos master that we were just using: <code>http://<span data-replace="master-ip">localhost</span>:8081</code></p>
+      <p>Next we'll create an example job to run.</p>
+  - title: Create a Job
+    blurb: >
+      Use the Chronos UI to create your first job
+    icon: fa-plus
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_01_new_job.jpg %}"></span>
+    instruction: >
+      <p>In the bottom left part of the screen, click on the
+      <b>New Job</b> button to create a new job in Chronos.</p>
+      <p>Check out the dark sidebar -- the panel on the right-hand side. To create a job, we need to fill in values for the job's name, command, and schedule. In this case, let's create a job called <code>foo</code> that runs the command <code>sleep 1</code></p>
+      <p>Enter the current time in UTC into the time (T) field, and <code>T1M</code> into the period (P) field to repeat the job once a minute. Be sure to convert from your local timezone to UTC or you'll get a big surprise. Then click the <b>Create</b> button at the top.</p>
+  - title: Explore your job
+    blurb: >
+      Find your job in the Chronos UI
+    icon: fa-search
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_02_schedule.jpg %}"></span>
+    instruction: >
+      Okay, now you have a job called <code>foo</code> scheduled to
+      run. Wait until its scheduled time, then check the Chronos UI again.
+  - title: Observe the status change of your job
+    blurb: >
+      See how the job state changes to success after your job runs on Mesos
+    icon: fa-eye
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_03_success.jpg %}"></span>
+    instruction: >
+      <p>The UI should show success! The dark sidebar should show the last time that the job ran successfully.</p>
+      <p>Note that after the job runs a few times its runtime statistics will begin to show up.</p>
+  - title: Explore the basic Mesos UI
+    blurb: >
+      See how Mesos and Chronos interoperate and look at the Mesos task generated by the Chronos job
+    icon: fa-list-alt
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_04_finished.jpg %}"></span>
+    instruction: >
+      <p>Great. Now let's open another browser window for the Mesos web UI -- the URL is the Mesos master IP address on port <code>5050</code>, which is <code>http://<span data-replace="master-ip">localhost</span>:5050</code> in this case.</p>
+      <p>Click on the Chronos link under <b>Active Frameworks</b> to show its task history. There should be a <code>foo</code> task in a <code>FINISHED</code> state, listed under the completed tasks. Click on the <b>Sandbox</b> link to open the files associated with the completed task.</p>
+  - title: Explore advanced Mesos UI features
+    blurb: >
+      We can debug jobs and look at their output by using the sandbox that’s created by Mesos for each of the Mesos tasks
+    icon: fa-compass
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_05_sandbox.jpg %}"></span>
+    instruction: >
+      <p>Then click on the <code>stdout</code> link to open the standard
+      output from the <code>foo</code> job, all 364 bytes of it...</p>
+  - title: Look at the Mesos task output
+    blurb: >
+      Navigate through the sandbox to see the output in the pailer
+    icon: fa-code
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_06_stdout.jpg %}"></span>
+    instruction: >
+      <p>That should pop up a window showing how the executor ran the
+      <code>foo</code> job, with a <code>0</code> status returned.</p>
+  - title: Create a complex task in the Chronos UI
+    blurb: >
+      Use the rich Chronos UI to create a more elaborate job
+    icon: fa-plus
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_07_bar.jpg %}"></span>
+    instruction: >
+      <p>Let's see about configuring a more complex task, one that has
+      more than one job in a dependency graph. Go back to the Chronos
+      UI and create a new job called <code>bar</code> which has the
+      same parameters as <code>foo</code> but with its scheduled time
+      a few more minutes ahead. Also add your email in the owner tab.
+      Then click the <b>Create</b> button at the top.</p>
+  - title: Add job dependency
+    blurb: >
+      Create a job dependency that will trigger a follow-up job upon completion of the parent job
+    icon: fa-plus
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_08_baz.jpg %}"></span>
+    instruction: >
+      <p>Now create a second job called <code>baz</code> with a command
+      <code>echo "DONE"</code> and set its parent to the <code>bar</code>
+      job. Since this is a dependent job, it won't need a scheduled time or
+      owner. Then click the <b>Create</b> button at the top.</p>
+  - title: Job overview
+    blurb: >
+      Go back to the Chronos UI and look at all jobs that were created
+    icon: fa-list-alt
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_09_baz.jpg %}"></span>
+    instruction: >
+      <p>You should see three jobs now: the first job which already
+      completed, and the two pending jobs. On the lower left of the
+      window, click on the <b>Dependency Graph</b> button.</p>
+  - title: Explore the dependency graph
+    blurb: >
+      Navigate to the dependency graph that shows all jobs and their dependencies on one another
+    icon: fa-compass
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_10_depend.jpg %}"></span>
+    instruction: >
+      <p>Great, see the dependency graph rendered? The <code>foo</code> job is green because it finished successfully. The <code>bar</code> job has an arc directed into the <code>baz</code> job, and both are in white because they are still pending. This becomes much more interesting when the dependency graph among jobs becomes more complex.</p>
+      <p>Next, click the big "X" in the top right to dismiss this display.</p>
+  - title: Job overview
+    blurb: >
+      See how the job status changes once the jobs finish running
+    icon: fa-eye
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_11_success.jpg %}"></span>
+    instruction: >
+      <p>Wait for the scheduled time, then you should see that both of the pending jobs have completed.</p>
+  - title: Explore the Mesos UI
+    blurb: >
+      Find all tasks corresponding to the Chronos jobs in the Mesos UI
+    icon: fa-search
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_12_finished.jpg %}"></span>
+    instruction: >
+      <p>Did those both finish? You're doing awesome. Now let's go back to
+      the Mesos console and look at the task list. Both the <code>bar</code>
+      and <code>baz</code> jobs should be finished.</p>
+      <p>Click on the <b>Sandbox</b> link for the <code>baz</code> job.</p>
+  - title: Look at the job output
+    blurb: >
+      Use the Mesos UI to find the sandbox where you can view the job output
+    icon: fa-list-alt
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/chronos_13_stdout.jpg %}"></span>
+    instruction: >
+      <p>Check toward the bottom of the job's standard out &mdash; there
+      should be a ginormous <code>DONE</code> echoed to the output.</p>
+success:
+  title: Next steps
+  blurb: >
+    A slightly more detailed description for what happens in this step of the tutorial
+  text: >
+    <p>Congratulations, you are now a certified Chronos user. Bash scripting, FTW!</p>
+---

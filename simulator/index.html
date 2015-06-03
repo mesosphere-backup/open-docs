@@ -1,0 +1,48 @@
+---
+---
+<!DOCTYPE html>
+
+<html class="fill-height" lang="en">
+  <head>
+    <title>The Mesosphere Stack</title>
+    <link rel="icon" href="{% asset_path simulator/mesosphere-favicon.png %}" type="image/png">
+    {% stylesheet simulator/Mesos %}
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% asset_path apple-touch-icon-114x114-precomposed.png %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% asset_path apple-touch-icon-72x72-precomposed.png %}">
+    <link rel="apple-touch-icon-precomposed" href="{% asset_path apple-touch-icon-57x57-precomposed.png %}">
+  </head>
+  <body class="fill-height">
+    <div class="fill-height" id="app"></div>
+    {% javascript simulator/Libs %}
+    {% javascript simulator/App %}
+    <script>
+      React.initializeTouchEvents(true);
+      React.renderComponent(
+        AppCmp({
+          "initialCluster": new Cluster({
+            frameworks: [
+              new Framework("Rails", 6),
+              new Framework("Hadoop", 2),
+              new Framework("Chronos", 4),
+              new Framework("Cassandra", 2),
+              new Framework("Spark", 4)
+            ],
+            machines: [
+              new Machine(),
+              new Machine(),
+              new Machine(),
+              new Machine(),
+              new Machine(),
+              new Machine(),
+              new Machine(),
+              new Machine()
+            ],
+            maxCloudMachines: 4
+          })
+        }),
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>

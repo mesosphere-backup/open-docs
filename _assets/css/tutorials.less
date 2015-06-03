@@ -1,0 +1,266 @@
+// For consistent spacing between blocks of content
+@section-spacing: 60px;
+
+.tutorial-header,
+.tutorial-content {
+  padding-top: @section-spacing;
+}
+
+.tutorial-header {
+  border-bottom: 2px solid lighten(@base-gray, 75%);
+  padding-bottom: @section-spacing / 2;
+}
+
+.tutorial-icon {
+  &:before {
+    content:'';
+    float: left;
+    width: 45px;
+    height: 45px;
+    background-image: asset-url("learn/service-icons-551x45.png");
+    background-repeat: no-repeat;
+    margin-right: 20px;
+    position: relative;
+    top: 7px;
+  }
+
+  time {
+    display: block;
+    .heavy-text();
+    font-family: @helvetica;
+    margin-left: 65px;
+  }
+}
+
+.tutorial-icon-aurora:before {
+  background-position: 0 0;
+}
+
+.tutorial-icon-rails:before {
+  background-position: -46px 0;
+}
+
+.tutorial-icon-play:before {
+  background-position: -92px 0;
+}
+
+.tutorial-icon-hadoop:before {
+  background-position: -138px 0;
+}
+
+.tutorial-icon-spark:before {
+  background-position: -184px 0;
+}
+
+.tutorial-icon-chronos:before {
+  background-position: -230px 0;
+}
+
+.tutorial-icon-storm:before {
+  background-position: -276px 0;
+}
+
+.tutorial-icon-ubuntu:before {
+  background-position: -322px 0;
+}
+
+.tutorial-icon-centos:before {
+  background-position: -368px 0;
+}
+
+.tutorial-breadcrumb {
+  .heavy-text();
+
+  a {
+    color: lighten(@base-gray, 60%);
+    text-decoration: none;
+    padding-left: 5px;
+
+    &:nth-child(1) {
+      padding: 0;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
+    &:after {
+      content:'/';
+      color: lighten(@base-gray, 60%);
+      .heavy-text();
+      padding-left: 10px;
+    }
+
+    &:hover, &:focus {
+      color: lighten(@base-gray, 40%);
+    }
+  }
+}
+
+// progress bar
+
+.tutorial-progress-bar {
+  top: 10px;
+
+  .progress {
+    .border-radius(0);
+    .box-shadow(none);
+    color: #aaa;
+    font-size: 10px;
+    line-height: 14px;
+    margin-bottom: 10px;
+    padding: 0;
+    text-indent: 0.25em;
+    height: 6px;
+
+    &.complete .progress-bar {
+      background-color: @green;
+    }
+  }
+
+  .progress-bar {
+    height: 6px;
+    .box-shadow(none);
+    background-color: lighten(@base-gray, 60%);
+
+    &:after {
+      content:'';
+      background-color: @white;
+      height: 100%;
+      width: 3px;
+      display: block;
+      float: right;
+    }
+
+    &:last-child:after {
+      width: 0px;
+    }
+
+    &.on {
+      background-color: @violet;
+    }
+  }
+}
+
+// tutorial content
+
+.tutorial-content {
+  margin-bottom: @section-spacing;
+
+  .thumbnail {
+    border: none;
+    padding: 0;
+    border: 2px solid lighten(@base-gray, 65%);
+  }
+}
+
+// p.text-muted {	
+//    width: 850px;
+//}
+
+.tutorial-content-left {
+  pre {
+    margin: 15px 0;
+    border: none;
+    background-color: lighten(@base-gray, 75%);
+  }
+
+  code, .codeblock {
+    color: @violet;
+    font-size: 14px;
+  }
+
+  code {
+    background-color: lighten(@base-gray, 75%);
+  }
+
+  .clearfix {
+    margin-bottom: @section-spacing;
+  }
+}
+
+.codeblock-label {
+  .uppercase();
+  .heavy-text();
+  color: lighten(@base-gray, 40%);
+  margin-bottom: 0;
+}
+
+.terminal {
+  min-height: 400px;
+  border: 2px solid lighten(@base-gray, 65%);
+
+  pre {
+    margin: 0 0 10px;
+  }
+
+  code {
+    color: lighten(@base-gray, 85%);
+    font-size: 14px;
+  }
+}
+
+.overview-prereq-title {
+  color: @base-gray;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+.overview-content {
+  margin-top: @section-spacing;
+  margin-bottom: @section-spacing;
+}
+
+.overview-content-left {
+  margin-bottom: @section-spacing;
+}
+
+.btn-start-tutorial {
+  margin-bottom: @section-spacing;
+}
+
+.success-content {
+  margin-top: @section-spacing;
+  margin-bottom: @section-spacing;
+
+  .form-inline {
+    margin-top: @section-spacing;
+
+    @media (max-width: 768px) {
+      .form-control {
+        margin-bottom: @section-spacing / 2;
+      }
+    }
+  }
+}
+
+.paperkraft-content {
+  margin-top: @section-spacing;
+
+  p {
+    margin-top: @section-spacing;
+  }
+}
+
+.overview-step-icon {
+  width: 60px;
+  height: 60px;
+  background-color: @base-gray;
+  text-align: center;
+  padding-top: 12px;
+  color: lighten(@base-gray, 30%);
+  font-size: 23px;
+  .border-radius();
+  margin-right: 20px;
+
+  &:hover {
+    color: lighten(@base-gray, 30%);
+  }
+}
+
+.admonitionblock > table { border: 0; background: none; width: 100%; }
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+.admonitionblock > table td.icon img { max-width: none; }
+.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
+.admonitionblock > table td.content { padding-left: 1.125em; padding-right: 1.25em; border-left: 1px solid #dddddd; color: #6f6f6f; }
+.admonitionblock > table td.content > :last-child > :last-child { margin-bottom: 0; }

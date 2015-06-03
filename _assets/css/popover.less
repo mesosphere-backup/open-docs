@@ -1,0 +1,28 @@
+.popover {
+  .box-shadow(none);
+  border: 5px solid @base-gray;
+  padding: 10px;
+  max-width: 360px;
+
+  &.bottom .arrow:after {
+    border-bottom-color: @base-gray;
+  }
+}
+
+.popover-title {
+  background-color: @white;
+  color: @base-gray;
+  padding: 16px 14px;
+  border-bottom: none;
+  font-family: @helvetica;
+  .heavy-text();
+  font-size: 16px;
+}
+
+.popover-content {
+  padding-top: 0;
+}
+
+.popover-buttons {
+  padding-top: 10px;
+}

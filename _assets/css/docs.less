@@ -1,0 +1,66 @@
+.docs-header {
+  margin-top: 5px; /* This lines the header up with the search box */
+  margin-bottom: 25px;
+}
+
+.docs-sidenav li > a {
+  display: block;
+  padding: 4px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #999;
+  .transition(none);
+}
+
+.docs-sidenav li > a:hover,
+.docs-sidenav li > a:focus {
+  padding-left: 19px;
+  color: #563d7c;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #563d7c;
+}
+
+.docs-sidenav .active > a,
+.docs-sidenav .active:hover > a,
+.docs-sidenav .active:focus > a {
+  padding-left: 18px;
+  font-weight: bold;
+  color: #563d7c;
+  background-color: transparent;
+  border-left: 2px solid #563d7c;
+}
+
+.docs-sidenav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  padding-bottom: 10px;
+}
+
+.docs-sidenav .nav > li > a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-weight: normal;
+}
+
+.docs-sidenav .nav > li > a:hover,
+.docs-sidenav .nav > li > a:focus {
+  padding-left: 29px;
+}
+
+.docs-sidenav .nav > .active > a,
+.docs-sidenav .nav > .active:hover > a,
+.docs-sidenav .nav > .active:focus > a {
+  padding-left: 28px;
+  font-weight: 500;
+}
+
+@media (min-width: 992px) {
+  .docs-sidenav > .active > ul {
+    display: block;
+  }
+}
+
+.gsc-clear-button {
+  display: none;
+}

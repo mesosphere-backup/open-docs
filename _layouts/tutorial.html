@@ -1,0 +1,69 @@
+---
+layout: unwrapped
+---
+
+{% assign framework = site.data.tutorials[page.framework] %}
+{% assign tutorial = framework.tutorials[page.tutorial_name] %}
+
+<div class="body-light" itemscope itemtype="http://schema.org/TechArticle">
+  <div class="container">
+    <ul class="text-muted breadcrumb tutorial-breadcrumb pull-left">
+	  <li><a href="/tutorials">Tutorials</a></li>
+      <li>{{ page.title }}</li>
+    </ul>
+    {% unless page.hide_configure == true %}
+      <div class="tutorial-configure pull-right">
+        <a href="#" class="gray-link">
+          <strong>
+            <i class="fa fa-cog"></i>
+            <span class="configure hidden-xs">Configure</span>
+          </strong>
+        </a>
+      </div>
+    {% endunless %}
+  </div>
+  <div class="container">
+    <div class="carousel" data-interval="false" id="tutorial-carousel">
+      <div class="carousel-inner">
+      {% include tutorials/overview.html hide_progress="true" %}
+      {% for step in page.steps %}
+        {% include tutorials/step.html %}
+      {% endfor %}
+      {% include tutorials/success.html %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if page.tutorial_modal %}
+  {% include {{page.tutorial_modal}} %}
+{% else %}
+  {% include tutorial_modal_default.html %}
+{% endif %}
+<div class="modal fade" id="personalized-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        This tutorial has been personalized for you by populating fields with your cluster's configuration, which makes it easy to copy &amp; paste the examples into your terminal. Heads up: Some of the content on the righthand side consists of images that can not personalized.
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
+          Got it!
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hide" id="config-popover">
+  <h4>Personalize your experience</h4>
+  <div class="content">
+    <p>Make this tutorial more relevant to you by setting your unique IPs, paths and ports.</p>
+    <div class="popover-buttons">
+      <button class="btn btn-default btn-primary">Got It!</button>
+      <button class="btn btn-link tutorial-configure pull-right">
+        Configure Now
+      </button>
+    </div>
+  </div>
+</div>

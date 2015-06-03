@@ -1,0 +1,47 @@
+<div class="modal fade" id="personalization-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-cog text-muted"></i> Configure</h2>
+      </div>
+      <form role="form" id="personalization-form" action="#">
+        <div class="modal-body">
+          <p>
+            See our <a target="_blank" href="/getting-started/">Getting Started documentation</a> for instructions on setting up a cluster on a variety of platforms.
+          </p>
+          <div class="form-group">
+            <label for="master-ip-input">Public IP of the first mesos-master</label>
+            <input type="text" class="form-control" name="master-ip"  id="master-ip-input" placeholder="54.12.187.12" required>
+            <span class="help-block"></span>
+          </div>
+          <div class="form-group">
+            <label for="master-internal-ip-input">Private IP of the first mesos-master</label>
+            <input type="text" class="form-control" name="master-internal-ip" id="master-internal-ip-input" placeholder="192.168.0.1" required>
+            <span class="help-block">Depending on your setup, this might be the same as the Public IP</span>
+          </div>
+          <div class="form-group">
+            <label for="zookeeper-input">ZooKeeper IP and Port Pairs</label>
+            <input type="text" class="form-control" name="zookeeper" id="zookeeper-input" placeholder="192.168.0.1:2181,192.168.0.2:2181,192.168.0.3:2181" required>
+            <span class="help-block">Nodes that make up your ZooKeeper cluster in the form of ip1:port,ip2:port,etc.</span>
+          </div>
+          <div class="form-group">
+            <label for="zookeeper-path-input">Path to the Mesos node within Zookeeper</label>
+            <input type="text" class="form-control" name="zookeeper-path"  id="zookeeper-path-input" placeholder="/mesos">
+            <span class="help-block"></span>
+          </div>
+          <div class="form-group">
+            <label for="namenode-input">Hadoop Namenode IP and Port</label>
+            <input type="text" class="form-control" name="namenode" id="namenode-input" placeholder="192.168.1.100:9000">
+            <span class="help-block"></span>
+          </div>
+          <input type="hidden" name="pt" value="custom">
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-default btn-primary" id="personalization-modal-start" value="Save &amp; Close">
+          <a class="btn btn-link btn-default clear-all"><i class="fa fa-trash-o"></i> Clear All</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

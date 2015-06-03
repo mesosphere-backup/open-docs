@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<div class="row">
+  <div class="col-md-8">
+    <div itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="page-header page-header-first">
+        <h1 itemprop="name headline">{{ page.title }}</h1>
+        <ul class="text-muted list-inline">
+          <li>
+            <i class="fa fa-calendar" title="Publish date"></i>
+            <time itemprop="datePublished" datetime="{{ page.date }}" title="{{ page.date }}">
+              {{ page.date | date_to_string }}
+            </time>
+          </li>
+          {% if page.author %}
+            <li>
+              <i class="fa fa-pencil" title="Author"></i>
+              <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+                <span itemprop="name">
+                  <a href="https://twitter.com/{{ site.data.authors[page.author].twitter }}?rel=author" itemprop="url" class="text-muted">
+                    {{ site.data.authors[page.author].name }}
+                  </a>
+                </span>
+              </span>
+            </li>
+          {% elsif page.authors %}
+            <li>
+              <i class="fa fa-pencil" title="Author"></i>
+              <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+                <span itemprop="name">
+                  {% for author in page.authors %}
+                  <a href="https://twitter.com/{{ site.data.authors[author].twitter }}?rel=author" itemprop="url" class="text-muted">
+                    {{ site.data.authors[author].name }}{% unless forloop.last %}, {% endunless %}
+                  </a>
+                  {% endfor %}
+                </span>
+              </span>
+            </li>
+          {% endif %}
+          {% if page.categories %}
+            {% for category in page.categories %}
+              <li>
+                <i class="fa fa-folder-open-o" title="Category"></i>
+                <a class="text-muted" href="/blog/categories/{{ category }}"
+                    itemprop="articleSection"
+                    title="All posts in the {{ site.data.categories[category].title }} category">
+                  {{ site.data.categories[category].title }}
+                </a>
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+      <div itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      {% include blog/_footer.html url=page.url %}
+    </div>
+  </div>
+</div>

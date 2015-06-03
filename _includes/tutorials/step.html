@@ -1,0 +1,48 @@
+<div class="item" id="step-{{ forloop.index0 }}">
+  {% include tutorials/header.html %}
+
+  <div class="row tutorial-content">
+    <div class="col-md-4 tutorial-content-left">
+      <p class="clearfix">
+        {% unless forloop.last %}
+          <a class="btn btn-lg btn-primary pull-right step-tutorial"
+              href="#step-{{ forloop.index0 | plus: 1}}"
+              data-slide="next" data-target="#tutorial-carousel">
+            Next step
+          </a>
+        {% endunless %}
+        {% if forloop.last %}
+          <a class="btn btn-lg btn-primary pull-right step-tutorial"
+              href="#success"
+              data-slide="next" data-target="#tutorial-carousel">
+            Next step
+          </a>
+        {% endif %}
+        {% unless forloop.first %}
+          <a class="btn btn-lg btn-gray-outline step-tutorial"
+              href="#step-{{ forloop.index0 | minus: 1}}"
+              data-slide="prev" data-target="#tutorial-carousel">
+            Previous
+          </a>
+        {% endunless %}
+        {% if forloop.first %}
+          <a class="btn btn-lg btn-gray-outline step-tutorial"
+              href="#overview"
+              data-slide="prev" data-target="#tutorial-carousel">
+            Overview
+          </a>
+        {% endif %}
+      </p>
+      <div>
+        {{ step.instruction }}
+      </div>
+    </div>
+    <div class="col-md-8">
+      {% if step.blackboard %}
+        {{ step.blackboard | render }}
+      {% elsif step.codeboard %}
+        <pre class="terminal"><code>{{ step.codeboard | escape }}</pre></code>
+      {% endif %}
+    </div>
+  </div>
+</div>

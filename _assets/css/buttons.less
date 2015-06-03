@@ -1,0 +1,109 @@
+@import "colors";
+@import "mixins";
+@import "typography";
+
+// Links
+
+.white-link {
+  color: #fff;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+a,
+.btn-link {
+  color: @violet;
+
+  &:hover, &:focus {
+    color: darken(@violet, 15%);
+    text-decoration: none;
+  }
+}
+
+.gray-link {
+  color: lighten(@base-gray, 10%);
+
+  &:hover, &:focus {
+    color: darken(@base-gray, 15%);
+    text-decoration: none;
+  }
+}
+
+// Solid Buttons
+
+.btn(@color) {
+  color: @white;
+  background-color: @color;
+  .transition(background .3s);
+  .border-radius();
+  border: 1px solid darken(@color, 8%);
+  margin: 1px;
+  .heavy-text();
+
+  &:hover, &:focus {
+    color: @white;
+    background: darken(@color, 8%);
+  }
+
+  &:active {
+    background: darken(@color, 15%);
+  }
+}
+
+.btn-bluepop {
+  .btn(@bluepop);
+}
+
+.btn-magenta {
+  .btn(@magenta);
+}
+
+.btn-primary {
+  .btn(@violet);
+}
+
+.open .dropdown-toggle.btn-primary {
+  background: darken(@violet, 15%);
+}
+
+// Outline Buttons
+
+.btn-outline(@text, @border, @text-hover, @border-hover, @background-hover) {
+  color: @text;
+  border: 2px solid @border;
+  background: transparent;
+  .transition(all .3s);
+  .border-radius();
+  .heavy-text();
+
+  &:hover, &:focus {
+    border: 2px solid @border-hover;
+    color: @text-hover;
+    background: @background-hover;
+  }
+}
+
+.btn-primary-outline {
+  .btn-outline(lighten(@violet, 10%), lighten(@violet, 10%), lighten(@violet, 20%), lighten(@violet, 20%), @translucent-violet);
+}
+
+.btn-white-outline {
+  .btn-outline(@white, @white, darken(@white, 3%), darken(@white, 3%), @translucent-white);
+}
+
+.btn-gray-outline {
+  .btn-outline(lighten(@base-gray, 50%), lighten(@base-gray, 60%), lighten(@base-gray, 30%), lighten(@base-gray, 40%), none);
+}
+
+@media (max-width: 320px) {
+  .btn-block-xs {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

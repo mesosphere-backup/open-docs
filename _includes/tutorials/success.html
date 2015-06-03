@@ -1,0 +1,31 @@
+<div class="item" id="success">
+  {% include tutorials/header.html %}
+
+  <div class="row success-content">
+    <div class="col-md-4">
+      <a class="btn btn-lg btn-gray-outline step-tutorial"
+          href="#step-{{ page.steps.length }}"
+          data-slide="prev" data-target="#tutorial-carousel">
+        Previous
+      </a>
+      <h1 class="h1-display text-success">You did it!</h1>
+      <div>
+        {{ page.success.text }}
+      </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-5 paperkraft-image">
+          {% if framework.paperkraft.img %}
+            <img src="{{ framework.paperkraft.img | asset_path }}">
+          {% endif %}
+        </div>
+        <div class="col-md-7 paperkraft-content">
+          <h2 class="media-heading">{{ framework.paperkraft.title }}</h2>
+          <p>{{ framework.paperkraft.blurb }}</p>
+        </div>
+      </div>
+    {% include tutorials/signup.html %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+@import "colors";
+
+@table-bg-accent:               lighten(@gray-medium, 35%);
+@table-bg-hover:                @gray-light;
+@table-bg-active:               @table-bg-hover;
+@table-border-color:            lighten(@gray-medium, 30%);
+
+.table {
+  // Table Head
+  > thead {
+    background: lighten(@gray-dark, 10%);
+    color: @white;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: @montserrat;
+  }
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 1px solid @table-border-color;
+        padding: 15px;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    border-bottom: 2px solid @table-border-color;
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid @table-border-color;
+  }
+  // Account for tables with <code> elements inside
+  code {
+    white-space: pre-wrap;
+  }
+}
+
+// Bordered version
+.table-bordered {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
+}
+
+// Zebra-striping
+.table-striped > tbody > tr:nth-child(odd) {
+  > td,
+  > th {
+    background-color: @table-bg-accent;
+  }
+}
+
+// Hover effect
+.table-hover > tbody > tr:hover {
+  > td,
+  > th {
+    background-color: @table-bg-hover;
+  }
+}

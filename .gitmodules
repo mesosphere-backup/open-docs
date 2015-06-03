@@ -1,0 +1,6 @@
+[submodule "slides/oscon-mesos-2014"]
+	path = slides/oscon-mesos-2014
+	url = git@github.com:mesosphere/oscon-mesos-2014.git
+[submodule "slides/gdg-sv-2014"]
+	path = slides/gdg-sv-2014
+	url = git@github.com:mesosphere/oscon-mesos-2014.git

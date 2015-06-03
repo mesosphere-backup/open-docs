@@ -1,0 +1,55 @@
+<script>
+  (function() {
+    var cx = '009332691309899595927:zslr240bmum';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<div role="complementary">
+  <gcse:searchbox-only></gcse:searchbox-only>
+  <ul class="nav docs-sidenav">
+    {% for entry in site.data.docs_sidebar %}
+      {% assign node_active = false %}
+      {% if page.url == entry.href %}
+        {% assign node_active = true %}
+      {% endif %}
+      {% if entry.sub != null %}
+        {% for subcat in entry.sub %}
+          {% if page.url == subcat.href %}
+            {% assign node_active = true %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+
+      <li
+          {% if node_active %}
+            class="active"
+          {% endif %}
+          >
+        <a href="{{ site.url }}{{ entry.href }}">
+            {{ entry.title }}
+        </a>
+        {% if entry.sub != null %}
+          <ul class="nav">
+            {% for subcat in entry.sub %}
+              <li {% if page.url == subcat.href %}
+                    class="active"
+                  {% endif %}>
+                <a href="{{ site.url }}{{ subcat.href }}">
+                  {{ subcat.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

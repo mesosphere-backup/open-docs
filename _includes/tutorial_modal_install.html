@@ -1,0 +1,33 @@
+<div class="modal fade" id="personalization-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-cog text-muted"></i> Configure</h2>
+      </div>
+      <form role="form" id="personalization-form" action="#">
+        <div class="modal-body">
+          <p>
+            You can personalize this tutorial by clicking on an Instructions link
+            on the <a href="/downloads">Downloads</a> page.
+          </p>
+          <div class="form-group">
+            <label for="mesos-pkg-input">URL of the Mesos package to install</label>
+            <input type="text" class="form-control" name="mesos-pkg"  id="mesos-pkg-input" placeholder="http://downloads.mesosphere.io/master/ubuntu/13.04/mesos_0.15.0-rc5_amd64.deb" required>
+            <span class="help-block"></span>
+          </div>
+          <div class="form-group">
+            <label for="mesos-egg-input">URL of the Mesos egg to install</label>
+            <input type="text" class="form-control" name="mesos-egg" id="mesos-egg-input" placeholder="http://downloads.mesosphere.io/master/ubuntu/13.04/mesos_0.15.0-rc5_amd64.egg" required>
+            <span class="help-block"></span>
+          </div>
+          <input type="hidden" name="pt" value="custom">
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-default btn-primary" id="personalization-modal-start" value="Save &amp; Close">
+          <a class="btn btn-link btn-default clear-all"><i class="fa fa-trash-o"></i> Clear All</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

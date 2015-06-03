@@ -1,0 +1,2 @@
+Convert screenshots to JPG for web:
+for png in `ls *.png`; do jpg=`echo $png | sed 's/png/jpg/'`; gm convert +profile "*" "$png" "$jpg" ; done

@@ -1,0 +1,61 @@
+- title: "Overview"
+  href: "/"
+  sub:
+    - title: "What is Mesosphere?"
+      href: "/mesosphere/"
+
+    - title: "Mesosphere on IaaS"
+      href: "/benefits-cloud/"
+
+- title: "Getting Started"
+  href: "/getting-started/"
+  sub:
+    - title: "Amazon Web Services"
+      href: "/getting-started/cloud/amazon/"
+
+    - title: "DigitalOcean"
+      href: "/getting-started/cloud/digitalocean/"
+
+    - title: "Google Cloud Platform"
+      href: "/getting-started/cloud/google/"
+
+    - title: "Private Data Center"
+      href: "/getting-started/datacenter/"
+
+    - title: "Service Discovery"
+      href: "/getting-started/service-discovery/"
+
+    - title: "Running Locally"
+      href: "/getting-started/developer/"
+
+    - title: "Provisioning Tools"
+      href: "/getting-started/tools/"
+
+    - title: "Developer Resources"
+      href: "/getting-started/resources/"
+
+- title: "Tutorials"
+  href: "/tutorials/"
+
+- title: "Frameworks"
+  href: "/frameworks/"
+  sub:
+
+    - title: "Marathon"
+      href: "/frameworks/marathon.html"
+
+    - title: "Chronos"
+      href: "/frameworks/chronos.html"
+
+- title: "Reference"
+  href: "/reference/"
+  sub:
+
+    - title: "Administration"
+      href: "/reference/#adminstration"
+
+    - title: "Misc"
+      href: "/reference/#misc"
+
+    - title: "Glossary"
+      href: "/reference/glossary/"

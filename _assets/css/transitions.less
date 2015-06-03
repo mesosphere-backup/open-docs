@@ -1,0 +1,25 @@
+@import "mixins";
+
+// override the default slide behavior to subtle fade instead
+.carousel-inner-fade {
+  .item {
+    opacity: 0;
+    .transition-property(opacity);
+  }
+
+  .active {
+    opacity: 1;
+  }
+
+  .active.left,
+  .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .next.left,
+  .prev.right {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,57 @@
+@import "colors";
+
+.alert {
+  background: lighten(@gray-medium, 35%);
+  border-left: 50px solid;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+
+  &:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: -48px;
+    margin-top: 2px;
+    background-image: asset-url("alerts/alert-icons-67x16.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.alert-success {
+  border-left-color: @green;
+  color: darken(@green, 15%);
+
+  &:before {
+    background-position: 0 0;
+  }
+}
+
+.alert-info {
+  border-left-color: @bluepop;
+  color: darken(@bluepop, 15%);
+
+  &:before {
+    background-position: -17px 0px;
+  }
+}
+
+.alert-warning {
+  border-left-color: @yellow;
+  color: darken(@yellow, 10%);
+
+  &:before {
+    background-position: -34px 0;
+  }
+}
+
+.alert-danger {
+  border-left-color: @red;
+  color: darken(@red, 15%);
+
+  &:before {
+    background-position: -51px 0;
+  }
+}
+

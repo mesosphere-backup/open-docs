@@ -1,0 +1,16 @@
+{
+ "schedule": "R\/2015-03-22T00:00:00.000Z\/P7D",
+ "name": "Website Linkchecker",
+ "container": {
+   "type": "DOCKER",
+   "image": "mesosphere/linkchecker"
+ },
+ "cpus": "2",
+ "mem": "1024",
+ "owner" : "sunil@mesosphere.io",
+ "uris": [ "https://s3.amazonaws.com/mesosphere-internal/deploy/website/linkchecker.py" ],
+ "command": "cd $MESOS_SANDBOX && python linkchecker.py",
+  "environmentVariables" : [
+ 	{ "name" : "MANDRILL_KEY", "value" : "<REPLACEME>" }
+ ]
+}

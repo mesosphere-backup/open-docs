@@ -1,0 +1,523 @@
+---
+redirect_from:
+  - /learn/run-hadoop-on-mesos/
+layout: tutorial
+title: Run Apache Hadoop on Apache Mesos
+tutorial_icon_classname: tutorial-icon-hadoop
+framework: hadoop
+tutorial_name: run-hadoop-on-mesos
+overview: Introduction and prerequisites for getting Hadoop running on Mesos
+steps:
+  - title: Launch a Mesos Cluster
+    blurb: >
+      Launch a Mesos cluster using our Getting Started documentation.
+    icon: fa-rocket
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/hadoop/hadoop.png %}"
+        itemprop="image"></span>
+    instruction: >
+      <p data-personalized="hide">First, launch a Mesosphere cluster. See our <a target="_blank" href="/getting-started/">Getting Started documentation</a> for instructions on setting up a cluster on a variety of platforms.
+      </p>
+      <p>Hadoop can take advantage of the elasticity and fault tolerance Mesos provides. Running Hadoop on top of Mesos lets you share your cluster resources with other frameworks to yield higher utilization.</p>
+      <p>Mesos is made up of a set of master nodes and a set of slaves. For this tutorial, we're running the Hadoop <a href="http://wiki.apache.org/hadoop/JobTracker">JobTracker</a> on one of the master nodes and the TaskTrackers will be launched on slave nodes. We will demonstrate how to configure Hadoop to leverage Mesos directly.</p><br />
+      <p>Some systems are setup differently than others and certain tools may not be available. We're doing our best to make this an easy and fun experience. If you have trouble getting going, please feel free to email us at <a href="mailto:support@mesosphere.io?Subject=Hadoop%20tutorial">support@mesosphere.io.</a></p>
+  - title: Verify Mesos cluster
+    blurb: >
+      Verify your Mesos cluster is up and running by navigating to the Mesos web UI
+    icon: fa-check
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/hadoop.00.mesos_console.png %}"></span>
+    instruction: >
+     <p>Now, verify your Mesos cluster is up and running by navigating to the Web UI at <code>http://<span data-replace="master-ip">54.211.52.241</span>:5050</code></p>
+     <p>In this example, we have a cluster of six nodes running three Mesos masters and three Mesos slaves.</p>
+  - title: Install HDFS
+    blurb: >
+      If HDFS is not already installed on your system, you can follow Apache’s Getting Started with Hadoop tutorial to get HDFS set up, or start your cluster with Elastic Mesos
+    icon: fa-wrench
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span>
+
+      Welcome to Ubuntu 12.10 (GNU/Linux 3.5.0-41-generic x86_64)
+
+       * Documentation:  https://help.ubuntu.com/
+
+        System information as of Fri Nov  1 18:52:24 UTC 2013
+
+        System load:  0.0               Processes:           74
+
+        Usage of /:   16.1% of 7.87GB   Users logged in:     0
+
+        Memory usage: 3%                IP address for eth0: 10.123.92.22
+
+        Swap usage:   0%
+
+      Last login: Fri Nov  1 17:54:10 2013 from 107-202-144-131.example.com</code></pre>
+    instruction: >
+      <p data-personalized="hide">This tutorial assumes that you have a version of HDFS running that is compatible with Cloudera's CDH 4.x Hadoop. If you do not yet have HDFS installed, you can follow the instructions in <a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_4_4.html">Cloudera's CDH tutorial </a> to get it set up.
+
+      <p>Use <code>ssh</code> to login to one of your machines that is running the mesos-master process. <pre data-code><code class="codeblock">ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span></code></pre></p>
+  - title: Download a Hadoop distribution
+    blurb: >
+      Download a vanilla Hadoop distribution and extract it
+    icon: fa-cloud-download
+    blackboard: >
+      <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ sudo -s
+
+      root@ec2-184-72-188-41:~# wget http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
+
+      --2013-11-03 22:50:56--  http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
+
+      Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 176.32.100.240
+
+      Connecting to downloads.mesosphere.io (downloads.mesosphere.io)|176.32.100.240|:80... connected.
+
+      HTTP request sent, awaiting response... 200 OK
+
+      Length: 80357255 (77M) [application/x-tar]
+
+      Saving to: `mr1-2.0.0-mr1-cdh4.2.1.tar.gz.3'
+
+      100%[===================================================================================================================================================================================>] 80,357,255  57.5M/s   in 1.3s
+
+      2013-11-03 22:50:57 (57.5 MB/s) - `mr1-2.0.0-mr1-cdh4.2.1.tar.gz.3' saved [80357255/80357255]
+
+      root@ec2-184-72-188-41:~# tar xzf mr1-2.0.0-mr1-cdh4.2.1.tar.gz
+
+      root@ec2-184-72-188-41:~# cd hadoop-2.0.0-mr1-cdh4.2.1/
+
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1#</code></pre>
+    instruction: >
+      <p>For the next step, switch to the root user. <pre data-code class="clear"><code class="codeblock">sudo -s</code></pre></p><p>Now let's download a vanilla Hadoop distribution,  such as CDH 4.2.1 which we have mirrored for you:  <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre> After  downloading it, extract it with the tar command: <pre data-code><code class="codeblock">tar xzf mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre></p>
+      </p>This extracts everything into the <code>hadoop-2.0.0-mr1-cdh4.2.1</code> directory. Next change into the extracted directory: <pre data-code><code class="codeblock">cd hadoop-2.0.0-mr1-cdh4.2.1</code></pre></p>
+  - title: Download Mesos extensions
+    blurb: >
+      Download (or optionally build) the hadoop-mesos jar which includes a Hadoop scheduler and executor, plus some basic Hadoop configuration parameters. Also download the Java bindings for Mesos so hadoop-mesos can connect to Mesos’ Java API
+    icon: fa-cloud-download
+    codeboard: >
+     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1# cd lib
+
+     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
+
+     --2013-11-03 22:52:30--  http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
+
+     Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 176.32.101.81
+
+     Connecting to downloads.mesosphere.io (downloads.mesosphere.io)|176.32.101.81|:80... connected.
+
+     HTTP request sent, awaiting response... 200 OK
+
+     Length: 847004 (827K) [application/java-archive]
+
+     Saving to: `hadoop-mesos-0.0.3.jar'
+
+     100%[===================================================================================================================================================================================>] 847,004     --.-K/s   in 0.02s
+
+     2013-11-03 22:52:30 (45.7 MB/s) - `hadoop-mesos-0.0.3.jar' saved [847004/847004]
+
+
+     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
+
+     --2013-11-03 23:00:52--  http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
+
+     Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 72.21.211.168
+
+     Connecting to downloads.mesosphere.io (downloads.mesosphere.io)|72.21.211.168|:80... connected.
+
+     HTTP request sent, awaiting response... 200 OK
+
+     Length: 303329 (296K) [application/octet-stream]
+
+     Saving to: `mesos-0.14.0-rc4.jar'
+
+     100%[===================================================================================================================================================================================>] 303,329     --.-K/s   in 0.02s
+
+     2013-11-03 23:00:52 (14.8 MB/s) - `mesos-0.14.0-rc4.jar' saved [303329/303329]
+
+    instruction: >
+      <p>Hadoop on Mesos (HOM) requires downloading the Mesos extensions which consist of a Mesos Scheduler for managing the JobTracker, a Mesos Executor for launching TaskTrackers, plus as a couple of simple mods to the Hadoop configuration files.</p>
+
+      <p>Now, let's connect into the <strong>lib</strong> directory inside the Hadoop distro which we've just downloaded: <pre data-code><code class="codeblock">cd lib</code></pre></p>
+      <p>Next we download the Hadoop/Mesos extension JAR file and save it in this directory: <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar</code></pre></p>
+      <p>The contents of this <strong>lib</strong> directory will be automatically loaded by the Hadoop classloader. While we're here, we also need to download the Mesos drivers -- required by every Java app that integrates directly with Mesos: <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar</code></pre></p>
+  - title: Download Mesos templates for Hadoop configuration files
+    blurb: >
+      Download the Mesos templates for Hadoop configuration files, which are needed so that Hadoop can find the Mesos scheduler and executor
+    icon: fa-cog
+    blackboard: >
+      <pre class="terminal"><code>root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# cd ../conf/
+
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml
+
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre>
+    instruction: >
+      <p>Now we're ready to modify the configuration files to make sure that Hadoop and Mesos can be integrated. The two files which we need to modify inside this vanilla Hadoop can be found in the conf directory. Connect into this directory: <pre data-code><code class="codeblock">cd ../conf</code></pre></p>
+      <p>The two files of interest are <strong>mapred-site.xml</strong> and <strong>core-site.xml</strong>. In the vanilla Hadoop distribution, the config hasn't been completed yet. Replace them with files that contain already some of the configuration parameters. Then download the files: <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml ; <br/>curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre></p>
+  - title: Get machine info for configuring Hadoop
+    blurb: >
+      Retrieve the IP address, two available ports, and HDFS namenode address of the machine where we want to run the JobTracker
+    icon: fa-terminal
+    blackboard: >
+      <div data-personalized="hide">
+      <pre class="terminal"><code>
+      <span>root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1# ifconfig eth0 | egrep -o 'inet addr:[^ ]+' | cut -d: -f2
+
+      <span data-replace="master-internal-ip">10.147.213.130</span>
+
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# netstat -lnt | awk '$6 == "LISTEN" && $4 ~ ":767"'
+      </span>
+      </code></pre>
+      </div>
+
+    instruction: >
+      <div data-personalized="hide">
+      <p >Before we dive in to modify these files, we need to get more info about the machine where we want to run the JobTracker. We're only running one jobtracker in this tutorial. If you've followed along so far, it's the machine you're currently logged into.</p>
+      <p>You need to know the IP address and <strong>two available ports</strong> of this machine as well as the HDFS namenode address. To get the IP address of the host you logged into: <pre data-code><code class="codeblock">ifconfig eth0 | egrep -o 'inet addr:[^ ]+' | cut -d: -f2</code></pre></p>
+      <p>Next you need to pick two ports this host will use to run the MapReduce framework. For example 7676 and 7677 might work well; however, depending on your system those may not be available. First check if the ports you picked are available we use <code>netstat</code>:<br>
+      <pre data-code><code class="codeblock">netstat -lnt | awk '$6 == "LISTEN" && $4 ~ ":767"'</code></pre>
+      </code></pre></span></p>
+      <br/>
+      <p>Please write down the ip address and the ports such that you can use them in the next step. Also, don't forget to substitute the ports you picked (if different than 7676 and 7677 in the netstat commands. If the result is empty or doesn't contain the two ports you've picked, the ports can be used. If you get text that contains the words "tcp" or "udp" as well as either or both of the ports you picked, it means that the ports are already used and you need to select different ports.</p>
+      </div>
+      <div data-personalized="show">
+      <p>This tutorial will configure the jobtracker to run on port
+      7676 for RPC requests and the web interface will run on port 7677.
+      </p>
+      <p>The RPC url for the jobtracker is <pre data-code><code class="codeblock"><span data-replace="master-internal-ip"></span>:7676</code></pre>
+      </p>
+      <p>The Web UI url for the jobtracker is <pre data-code><code class="codeblock"><span data-replace="master-internal-ip"></span>:7677</code></pre>
+      </p>
+      <p>The mesos master url is: <pre data-code><code class="codeblock">zk://<span data-replace="zookeeper"></span><span data-replace="zookeeper-path">/mesos</span></code></pre>
+      </p>
+      <p>The url for the namenode (HDFS), which is already installed is <pre data-code><code class="codeblock">hdfs://<span data-replace="namenode"></span></code></pre>
+      </p>
+      </div>
+  - title: Edit mapred-site.xml
+    blurb: >
+      Edit the mapred-site.xml file to tell Hadoop where to find the Mesos master and the Mesos-Hadoop executor binary
+    icon: fa-cog
+    blackboard: >
+
+      <pre class="terminal"><code>
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# vim mapred-site.xml
+
+      <p>&lt;?xml version=&quot;1.0&quot;?&gt;<br/>&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;<br/>&lt;configuration&gt;<br/>  &lt;!-- The following 4 values need to be filled in to match your cluster configuration. If you leave them blank, Hadoop will not run on Mesos. --&gt;<br/>  &lt;property&gt;<br/>      &lt;name&gt;mapred.job.tracker&lt;/name&gt;<br/>      &lt;value&gt;<span data-personalized="show"><span data-replace="master-internal-ip"></span>:7676</span>&lt;/value&gt;<br/>  &lt;/property&gt;<br/>  &lt;!-- The web UI will bind --&gt;<br/>  &lt;property&gt;<br/>      &lt;name&gt;mapred.job.tracker.http.address&lt;/name&gt;<br/>      &lt;value&gt;<span data-personalized="show"><span data-replace="master-internal-ip"></span>:7677</span>
+      &lt;/value&gt;<br/>  &lt;/property&gt;<br/>  &lt;!-- This identifies the mesos-master. E.g. zk://1.1.1.1:2181,2.2.2.2:2181,3.3.3.3:2181/mesos --&gt;<br/>  &lt;property&gt;<br/>      &lt;name&gt;mapred.mesos.master&lt;/name&gt;<br/>      &lt;value&gt;zk://<span data-replace="zookeeper"></span><span data-replace="zookeeper-path">/mesos</span>&lt;/value&gt;<br/>  &lt;/property&gt;<br/>  &lt;!--<br/>    This property identifies the location of the modified hadoop distribution containing this XML file.<br/>    The mesos slave will download this distribution if a hadoop job is launched, extract the file and use the hadoop binary<br/>    to start the task tracker.<br/>    Sample hdfs://&lt;hdfs-namenode-host &amp; optional port&gt;/hadoop-2.0.0-mr1-cdh4.2.1.tgz -&gt; hdfs://namenode.mesosphere.io:9000/hadoop-2.0.0-mr1-cdh4.2.1.tgz<br/>  --&gt;<br/>  &lt;property&gt;<br/>      &lt;name&gt;mapred.mesos.executor.uri&lt;/name&gt;<br/>      &lt;value&gt;<span data-personalized="show">hdfs://<span data-replace="namenode"></span>/hadoop-2.0.0-mr1-cdh4.2.1.tgz</span>&lt;/value&gt;<br/>  &lt;/property&gt;</p>
+
+      </code></pre>
+
+    instruction: >
+      <p>Now we need to edit each of these two files, using the text editor of your choice such as <code>vim</code>, <code>nano</code>, <code>emacs</code>, etc. In our example, we'll use <code>vim</code> and start with the first file: <pre data-code><code class="codeblock">vim mapred-site.xml</code></pre></p>
+      <p data-personalized="show">Since this tutorial is personalized, we have filled-in the details of your cluster on the righthand side. Simply copy &amp; paste the contents and paste them into the respective section of the mapred-site.xml document. <strong>You can now click on &quot;Next step&quot; or read until the end of this page which explains in detail what each section means.</strong></p>
+      <p>There are 4 key/value pairs that need to be populated inside the XML file. The following paragraphs describe the tag name and respective value for each.</p>
+      <ul>
+      <li><code>mapred.job.tracker</code></li>
+      <p>Insert the ip and port into the value tag to indicate where the Hadoop RPC process should bind to. Don't worry if you don't understand what this means, this just tells the TaskTrackers where they can find the JobTracker so that they can communicate. Use the ip-address you retrieved via ifconfig and concatenate it with the first one of the two ports you decided on. I.e. ip:port1</code>
+      </p><br/>
+      <li><code>mapred.job.tracker.http.address</code></li>
+      <p>Just like for <strong>mapred.job.tracker</strong>, use the same IP and the second port that you decided on. <span data-personalized="hide">(Please note: If you're running on Amazon Web Service, you will not be able to reach this address from your laptop. You can lookup the actual public address using: <pre data-code><code class="codeblock">curl http://169.254.169.254/latest/meta-data/public-ipv4</code></pre></span></p>
+      <p data-personalized="hide">This address is only useful from outside of Amazon AWS, so let's use the address retrieved via <code>ifconfig</code> for now. However, note the public address for later.</p>
+      <br/>
+      <li><code>mapred.mesos.master</code></li>
+      <p>This is the address for identifying one or more Mesos master nodes. When the JobTracker and TaskTrackers start, they will attempt to find the Mesos master via this string. <span data-replace="master-string">If you have used a Mesosphere package, you can fill in the value retrieved from <code>cat /etc/mesos/zk</code>. If you're running this in pseudo-distributed mode, you can fill-in <code>127.0.0.1:5050</code> or substitute it with your production cluster setup, such as <code>zk://zk1:2181,zk2.../mesos</code></span></p><br/>
+      <li><code>mapred.mesos.executor.uri</code></li>
+      <p>This points to the location of the tar archive that contains the modified XML files, the libraries as well as all other hadoop related files that are needed to launch a TaskTracker (on the Mesos slave that will run this task). We have not created the archive yet, but the file we create will be uploaded to HDFS. <div data-personalized="hide">Thus, we need to know the namenode URL, which will be part of this URI. If you installed HDFS in a standard way, via e.g. the Cloudera RPMs, and you have a <strong>/etc/hadoop/conf/core-site.xml</strong> file, you may be able to find the namenode.  <pre data-code><code class="codeblock">cat /etc/hadoop/conf/core-site.xml</code></pre> and then look for the value of <strong>fs.defaultFS</strong>. An example for the value is: <code>hdfs://<span data-replace="namenode">namenode.mesosphere.io</span>/hadoop-2.0.0-mr1-cdh4.2.1.tgz</code>
+      </div></p></ul>
+
+  - title: Edit core-site.xml
+    blurb: >
+      Edit the core-site.xml file so Hadoop knows how to access HDFS
+    icon: fa-cog
+    blackboard: >
+      <pre class="terminal"><code>
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# vim core-site.xml
+      &lt;?xml version=&quot;1.0&quot;?&gt;<br/>      &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;<br/>      &lt;!-- Put site-specific property overrides in this file. --&gt;<br/>      &lt;configuration&gt;<br/>        &lt;!-- This is the url to the HDFS namenode e.g. hdfs://namenode.mesosphere.io/ with an optional port--&gt;<br/>        &lt;property&gt;<br/>            &lt;name&gt;fs.defaultFS&lt;/name&gt;<br/>            &lt;value&gt;<span data-personalized="show">hdfs://<span data-replace="namenode"></span></span>&lt;/value&gt;<br/>        &lt;/property&gt;<br/>        &lt;!-- This value should match the value in fs.defaultFS --&gt;<br/>        &lt;property&gt;<br/>            &lt;name&gt;fs.default.name&lt;/name&gt;<br/>            &lt;value&gt;<span data-personalized="show">hdfs://<span data-replace="namenode"></span></span>&lt;/value&gt;<br/>        &lt;/property&gt;<br/>        &lt;property&gt;<br/>            &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;<br/>            &lt;value&gt;/tmp/hadoop&lt;/value&gt;<br/>        &lt;/property&gt;<br/>        &lt;property&gt;<br/>            &lt;name&gt;hadoop.security.group.mapping&lt;/name&gt;<br/>            &lt;value&gt;org.apache.hadoop.security.ShellBasedUnixGroupsMapping&lt;/value&gt;<br/>        &lt;/property&gt;<br/>      &lt;/configuration&gt;
+      </code></pre>
+
+    instruction: >
+      <p>Next, let's edit the <strong>core-site.xml</strong> file.
+      <pre data-code><code class="codeblock">vim core-site.xml</code></pre>
+      </p>
+      <p data-personalized="show">As with the previous step, simply copy &amp; paste the contents on the righthand side and paste them into the respective section of the core-site.xml document. Again, we generated this for your convenience with your cluster details. You can now click next or read through the following parts that explain in detail what each section means.
+      </p>
+      <p data-personalized="hide">You just need to fill in the <strong>fs.defaultFS</strong> and <strong>fs.default.name</strong> values. Those should be identical and simply point to your namenode: <span data-replace="namenode">based on how you determined the <strong>mapred.mesos.executor.uri</strong> in the previous step, make the two values equal to the URL minus the hadoop-distribution file. For example, it should like this: <code>hdfs://54.211.52.241:9000</code></span></p>
+  - title: Repackage Hadoop
+    blurb: >
+      Hadoop so that you can distribute it on your cluster, and upload it to HDFS so that the Mesos slave can automatically download it
+    icon: fa-compress
+    codeboard: >
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# cd ../../
+
+      root@ec2-184-72-188-41:~# tar czf hadoop-2.0.0-mr1-cdh4.2.1.tgz hadoop-2.0.0-mr1-cdh4.2.1
+
+      root@ec2-184-72-188-41:~# sudo sudo -u mapred ./hadoop-2.0.0-mr1-cdh4.2.1/bin/hadoop dfs -rm -f /hadoop-2.0.0-mr1-cdh4.2.1.tgz
+
+      root@ec2-184-72-188-41:~# sudo sudo -u mapred /usr/bin/hadoop dfs -copyFromLocal ./hadoop-2.0.0-mr1-cdh4.2.1.tgz /
+
+      DEPRECATED: Use of this script to execute hdfs command is deprecated.
+      Instead use the hdfs command for it.
+
+    instruction: >
+      <p>Now that you have downloaded the necessary extensions, the driver and modified the configuration, we're ready to repackage Hadoop so that we can distribute it on our cluster.</p>
+      <p>First, connect up two directory levels: <pre data-code><code class="codeblock">cd ../../</code></pre> so that you're outside the extracted and modified Hadoop distribution. Then type: <pre data-code><code class="codeblock">tar czf hadoop-2.0.0-mr1-cdh4.2.1.tgz hadoop-2.0.0-mr1-cdh4.2.1</code></pre></p>
+      <p>This creates a file called <strong>hadoop-2.0.0-mr1-cdh4.2.1.tgz</strong> that we already referenced in the step where we modified the <strong>mapred-site.xml</strong> file. This <code>tar</code> archive contains everything needed to run the TaskTrackers -- or another JobTracker.</p>
+      <p>Next we'll upload it to HDFS so that the Mesos slave process can automatically download it:
+      <div class="code-wrapper"><pre data-code><code class="codeblock">sudo -u mapred ./hadoop-2.0.0-mr1-cdh4.2.1/bin/hadoop dfs -rm -f /hadoop-2.0.0-mr1-cdh4.2.1.tgz</code></pre></div>
+      <pre data-code><code class="codeblock">sudo -u mapred /usr/bin/hadoop dfs -copyFromLocal ./hadoop-2.0.0-mr1-cdh4.2.1.tgz /</code></pre> to delete any existing versions of this packaged Hadoop and copy our most recent version to the root of HDFS on your cluster. Note that as of Hadoop 2.x you must run as the user <strong>mapred</strong>, and that setup happens during the installation of CDH 4.2.1</p>
+  - title: Start the Hadoop job tracker
+    blurb: >
+      Setup symlinks, user permissions, and environment variables so that you can launch the Hadoop JobTracker on Mesos
+    icon: fa-play
+    codeboard: >
+      root@ec2-184-72-188-41:~# sudo -u mapred -g hadoop env JAVA_HOME="/usr" HADOOP_HOME="`pwd`/hadoop-2.0.0-mr1-cdh4.2.1" HADOOP_CONF_DIR="`pwd`/hadoop-2.0.0-mr1-cdh4.2.1/conf" JAVA_LIBRARY_PATH="/usr/local/lib/" /home/ubuntu/hadoop-2.0.0-mr1-cdh4.2.1/bin/hadoop jobtracker
+
+      ...
+
+      ...
+
+      ...
+
+      13/11/04 02:03:48 INFO mapred.MesosScheduler: Registered as 201311032144-2694943498-5050-802-0002 with master id:     "201311032144-2694943498-5050-802"
+      ip: 2694943498
+      port: 5050
+
+      13/11/04 02:03:48 INFO mapred.ResourcePolicy: JobTracker Status
+          Pending Map Tasks: 0
+       Pending Reduce Tasks: 0
+          Running Map Tasks: 0
+       Running Reduce Tasks: 0
+             Idle Map Slots: 0
+          Idle Reduce Slots: 0
+         Inactive Map Slots: 0 (launched but no hearbeat yet)
+      Inactive Reduce Slots: 0 (launched but no hearbeat yet)
+           Needed Map Slots: 1
+        Needed Reduce Slots: 1
+         Unhealthy Trackers: 0
+      13/11/04 02:03:48 INFO mapred.ResourcePolicy: Launching task Task_Tracker_0 on http://ec2-54-211-120-195.compute-1.amazonaws.com:31000 with mapSlots=1 reduceSlots=1
+      13/11/04 02:03:48 INFO mapred.ResourcePolicy: URI: hdfs://10.147.213.130/hadoop-2.0.0-mr1-cdh4.2.1.tgz, name: hadoop-2.0.0-mr1-cdh4.2.1.tgz
+      13/11/04 02:03:48 INFO mapred.ResourcePolicy: Satisfied map and reduce slots needed.
+
+    instruction: >
+      <p>To make it easier to find this Hadoop version later, let's symlink it to the <strong>/tmp/hadoop</strong> directory: <pre data-code><code class="codeblock">ln -nsf "`pwd`/hadoop-2.0.0-mr1-cdh4.2.1" /tmp/hadoop</code></pre></p>
+      <p>Next, we'll have to make the user mapred owner of our current Hadoop distribution such that the JobTracker can create any directories needed, i.e., for logging. Type <pre data-code><code class="codeblock">sudo chown -R mapred:hadoop ./hadoop-2.0.0-mr1-cdh4.2.1</code></pre></p>
+      <p>Before starting hadoop we need to make sure that the Hadoop Mesos extensions can find the native library which on linux is called libmesos.so, on Mac OSX the name is libmesos.dylib. If you installed Mesos via a Mesosphere package, the library is in /usr/local/lib/libmesos.so, otherwise you can try to locate the libmesos.so by typing <code>locate libmesos.so</code>. The <code>JAVA_LIBRARY_PATH</code> environment variable needs to point to the directory containing libmesos.so. If you're unsure where the libmesos.so file is located you can try to issue the following two commands to find the location: <pre data-code><code class="codeblock">updatedb ; locate libmesos.so</code></pre></p>
+      <p>Now we're ready to launch the Hadoop JobTracker that runs on Mesos: <pre data-code><code class="codeblock">sudo -u mapred -g hadoop env JAVA_HOME=/usr HADOOP_HOME="`pwd`/hadoop-2.0.0-mr1-cdh4.2.1" HADOOP_CONF_DIR="`pwd`/hadoop-2.0.0-mr1-cdh4.2.1/conf" JAVA_LIBRARY_PATH="/usr/local/lib/" /home/ubuntu/hadoop-2.0.0-mr1-cdh4.2.1/bin/hadoop jobtracker</code></pre>
+      Depending on your setup, Hadoop might require you to tweak the <code>JAVA_HOME</code> variable as well.</p>
+  - title: Open a new terminal to the master node
+    blurb: >
+      Use ssh to open a new  terminal to the master node where the JobTracker is running
+    icon: fa-terminal
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span>
+
+      Welcome to Ubuntu 12.10 (GNU/Linux 3.5.0-41-generic x86_64)
+
+       * Documentation:  https://help.ubuntu.com/
+
+        System information as of Fri Nov  1 19:15:18 UTC 2013
+
+        System load:  0.0               Processes:           82
+
+        Usage of /:   24.4% of 7.87GB   Users logged in:     1
+
+        Memory usage: 15%               IP address for eth0: 10.145.227.194
+
+        Swap usage:   0%
+
+      Last login: Fri Nov  1 18:52:25 2013 from 107-202-144-131.example.com</code></pre>
+    instruction: >
+      <p>Let's try out our newly launched Hadoop by using <code>ssh</code> to login to the master again from a different terminal window, leaving our current session open. If you close the current ssh session in which we launched the JobTracker, that would shutdown Hadoop on Mesos.</p>
+      <p> Instead, open a new terminal and repeat the steps for establishing the ssh connection:
+      <pre data-code><code class="codeblock">ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span></code></pre></p>
+  - title: Change to the mapred user
+    blurb: >
+      Change to the mapred user and set environment variables to point to Hadoop
+    icon: fa-terminal
+    codeboard: >
+      ubuntu@ec2-54-211-52-241:~$ sudo -u mapred bash
+
+      mapred@ec2-54-211-52-241:~$ export PATH="/tmp/hadoop/bin:$PATH" ; export HADOOP_HOME=/tmp/hadoop
+
+      mapred@ec2-54-211-52-241:~$ ls $HADOOP_HOME
+
+      bin          cloudera-pom.xml  hadoop-ant-2.0.0-mr1-cdh4.2.1.jar       ivy          mapred      src
+
+      build.xml    conf              hadoop-core-2.0.0-mr1-cdh4.2.1.jar      ivy.xml      NOTICE.txt  webapps
+
+      c++          contrib           hadoop-examples-2.0.0-mr1-cdh4.2.1.jar  lib          pids
+
+      CHANGES.txt  docs              hadoop-test-2.0.0-mr1-cdh4.2.1.jar      LICENSE.txt  README.txt
+
+      cloudera     example-confs     hadoop-tools-2.0.0-mr1-cdh4.2.1.jar     logs         sbin
+
+    instruction: >
+      <p>Hadoop requires that we change to the <code>mapred</code> user:</p>
+      <pre data-code><code class="codeblock">sudo -u mapred bash</code></pre>
+      <p>Also, we must make sure to use the proper Hadoop executable -- the one which is configured to use Mesos. If you've followed the tutorial and have used SSH to connect to the same machine from which you launched the In our case, that's located in the <code>/tmp/hadoop</code> directory. Let's first export the <code>HADOOP_HOME</code> variable and set the path appropriately: <pre data-code><code class="codeblock">export PATH="/tmp/hadoop/bin:$PATH" ; export HADOOP_HOME=/tmp/hadoop</code></pre></p>
+  - title: Create sample input files
+    blurb: >
+      Create sample input files for Hadoop’s example WordCount application
+    icon: fa-file-text-o
+    codeboard: >
+      mapred:~$ echo "Hello World Bye World" > /tmp/file0
+
+      mapred:~$ echo "Hello Hadoop Goodbye Hadoop" > /tmp/file1
+
+    instruction: >
+      <p>Fortunately, Apache Hadoop ships with a pre-built sample app, the ubiquitous <b>WordCount</b> example. That example needs data, so let's create two files of input to use with it. The first data file is:
+      <pre data-code><code class="codeblock">echo "Hello World Bye World" > /tmp/file0</code></pre>
+      The second data file is:
+      <pre data-code><code class="codeblock">echo "Hello Hadoop Goodbye Hadoop" > /tmp/file1</code></pre>
+      </p>
+  - title: Upload input files to HDFS
+    blurb: >
+      Create a directory in HDFS and upload your sample input files there
+    icon: fa-upload
+    codeboard: >
+      mapred@ec2-54-211-52-241:~$ /tmp/hadoop/bin/hadoop fs -mkdir /user/foo/data
+
+      mapred@ec2-54-211-52-241:~$ /tmp/hadoop/bin/hadoop fs -copyFromLocal /tmp/file? /user/foo/data
+
+    instruction: >
+      <p>Next, create a directory on HDFS using <code>foo</code> as a user name:
+      <pre data-code><code class="codeblock">/tmp/hadoop/bin/hadoop fs -mkdir /user/foo/data</code></pre>
+      Then copy the data files into the newly created HDFS directory:
+      <pre data-code><code class="codeblock">/tmp/hadoop/bin/hadoop fs -copyFromLocal /tmp/file? /user/foo/data</code></pre>
+      </p>
+  - title: Run the WordCount example
+    blurb: >
+      Run the WordCount example on Hadoop on Mesos with your sample input files
+    icon: fa-play
+    codeboard: >
+      mapred@ec2-54-211-52-241:~$ /tmp/hadoop/bin/hadoop jar /tmp/hadoop/hadoop-examples-2.0.0-mr1-cdh4.2.1.jar wordcount /user/foo/data /user/foo/out
+
+      13/11/01 19:31:07 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+
+      13/11/01 19:31:07 INFO input.FileInputFormat: Total input paths to process : 2
+
+      13/11/01 19:31:07 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+      13/11/01 19:31:08 INFO mapred.JobClient: Running job: job_201311011901_0001
+
+      13/11/01 19:31:09 INFO mapred.JobClient:  map 0% reduce 0%
+
+      13/11/01 19:31:23 INFO mapred.JobClient:  map 50% reduce 0%
+
+      13/11/01 19:31:24 INFO mapred.JobClient:  map 100% reduce 0%
+
+      13/11/01 19:31:27 INFO mapred.JobClient: Job complete: job_201311011901_0001
+
+      13/11/01 19:31:27 INFO mapred.JobClient: Counters: 32
+
+      13/11/01 19:31:27 INFO mapred.JobClient:   File System Counters
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     FILE: Number of bytes read=79
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     FILE: Number of bytes written=1216377
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     FILE: Number of read operations=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     FILE: Number of large read operations=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     FILE: Number of write operations=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     HDFS: Number of bytes read=263
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     HDFS: Number of bytes written=49
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     HDFS: Number of read operations=4
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     HDFS: Number of large read operations=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     HDFS: Number of write operations=2
+
+      13/11/01 19:31:27 INFO mapred.JobClient:   Job Counters
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Launched map tasks=2
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Launched reduce tasks=1
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Data-local map tasks=2
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Total time spent by all maps in occupied slots (ms)=8322
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Total time spent by all reduces in occupied slots (ms)=6391
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+
+      13/11/01 19:31:27 INFO mapred.JobClient:   Map-Reduce Framework
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Map input records=2
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Map output records=8
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Map output bytes=82
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Input split bytes=212
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Combine input records=8
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Combine output records=6
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Reduce input groups=5
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Reduce shuffle bytes=101
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Reduce input records=6
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Reduce output records=5
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Spilled Records=12
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     CPU time spent (ms)=2600
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Physical memory (bytes) snapshot=583737344
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=5261574144
+
+      13/11/01 19:31:27 INFO mapred.JobClient:     Total committed heap usage (bytes)=642318336
+    instruction: >
+      <p>Okay, everything is ready now to run <em>WordCount</em> on Hadoop:
+      <pre data-code><code class="codeblock">/tmp/hadoop/bin/hadoop jar /tmp/hadoop/hadoop-examples-2.0.0-mr1-cdh4.2.1.jar wordcount /user/foo/data /user/foo/out</code></pre></p>
+  - title: View the WordCount output
+    blurb: >
+      View and verify the WordCount output, then pat yourself on the back.
+    icon: fa-trophy
+    codeboard: >
+      mapred@ec2-54-211-52-241:~$ /tmp/hadoop/bin/hadoop fs -ls /user/foo/out
+
+      Found 2 items
+
+      drwxr-xr-x   - mapred hadoop          0 2013-11-01 19:31 /user/foo/out/_logs
+
+      -rw-r--r--   3 mapred hadoop         49 2013-11-01 19:31 /user/foo/out/part-r-00000
+
+
+      mapred@ec2-54-211-52-241:~$ /tmp/hadoop/bin/hadoop dfs -cat /user/foo/out/part*
+
+      Bye 1
+
+      Goodbye 1
+
+      Hadoop 2
+
+      Hello 2
+
+      World 2
+    instruction: >
+      <p>Great, that ran well. Don't worry about the warnings; Hadoop has an overabundance of those. To look at the output, type the following: <pre data-code><code class="codeblock">/tmp/hadoop/bin/hadoop dfs -cat /user/foo/out/part*</code></pre>Otherwise, looking at the output, it was exactly as expected.</p>
+      <p>Of course, in practice you'll probabaly have much more sophisticated use cases, and much larger and more complex data sets. In any case, those usages will follow the same general pattern as this one.</p>
+success:
+  title: Next steps
+  blurb: >
+    A slightly more detailed description for what happens in this step of the tutorial
+  text: >
+    <p>Congratulations! You now have Hadoop running on Mesos!</p>
+---

@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(http://themes.googleusercontent.com/static/fonts/montserrat/v4/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+
+h1, h2, h3, h4,
+#application .heading {
+  font-family: "Montserrat",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+a {
+  color: #428BCA;
+}
+
+body {
+  color: #555;
+  line-height: 1.428571429;
+}
+
+body,
+#main_fields div.field label,
+#custom_fields div.field label,
+#eeoc_fields div.field label {
+  font-size: 14px;
+}
+
+h1 { fons-size: 36px; }
+h2 { font-size: 30px; }
+h3 { fons-size: 24px; }
+h4 { font-size: 18px; }
+
+h2, h3 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+h4, h5, h6 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+body > div:first-child {
+  /* Remove "padding: 20px;" from default wrapper */
+  padding: 0 !important;
+}
+
+#app_body {
+  width: auto;
+}
+
+/* Mimic .page-header from Bootstrap */
+h1,
+#app_body h1 {
+  border-bottom: 1px solid #E4E6EB;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding-bottom: 9px;
+}
+
+#header {
+  padding-right: 0;
+}
+
+#logo,
+.company-name {
+  display: none;
+}
+
+/* Copied from Bootstrap's .btn and .btn-primary
+ *   * "background-image:none;" added to override Greenhouse style on .button
+ */
+#submit_app {display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:normal;line-height:1.428571429;text-align:center;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:4px;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}.btn:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+#submit_app {color:#ffffff;background-color:#428bca;border-color:#357ebd;background-image:none;}
+#submit_app:hover, #submit_app:focus, #submit_app:active {color:#ffffff;background-color:#3276b1;border-color:#285e8e;}

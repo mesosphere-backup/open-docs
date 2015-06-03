@@ -1,0 +1,453 @@
+.learn-page-header {
+  background: @base-gray;
+  min-height: 175px;
+  margin: 0;
+  padding-top: 15px;
+
+  h1 {
+    color: @white;
+  }
+}
+
+// sub navigation
+
+.navbar-learn.affix {
+  top: 0px;
+  width: 100%;
+  z-index: 1001;
+}
+
+.navbar-learn {
+  background: lighten(@base-gray, 72%);
+  margin-bottom: 0px;
+  min-height: 45px;
+
+  .container,
+  .navbar-collapse {
+    padding-left: 0;
+  }
+
+  &.navbar {
+    border: none;
+  }
+
+  .nav > li {
+    &.active > a {
+      color: @white;
+      background-color: @violet;
+
+      &:hover {
+        color: @white;
+      }
+    }
+
+    a {
+      line-height: 45px;
+      font-weight: 400;
+      color: @base-gray;
+      padding: 0px 28px;
+      margin-right: 20px;
+
+      &:hover {
+        color: @violet;
+      }
+    }
+  }
+}
+
+// get started block
+
+.learn-get-started {
+  background-image: asset-url("learn/get-started-1544x442.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h1 {
+    color: @white;
+  }
+
+  ul {
+    margin: 30px 0 20px;
+  }
+
+  li {
+    color: @white;
+    font-size: 18px;
+  }
+
+  .fa-angle-right {
+    color: @white;
+    border: 2px solid @white;
+    .opacity(0.3);
+    .border-radius(50%);
+    width: 45px;
+    height: 45px;
+    line-height: 41px;
+    text-align: center;
+    font-size: 31px;
+    margin: 0 25px;
+    vertical-align: middle;
+  }
+}
+
+.learn-tutorial-prereqs {
+  color: lighten(@base-gray, 60%);
+  margin-bottom: 30px;
+}
+
+.prereq-title {
+  color: @base-gray;
+}
+
+.learn-tutorial-service-block {
+  margin: @section-spacing 0 @section-spacing * 3;
+}
+
+.learn-tutorial-header {
+  padding-left: 0;
+  border-bottom: 2px solid lighten(@base-gray, 75%);
+  margin-bottom: 20px;
+  min-height: 100px;
+}
+
+.learn-tutorial-info-header {
+  margin-bottom: @section-spacing;
+}
+
+.learn-tutorial-meta li {
+  margin-right: 20px;
+}
+
+.learn-progress-dial {
+  .heavy-text();
+
+  .dial-text {
+    width: 80px;
+    text-align: center;
+    position: absolute;
+    top: 27px;
+  }
+
+  p {
+    width: 80px;
+  }
+}
+
+.progress-complete {
+  .progress-state {
+    fill: @green;
+  }
+
+  .dial-text {
+    color: @green;
+  }
+
+  .start-tutorial, .resume-tutorial {
+    display: none;
+  }
+
+  .done-tutorial {
+    color: @green
+  }
+}
+
+.progress-active {
+  .dial-text {
+    color: @violet;
+  }
+
+  .start-tutorial, .done-tutorial {
+    display: none;
+  }
+}
+
+.progress-none {
+  .dial-text {
+    color: lighten(@base-gray, 60%);
+  }
+
+  .done-tutorial, .resume-tutorial {
+    display: none;
+  }
+}
+
+.learn-tutorial-service-icon {
+  margin-top: 0;
+
+  &:before {
+    content:'';
+    display: inline-block;
+    float: left;
+    width: 77px;
+    height: 77px;
+    background-image: asset-url("learn/service-icons-857x77.png");
+    background-repeat: no-repeat;
+    margin-right: 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+}
+
+.learn-tutorial-service-icon-spark:before {
+  background-position: -312px 0;
+}
+
+.learn-tutorial-service-icon-aurora:before {
+  background-position: 0 0;
+}
+
+.learn-tutorial-service-icon-rails:before {
+  background-position: -78px 0;
+}
+
+.learn-tutorial-service-icon-play:before {
+  background-position: -156px 0;
+}
+
+.learn-tutorial-service-icon-hadoop:before {
+  background-position: -234px 0;
+}
+
+.learn-tutorial-service-icon-chronos:before {
+  background-position: -390px 0;
+}
+
+.learn-tutorial-service-icon-storm:before {
+  background-position: -468px 0;
+}
+
+.learn-tutorial-service-icon-docker:before {
+  background-position: -546px 0;
+}
+
+.learn-tutorial-service-icon-gce:before {
+  background-position: -624px 0;
+}
+
+.learn-tutorial-service-icon-coreos:before {
+  background-position: -702px 0;
+}
+
+.learn-tutorial-service-icon-kubernetes:before {
+  background-position: -780px 0;
+}
+
+.learn-tutorial-description {
+  margin-top: @section-spacing / 2;
+}
+
+// developer resources
+
+.learn-app-list {
+  padding-left: 0;
+}
+
+.learn-resources-header {
+  color: @white;
+}
+
+.learn-periodic-table-block {
+  margin-bottom: @section-spacing;
+}
+
+.learn-periodic-table-aside li {
+  margin-bottom: 10px;
+}
+
+.periodic-table-legend {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    .border-radius(50%);
+    background-color: @base-gray;
+    margin-right: 15px;
+  }
+
+  &.bluepop:before {
+    background-color: @bluepop;
+  }
+
+  &.seafoam:before {
+    background-color: @seafoam;
+  }
+
+  &.violet:before {
+    background-color: @violet;
+  }
+
+  &.magenta:before {
+    background-color: @magenta;
+  }
+}
+
+.service-icon {
+  margin-bottom: 30px;
+
+  &:before {
+    content:'';
+    display: inline-block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: @base-gray;
+    .border-radius();
+    color: @white;
+    text-align: center;
+    font-family: @montserrat;
+    padding-top: 8px;
+    .heavy-text();
+    font-size: 21px;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  h4, p {
+    margin-left: 70px;
+  }
+}
+
+.service-icon-aurora:before {
+  content: 'Au';
+  background-color: @bluepop;
+}
+
+.service-icon-marathon:before {
+  content: 'Ma';
+  background-color: @bluepop;
+}
+
+.service-icon-sssp:before {
+  content: 'Sp';
+  background-color: @bluepop;
+}
+
+.service-icon-cray:before {
+  content: 'Cc';
+  background-color: @seafoam;
+}
+
+.service-icon-exelixi:before {
+  content: 'Ex';
+  background-color: @seafoam;
+}
+
+.service-icon-hydra:before {
+  content: 'Mi';
+  background-color: @seafoam;
+}
+
+.service-icon-dpark:before {
+  content: 'Dp';
+  background-color: @seafoam;
+}
+
+.service-icon-hadoop:before {
+  content: 'Ha';
+  background-color: @seafoam;
+}
+
+.service-icon-spark:before {
+  content: 'Sk';
+  background-color: @seafoam;
+}
+
+.service-icon-storm:before {
+  content: 'St';
+  background-color: @seafoam;
+}
+
+.service-icon-chronos:before {
+  content: 'Ch';
+  background-color: @violet;
+}
+
+.service-icon-torque:before {
+  content: 'Tq';
+  background-color: @violet;
+}
+
+.service-icon-jenkins:before {
+  content: 'Jk';
+  background-color: @violet;
+}
+
+.service-icon-cassandra:before {
+  content: 'Ca';
+  background-color: @magenta;
+}
+
+.service-icon-elastic:before {
+  content: 'Es';
+  background-color: @magenta;
+}
+
+.service-icon-hypertable:before {
+  content: 'Ht';
+  background-color: @magenta;
+}
+
+.learn-mesos-tools,
+.learn-mesos-resources {
+  li {
+    margin-bottom: 30px;
+  }
+}
+
+// mailing list
+
+.learn-mailing-list {
+  background-color: @violet;
+  color: @white;
+
+  // don't let the sandwich overflow the container
+  overflow-x: hidden;
+}
+
+.paperkraft-character {
+  top: -40px;
+
+  @media (max-width: 768px) {
+    top: 0;
+    margin-bottom: @section-spacing;
+
+    img {
+      width: 50%;
+      height: 50%;
+      float: left;
+    }
+  }
+
+  @media (max-width: 320px) {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.paperkraft-quote {
+  .heavy-text();
+  color: lighten(@violet, 40%);
+  color: @white;
+  .opacity(0.8);
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    float: left; // Find a way to make this work with columns
+    margin-left: 15px;
+  }
+}
+
+.progress-state {
+  fill: @violet;
+}
+
+.progress-fill {
+  fill: lighten(@base-gray, 60%);
+}

@@ -1,0 +1,146 @@
+---
+redirect_from:
+  - /learn/run-play-on-mesos/
+layout: tutorial
+title: Run Play on Mesos
+tutorial_icon_classname: tutorial-icon-play
+framework: play
+tutorial_name: run-play-on-mesos
+overview: Introduction and prerequisites for getting Play running on Mesos
+steps:
+  - title: Getting Started
+    blurb: >
+      Get started running a Play app by launching Marathon
+    icon: fa-terminal
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span>
+
+      Welcome to Ubuntu 12.10 (GNU/Linux 3.5.0-41-generic x86_64)
+
+       * Documentation:  https://help.ubuntu.com/
+
+        System information as of Fri Nov  1 18:52:24 UTC 2013
+
+        System load:  0.0               Processes:           74
+
+        Usage of /:   16.1% of 7.87GB   Users logged in:     0
+
+        Memory usage: 3%                IP address for eth0: <span data-replace="master-internal-ip">10.123.92.22</span>
+
+        Swap usage:   0%
+      ubuntu@ec2-184-72-188-41:~$ curl -i localhost:5050/master/health
+
+      HTTP/1.1 200 OK
+
+      Date: Tue, 05 Nov 2013 23:23:47 GMT
+
+      Content-Length: 0
+      </pre></code>
+    instruction: >
+      <p>To run a <a href="http://www.playframework.com/">Play</a> app on Mesos, we'll use <a href="https://github.com/mesosphere/marathon">Marathon</a>. Marathon makes it easy to run any long-lived "always on" application on Mesos.</p>
+      <p>To get started launching Marathon, first ssh into a Mesos master:</p>
+      <pre data-code><code class="codeblock">ssh -l ubuntu <span data-replace="master-ip">54.211.52.241</span></code></pre> You can verify that you're on a Mesos master by pinging its health endpoint:</p>
+      <pre data-code><code class="codeblock">curl -i localhost:5050/master/health</code></pre>
+      <p>The response should be an <code>HTTP/1.1 200 OK</code>.</p>
+  - title: Download tar archive
+    blurb: >
+      Download the public tar archive for Marathon, unpack it, and change to the unpacked directory
+    icon: fa-cloud-download
+    blackboard: >
+      <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz
+
+      ubuntu@ec2-184-72-188-41:~$ tar xzf marathon.tgz
+
+      ubuntu@ec2-184-72-188-41:~$ cd marathon
+
+      ubuntu@ec2-184-72-188-41:~/marathon$
+      </code></pre>
+    instruction: >
+      <p>Now, download the public tar archive for Marathon.</p>
+      <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz</code></pre>
+      <p>Then unpack it and change to the unpacked directory.</p>
+      <pre data-code><code class="codeblock">tar xzf marathon.tgz &amp;&amp; cd marathon</code></pre>
+      <p>If you don't want to download the tar archive, you can git clone the repo from <a href="https://github.com/mesosphere/marathon">Github</a> and follow the build instructions.</p>
+  - title: Verify Marathon registration
+    blurb: >
+      Use the start script to bring up Marathon and verify it's registered to the Mesos master
+    icon: fa-check
+    blackboard: >
+      <pre class="terminal"><code>ubuntu@ec2:~/marathon$ nohup ./bin/start --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">localhost:2181</span> &amp;
+
+      [1] 1824
+
+      ubuntu@ec2:~/marathon$ nohup: ignoring input and appending output to `nohup.out'
+
+
+      ubuntu@ec2:~/marathon$ egrep "(Registered as|Started SelectChannelConnector)" nohup.out
+
+      INFO: Registered as 201311120014-1791840266-5050-825-0000 to master '201311120014-1791840266-5050-825'
+
+      INFO: Started SelectChannelConnector@0.0.0.0:8080</code></pre>
+    instruction: >
+      <p>Use the start script to bring up Marathon. We'll run it in the background and direct output to nohup.out. The options <code>--master</code> and <code>--zk_hosts</code> identify Zookeeper hosts:</p>
+      <pre data-code><code class="codeblock">nohup ./bin/start --master zk://<span data-replace="zookeeper">localhost:2181</span>/mesos --zk_hosts <span data-replace="zookeeper">localhost:2181</span> &amp;</code></pre>
+      <p>Note the different syntax of the arguments. For a full list of options run the start script with <code>--help</code>.</p>
+      <p>Verify that Marathon is registered to the Mesos master and that it started its web server on port 8080.</p>
+      <pre data-code><code class="codeblock">egrep "(Registered as|Started SelectChannelConnector)" nohup.out</code></pre>
+      <p>If everything has started correctly, you'll see output similar to the example shown here.</p>
+  - title: Launch a new app
+    blurb: >
+      Navigate to the Marathon web UI and launch a new app
+    icon: fa-play
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/play_create.jpg %}"></span>
+    instruction: >
+      <p>Next, navigate to the Marathon web UI at <code>http://<span data-replace="master-ip">54.211.52.241</span>:8080</code>. Click the NEW button to start a new app. Fill in the following:</p>
+
+      <h6 class="codeblock-label">Id</h6>
+      <pre data-code><code class="codeblock">Hello</code></pre>
+      <h6 class="codeblock-label">Command</h6>
+      <pre data-code><code class="codeblock">./Hello-*/bin/hello -Dhttp.port=$PORT</code></pre>
+      <h6 class="codeblock-label">Memory</h6>
+      <pre data-code><code class="codeblock">512</code></pre>
+      <h6 class="codeblock-label">CPUs</h6>
+      <pre data-code><code class="codeblock">1</code></pre>
+      <h6 class="codeblock-label">Instances</h6>
+      <pre data-code><code class="codeblock">1</code></pre>
+      <h6 class="codeblock-label">URIs</h6>
+      <pre data-code><code class="codeblock">http://downloads.mesosphere.io/tutorials/PlayHello.zip</code></pre>
+      <p>Click the start button to launch your app.</p>
+  - title: Play! with your app
+    blurb: >
+      Play with your newly launched app in the Marathon web UI
+    icon: fa-rocket
+    blackboard: >
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/play_running.jpg %}"></span>
+    instruction: >
+      <p>The web UI should now show your running app. Mouse over the row and click to see the details. The UI allows you to scale an app up or down by setting the number of instances to run. You can suspend an app (equal to scaling to 0), and destroy it, which deletes all information about the app and is irreversible.</p>
+  - title: Find where your Play app is running
+    blurb: >
+      Use the Marathon REST API to find out where your Play app is running
+    icon: fa-star
+    blackboard: >
+      <pre class="terminal"><code>bash-3.2$ curl http://<span data-replace="master-ip">54.211.52.241</span>:8080/v1/endpoints
+
+      Hello_12402 12402 ec2-54-221-124-180.compute-1.amazonaws.com:31758</code></pre>
+
+      <span data-img-placeholder
+        data-alt=""
+        data-class="thumbnail img-responsive"
+        data-src="{% asset_path learn/marathon_02_play.jpg %}"></span>
+    instruction: >
+      <p>Next, let's use the Marathon REST API to find out where our Play app is running. You can get a list of the app instances like this:</p>
+      <pre data-code><code class="codeblock">curl http://<span data-replace="master-ip">54.211.52.241</span>:8080/v1/endpoints</code></pre>
+      <p>The first column in the output is the app ID and the global app port separated by an underscore. The second column is the global app port. All following columns are hostname and port pairs of the running app instances. Copy &amp; paste the hostname and port into a browser and you should see a running Play application.</p>
+success:
+  text: >
+    <p>Congratulations! You now have Play running on Mesos!</p>
+    <h4>Bonus Points</h4>
+    <p>If you were wondering what the global app port is, Marathon exposes it for load balancing. For bonus points, try running <a href="http://haproxy.1wt.eu/">HAProxy</a> on each cluster node so that requests to the global app port are proxied to each instance within the cluster. Here is a <a href="https://github.com/mesosphere/marathon/blob/master/bin/haproxy-marathon-bridge">sample script</a> to get started with.</p>
+---

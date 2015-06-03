@@ -1,0 +1,25 @@
+<div class="row tutorial-header">
+  <div class="col-md-8">
+    <h2 class="tutorial-icon {{ page.tutorial_icon_classname }}" style="margin-top:0;">
+      <span itemprop="headline name">{{ page.title }}</span>
+      <time class="text-muted h4">
+        {{ tutorial.date | date: "%B %-d, %Y" }}
+      </time>
+    </h2>
+  </div>
+  {% assign total_steps = page.steps.size | plus: 1 %}
+  <div class="col-md-4 tutorial-progress-bar">
+    {% unless include.hide_progress == "true" %}
+      {% assign stepNumber = forloop.index %}
+      <div class="progress {% if stepNumber == nil %}complete{% endif %}">
+        {% for a in page.steps %}
+          <a style="width: {{ 100.0 | divided_by: total_steps }}%;"
+              class="progress-bar {% if forloop.index <= stepNumber %} on {% endif %}"
+              href="#step-{{ forloop.index }}"></a>
+        {% endfor %}
+        <a style="width: {{ 100.0 | divided_by: total_steps }}%;"
+            class="progress-bar" href="#success"></a>
+      </div>
+    {% endunless %}
+  </div>
+</div>

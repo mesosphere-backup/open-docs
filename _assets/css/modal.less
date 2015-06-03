@@ -1,0 +1,33 @@
+.modal-header {
+  background-color: @base-gray;
+  color: @white;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  .close {
+    color: @white;
+    .opacity(0.5);
+    text-shadow: none;
+    .transition(all 0.3s);
+
+    &:hover {
+      color: @white;
+      .opacity(0.9);
+    }
+  }
+}
+
+.modal-footer {
+  margin-top: 0;
+  padding: 0 20px 20px 20px;
+  border-top: none;
+  text-align: left;
+
+  .btn-link {
+    float: right;
+  }
+}
+
+.clear-all {
+  .heavy-text();
+}
