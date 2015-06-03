@@ -1,4 +1,4 @@
-url: http://docs-staging.mesosphere.com.s3-website-us-west-2.amazonaws.com
+url: http://open-docs-staging.s3-website-us-west-1.amazonaws.com
 env: staging
 
 assets:

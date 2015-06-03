@@ -3,7 +3,7 @@ markdown: rdiscount
 permalink: pretty
 highlighter: pygments
 encoding: utf-8
-url: https://docs.mesosphere.com
+url: https://open.mesosphere.com
 
 env: production
 gems:
