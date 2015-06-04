@@ -1,6 +1,6 @@
 
-STAGING = s3://open-docs-staging.mesosphere.com/ --region us-west-1
-PROD = s3://open-docs.mesosphere.com/ --region us-west-1
+STAGING = s3://open-staging.mesosphere.com/
+PROD = s3://open.mesosphere.com/
 PUBLIC_DIR= _build/
 
 DOCKER_IMAGE=thomasr/build-jekyll
