@@ -3,7 +3,7 @@ layout: doc
 title: Introduction to Mesosphere
 
 redirect_to:
-- mesosphere.com/downloads/
+- http://mesosphere.com/downloads/
 ---
 
 Welcome to the world of Mesosphere! This guide will explain what Mesosphere is, why it exists, the benefits it has to offer and how you can get started with it. If you're already familiar with Mesosphere, the [documentation](/) provides more of a reference for all available features.
