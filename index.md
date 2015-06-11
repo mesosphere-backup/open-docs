@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Mesosphere Documentation
+title: Mesosphere Universe Documentation
 ---
 
 ## Introduction

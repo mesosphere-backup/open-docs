@@ -197,5 +197,4 @@ title: Frameworks On Mesos
   </ul>
   <hr>
 
-  Can't find yours in the list? <a href="/contact/">Let us know! <i class="fa fa-angle-double-right"></i></a>
 </div>

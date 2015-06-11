@@ -33,7 +33,7 @@ In this tutorial we will run both master and slave, ZooKeeper and Marathon on th
 
 #### Setup Repositories
 
-The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/) and install it manually.
+The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the <a href="http://mesosphere.com/downloads/" target="_blank">Mesosphere downloads page</a> and install it manually.
 
 {% include downloads/repository-setup.md %}
 

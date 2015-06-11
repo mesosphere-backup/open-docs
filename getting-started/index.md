@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Getting Started
+
 ---
 
 ## Mesosphere in the Cloud
