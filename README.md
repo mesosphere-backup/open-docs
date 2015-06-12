@@ -5,7 +5,7 @@ Mesosphere's Website
 
 Deployment of the website is done automatically, but to prevent a catastrophe there's a few limitations:
 
-1. If you commit to the master branch, it only goes to [staging](http://open-docs-staging.mesosphere.com.s3-website-us-west-1.amazonaws.com).
+1. If you commit to the master branch, it only goes to [staging](http://open-staging.mesosphere.com.s3-website-us-east-1.amazonaws.com/).
 2. To move your changes to production, you need to merge from the master branch to the prod branch.
 3. We use github pull requests to do review of changes before they go live, so don't do merging on the command line.
 

@@ -1,358 +1,307 @@
 - name: mesos
   releases:
+
+    - name: 0.22.1
+      announcement: https://github.com/apache/mesos/blob/0.22.1/CHANGELOG
+      timestamp: 2015-05-12 00:00:00 +0000
+      packages:
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/14.04/mesos_0.22.1-1.0.ubuntu1404_amd64.deb
+        egg_path: ubuntu/14.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Ubuntu 13.10 (AMD 64)
+        path: ubuntu/13.10/mesos_0.22.1-1.0.ubuntu1310_amd64.deb
+        egg_path: ubuntu/13.10/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Ubuntu 13.04 (AMD 64)
+        path: ubuntu/13.04/mesos_0.22.1-1.0.ubuntu1304_amd64.deb
+        egg_path: ubuntu/13.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Ubuntu 12.10 (AMD 64)
+        path: ubuntu/12.10/mesos_0.22.1-1.0.ubuntu1210_amd64.deb
+        egg_path: ubuntu/12.10/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Ubuntu 12.04 (AMD 64)
+        path: ubuntu/12.04/mesos_0.22.1-1.0.ubuntu1204_amd64.deb
+        egg_path: ubuntu/12.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Debian 7 (AMD 64)
+        path: debian/7/mesos_0.22.1-1.0.debian78_amd64.deb
+        egg_path: debian/7/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: CentOS 6 (x86_64)
+        path: centos/6/mesos-0.22.1-1.0.centos65.x86_64.rpm
+        egg_path: centos/6/mesos-0.22.1-py2.6-linux-x86_64.egg
+      - name: CentOS 7 (x86_64)
+        path: centos/7/mesos-0.22.1-1.0.centos701406.x86_64.rpm
+        egg_path: centos/7/mesos-0.22.1-py2.7-linux-x86_64.egg
+      - name: Red Hat 6 (x86_64)
+        path: redhat/6/mesos-0.22.1-1.0.redhat65.x86_64.rpm
+        egg_path: redhat/6/mesos-0.22.1-py2.6-linux-x86_64.egg
+
     - name: 0.22.0
       announcement: https://github.com/apache/mesos/blob/0.22.0/CHANGELOG
       timestamp: 2015-03-26 00:00:00 +0000
-      release_group: stable
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.22.0-1.0.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.22.0-1.0.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.22.0-1.0.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.22.0-1.0.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.22.0-1.0.debian78_amd64.deb
         egg_path: debian/7/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.22.0-1.0.centos65.x86_64.rpm
         egg_path: centos/6/mesos-0.22.0-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: CentOS 7 (x86_64)
         path: centos/7/mesos-0.22.0-1.2.centos701406.x86_64.rpm
         egg_path: centos/7/mesos-0.22.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.22.0-1.0.redhat65.x86_64.rpm
         egg_path: redhat/6/mesos-0.22.0-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.21.1
       announcement: https://github.com/apache/mesos/blob/0.21.1/CHANGELOG
       timestamp: 2015-01-08 00:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.21.1-1.1.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.21.1-1.1.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.21.1-1.1.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.21.1-1.1.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.21.1-1.1.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.21.1-1.2.debian77_amd64.deb
         egg_path: debian/7/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.21.1-1.1.centos65.x86_64.rpm
         egg_path: centos/6/mesos-0.21.1-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: CentOS 7 (x86_64)
         path: centos/7/mesos-0.21.1-1.1.centos701406.x86_64.rpm
         egg_path: centos/7/mesos-0.21.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.21.1-1.1.redhat65.x86_64.rpm
         egg_path: redhat/6/mesos-0.21.1-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.21.0
       announcement: https://github.com/apache/mesos/blob/0.21.0/CHANGELOG
       timestamp: 2014-11-21 00:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.21.0-1.0.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.21.0-1.0.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.21.0-1.0.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.21.0-1.0.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.21.0-1.0.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.21.0-1.0.debian77_amd64.deb
         egg_path: debian/7/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.21.0-1.0.centos65.x86_64.rpm
         egg_path: centos/6/mesos-0.21.0-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: CentOS 7 (x86_64)
         path: centos/7/mesos-0.21.0-1.0.centos701406.x86_64.rpm
         egg_path: centos/7/mesos-0.21.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.21.0-1.0.redhat65.x86_64.rpm
         egg_path: redhat/6/mesos-0.21.0-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.20.1
       announcement: https://github.com/apache/mesos/blob/0.20.1/CHANGELOG
       timestamp: 2014-09-24 00:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.20.1-1.0.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.20.1-1.0.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.20.1-1.0.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.20.1-1.0.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.20.1-1.0.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.20.1-1.0.debian75_amd64.deb
         egg_path: debian/7/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.20.1-1.0.centos64.x86_64.rpm
         egg_path: centos/6/mesos-0.20.1-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: CentOS 7 (x86_64)
         path: centos/7/mesos-0.20.1-1.0.centos701406.x86_64.rpm
         egg_path: centos/7/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.20.1-1.0.redhat65.x86_64.rpm
         egg_path: redhat/6/mesos-0.20.1-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 7 (x86_64)
         path: centos/7/mesos-0.20.1-1.0.centos701406.x86_64.rpm
         egg_path: centos/7/mesos-0.20.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.20.0
       announcement: https://github.com/apache/mesos/blob/0.20.0/CHANGELOG
       timestamp: 2014-08-22 00:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.20.0-1.0.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.20.0-1.0.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.20.0-1.0.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.20.0-1.0.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.20.0-1.0.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.20.0-1.0.debian75_amd64.deb
         egg_path: debian/7/mesos-0.20.0-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.20.0-1.0.centos64.x86_64.rpm
         egg_path: centos/6/mesos-0.20.0-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.20.0-1.0.redhat65.x86_64.rpm
         egg_path: redhat/6/mesos-0.20.0-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.19.1
       announcement: https://github.com/apache/mesos/blob/0.19.1/CHANGELOG
       timestamp: 2014-07-18 18:40:08 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.19.1-1.0.ubuntu1404_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.19.1-1.0.ubuntu1310_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.19.1-1.0.ubuntu1304_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.19.1-1.0.ubuntu1210_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.19.1-1.0.ubuntu1204_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.19.1-1.0.debian75_amd64.deb
         egg_path: debian/7/mesos-0.19.1-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos-0.19.1-1.0.centos64.x86_64.rpm
         egg_path: centos/6/mesos-0.19.1-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos-0.19.1-1.0.redhat64.x86_64.rpm
         egg_path: redhat/6/mesos-0.19.1-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.19.0
       announcement: https://github.com/apache/mesos/blob/0.19.0/CHANGELOG
       timestamp: 2014-06-09 12:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.19.0~ubuntu14.04%2B1_amd64.deb
         egg_path: ubuntu/14.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.19.0~ubuntu13.10%2B1_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.19.0~ubuntu13.04%2B1_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.19.0~ubuntu12.10%2B1_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.19.0~ubuntu12.04%2B1_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.19.0~debian7.1%2B1_amd64.deb
         egg_path: debian/7/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.19.0_x86_64.rpm
         egg_path: centos/6/mesos-0.19.0_rc2-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.19.0_x86_64.rpm
         egg_path: redhat/6/mesos-0.19.0_rc2-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.18.2
       announcement: https://github.com/apache/mesos/blob/0.18.2/CHANGELOG
       timestamp: 2014-05-19 12:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.18.2_amd64.deb
         egg_path: ubuntu/13.10/mesos-0.18.2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.18.2_amd64.deb
         egg_path: ubuntu/13.04/mesos-0.18.2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.18.2_amd64.deb
         egg_path: ubuntu/12.10/mesos-0.18.2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.18.2_amd64.deb
         egg_path: ubuntu/12.04/mesos-0.18.2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.18.2_amd64.deb
         egg_path: debian/7/mesos-0.18.2-py2.7-linux-x86_64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.18.2_x86_64.rpm
         egg_path: centos/6/mesos-0.18.2-py2.6.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.18.2_x86_64.rpm
         egg_path: redhat/6/mesos-0.18.2-py2.6-linux-x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.18.0
       announcement: https://github.com/apache/mesos/blob/0.18.0/CHANGELOG
       timestamp: 2014-04-09 12:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.18.0_amd64.deb
         egg_path: ubuntu/13.10/mesos_0.18.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.18.0_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.18.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.18.0_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.18.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.18.0_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.18.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.18.0_amd64.deb
         egg_path: debian/7/mesos_0.18.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.18.0_x86_64.rpm
         egg_path: centos/6/mesos_0.18.0_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.18.0_x86_64.rpm
         egg_path: redhat/6/mesos_0.18.0_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: OS X 10.9 Mavericks
         path: osx/10.9/mesos-0.18.0.pkg
         egg_path: osx/10.9/mesos-0.18.0-py2.7-macosx-10.9-intel.egg
@@ -360,190 +309,123 @@
     - name: 0.17.0
       announcement: https://github.com/apache/mesos/blob/0.17.0/CHANGELOG
       timestamp: 2014-02-27 12:00:00 +0000
-      release_group: archive
       packages:
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.17.0_amd64.deb
         egg_path: ubuntu/13.10/mesos_0.17.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.17.0_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.17.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.17.0_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.17.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.17.0_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.17.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.17.0_amd64.deb
         egg_path: debian/7/mesos_0.17.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.17.0_x86_64.rpm
         egg_path: centos/6/mesos_0.17.0_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.17.0_x86_64.rpm
         egg_path: redhat/6/mesos_0.17.0_x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.16.0
       announcement: https://github.com/apache/mesos/blob/0.16.0-rc5/CHANGELOG
       timestamp: 2014-02-06 12:00:00 -0800
-      release_group: archive
       packages:
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.16.0_amd64.deb
         egg_path: ubuntu/13.10/mesos_0.16.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.16.0_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.16.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.16.0_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.16.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.16.0_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.16.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.16.0_amd64.deb
         egg_path: debian/7/mesos_0.16.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.16.0_x86_64.rpm
         egg_path: centos/6/mesos_0.16.0_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.16.0_x86_64.rpm
         egg_path: redhat/6/mesos_0.16.0_x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.15.0
       announcement: https://github.com/apache/mesos/blob/0.15.0/CHANGELOG
       timestamp: 2014-01-09 12:00:00 -0800
-      release_group: archive
       packages:
       - name: Ubuntu 13.10 (AMD 64)
         path: ubuntu/13.10/mesos_0.15.0_amd64.deb
         egg_path: ubuntu/13.10/mesos_0.15.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.15.0_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.15.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.15.0_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.15.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.15.0_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.15.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.15.0_amd64.deb
         egg_path: debian/7/mesos_0.15.0_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.15.0_x86_64.rpm
         egg_path: centos/6/mesos_0.15.0_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.15.0_x86_64.rpm
         egg_path: redhat/6/mesos_0.15.0_x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.14.2
       announcement: http://mesos.apache.org/blog/mesos-0-14-2-released/
       timestamp: 2013-11-03 18:03:28 -0800
-      release_group: archive
       packages:
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.14.2_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.14.2_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.14.2_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.14.2_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.14.2_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.14.2_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.14.2_amd64.deb
         egg_path: debian/7/mesos_0.14.2_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.14.2_x86_64.rpm
         egg_path: centos/6/mesos_0.14.2_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.14.2_x86_64.rpm
         egg_path: redhat/6/mesos_0.14.2_x86_64.egg
-        instructions: learn/install_centos_rhel
 
     - name: 0.14.1
       announcement: http://mesos.apache.org/blog/slave-recovery-in-apache-mesos/
       timestamp: 2013-10-09 15:53:41 -0700
-      release_group: archive
       packages:
       - name: Ubuntu 13.04 (AMD 64)
         path: ubuntu/13.04/mesos_0.14.1_amd64.deb
         egg_path: ubuntu/13.04/mesos_0.14.1_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.10 (AMD 64)
         path: ubuntu/12.10/mesos_0.14.1_amd64.deb
         egg_path: ubuntu/12.10/mesos_0.14.1_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Ubuntu 12.04 (AMD 64)
         path: ubuntu/12.04/mesos_0.14.1_amd64.deb
         egg_path: ubuntu/12.04/mesos_0.14.1_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: Debian 7 (AMD 64)
         path: debian/7/mesos_0.14.1_amd64.deb
         egg_path: debian/7/mesos_0.14.1_amd64.egg
-        instructions: learn/install_ubuntu_debian
       - name: CentOS 6 (x86_64)
         path: centos/6/mesos_0.14.1_x86_64.rpm
         egg_path: centos/6/mesos_0.14.1_x86_64.egg
-        instructions: learn/install_centos_rhel
       - name: Red Hat 6 (x86_64)
         path: redhat/6/mesos_0.14.1_x86_64.rpm
         egg_path: redhat/6/mesos_0.14.1_x86_64.egg
-        instructions: learn/install_centos_rhel
-
-- name: marathon
-  releases:
-    - name: 0.7.5
-      announcement: https://github.com/mesosphere/marathon/releases/tag/v0.7.5
-      timestamp: 2014-11-12 00:00:00 +0000
-      release_group: stable
-      mesos_version: 0.20.0 to 0.20.1
-      path: marathon/v0.7.5/marathon-0.7.5.tgz
-
-    - name: 0.6.1
-      announcement: https://github.com/mesosphere/marathon/releases/tag/marathon-0.6.1
-      timestamp: 2014-07-18 00:00:00 +0000
-      release_group: stable
-      mesos_version: 0.19.0 to 0.19.1
-      path: marathon/marathon-0.6.1/marathon-0.6.1.tgz
-
-    - name: 0.5.1
-      announcement: https://github.com/mesosphere/marathon/releases/tag/marathon-0.5.1
-      timestamp: 2014-06-05 00:00:00 +0000
-      release_group: stable
-      mesos_version: 0.17.0 to 0.18.2
-      path: marathon/marathon-0.5.1/marathon-0.5.1.tgz
-
-    - name: 0.5.1-Mesos-0.16.0
-      announcement: https://github.com/mesosphere/marathon/releases/tag/marathon-0.5.1
-      timestamp: 2014-06-05 00:00:00 +0000
-      release_group: stable
-      path: marathon/marathon-0.5.1_mesos-0.16.0/marathon-0.5.1_mesos-0.16.0.tgz
