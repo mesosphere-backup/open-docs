@@ -59,3 +59,6 @@
 
     - title: "Glossary"
       href: "/reference/glossary/"
+
+- title: "Downloads"
+  href: "/downloads/mesos/"
