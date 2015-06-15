@@ -3,7 +3,7 @@ layout: doc
 title: Mesosphere in the Datacenter
 
 redirect_to:
-  - http://open.mesosphere.com/overview/dcosarchitecture/
+  - http://docs.mesosphere.com/overview/dcosarchitecture/
 ---
 
 Installing Mesosphere by hand is straightforward. The guides below will get you up and running a Mesosphere cluster in no time.

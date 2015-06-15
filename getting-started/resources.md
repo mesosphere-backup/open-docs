@@ -29,6 +29,4 @@ This is a giter8 template. The result of applying this template is a bare-bones 
 
 A simple Mesos "Hello World": downloads and starts a web server on every node in the cluster.
 
-***
 
-Can't find yours in the list? <a href="/contact/">Let us know! <i class="fa fa-angle-double-right"></i></a>
