@@ -39,6 +39,3 @@ Configure Marathon with Ansible.
 
 Configure a Mesosphere cluster which includes Apache Mesos, Marathon and Consul against virtualbox, Amazon AWS or Digital Ocean.
 
-***
-
-Can't find yours in the list? <a href="/contact/">Let us know! <i class="fa fa-angle-double-right"></i></a>
