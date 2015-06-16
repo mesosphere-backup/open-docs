@@ -1,34 +1,36 @@
+redirect_to:
+- http://open.mesosphere.com/intro-course/ex2.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 2: Installing ZooKeeper</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 2: Installing ZooKeeper</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -111,35 +113,29 @@ stores state for the Mesos nodes.</p>
 <h1>Quick Reference</h1>
 <p>You can start Zookeeper after completing exercise 1.</p>
 <p>Install Zookeeper and the Zookeeper server package by pointing to the RPM repository for ZooKeeper:</p>
-<pre class="literal-block">
-sudo rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
-sudo yum -y install zookeeper zookeeper-server
-</pre>
-<p>Initialize and start Zookeeper:</p>
-<pre class="literal-block">
-sudo -u zookeeper zookeeper-server-initialize --myid=1
-sudo service zookeeper-server start
-</pre>
-<p>Use the interactive shell to test your installation:</p>
-<pre class="literal-block">
-/usr/lib/zookeeper/bin/zkCli.sh
-# sometimes at this point you get an error that java is missing.  This means yum did NOT install java for...reasons.  Start over.
-help
-create /test 1
-get /test
-set /test 2
-get /test
-delete /test
-</pre>
-<p>Validate that you can stop and restart ZooKeeper:</p>
-<pre class="literal-block">
-sudo service zookeeper-server stop
-</pre>
-</div>
+<div class="highlight"><pre><a name="code--ex2--zookeeper_rpms.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
+<a name="code--ex2--zookeeper_rpms.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo yum -y install zookeeper zookeeper-server
+</pre></div><p>Initialize and start Zookeeper:</p>
+<div class="highlight"><pre><a name="code--ex2--zookeeper_setup_start.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo -u zookeeper zookeeper-server-initialize --myid<span class="o">=</span>1
+<a name="code--ex2--zookeeper_setup_start.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo service zookeeper-server start
+</pre></div><p>Use the interactive shell to test your installation:</p>
+<div class="highlight"><pre><a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> /usr/lib/zookeeper/bin/zkCli.sh
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-2"></a><span class="gp">#</span> sometimes at this point you get an error that java is missing.  This means yum did NOT install java <span class="k">for</span>...reasons.  Start over.
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-3"></a><span class="go">help</span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-4"></a><span class="go">create /test 1</span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-5"></a><span class="go">get /test </span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-6"></a><span class="go">set /test 2</span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-7"></a><span class="go">get /test</span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-8"></a><span class="go">delete /test</span>
+<a name="code--ex2--zookeeper_test.sh-session-jinja-idio.html-9"></a><span class="go">quit</span>
+</pre></div><p>Validate that you can stop and restart ZooKeeper:</p>
+<div class="highlight"><pre><a name="code--ex2--zookeeper_restart.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo service zookeeper-server stop
+<a name="code--ex2--zookeeper_restart.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo service zookeeper-server start
+</pre></div></div>
 <div class="section" id="further-study">
 <h1>Further Study</h1>
 <ul class="simple">
-<li>Read about ZooKeeper and learn how to work with it by using the shell.</li>
+<li><a class="reference external" href="http://zookeeper.apache.org/doc/r3.3.2/zookeeperAdmin.html">Read about ZooKeeper</a> and learn how to work with it by using the shell.</li>
 <li>Try taking ZooKeeper down and then attempt to use the shell again.  This will show you some of the common error messages you get.</li>
 <li>Find ZooKeeper in your process list, and find out where it is installed on the system.</li>
 </ul>

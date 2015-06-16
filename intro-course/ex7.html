@@ -1,34 +1,36 @@
+redirect_to:
+- http://open.mesosphere.com/intro-course/index.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 7: Building and Running Mesos DNS</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 7: Building and Running Mesos DNS</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -104,76 +106,77 @@ use it for normal DNS queries as well as Mesos name lookups.</p>
 </ol>
 <div class="section" id="video-lecture">
 <h1>Video Lecture</h1>
-<p><strong>Warning</strong>
-The video uses the -v option, but this has changed to --v={0,1,2}.  You must either remove that option or use the new version.</p>
-<style>.smart-player-embed-container-iframe{width:768px;height:576px}.smart-player-full-frame-mode{position:absolute;top:0;left:0;z-index:10;width:100%;height:100%;padding:0;margin:0}</style>
-<iframe class="smart-player-embed-container-iframe" id="embeddedSmartPlayerInstance" src="https://s3-us-west-2.amazonaws.com/docs-staging.mesosphere.com/Videos/Mesos-Intro-Lecture-7/media/index_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no"  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-<script src="media/scripts/embedded-smart-player.min.js"></script></div>
+<p>Mesos-DNS is currently being updated to a new release out soon at which point we'll have a new video and instructions for it.</p>
+</div>
 <div class="section" id="quick-reference">
 <h1>Quick Reference</h1>
 <p>You can find more information about Mesos DNS at <a class="reference external" href="http://mesosphere.github.io/mesos-dns/docs/">http://mesosphere.github.io/mesos-dns/docs/</a>.</p>
 <p>Install the Go programming language:</p>
-<pre class="literal-block">
-sudo yum -y install golang git bind-utils
-mkdir ~/go
-export GOPATH=~/go
-go get github.com/miekg/dns
-go get github.com/mesosphere/mesos-dns
-cd $GOPATH/src/github.com/mesosphere/mesos-dns
-go build -o mesos-dns
-ls -l # now you should see the mesos-dns binary which can be uploaded anywhere
-</pre>
-<p>Configure mesos-dns to run on this machine:</p>
-<ol class="arabic">
-<li><p class="first">Add <tt class="docutils literal">nameserver 192.168.33.10</tt> to the first line of the resolve.conf file.</p>
-</li>
-<li><p class="first">Rename the JSON config file:</p>
-<pre class="literal-block">
-cp config.json.sample config.json
-</pre>
-</li>
-</ol>
-<p>Modify the <tt class="docutils literal">config.json</tt> to use the vagrant IP of 192.168.33.10 and change the port from 8053 to 53.</p>
-<p>Create a mesos-dns launcher in Marathon by using the GUI with this command:</p>
-<pre class="literal-block">
-sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
-</pre>
-<p>Add <tt class="docutils literal">nameserver 192.168.33.10</tt> to the first line of the resolv.conf file.</p>
-<p>Modify the <tt class="docutils literal">config.json</tt> to use the vagrant IP of 192.168.33.10 and change the port from 8053 to 53:</p>
-<pre class="literal-block">
-cp config.json.sample config.json
-</pre>
-<p>Create a mesos-dns launcher in Marathon by using the GUI with this command:</p>
-<pre class="literal-block">
-sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
-</pre>
-<p>Add this in the <tt class="docutils literal">Constraints</tt> field:</p>
+<div class="highlight"><pre><a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo yum -y install golang git <span class="nb">bind</span>-utils
+</pre></div><p>Then build the mesos-dns project:</p>
+<div class="highlight"><pre><a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> mkdir ~/go
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> <span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-4"></a><span class="gp">$</span> go get github.com/tools/godep
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-5"></a><span class="gp">$</span> go get github.com/mesosphere/mesos-dns
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-6"></a><span class="gp">$</span> <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/mesosphere/mesos-dns
+<a name="code--ex7--install_mesos_dns.sh-session-jinja-idio.html-7"></a><span class="gp">$</span> make restoredeps build
+</pre></div><p>Add <tt class="docutils literal">nameserver 192.168.33.10</tt> to the first line of the <tt class="docutils literal">/etc/resolv.conf</tt> file:</p>
+<div class="highlight"><pre><a name="code--ex7--resolv.conf.txt-jinja-idio.html-1"></a>nameserver 192.168.33.10
+</pre></div><p>Mesos DNS uses a file named <tt class="docutils literal">config.json</tt> which you can copy a sample of:</p>
+<div class="highlight"><pre><a name="code--ex7--run_mesos_dns.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> cp config.json.sample config.json
+</pre></div><p>Modify the <tt class="docutils literal">config.json</tt> to use the vagrant IP of 192.168.33.10 and change the port from 8053 to 53 so it looks like this:</p>
+<div class="highlight"><pre><a name="code--ex7--config.json-jinja-idio.html-1"></a><span class="p">{</span>
+<a name="code--ex7--config.json-jinja-idio.html-2"></a>  <span class="nt">&quot;zk&quot;</span><span class="p">:</span> <span class="s2">&quot;zk://192.168.33.10:2181/mesos&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-3"></a>  <span class="nt">&quot;masters&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;192.168.33.10:5050&quot;</span><span class="p">],</span>
+<a name="code--ex7--config.json-jinja-idio.html-4"></a>  <span class="nt">&quot;refreshSeconds&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-5"></a>  <span class="nt">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-6"></a>  <span class="nt">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;mesos&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-7"></a>  <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;ns1&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-8"></a>  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-9"></a>  <span class="nt">&quot;resolvers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;8.8.8.8&quot;</span><span class="p">],</span>
+<a name="code--ex7--config.json-jinja-idio.html-10"></a>  <span class="nt">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-11"></a>  <span class="nt">&quot;listener&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-12"></a>  <span class="nt">&quot;SOAMname&quot;</span><span class="p">:</span> <span class="s2">&quot;root.ns1.mesos&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-13"></a>  <span class="nt">&quot;SOARname&quot;</span><span class="p">:</span> <span class="s2">&quot;ns1.mesos&quot;</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-14"></a>  <span class="nt">&quot;SOARefresh&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-15"></a>  <span class="nt">&quot;SOARetry&quot;</span><span class="p">:</span>   <span class="mi">600</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-16"></a>  <span class="nt">&quot;SOAExpire&quot;</span><span class="p">:</span>  <span class="mi">86400</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-17"></a>  <span class="nt">&quot;SOAMinttl&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-18"></a>  <span class="nt">&quot;dnson&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-19"></a>  <span class="nt">&quot;httpon&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-20"></a>  <span class="nt">&quot;httpport&quot;</span><span class="p">:</span> <span class="mi">8123</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-21"></a>  <span class="nt">&quot;externalon&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="code--ex7--config.json-jinja-idio.html-22"></a>  <span class="nt">&quot;recurseon&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<a name="code--ex7--config.json-jinja-idio.html-23"></a><span class="p">}</span>
+</pre></div><p>In this file the <tt class="docutils literal">zk</tt> setting tells Mesos DNS where the ZooKeeper server is located, and the <tt class="docutils literal">masters</tt> option acts as a backup list of masters in case ZooKeeper is down, or as an alternative to the <tt class="docutils literal">zk</tt> setting.  The <tt class="docutils literal">zk</tt> setting wins over the <tt class="docutils literal">masters</tt> setting.</p>
+<p>Test that mesos-dns runs locally first:</p>
+<div class="highlight"><pre><a name="code--ex7--run_mesos_dns.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v<span class="o">=</span><span class="m">1</span> -config<span class="o">=</span>/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+</pre></div><p>Create a mesos-dns launcher in Marathon by using the GUI with this command:</p>
+<div class="highlight"><pre><a name="code--ex7--run_mesos_dns.sh-session-jinja-idio.html-1"></a><span class="go">sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json</span>
+</pre></div><p>Add this in the <tt class="docutils literal">Constraints</tt> field:</p>
 <pre class="literal-block">
 hostname:CLUSTER:node1
 </pre>
 <p>This tells Marathon to only offer it to the <tt class="docutils literal">node1</tt> host where you have installed the <tt class="docutils literal"><span class="pre">mesos-dns</span></tt> package.
 Validate that you can see the host command starts working again:</p>
-<pre class="literal-block">
-host google.com
-</pre>
-<p>Use the mesos-dns for service discovery with the dig command:</p>
-<pre class="literal-block">
-dig search.marathon.mesos
-</pre>
-<p>Validate that you can see mesos-dns as a service:</p>
-<pre class="literal-block">
-host mesos-dns.mesos
-</pre>
-<p>Find the available ports:</p>
-<pre class="literal-block">
-dig _search._tcp.marathon.mesos SRV
-</pre>
+<div class="highlight"><pre><a name="code--ex7--test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> host google.com
+</pre></div><p>Use the mesos-dns for service discovery with the dig command.  You can search against Marathon apps by using the name of the app at the <tt class="docutils literal">marathon.mesos</tt> domain.  If you installed Mesos DNS in Marathon as <tt class="docutils literal">dns</tt> this this should work:</p>
+<div class="highlight"><pre><a name="code--ex7--test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> dig dns.marathon.mesos
+</pre></div><p>If you installed the <tt class="docutils literal">test</tt> app from previous exercises then this:</p>
+<div class="highlight"><pre><a name="code--ex7--test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> dig test.marathon.mesos
+</pre></div><p>You can also use the SRV records to get ports by using the app name and the port type with underscores like <tt class="docutils literal">_NAME._PORT</tt> so <tt class="docutils literal">_test._tcp</tt> is for the <tt class="docutils literal">test</tt> app's TCP port:</p>
+<div class="highlight"><pre><a name="code--ex7--test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> dig _test._tcp.marathon.mesos SRV
+</pre></div><p>However that's not very useful because SRV records are disconnected from the hosts they belong to.  A better way is to use the REST API to get an exact mapping:</p>
+<div class="highlight"><pre><a name="code--ex7--test.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> curl http://192.168.33.10:8123/v1/hosts/dns.marathon.mesos
+</pre></div><p>There are more REST calls you can make, documented at <a class="reference external" href="http://mesosphere.github.io/mesos-dns/docs/http.html">the Mesos-DNS API documentation</a>.</p>
 </div>
 <div class="section" id="further-study">
 <h1>Further Study</h1>
 <ul class="simple">
 <li>Take the Mesos DNS process down by using the <tt class="docutils literal">kill</tt> command and see that Marathon brings it back.</li>
 <li>Use Marathon to take Mesos DNS down and bring it back up.</li>
+<li>Read the <a class="reference external" href="http://mesosphere.github.io/mesos-dns/docs/configuration-parameters.html">Mesos DNS Reference Documentation</a></li>
 </ul>
 </div>
                 <!-- RST ENDS -->

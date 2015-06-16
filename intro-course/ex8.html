@@ -1,34 +1,36 @@
+redirect_to:
+- http://open.mesosphere.com/intro-course/index.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 8: Installing Chronos</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 8: Installing Chronos</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -110,11 +112,9 @@ to schedule simple tasks and a sample task dependency chain.</p>
 <div class="section" id="quick-reference">
 <h1>Quick Reference</h1>
 <p>Install Chronos using <tt class="docutils literal">yum</tt> and then start it with <tt class="docutils literal">service</tt>:</p>
-<pre class="literal-block">
-sudo yum -y install chronos
-sudo service chronos start
-</pre>
-<p>Now you can go to the web UI for Chronos at <a class="reference external" href="http://192.168.33.10:4400/">http://192.168.33.10:4400/</a> and start a job.  Create one called &quot;sleeper&quot; that sleeps for 10 seconds and goes off every 10 minutes.</p>
+<div class="highlight"><pre><a name="code--ex8--install_chronos.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo yum -y install chronos
+<a name="code--ex8--install_chronos.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo service chronos start
+</pre></div><p>Now you can go to the web UI for Chronos at <a class="reference external" href="http://192.168.33.10:4400/">http://192.168.33.10:4400/</a> and start a job.  Create one called &quot;sleeper&quot; that sleeps for 10 seconds and goes off every 10 minutes.</p>
 </div>
 <div class="section" id="further-study">
 <h1>Further Study</h1>

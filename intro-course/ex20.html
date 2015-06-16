@@ -1,34 +1,36 @@
+redirect_to:
+- http://open.mesosphere.com/intro-course/index.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 20: Advanced Cluster Building</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 20: Advanced Cluster Building</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -91,8 +93,7 @@
 
                 <!--- RST STARTS -->
                 <h1 class="title">Exercise 20: Advanced Cluster Building</h1>
-                <p><strong>Warning</strong> This exercise is currently being developed and does not work.</p>
-<p>This final exercise teaches you how to use your Ansible configuration
+                <p>This final exercise teaches you how to use your Ansible configuration
 to craft Virtualbox templates that you can use to build more nodes in the cluster.
 This is to simulate how to combine Ansible with VM templates to get more
 repeatable builds for your node.</p>
@@ -110,216 +111,191 @@ repeatable builds for your node.</p>
 <div class="section" id="quick-reference">
 <h1>Quick Reference</h1>
 <p>Run the new <tt class="docutils literal">nodes</tt> configuration for your slave nodes that disables a few more things and gets the ready for this first phase:</p>
-<pre class="literal-block">
-- hosts: nodes
-  remote_user: vagrant
-  sudo: yes
-  tasks:
-      - name: update the hosts file
-        template: src=./hosts.j2 dest=/etc/hosts
-      - name: install the mesosphere yum repo
-        shell: rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-      - name: install the mesos and docker packages
-        yum: pkg=mesos,docker state=latest
-      - name: set the zookeeper master
-        shell: sed -i -e 's/localhost/192.168.33.10/g' /etc/mesos/zk
-      - name: make sure mesos-slave is running
-        service: name=mesos-slave state=started enabled=yes
-      - name: disable the mesos-master by default
-        shell: chkconfig mesos-master off
-      - name: enable docer in mesos slaves
-        shell: echo &quot;docker,mesos&quot; &gt;&gt; /etc/mesos-slave/containerizers
-      - name: kill the slave state
-        shell: rm -rf /tmp/mesos*
-      - name: restart the mesos-slave
-        shell: service mesos-slave restart
-      - name: start docker
-        service: name=docker state=started enabled=yes
-      - name: install outyet
-        shell: sudo docker load --input=/vagrant/outyet.tar.gz
-</pre>
-<p>This is effectively adding cleaning out some <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> state before the server starts, but later we'll do this again to <tt class="docutils literal">node2</tt> to get it ready for saving.</p>
+<div class="highlight"><pre><a name="code--ex20--playbook.yml-jinja-idio.html-1"></a><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodes</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-2"></a>  <span class="l-Scalar-Plain">remote_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vagrant</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-3"></a>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-4"></a>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-5"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">update the hosts file</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-6"></a>        <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src=./hosts.j2 dest=/etc/hosts</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-7"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesosphere yum repo</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-8"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-9"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesos and docker packages</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-10"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=device-mapper-event-libs,mesos,docker state=latest</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-11"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure containerizers</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-12"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">echo &#39;docker,mesos&#39; | sudo tee /etc/mesos-slave/containerizers</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-13"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">set the zookeeper master</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-14"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sed -i -e &#39;s/localhost/192.168.33.10/g&#39; /etc/mesos/zk</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-15"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stop the mesos slave but make it start on book</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-16"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-slave state=stopped enabled=yes</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-17"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">disable the mesos-master by default</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-18"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-master state=stopped enabled=no</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-19"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kill the slave state</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-20"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rm -rf /tmp/mesos*</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-21"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start docker</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-22"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=docker state=started enabled=yes</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-23"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install outyet</span>
+<a name="code--ex20--playbook.yml-jinja-idio.html-24"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo docker load --input=/vagrant/outyet.tar.gz</span>
+</pre></div><p>This is effectively adding cleaning out some <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> state before the server starts, but later we'll do this again to <tt class="docutils literal">node2</tt> to get it ready for saving.</p>
 <p>Run <tt class="docutils literal">vagrant destroy</tt>:</p>
-<pre class="literal-block">
-vagrant destroy -f &amp;&amp; vagrant up node1 node2
-</pre>
-<p>To confirm that your <tt class="docutils literal">playbook.yml</tt> works and can build the master and the first slave.</p>
-<p>Use <tt class="docutils literal">node2</tt> to craft a Vagrant box (image) that you can use
-to recreate <tt class="docutils literal">node3</tt> and <tt class="docutils literal">node4</tt>.  Before you can do this you have to clean up the <tt class="docutils literal">node2</tt> image with these commands:</p>
-<pre class="literal-block">
-#!/bin/bash
-sudo service mesos-master stop
-sudo chkconfig mesos-master off
-echo &quot;docker,mesos&quot; | sudo tee /etc/mesos-slave/containerizers
-sudo rm -rf /tmp/mesos*
-sudo service mesos-slave stop
-sudo docker rm test
-</pre>
-<p>Save this to a file in <tt class="docutils literal">/vagrant/start.sh</tt> and then do:</p>
-<pre class="literal-block">
-vagrant ssh node2
-sh /vagrant/start.sh
-exit
-vagrant halt node2
-</pre>
-<p>Save the <tt class="docutils literal">node2</tt> Vagrant box to a new <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> box:</p>
-<pre class="literal-block">
-rm -f package.box
-vagrant package node2
-vagrant box add mesos-slave package.box
-</pre>
-<p>Destroy the <tt class="docutils literal">node3</tt> and <tt class="docutils literal">node4</tt> to get them ready to build based on the new configuration:</p>
-<pre class="literal-block">
-vagrant destroy -f node3 node4
-</pre>
-<p>You have to do this before changing the <tt class="docutils literal">Vagrantfile</tt> or else Vagrant can't find them.</p>
+<div class="highlight"><pre><a name="code--ex20--build.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> vagrant destroy -f <span class="o">&amp;&amp;</span> vagrant up node1 node2
+</pre></div><p>To confirm that your <tt class="docutils literal">playbook.yml</tt> works and can build the master and the first slave.  Once it comes up, node2 should not have <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> running and there's nothing in <tt class="docutils literal">/tmp</tt> because you cleared the state in the <tt class="docutils literal">playbook.yml</tt>.  Next you halt <tt class="docutils literal">node2</tt> so you can package it:</p>
+<div class="highlight"><pre><a name="code--ex20--build.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> vagrant halt node2
+</pre></div><p>Save the <tt class="docutils literal">node2</tt> Vagrant box to a new <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> box:</p>
+<div class="highlight"><pre><a name="code--ex20--build.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> rm -f package.box
+<a name="code--ex20--build.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> vagrant package node2
+<a name="code--ex20--build.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> vagrant box add mesos-slave package.box
+</pre></div><p>Destroy the <tt class="docutils literal">node3</tt> and <tt class="docutils literal">node4</tt> to get them ready to build based on the new configuration:</p>
+<div class="highlight"><pre><a name="code--ex20--build.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> vagrant destroy -f node3 node4
+</pre></div><p>You have to do this before changing the <tt class="docutils literal">Vagrantfile</tt> or else Vagrant can't find them.</p>
 <p>Change the configuration for <tt class="docutils literal">node3</tt> and <tt class="docutils literal">node4</tt> to:</p>
-<pre class="literal-block">
-config.vm.define &quot;node3&quot; do |node3|
-    node3.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.12&quot;
-    node3.vm.hostname = &quot;node3&quot;
-    node3.vm.box = &quot;mesos-slave&quot;
-end
-
-config.vm.define &quot;node4&quot; do |node4|
-    node4.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.13&quot;
-    node4.vm.hostname = &quot;node4&quot;
-    node4.vm.box = &quot;mesos-slave&quot;
-end
-</pre>
-<p>Special note is that you are <em>not</em> setting the hostname, as you'll have a preconfigured set of hosts in the <tt class="docutils literal">/etc/hosts</tt> file from the <tt class="docutils literal">hosts.j2</tt> template used to build <tt class="docutils literal">node2</tt>.</p>
-<p>Run <tt class="docutils literal">vagrant up</tt> to build using the node template rather than with Ansible.</p>
-<p><strong>Important</strong>
-There are currently these two issues with this configuration:</p>
-<ul class="simple">
-<li>You still have to edit the /etc/hosts file because Vagrant insists on adding the host name to it even if you don't need to.</li>
-<li>You typically have to run <tt class="docutils literal">sudo docker rm test</tt> on nodes when they start.</li>
-</ul>
+<div class="highlight"><pre><a name="code--ex20--Vagrantfile.rb-jinja-idio.html-1"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node3&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node3</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-2"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.12&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-3"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node3&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-4"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;mesos-slave&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-5"></a>        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s2">&quot;sudo cp /vagrant/hosts.j2 /etc/hosts&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-6"></a>    <span class="k">end</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-7"></a>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-8"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node4&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node4</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-9"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.13&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-10"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node4&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-11"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;mesos-slave&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-12"></a>        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s2">&quot;sudo cp /vagrant/hosts.j2 /etc/hosts&quot;</span>
+<a name="code--ex20--Vagrantfile.rb-jinja-idio.html-13"></a>    <span class="k">end</span>
+</pre></div><p>Run <tt class="docutils literal">vagrant up</tt> to build using the node template rather than with Ansible.  After that all the nodes should be ready, but in a default clean state.  Simply restart them and they'll fire up as new slave nodes:</p>
+<div class="highlight"><pre><a name="code--ex20--build.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> vagrant up node3 node4
+<a name="code--ex20--build.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> vagrant halt node2 node3 node4
+<a name="code--ex20--build.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> vagrant up
+</pre></div><p>Once that works you should see the new slave nodes and also see your Marathon configuration start deploying the apps to them. If you <tt class="docutils literal">vagrant up</tt> and they still aren't recognized by Mesos as slaves then check the following:</p>
+<ol class="arabic simple">
+<li>Is <tt class="docutils literal">/etc/hosts</tt> configured correctly on all nodes?</li>
+<li>Are <tt class="docutils literal"><span class="pre">mesos-slave</span></tt> processes running on all nodes?</li>
+<li>Did you wait a little while?  Sometimes Mesos takes a little time to recognize new nodes, but not longer than 10 minutes.</li>
+<li>Did you configure <tt class="docutils literal">docker,mesos</tt> in the <tt class="docutils literal"><span class="pre">/etc/mesos-slave/containerizers</span></tt> file?  The <tt class="docutils literal">playbook.yml</tt> should do this but go confirm that's configured.</li>
+<li>If all else fails, shut down the nodes and start them again.</li>
+<li>If that all fails then look at the <tt class="docutils literal">/etc/mesos/</tt> logs and see if there's any cluse, then contact us in the comments for help.</li>
+</ol>
 </div>
 <div class="section" id="final-configuration">
 <h1>Final Configuration</h1>
 <p>Your final Ansible <tt class="docutils literal">playbook.yml</tt> is now this:</p>
-<pre class="literal-block">
----
-- hosts: master
-  remote_user: vagrant
-  sudo: yes
-  tasks:
-      - name: update the hosts file
-        template: src=./hosts.j2 dest=/etc/hosts
-      - name: update the rsyslog config
-        template: src=./mesos.conf.j2 dest=/etc/rsyslog.d/mesos.conf
-      - name: restart rsyslog
-        shell: service rsyslog restart
-      - name: install the mesosphere yum repo
-        shell: rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-      - name: install zookeeper repo
-        shell: rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
-      - name: install zookeeper
-        yum: pkg=zookeeper,zookeeper-server state=latest
-      - name: configure zookeeper ID
-        shell: sudo -u zookeeper zookeeper-server-initialize --myid=1
-      - name: install the mesos, marathon, chronos, docker packages
-        yum: pkg=mesos,marathon,chronos,docker state=latest
-      - name: start up zookeeper
-        service: name=zookeeper-server state=started enabled=yes
-      - name: start up mesos-master
-        service: name=mesos-master state=started enabled=yes
-      - name: make sure mesos-slave is running
-        service: name=mesos-slave state=started enabled=yes
-      - name: start marathon
-        service: name=marathon state=started enabled=yes
-      - name: start chronos
-        service: name=chronos state=started enabled=yes
-      - name: start docker
-        service: name=docker state=started enabled=yes
-      - name: install go and dns tools
-        yum: pkg=golang,git,bind-utils state=latest
-      - name: build mesos-dns
-        shell: sudo -u vagrant sh /vagrant/installdns.sh
-      - name: install outyet
-        shell: sudo docker load --input=/vagrant/outyet.tar.gz
-      - name: start marathon services
-        shell: cd /vagrant/marathon &amp;&amp; sh post.sh
-      - name: install ruby
-        yum: pkg=ruby state=latest
-      - name: sync chronos jobs
-        shell: ruby /vagrant/chronos-sync.rb -u http://192.168.33.10:4400/ -p /vagrant/chronos
-- hosts: nodes
-  remote_user: vagrant
-  sudo: yes
-  tasks:
-      - name: update the hosts file
-        template: src=./hosts.j2 dest=/etc/hosts
-      - name: install the mesosphere yum repo
-        shell: rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-      - name: install the mesos and docker packages
-        yum: pkg=mesos,docker state=latest
-      - name: set the zookeeper master
-        shell: sed -i -e 's/localhost/192.168.33.10/g' /etc/mesos/zk
-      - name: make sure mesos-slave is running
-        service: name=mesos-slave state=started enabled=yes
-      - name: disable the mesos-master by default
-        shell: chkconfig mesos-master off
-      - name: enable docer in mesos slaves
-        shell: echo &quot;docker,mesos&quot; &gt;&gt; /etc/mesos-slave/containerizers
-      - name: kill the slave state
-        shell: rm -rf /tmp/mesos*
-      - name: restart the mesos-slave
-        shell: service mesos-slave restart
-      - name: start docker
-        service: name=docker state=started enabled=yes
-      - name: install outyet
-        shell: sudo docker load --input=/vagrant/outyet.tar.gz
-</pre>
-<p>And your final <tt class="docutils literal">Vagrantfile</tt> is this:</p>
-<pre class="literal-block">
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-ANSIBLE_GROUPS = {
-              &quot;master&quot; =&gt; [&quot;node1&quot;],
-              &quot;nodes&quot; =&gt; [&quot;node2&quot;],
-              &quot;all_groups:children&quot; =&gt; [&quot;master&quot;, &quot;nodes&quot;]
-            }
-
-
-Vagrant.configure(2) do |config|
-    config.vm.box = &quot;chef/centos-7.0&quot;
-
-    config.vm.define &quot;node1&quot; do |node1|
-        node1.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
-        node1.vm.hostname = &quot;node1&quot;
-        #node1.vm.box = &quot;mesos-master&quot;
-        node1.vm.provision &quot;ansible&quot; do |ansible|
-            ansible.playbook = &quot;playbook.yml&quot;
-            ansible.groups = ANSIBLE_GROUPS
-        end
-    end
-
-    config.vm.define &quot;node2&quot; do |node2|
-        node2.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.11&quot;
-        node2.vm.hostname = &quot;node2&quot;
-        node2.vm.provision &quot;ansible&quot; do |ansible|
-            ansible.playbook = &quot;playbook.yml&quot;
-            ansible.groups = ANSIBLE_GROUPS
-        end
-    end
-
-    config.vm.define &quot;node3&quot; do |node3|
-        node3.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.12&quot;
-        node3.vm.hostname = &quot;node3&quot;
-        node3.vm.box = &quot;mesos-slave&quot;
-    end
-
-    config.vm.define &quot;node4&quot; do |node4|
-        node4.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.13&quot;
-        node4.vm.hostname = &quot;node4&quot;
-        node4.vm.box = &quot;mesos-slave&quot;
-    end
-end
-</pre>
-<p>With these two files, and the <tt class="docutils literal">marathon</tt> and <tt class="docutils literal">chronos</tt> configuration directories, you are now able to build a full Mesos cluster repeatably and you should be able to
+<div class="highlight"><pre><a name="code--ex20--playbook_full.yml-jinja-idio.html-1"></a><span class="nn">---</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-2"></a><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">master</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-3"></a>  <span class="l-Scalar-Plain">remote_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vagrant</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-4"></a>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-5"></a>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-6"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">update the hosts file</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-7"></a>        <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src=./hosts.j2 dest=/etc/hosts</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-8"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">update the rsyslog config</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-9"></a>        <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src=./mesos.conf.j2 dest=/etc/rsyslog.d/mesos.conf</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-10"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">restart rsyslog</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-11"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">service rsyslog restart</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-12"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesosphere yum repo</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-13"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-14"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install zookeeper repo</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-15"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-16"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install zookeeper</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-17"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=zookeeper,zookeeper-server state=latest</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-18"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure zookeeper ID</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-19"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo -u zookeeper zookeeper-server-initialize --myid=1</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-20"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesos, marathon, chronos, docker packages</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-21"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=device-mapper-event-libs,mesos,marathon,chronos,docker state=latest</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-22"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure containerizers</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-23"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">echo &#39;docker,mesos&#39; | sudo tee /etc/mesos-slave/containerizers</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-24"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start up zookeeper</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-25"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=zookeeper-server state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-26"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start up the mesos-master</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-27"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-master state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-28"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">make sure mesos-slave is running</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-29"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-slave state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-30"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start marathon</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-31"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=marathon state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-32"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start chronos</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-33"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=chronos state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-34"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start docker</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-35"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=docker state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-36"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install go and dns tools</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-37"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=golang,git,bind-utils state=latest</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-38"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">build mesos-dns</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-39"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo -u vagrant sh /vagrant/installdns.sh</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-40"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install outyet</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-41"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo docker load --input=/vagrant/outyet.tar.gz</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-42"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start marathon services</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-43"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cd /vagrant/marathon &amp;&amp; sh post.sh</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-44"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install ruby</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-45"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=ruby state=latest</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-46"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sync chronos jobs</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-47"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ruby /vagrant/chronos-sync.rb -u http://192.168.33.10:4400/ -p /vagrant/chronos</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-48"></a><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-49"></a>  <span class="l-Scalar-Plain">remote_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vagrant</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-50"></a>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-51"></a>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-52"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">update the hosts file</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-53"></a>        <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src=./hosts.j2 dest=/etc/hosts</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-54"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesosphere yum repo</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-55"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-56"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install the mesos and docker packages</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-57"></a>        <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=device-mapper-event-libs,mesos,docker state=latest</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-58"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure containerizers</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-59"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">echo &#39;docker,mesos&#39; | sudo tee /etc/mesos-slave/containerizers</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-60"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">set the zookeeper master</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-61"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sed -i -e &#39;s/localhost/192.168.33.10/g&#39; /etc/mesos/zk</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-62"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stop the mesos slave but make it start on book</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-63"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-slave state=stopped enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-64"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">disable the mesos-master by default</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-65"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=mesos-master state=stopped enabled=no</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-66"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kill the slave state</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-67"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rm -rf /tmp/mesos*</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-68"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start docker</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-69"></a>        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=docker state=started enabled=yes</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-70"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install outyet</span>
+<a name="code--ex20--playbook_full.yml-jinja-idio.html-71"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo docker load --input=/vagrant/outyet.tar.gz</span>
+</pre></div><p>And your final <tt class="docutils literal">Vagrantfile</tt> is this:</p>
+<div class="highlight"><pre><a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-1"></a><span class="c1"># -*- mode: ruby -*-</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-2"></a><span class="c1"># vi: set ft=ruby :</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-3"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-4"></a><span class="no">ANSIBLE_GROUPS</span> <span class="o">=</span> <span class="p">{</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-5"></a>              <span class="s2">&quot;master&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;node1&quot;</span><span class="o">]</span><span class="p">,</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-6"></a>              <span class="s2">&quot;nodes&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;node2&quot;</span><span class="o">]</span><span class="p">,</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-7"></a>              <span class="s2">&quot;all_groups:children&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="s2">&quot;nodes&quot;</span><span class="o">]</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-8"></a>            <span class="p">}</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-9"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-10"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-11"></a><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-12"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;chef/centos-7.0&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-13"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-14"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node1&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node1</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-15"></a>        <span class="n">node1</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.10&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-16"></a>        <span class="n">node1</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node1&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-17"></a>        <span class="c1">#node1.vm.box = &quot;mesos-master&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-18"></a>        <span class="n">node1</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;ansible&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-19"></a>            <span class="n">ansible</span><span class="o">.</span><span class="n">playbook</span> <span class="o">=</span> <span class="s2">&quot;playbook.yml&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-20"></a>            <span class="n">ansible</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="no">ANSIBLE_GROUPS</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-21"></a>        <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-22"></a>    <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-23"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-24"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node2&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node2</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-25"></a>        <span class="n">node2</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.11&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-26"></a>        <span class="n">node2</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node2&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-27"></a>        <span class="n">node2</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;ansible&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-28"></a>            <span class="n">ansible</span><span class="o">.</span><span class="n">playbook</span> <span class="o">=</span> <span class="s2">&quot;playbook.yml&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-29"></a>            <span class="n">ansible</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="no">ANSIBLE_GROUPS</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-30"></a>        <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-31"></a>    <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-32"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node3&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node3</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-33"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.12&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-34"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node3&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-35"></a>        <span class="n">node3</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;mesos-slave&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-36"></a>        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s2">&quot;sudo cp /vagrant/hosts.j2 /etc/hosts&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-37"></a>    <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-38"></a>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-39"></a>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;node4&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">node4</span><span class="o">|</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-40"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.13&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-41"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;node4&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-42"></a>        <span class="n">node4</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;mesos-slave&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-43"></a>        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s2">&quot;sudo cp /vagrant/hosts.j2 /etc/hosts&quot;</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-44"></a>    <span class="k">end</span>
+<a name="code--ex20--Vagrantfile_full.rb-jinja-idio.html-45"></a><span class="k">end</span>
+</pre></div><p>With these two files, and the <tt class="docutils literal">marathon</tt> and <tt class="docutils literal">chronos</tt> configuration directories, you are now able to build a full Mesos cluster repeatably and you should be able to
 move this similar build to your own cluster.</p>
 </div>
 <div class="section" id="further-study">
