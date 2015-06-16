@@ -1,34 +1,37 @@
+
+redirect_to:
+- http://open.mesosphere.com/intro-course/index.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 12: Deploying A Web App Using Docker</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 12: Deploying A Web App Using Docker</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -109,31 +112,44 @@
 <p>For this exercise I use the instructions found at <a class="reference external" href="https://blog.golang.org/docker">https://blog.golang.org/docker</a> for deploying the simple Outyet web application.
 Borrowing from the Go instructions:</p>
 <p>Install Docker:</p>
-<pre class="literal-block">
-sudo yum install -y docker
-sudo chkconfig docker on
-sudo service docker start
-export GOPATH=~/go
-go get github.com/golang/example/outyet
-</pre>
-<p>Make a Dockerfile for it by using the onbuild system:</p>
-<pre class="literal-block">
-cd $GOPATH/src/github.com/golang/example/outyet
-</pre>
-<p>Use the <tt class="docutils literal">Dockerfile</tt> to build your docker image:</p>
-<pre class="literal-block">
-sudo docker build -t outyet .
-</pre>
-<p>Run the <tt class="docutils literal">Dockerfile</tt>:</p>
-<pre class="literal-block">
-sudo docker run --publish 6060:8080 --name test --rm outyet
-</pre>
-<p>Test the <tt class="docutils literal">Dockerfile</tt> before adding it to Marathon by going to <a class="reference external" href="http://192.168.33.10:6060/">http://192.168.33.10:6060/</a> to load it.</p>
-<p>Create a Marathon application that runs this command:</p>
-<pre class="literal-block">
-sudo docker run --publish 6060:8080 --name test --rm outyet
-</pre>
-<p>You <em>might</em> have to do a <tt class="docutils literal">docker rm test</tt> command to destroy the previous one if it doesn't actually stop.  I'm not sure why this is necessary.</p>
+<div class="highlight"><pre><a name="code--ex12--install_outyet.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo yum install -y golang git device-mapper-event-libs docker
+<a name="code--ex12--install_outyet.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo chkconfig docker on
+<a name="code--ex12--install_outyet.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> sudo service docker start
+<a name="code--ex12--install_outyet.sh-session-jinja-idio.html-4"></a><span class="gp">$</span> <span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span>~/go
+<a name="code--ex12--install_outyet.sh-session-jinja-idio.html-5"></a><span class="gp">$</span> go get github.com/golang/example/outyet
+</pre></div><p>The outyet project comes with a <tt class="docutils literal">Dockerfile</tt> you can use, so <tt class="docutils literal">cd</tt> to the source directory:</p>
+<div class="highlight"><pre><a name="code--ex12--install_outyet.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/golang/example/outyet
+</pre></div><p>Use the <tt class="docutils literal">Dockerfile</tt> to build your docker image:</p>
+<div class="highlight"><pre><a name="code--ex12--install_outyet.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo docker build -t outyet .
+</pre></div><p>Test the <tt class="docutils literal">Dockerfile</tt> before adding it to Marathon by running this command:</p>
+<div class="highlight"><pre><a name="code--ex12--install_outyet.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo docker run --publish 6060:8080 --name <span class="nb">test</span> --rm outyet
+</pre></div><p>Then go to <a class="reference external" href="http://192.168.33.10:6060/">http://192.168.33.10:6060/</a> with your browser to confirm it works.  Once it does you can hit CTRL-c to exit the outyet docker.</p>
+<p>Create a Marathon application that runs this command, but using the Marathon Docker support.  Once the <tt class="docutils literal">outyet</tt> application
+is loaded onto the VM you can create a new app using JSON and <tt class="docutils literal">curl</tt>.  First make the file names <tt class="docutils literal">/vagrant/outyet.json</tt>:</p>
+<div class="highlight"><pre><a name="code--ex12--outyet.json-jinja-idio.html-1"></a><span class="p">{</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-2"></a>  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;outyet&quot;</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-3"></a>  <span class="nt">&quot;cpus&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-4"></a>  <span class="nt">&quot;mem&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-5"></a>  <span class="nt">&quot;instances&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-6"></a>  <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;hostname&quot;</span><span class="p">,</span> <span class="s2">&quot;UNIQUE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-7"></a>  <span class="nt">&quot;container&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-8"></a>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DOCKER&quot;</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-9"></a>    <span class="nt">&quot;docker&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-10"></a>      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;outyet&quot;</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-11"></a>      <span class="nt">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;BRIDGE&quot;</span><span class="p">,</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-12"></a>      <span class="nt">&quot;portMappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-13"></a>        <span class="p">{</span> <span class="nt">&quot;containerPort&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="nt">&quot;hostPort&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;servicePort&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span> <span class="p">}</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-14"></a>      <span class="p">]</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-15"></a>    <span class="p">}</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-16"></a>  <span class="p">}</span>
+<a name="code--ex12--outyet.json-jinja-idio.html-17"></a><span class="p">}</span>
+</pre></div><p>You will also need to tell mesos that it should allow Docker:</p>
+<div class="highlight"><pre><a name="code--ex12--enable_docker.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;docker,mesos&#39;</span> <span class="p">|</span> sudo tee /etc/mesos-slave/containerizers
+<a name="code--ex12--enable_docker.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo service mesos-slave restart
+</pre></div><p>This replicates the above <tt class="docutils literal">docker</tt> command settings, but Marathon will configure and manage the container better.  Once you have that
+run this command:</p>
+<div class="highlight"><pre><a name="code--ex12--post_config.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> curl -X POST http://192.168.33.10:8080/v2/apps -d @/vagrant/outyet.json -H <span class="s2">&quot;Content-type: application/json&quot;</span>
+</pre></div><p>Later in this tutorial you will use this method to easily sync your configuration to Marathon.</p>
 </div>
 <div class="section" id="further-study">
 <h1>Further Study</h1>

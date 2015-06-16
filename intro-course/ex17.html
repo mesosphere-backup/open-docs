@@ -1,34 +1,36 @@
+redirect_to:
+- http://open.mesosphere.com/intro-course/index.html
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Exercise 17: Advanced Usage of the Marathon</title>
-<meta name="title" content ="Setting up a Single Node Mesosphere Cluster">
-
-<meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
-
-<meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
-<meta name="googlebot" content="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
-  rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
-  rel="stylesheet">
-<link rel="stylesheet" href="//dw8zztroqvu2r.cloudfront.net/assets/mesosphere-82a59fe27ee148f819ce1adf64a1bfd8.css">
-<link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-114x114-precomposed-e1bad1adfb238c042495e17882a75bee.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-72x72-precomposed-e9561717ad14e807a3a6422bd2cf950d.png">
-<link rel="apple-touch-icon-precomposed" href="//dw8zztroqvu2r.cloudfront.net/assets/apple-touch-icon-57x57-precomposed-1c3bb09d559f043cb58f2e36bd9b81bd.png">
-<link rel="stylesheet" href="style.css">
+  <head>
+    <title>Mesosphere - Exercise 17: Advanced Usage of the Marathon</title>
+    <meta name="title" content ="Mesosphere Documentation Intro Course">
     
+      <meta name="description" content="Mesos allows you to create a highly-available and scalable cluster on your existing hardware.">
+    
+    <meta name="keywords" content="mesos, mesosphere, apache mesos, cluster, mesos cluster, apache mesos, mesos tutorial, ETL, long-running services, service automation, distributed kernel, apache marathon, marathon tutorial, chronos tutorial, spark tutorial">
+    <meta name="googlebot" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/mesosphere-bb1dd6431996c0a6e479673c87a06efc.css">
+    <link rel="alternate" type="application/atom+xml" title="The Mesosphere Blog" href="/blog/atom.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed-866a1e471ec7ca6bd71446ca972285c6.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed-4a308d281d978c5a39fd1893ca051959.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon-57x57-precomposed-d7a5a878dcc95e57717cc774eeac8c22.png">
+    
+    <link rel="stylesheet" href="style.css">
     <script src="//cdn.optimizely.com/js/2009520669.js"></script>
     <script>
       window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
       window.analytics.load("7sgtwqvuai");
       window.analytics.page();
     </script>
-
-</head>
+    
+  </head>
 <body>
 
 <div class="navbar navbar-default  " role="navigation">
@@ -108,88 +110,90 @@
 <div class="section" id="quick-reference">
 <h1>Quick Reference</h1>
 <p>In your VM directory make a <tt class="docutils literal">marathon</tt> directory and get it started with <tt class="docutils literal">git init</tt>:</p>
-<pre class="literal-block">
-mkdir marathon
-cd marathon
-git init marathon
-</pre>
-<p>Make a <tt class="docutils literal">webapp.json</tt> file:</p>
-<pre class="literal-block">
-{
-  &quot;id&quot;: &quot;test&quot;,
-  &quot;cmd&quot;: &quot;python -m SimpleHTTPServer $PORT0&quot;,
-  &quot;cpus&quot;: 0.5,
-  &quot;mem&quot;: 20.0,
-  &quot;instances&quot;: 4,
-  &quot;healthChecks&quot;: [
-    {
-      &quot;protocol&quot;: &quot;HTTP&quot;,
-      &quot;portIndex&quot;: 0,
-      &quot;path&quot;: &quot;/&quot;,
-      &quot;gracePeriodSeconds&quot;: 5,
-      &quot;intervalSeconds&quot;: 20,
-      &quot;maxConsecutiveFailures&quot;: 3
-    }
-  ],
-  &quot;ports&quot;: [4000],
-  &quot;constraints&quot;: [
-        [&quot;hostname&quot;, &quot;UNIQUE&quot;, &quot;&quot;]
-    ]
-}
-</pre>
-<p>Use this simple bash script to make it easier to load JSON files into Marathon:</p>
-<pre class="literal-block">
-#!/usr/bin/env bash
-MARATHON=http://192.168.33.10:8080
-
-for i in *.json
-do
-    curl -X POST $MARATHON/v2/apps -d &#64;$i -H &quot;Content-type: application/json&quot;
-done
-</pre>
-<p>This is simply using <tt class="docutils literal">curl</tt> to loop through every .json file and then send it to Marathon with a POST HTTP request.
+<div class="highlight"><pre><a name="code--ex17--setup_marathon.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> mkdir marathon
+<a name="code--ex17--setup_marathon.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> <span class="nb">cd </span>marathon
+<a name="code--ex17--setup_marathon.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> git init marathon
+</pre></div><p>Make a <tt class="docutils literal">webapp.json</tt> file:</p>
+<div class="highlight"><pre><a name="code--ex17--webapp.json-jinja-idio.html-1"></a><span class="p">{</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-2"></a>  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-3"></a>  <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;python -m SimpleHTTPServer $PORT0&quot;</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-4"></a>  <span class="nt">&quot;cpus&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-5"></a>  <span class="nt">&quot;mem&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-6"></a>  <span class="nt">&quot;instances&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-7"></a>  <span class="nt">&quot;healthChecks&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-8"></a>    <span class="p">{</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-9"></a>      <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-10"></a>      <span class="nt">&quot;portIndex&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-11"></a>      <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-12"></a>      <span class="nt">&quot;gracePeriodSeconds&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-13"></a>      <span class="nt">&quot;intervalSeconds&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-14"></a>      <span class="nt">&quot;maxConsecutiveFailures&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-15"></a>    <span class="p">}</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-16"></a>  <span class="p">],</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-17"></a>  <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4000</span><span class="p">],</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-18"></a>  <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-19"></a>        <span class="p">[</span><span class="s2">&quot;hostname&quot;</span><span class="p">,</span> <span class="s2">&quot;UNIQUE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-20"></a>    <span class="p">]</span>
+<a name="code--ex17--webapp.json-jinja-idio.html-21"></a><span class="p">}</span>
+</pre></div><p>Use this simple <tt class="docutils literal">post.sh</tt> bash script to make it easier to load JSON files into Marathon:</p>
+<div class="highlight"><pre><a name="code--ex17--post.sh-jinja-idio.html-1"></a><span class="c">#!/usr/bin/env bash</span>
+<a name="code--ex17--post.sh-jinja-idio.html-2"></a><span class="nv">MARATHON</span><span class="o">=</span>http://192.168.33.10:8080
+<a name="code--ex17--post.sh-jinja-idio.html-3"></a>
+<a name="code--ex17--post.sh-jinja-idio.html-4"></a><span class="k">for</span> i in *.json
+<a name="code--ex17--post.sh-jinja-idio.html-5"></a><span class="k">do</span>
+<a name="code--ex17--post.sh-jinja-idio.html-6"></a>    curl -X POST <span class="nv">$MARATHON</span>/v2/apps -d @<span class="nv">$i</span> -H <span class="s2">&quot;Content-type: application/json&quot;</span>
+<a name="code--ex17--post.sh-jinja-idio.html-7"></a><span class="k">done</span>
+</pre></div><p>This is simply using <tt class="docutils literal">curl</tt> to loop through every .json file and then send it to Marathon with a POST HTTP request.
 Run this to add your webapp to it:</p>
-<pre class="literal-block">
-chmod u+x post.sh
-./post.sh
-</pre>
-<p>Create the <tt class="docutils literal">dns.json</tt> file for Mesos DNS:</p>
-<pre class="literal-block">
-{
-  &quot;id&quot;: &quot;dns&quot;,
-  &quot;cmd&quot;: &quot;sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json&quot;,
-  &quot;cpus&quot;: 0.5,
-  &quot;mem&quot;: 20.0,
-  &quot;instances&quot;: 1,
-  &quot;ports&quot;: [4000],
-  &quot;constraints&quot;: [
-        [&quot;hostname&quot;, &quot;CLUSTER&quot;, &quot;node1&quot;]
-    ]
-}
-</pre>
-<p>Create this <tt class="docutils literal">outyet.json</tt> file to setup the outyet application:</p>
-<pre class="literal-block">
-{
-  &quot;id&quot;: &quot;outyet&quot;,
-  &quot;cmd&quot;: &quot;sudo docker run --publish 6060:8080 --name test --rm outyet&quot;,
-  &quot;cpus&quot;: 0.2,
-  &quot;mem&quot;: 30.0,
-  &quot;instances&quot;: 1,
-  &quot;constraints&quot;: [
-        [&quot;hostname&quot;, &quot;UNIQUE&quot;, &quot;&quot;]
-    ]
-}
-</pre>
-<p>Run <tt class="docutils literal">post.sh</tt> from the <tt class="docutils literal">marathon</tt> directory to have it install your applications:</p>
-<pre class="literal-block">
-./post.sh
-</pre>
-<p>Add this to your Ansible <tt class="docutils literal">playbook.yml</tt> so that it's done during your build:</p>
-<pre class="literal-block">
-- name: start marathon services
-  shell: cd /vagrant/marathon &amp;&amp; sh post.sh
-</pre>
-</div>
+<div class="highlight"><pre><a name="code--ex17--setup_post.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> <span class="nb">cd </span>marathon
+<a name="code--ex17--setup_post.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> chmod u+x post.sh
+<a name="code--ex17--setup_post.sh-session-jinja-idio.html-3"></a><span class="gp">$</span> ./post.sh
+</pre></div><p>Create the <tt class="docutils literal">dns.json</tt> file for Mesos DNS:</p>
+<div class="highlight"><pre><a name="code--ex17--dns.json-jinja-idio.html-1"></a><span class="p">{</span>
+<a name="code--ex17--dns.json-jinja-idio.html-2"></a>  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;dns&quot;</span><span class="p">,</span>
+<a name="code--ex17--dns.json-jinja-idio.html-3"></a>  <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json&quot;</span><span class="p">,</span>
+<a name="code--ex17--dns.json-jinja-idio.html-4"></a>  <span class="nt">&quot;cpus&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<a name="code--ex17--dns.json-jinja-idio.html-5"></a>  <span class="nt">&quot;mem&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<a name="code--ex17--dns.json-jinja-idio.html-6"></a>  <span class="nt">&quot;instances&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="code--ex17--dns.json-jinja-idio.html-7"></a>  <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4000</span><span class="p">],</span>
+<a name="code--ex17--dns.json-jinja-idio.html-8"></a>  <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex17--dns.json-jinja-idio.html-9"></a>        <span class="p">[</span><span class="s2">&quot;hostname&quot;</span><span class="p">,</span> <span class="s2">&quot;CLUSTER&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">]</span>
+<a name="code--ex17--dns.json-jinja-idio.html-10"></a>    <span class="p">]</span>
+<a name="code--ex17--dns.json-jinja-idio.html-11"></a><span class="p">}</span>
+</pre></div><p>Create this <tt class="docutils literal">outyet.json</tt> file to setup the outyet application:</p>
+<div class="highlight"><pre><a name="code--ex17--outyet.json-jinja-idio.html-1"></a><span class="p">{</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-2"></a>  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;outyet&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-3"></a>  <span class="nt">&quot;cpus&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-4"></a>  <span class="nt">&quot;mem&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-5"></a>  <span class="nt">&quot;instances&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-6"></a>  <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;hostname&quot;</span><span class="p">,</span> <span class="s2">&quot;UNIQUE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]],</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-7"></a>  <span class="nt">&quot;container&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-8"></a>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DOCKER&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-9"></a>    <span class="nt">&quot;docker&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-10"></a>      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;outyet&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-11"></a>      <span class="nt">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;BRIDGE&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-12"></a>      <span class="nt">&quot;portMappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-13"></a>        <span class="p">{</span> <span class="nt">&quot;containerPort&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="nt">&quot;hostPort&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;servicePort&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span> <span class="p">}</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-14"></a>      <span class="p">]</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-15"></a>    <span class="p">}</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-16"></a>  <span class="p">},</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-17"></a>  <span class="nt">&quot;healthChecks&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-18"></a>    <span class="p">{</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-19"></a>      <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-20"></a>      <span class="nt">&quot;portIndex&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-21"></a>      <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-22"></a>      <span class="nt">&quot;gracePeriodSeconds&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-23"></a>      <span class="nt">&quot;intervalSeconds&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-24"></a>      <span class="nt">&quot;maxConsecutiveFailures&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-25"></a>    <span class="p">}</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-26"></a>  <span class="p">]</span>
+<a name="code--ex17--outyet.json-jinja-idio.html-27"></a><span class="p">}</span>
+</pre></div><p>Run <tt class="docutils literal">post.sh</tt> from the <tt class="docutils literal">marathon</tt> directory to have it install your applications:</p>
+<div class="highlight"><pre><a name="code--ex17--setup_post.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> ./post.sh
+</pre></div><p>Add this to your Ansible <tt class="docutils literal">playbook.yml</tt> in the <tt class="docutils literal">hosts: master</tt> section so that it's done during your build:</p>
+<div class="highlight"><pre><a name="code--ex17--playbook.yml-jinja-idio.html-1"></a>      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start marathon services</span>
+<a name="code--ex17--playbook.yml-jinja-idio.html-2"></a>        <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cd /vagrant/marathon &amp;&amp; sh post.sh</span>
+</pre></div></div>
 <div class="section" id="additional-commands">
 <h1>Additional Commands</h1>
 <p>This automates your Marathon configuration and adds it to the Ansible <tt class="docutils literal">playbook.yml</tt> file so that you can repeat it.  You'll also need to know the following common commands:</p>
