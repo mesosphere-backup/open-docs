@@ -94,7 +94,7 @@ For the init script it is also possible to add files to `/etc/default/mesos-slav
 			</td>
 		</tr>
 		<tr>
-			<td> <a name="credential">credential</a> </td>
+			<td> <a name="credential">credentials</a> </td>
 			<td>
 				Path to a file containing a single line with the 'principal' and 'secret' separated by whitespace.
 				The secret is clear text in the file.  An example of create a credential file is: <code>echo "mesos rocks" > /etc/mesos-master/passwd</code>.  Examples of using the credential flag : <code>--credential=/etc/mesos-master/passwd</code>.  The credentials are the username and password that must be provided by frameworks and/or slaves in order to access a secured mesos master.  This value must be set if <code>--authenticate</code> or <code>--authenticate_slaves</code> is used.
