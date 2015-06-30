@@ -1,7 +1,7 @@
 advanced: 
   name: Advanced Mesos Course
   blurb: >
-    This comprehensive course is designed to teach you all of the open source components that are used in the Mesosphere DCOS. 
+    This course teaches all of the open source components used in the Mesosphere DCOS. 
   icon: mesos
   tutorials:
     index:
