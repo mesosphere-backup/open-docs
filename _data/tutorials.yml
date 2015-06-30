@@ -1,3 +1,14 @@
+advanced: 
+  name: Advanced Mesos Course 
+  icon: mesos
+  tutorials:
+    index:
+      blurb: >
+        This is a 20 exercise course that is designed to teach you all of the open source components that are used in the Mesosphere DCOS.
+      date: 2014-12-05
+      duration: 30 minutes
+      path: intro-course/index.html
+
 kubernetes:
   name: Kubernetes on Mesos
   blurb: >
@@ -89,6 +100,19 @@ docker:
       date: 2014-08-18
       duration: 30 minutes
       path: tutorials/launch-docker-container-on-mesosphere.md
+      resources:
+      - name: Docker
+        url: http://www.docker.com/
+      - name: Apache Mesos
+        url: https://mesos.apache.org/
+        
+    docker-marathon-analytics:
+      title: Building a Web Application with Analytics Using Docker and Marathon
+      blurb: >
+        This tutorial shows you step-by-step how to build a web application, including the analytics part, using Docker and Marathon.
+      date: 2015-06-30
+      duration: 30 minutes
+      path: tutorials/docker-marathon-analytics.md
       resources:
       - name: Docker
         url: http://www.docker.com/
