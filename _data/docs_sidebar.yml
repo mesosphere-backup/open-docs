@@ -40,6 +40,9 @@
 
     - title: "Advanced Mesos Course"
       href: "/intro-course/"
+      
+    - title: "Building a Web App with Analytics Using Docker and Marathon"
+      href: "/tutorials/docker-marathon-analytics/"
 
 - title: "Frameworks"
   href: "/frameworks/"
