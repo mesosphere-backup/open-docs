@@ -1,13 +1,10 @@
 advanced: 
-  name: Advanced Mesos Course
-  blurb: >
-    This is a 20 exercise course that is designed to teach you all of the open source components that are used in the Mesosphere DCOS. 
-  icon: kubernetes
+  name: Advanced Mesos Course 
+  icon: mesos
   tutorials:
     index:
-      title: Advanced Mesos Course
       blurb: >
-        This tutorial walks through setting up the Kubernetes-Mesos framework on a Mesosphere for Google Cloud Platform cluster.
+        This is a 20 exercise course that is designed to teach you all of the open source components that are used in the Mesosphere DCOS.
       date: 2014-12-05
       duration: 30 minutes
       path: intro-course/index.html
