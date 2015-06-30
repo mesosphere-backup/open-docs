@@ -10,7 +10,7 @@ advanced:
         This course is designed to take you from having no knowledge of systems management by using Apache Mesos, to automatically building and deploying a complete cluster running Apache Mesos, Marathon, Mesos DNS, Chronos, Docker and Ansible.
       date: 2015-06-15
       duration: 1 day
-      path: intro-course/
+      path: https://open.mesosphere.com/tutorials/intro-course/index.html
 
 kubernetes:
   name: Kubernetes on Mesos
