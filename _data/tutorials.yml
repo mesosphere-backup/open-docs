@@ -1,12 +1,15 @@
 advanced: 
-  name: Advanced Mesos Course 
+  name: Advanced Mesos Course
+  blurb: >
+    This comprehensive course is designed to teach you all of the open source components that are used in the Mesosphere DCOS. 
   icon: mesos
   tutorials:
     index:
+      title: Advanced Mesos Course
       blurb: >
-        This is a 20 exercise course that is designed to teach you all of the open source components that are used in the Mesosphere DCOS.
+        This course is designed to take you from having no knowledge of systems management by using Apache Mesos, to automatically building and deploying a complete cluster running Apache Mesos, Marathon, Mesos DNS, Chronos, Docker and Ansible.
       date: 2014-12-05
-      duration: 30 minutes
+      duration: 1 day
       path: intro-course/index.html
 
 kubernetes:
