@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Mesosphere on Amazon Web Services
+
+redirect_to:
+- http://mesosphere.com/amazon/
 ---
 
 There are several ways to run a Mesosphere cluster on Amazon Web Services.
