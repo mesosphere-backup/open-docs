@@ -1,5 +1,5 @@
-Mesosphere Open Docs Site
-=========================
+Mesosphere Community Docs Site
+==============================
 
 This repository containers the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
 

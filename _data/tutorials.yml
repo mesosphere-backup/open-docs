@@ -1,30 +1,16 @@
 advanced: 
-  name: Advanced Mesos Course
+  name: Intro to Mesos Course
   blurb: >
     This course teaches all of the open source components used in the Mesosphere DCOS. 
   icon: mesos
   tutorials:
     intro-course:
-      title: Advanced Mesos Course
+      title: Intro to Mesos Course
       blurb: >
         This course is designed to take you from having no knowledge of systems management by using Apache Mesos, to automatically building and deploying a complete cluster running Apache Mesos, Marathon, Mesos DNS, Chronos, Docker and Ansible.
       date: 2015-06-15
       duration: 1 day
       path: https://open.mesosphere.com/intro-course/
-
-kubernetes:
-  name: Kubernetes on Mesos
-  blurb: >
-    Tutorials on setting up the Kubernetes-Mesos framework.
-  icon: kubernetes
-  tutorials:
-    kubernetes-mesos-gcp:
-      title: Kubernetes on Mesos on Google Cloud Platform
-      blurb: >
-        This tutorial walks through setting up the Kubernetes-Mesos framework on a Mesosphere for Google Cloud Platform cluster.
-      date: 2014-12-05
-      duration: 30 minutes
-      path: tutorials/kubernetes-mesos-gcp.md
 
 coreos:
   name: Mesosphere on CoreOS
@@ -58,36 +44,6 @@ mesos:
         url: https://cloud.google.com/
       - name: Apache Mesos
         url: https://mesos.apache.org/
-
-
-gce:
-  name: Mesosphere for Google Cloud Platform
-  blurb: >
-     Mesosphere for Google Cloud Platorm makes provisioning Mesosphere clusters in the cloud easy.
-  icon: gce
-  tutorials:
-    add-slave-to-mesosphere-google-cluster:
-      title: Increasing the Size of your Mesosphere Cluster
-      blurb: >
-        This tutorial walks through the steps necessary to add another slave node to a Mesosphere for Google Cloud Platform cluster.
-      date: 2014-08-27
-      duration: 20 minutes
-      path: tutorials/add-slave-to-mesosphere-google-cluster.md
-      resources:
-      - name: Google Cloud Platform
-        url: https://cloud.google.com/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-    add-vpn-user-to-mesosphere-google-cluster:
-      title: Adding a VPN User to your Mesosphere Cluster
-      blurb: >
-        This tutorial walks through the steps necessary to create another VPN user to access a Mesosphere for Google Cloud Platform cluster.
-      date: 2015-01-14
-      duration: 15 minutes
-      path: tutorials/add-vpn-user-to-mesosphere-google-cluster.md
-      resources:
-      - name: Google Cloud Platform
-        url: https://cloud.google.com/
 
 docker:
   name: Docker on Mesosphere
