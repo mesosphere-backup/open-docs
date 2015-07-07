@@ -31,7 +31,7 @@ Finally, you do this to get your changes, in your branch, onto github:
 
 Remember, BRANCHNAME is the name of your branch.
 
-Once you've done that then you [Create a pull request](https://github.com/mesosphere/mesosphere-docs/compare/prod...master) online to get it reviewed.  To do the pull request do this:
+Once you've done that, [create a pull request](https://github.com/mesosphere/open-docs/compare/prod...master) online to get it reviewed.  To do the pull request do this:
 
 1. On the left pulldown pick the master branch.
 2. On the right, choose your branch, or use the list that shows up below and click on your branch.
