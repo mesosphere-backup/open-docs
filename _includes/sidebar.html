@@ -27,24 +27,36 @@
         {% endfor %}
       {% endif %}
 
-
       <li
           {% if node_active %}
             class="active"
           {% endif %}
           >
-        <a href="{{ site.url }}{{ entry.href }}">
-            {{ entry.title }}
+
+        {% if entry.external != null %}
+          <a href="{{ entry.external }}">
+          {{ entry.title }}
+          </a>
+        {% else %}
+          <a href="{{ site.url }}{{ entry.href }}">
+          {{ entry.title }}
         </a>
+        {% endif %}
         {% if entry.sub != null %}
           <ul class="nav">
             {% for subcat in entry.sub %}
               <li {% if page.url == subcat.href %}
                     class="active"
                   {% endif %}>
-                <a href="{{ site.url }}{{ subcat.href }}">
+                {% if subcat.external != null %}
+                  <a href="{{ subcat.external }}" target="_blank">
+                      {{ subcat.title }}
+                  </a>
+                {% else %}
+                  <a href="{{ site.url }}{{ subcat.href }}">
                   {{ subcat.title }}
                 </a>
+                {% endif %}
               </li>
             {% endfor %}
           </ul>
