@@ -1,5 +1,7 @@
-Mesosphere's Website
-=======
+Mesosphere Community Docs Site
+==============================
+
+This repository containers the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
 
 ### Deploy the site
 
@@ -29,13 +31,13 @@ Finally, you do this to get your changes, in your branch, onto github:
 
 Remember, BRANCHNAME is the name of your branch.
 
-Once you've done that then you [Create a pull request](https://github.com/mesosphere/mesosphere-docs/compare/prod...master) online to get it reviewed.  To do the pull request do this:
+Once you've done that, [create a pull request](https://github.com/mesosphere/open-docs/compare/prod...master) online to get it reviewed.  To do the pull request do this:
 
 1. On the left pulldown pick the master branch.
 2. On the right, choose your branch, or use the list that shows up below and click on your branch.
 3. Review your changes, and if it looks good, then click the green "Create pull request" button in the top left.
 
-After this gets merged in (either by you or someone else), view your changes at http://docs-staging.mesosphere.com.s3-website-us-west-2.amazonaws.com/ to see the staging server.  If it's not right then simply make more changes and do another pull request.
+After this gets merged in (either by you or someone else), view your changes on [the staging server](http://open-staging.mesosphere.com.s3-website-us-east-1.amazonaws.com/).  If it's not right then simply make more changes and do another pull request.
 
 ### Handling Images
 
@@ -78,46 +80,3 @@ Once you've done all that continue with your usual process to commit this, push 
 
     **The fix**: The path to your local repository cannot contain spaces. Rename any
     folders in the path to remove spaces.
-
-### Add a new post
-
-Posts live in the `_posts` directory and can be written in HTML or in Markdown.
-Posts' filenames must always be this format:
-
-    YEAR-MONTH-DAY-title.MARKUP
-
-The date and title are used to generate the post's URL. For example, a post file
-named `2013-08-01-how-to-eat-a-hotdog.html` would have this URL:
-
-    /2013/08/01/how-to-eat-a-hotdog/
-
-More details: [Writing posts in Jekyll](http://jekyllrb.com/docs/posts/).
-
-#### Add Yourself as an Author
-
-When authoring a post, you can add your name and Twitter handle in the
-["authors.yml"](https://github.com/mesosphere/website/blob/master/_data/authors.yml)
-file and reference the handle in the post.
-
-For example:
-
-**authors.yml**:
-
-    bobmarley:
-      name: Bob Marley
-      twitter: reggaeman
-
-**new-post.md**:
-
-    ---
-      ...
-      author: bobmarley
-      ...
-    ---
-
-    ...
-
-
-#### Linkchecker
-
-A weekly Dockerized Chronos task running on the OVH cluster runs the [linkchecker](http://wummel.github.io/linkchecker/) tool. The Chronos job description is in `utils/linkchecker.json` which runs a Python script that calls out to the `linkchecker` program and emails the output to the docs@mesosphere.io group.
