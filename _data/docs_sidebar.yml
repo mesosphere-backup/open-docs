@@ -1,6 +1,6 @@
 - title: "Overview"
   href: "/"
-  
+
 - title: "Getting Started"
   href: "/getting-started/"
   sub:
@@ -32,7 +32,7 @@
   href: "/tutorials/"
   sub:
 
-    - title: "Advanced Mesos Course"
+    - title: "Introduction to Mesos"
       href: "/intro-course/"
       
     - title: "Building a Web App with Analytics Using Docker and Marathon"
