@@ -63,3 +63,6 @@
 
 - title: "Downloads"
   href: "/downloads/mesos/"
+
+- title: "Support and Feedback"
+  external: "https://docs.mesosphere.com/support/"
