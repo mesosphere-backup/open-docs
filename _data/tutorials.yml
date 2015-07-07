@@ -66,12 +66,12 @@ docker:
         url: https://mesos.apache.org/
         
     docker-marathon-analytics:
-      title: Building a Web Application with Analytics Using Docker and Marathon
+      title: <a href="https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/" target="_blank">Building a Web Application with Analytics Using Docker and Marathon</a>
       blurb: >
         This tutorial shows you step-by-step how to build a web application, including the analytics part, using Docker and Marathon.
       date: 2015-06-30
       duration: 30 minutes
-      path: tutorials/docker-marathon-analytics.md
+      path: https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/
       resources:
       - name: Docker
         url: http://www.docker.com/
