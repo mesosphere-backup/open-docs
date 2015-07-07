@@ -10,6 +10,4 @@ Installing Mesosphere by hand is straightforward. The guides below will get you 
 
 There are several easy ways to setup Mesosphere locally for development and testing purposes.
 
-+ [Setting up a Single Node Mesosphere Cluster](/getting-started/developer/single-node-install)
-+ [Mac OS X Installation Using Brew](/getting-started/developer/brew-install)
 + [Virtual Machine Installation Using Vagrant](/getting-started/developer/vm-install)
