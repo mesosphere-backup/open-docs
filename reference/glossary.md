@@ -30,10 +30,6 @@ title: Mesosphere Glossary
 			<td id="framework">Framework</td>
 			<td> Software that runs on top of Mesos, and includes both a Scheduler and one or more Executors. Receives resource offers describing CPU, RAM, etc., and allocates them for discrete tasks that can be launched on Mesos-slaves.  An example of a framework is Marathon.      </td>
 		</tr>
-		<tr>
-			<td id="homebrew">Homebrew</td>
-			<td> <a href="http://brew.sh/">Homebrew</a> is an open source package management system for the Mac that simplifies installation of packages from source. It handles dependencies and updates automatically through a simple command line tool, <code>brew</code>.       </td>
-		</tr>
 		<tr >
 			<td id="master">Master</td>
 			<td> A Mesos master aggregates resource offers from all the slaves and provides them to registered frameworks.   For more details about the Mesos master, read about  <a href="/reference/mesos-master/">Mesos Master Configuration</a>.

@@ -1,11 +1,5 @@
 - title: "Overview"
   href: "/"
-  sub:
-    - title: "What is Mesosphere?"
-      href: "/mesosphere/"
-
-    - title: "Mesosphere on IaaS"
-      href: "/benefits-cloud/"
 
 - title: "Getting Started"
   href: "/getting-started/"
@@ -38,7 +32,7 @@
   href: "/tutorials/"
   sub:
 
-    - title: "Advanced Mesos Course"
+    - title: "Introduction to Mesos"
       href: "/intro-course/"
       
     - title: "Building a Web App with Analytics Using Docker and Marathon"
