@@ -37,7 +37,7 @@ Once you've done that, [create a pull request](https://github.com/mesosphere/ope
 2. On the right, choose your branch, or use the list that shows up below and click on your branch.
 3. Review your changes, and if it looks good, then click the green "Create pull request" button in the top left.
 
-After this gets merged in (either by you or someone else), view your changes at http://docs-staging.mesosphere.com.s3-website-us-west-2.amazonaws.com/ to see the staging server.  If it's not right then simply make more changes and do another pull request.
+After this gets merged in (either by you or someone else), view your changes on [the staging server](http://open-staging.mesosphere.com.s3-website-us-east-1.amazonaws.com/).  If it's not right then simply make more changes and do another pull request.
 
 ### Handling Images
 
