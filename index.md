@@ -3,8 +3,6 @@ layout: doc
 title: Mesosphere Community Documentation
 ---
 
-## Introduction
-
 Welcome to the Mesosphere Community Documentation website! This site contains documentation and tutorials for the community projects supported by Mesosphere, including [Apache Mesos](http://mesos.apache.org/), [Marathon](https://github.com/mesosphere/marathon) and [Chronos](https://github.com/mesos/chronos).
 
 For product documentation related to [Mesosphere's DCOS](https://mesosphere.com/learn/), please see the [Mesosphere Docs](http://docs.mesosphere.com).
