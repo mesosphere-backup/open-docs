@@ -8,7 +8,7 @@ Mesosphere is excited to be working with Google on a number of projects to provi
 ***
 ## Mesosphere and Kubernetes
 
-Google and Mesosphere are leading the charge in the advancement of scaling container technologies through the [Kubernetes project](https://github.com/GoogleCloudPlatform/kubernetes) and the [kubernetes-mesos framework](https://github.com/mesosphere/kubernetes-mesos). While this project is still under heavy development, it allows you to combine the easy pod and label abstraction of Kubernetes with the advanced scheduling features of Mesos.
+Google and Mesosphere are leading the charge in the advancement of scaling container technologies through the [Kubernetes project](https://github.com/GoogleCloudPlatform/kubernetes) and the [Mesosphere DCOS](https://docs.mesosphere.com/services/kubernetes/). While this project is still under heavy development, it allows you to combine the easy pod and label abstraction of Kubernetes with the advanced scheduling features of Mesos.
 
 ***
 ## Deploying to Google Cloud Platform
