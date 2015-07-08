@@ -32,7 +32,7 @@
   href: "/tutorials/"
   sub:
 
-    - title: "Introduction to Mesos"
+    - title: "Advanced Mesos Course"
       external: "https://open.mesosphere.com/intro-course"
 
     - title: "Building a Web App with Analytics Using Docker and Marathon"
