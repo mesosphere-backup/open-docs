@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Virtual Machine Installation using Vagrant
+
+redirect_to:
+  - /intro-course/ex1.html
 ---
 
 ## Introduction

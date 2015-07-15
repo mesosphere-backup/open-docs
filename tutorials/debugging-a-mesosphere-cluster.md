@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Debugging a Mesosphere Cluster
+
+redirect_to:
+  - /intro-course/ex19.html
 ---
 
 While Mesosphere's technology is a robust way to deploy services onto clusters with thousands of nodes, as with any large scale distributed system, tasks can and do fail. This tutorial walks through the typical first steps to debug issues.
