@@ -24,7 +24,7 @@ Running three ZooKeeper nodes will allow one to fail and for the service to stil
 
 #### Setup Repositories
 
-The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads) and install it manually.
+The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/mesos) and install it manually.
 
 {% include downloads/repository-setup.md %}
 
@@ -185,7 +185,7 @@ Run a number of slaves that is proportional to your workload. It's very easy to 
 
 #### Setup Repositories
 
-The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads) and install it manually.
+The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/mesos) and install it manually.
 
 {% include downloads/repository-setup.md %}
 

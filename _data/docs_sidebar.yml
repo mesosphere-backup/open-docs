@@ -39,7 +39,7 @@
       external: "https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/"
 
     - title: "Getting started with Kubernetes on Mesos"
-      external: "https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/mesos.md"
+      external: "https://docs.mesosphere.com/services/kubernetes/"
 
 - title: "Frameworks"
   href: "/frameworks/"

@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Launching a Docker Container on Mesosphere
+
+redirect_to:
+  - /intro-course/ex12.html
 ---
 
 > [Docker](https://www.docker.io/) aids software deployment through the automation of Linux Containers (LXC). While Docker has made the the life of developers and operators easier, Docker plus Mesosphere provides an easy way to automate and scale deployment of containers in a production environment.
