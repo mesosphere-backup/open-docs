@@ -42,7 +42,7 @@
       external: "https://docs.mesosphere.com/services/kubernetes/"
       
     - title: "Creating a Mesos Framework with Go"
-      href: "/mesos-framework-tutorial/README/"
+      href: "/tutorials/go-mesos-framework/"
 
 - title: "Frameworks"
   href: "/frameworks/"
