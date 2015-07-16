@@ -44,7 +44,6 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 	     
 	1.  <a href="https://golang.org/doc/code.html#GOPATH" target="_blank">Setup the required Go workspace</a>:
 	
-		WORKSPACE
 	    ```
 	    $ mkdir pkg && mkdir bin && mkdir src
 	    $ mkdir $HOME/go
