@@ -33,13 +33,16 @@
   sub:
 
     - title: "Advanced Mesos Course"
-      external: "https://open.mesosphere.com/intro-course"
+      href: "https://open.mesosphere.com/intro-course"
 
     - title: "Building a Web App with Analytics Using Docker and Marathon"
       external: "https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/"
 
     - title: "Getting started with Kubernetes on Mesos"
       external: "https://docs.mesosphere.com/services/kubernetes/"
+      
+    - title: "Creating a Mesos Framework with Go"
+      href: "/mesos-framework-tutorial/README/"
 
 - title: "Frameworks"
   href: "/frameworks/"
