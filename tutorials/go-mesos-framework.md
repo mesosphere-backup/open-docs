@@ -6,6 +6,7 @@ title: Creating a Mesos Framework with Go
  
 This tutorial creates a Mesos framework in the Go programming language and launches from within a Vagrant VM. 
 
+
 #### The framework template
 
 The minimum requirements for a framework are a scheduler, executor, and file server.
@@ -19,7 +20,7 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 
 ### Step 1:  Setup the environment
 
-1.  Deploy a Mesos sandbox environment by using [Playa Mesos](https://github.com/mesosphere/playa-mesos). Playa Mesos helps you quickly create Apache Mesos test environments.
+1.  Deploy a Mesos sandbox environment by using [Playa Mesos](https://github.com/mesosphere/playa-mesos) and login to the Mesos Vagrant instance. Playa Mesos creates an Apache Mesos test environment.
 
 1.  From within Vagrant box test environment:
 
@@ -45,8 +46,8 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 	1.  <a href="https://golang.org/doc/code.html#GOPATH" target="_blank">Setup the required Go workspace</a>:
 	
 	    ```
+	    $ mkdir $HOME/go && cd $HOME/go
 	    $ mkdir pkg && mkdir bin && mkdir src
-	    $ mkdir $HOME/go
         $ export GOPATH=$HOME/go
         $ export PATH=$PATH:$GOPATH/bin
         ```
@@ -56,12 +57,12 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 1.  Get the Mesos Go framework template code:
 
 	```
-	$ sudo mkdir -p $GOPATH/src/github.com/mesosphere 
+	$ mkdir -p $GOPATH/src/github.com/mesosphere 
 	$ cd $GOPATH/src/github.com/mesosphere  
-	$ sudo git clone https://github.com/mesosphere/mesos-framework-tutorial.git
+	$ git clone https://github.com/mesosphere/mesos-framework-tutorial.git
 	$ go get ./... 
 	$ cd mesos-framework-tutorial/
-	$ sudo git checkout -b tutorial origin/tutorial
+	$ git checkout -b tutorial origin/tutorial
 	```
 
 	You should now have all of the tutorial code and be in the 'tutorial' branch.  This next steps perform add framework functionality as we go and commit to the `tutorial` branch.
@@ -73,7 +74,7 @@ In this step, the framework is initialized.
 1.  Checkout the initial branch:
     
     ```
-    $ sudo git checkout aae4f84
+    $ git checkout aae4f84
     ```
     
 1.  Compile the framework code:
@@ -105,7 +106,9 @@ In this step, the framework is initialized.
 
 	- 'scheduler/example_scheduler.go' implements the required scheduler interface and logs all calls from Mesos.
 
-	- 'executor/example_executor.go' compiles to an executable binary which is capable of hosting tasks.  It implements the executor interface and for the most part just logs calls from Mesos.  The exception is the LaunchTask method which makes status updates regarding tasks, but does not actually do any work.  
+	- 'executor/example_executor.go' compiles to an executable binary which is capable of hosting tasks.  It implements the executor interface and for the most part just logs calls from Mesos.  The exception is the LaunchTask method which makes status updates regarding tasks, but does not actually do any work.
+	
+1.  Press CTRL + C to stop the framework.  
 
 ### Step 4.  Accept offers and launch tasks
 
@@ -114,7 +117,7 @@ In this step, the framework begins accepting offers from Mesos and launching tas
 1.  Checkout the branch:
     
     ```
-    $ sudo git checkout bc5da5
+    $ git checkout bc5da5
     ```
     
 1.  Compile the framework code:
@@ -148,6 +151,8 @@ In this step, the framework begins accepting offers from Mesos and launching tas
 	I0713 19:06:54.178064   25228 example_scheduler.go:103] Status update: task 2  is in state  TASK_FINISHED
 	...
 	```
+	
+1.  Press CTRL + C to stop the framework. 
 
 ### Step 5. Create batch image processing task
 
@@ -156,7 +161,7 @@ In this step, we implement a simple batch image processing framework that shows 
 1.  Checkout the branch:
     
     ```
-    $ sudo git checkout 1b4fe4f
+    $ git checkout 1b4fe4f
     ```
     
 1.  Compile the framework code:
@@ -183,6 +188,8 @@ In this step, we implement a simple batch image processing framework that shows 
 	<img src="https://raw.githubusercontent.com/mesosphere/mesos-framework-tutorial/tutorial/original.jpg?token=AAinR_TyrX7bO_bT7H4QJRMtj5Be-jYAks5VrZPSwA%3D%3D" alt="Original image" width="100%" align="middle">
 
 	<img src="https://raw.githubusercontent.com/mesosphere/mesos-framework-tutorial/tutorial/inverted.jpg?token=AAinR7nLI_1CmA9ImzaiARIniQt0K1lyks5VrZQRwA%3D%3D" alt="Inverted image" width="100%" align="middle">
+	
+1.  Press CTRL + C to stop the framework. 
 
 
 
