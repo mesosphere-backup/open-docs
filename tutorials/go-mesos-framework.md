@@ -161,7 +161,7 @@ In this step, we implement a simple batch image processing framework that shows 
 1.  Checkout the branch:
     
     ```
-    $ git checkout 1b4fe4f
+    $ git checkout 2f0d22
     ```
     
 1.  Compile the framework code:
