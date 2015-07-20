@@ -74,7 +74,7 @@ In this step, the framework is initialized.
 1.  Checkout the initial branch:
     
     ```
-    $ git checkout aae4f84
+    $ git checkout aae4f846a6dd7e5e0fba2d737dc82718ddde9e2b
     ```
     
 1.  Compile the framework code:
@@ -117,7 +117,7 @@ In this step, the framework begins accepting offers from Mesos and launching tas
 1.  Checkout the branch:
     
     ```
-    $ git checkout bc5da5
+    $ git checkout bc5da5bb52ad91871fb842e454133fe45d08d319
     ```
     
 1.  Compile the framework code:
@@ -161,7 +161,7 @@ In this step, we implement a simple batch image processing framework that shows 
 1.  Checkout the branch:
     
     ```
-    $ git checkout 2f0d22
+    $ git checkout e5e18f6f8c1a28d2d2d3ba725a99841b26e2f425
     ```
     
 1.  Compile the framework code:
