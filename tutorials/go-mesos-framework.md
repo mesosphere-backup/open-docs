@@ -90,7 +90,7 @@ In this step, the framework is initialized.
 
 	```
 	$ cd $GOPATH/src/github.com/mesosphere/mesos-framework-tutorial
-	$ ./example_scheduler --master=127.0.0.1:5050 --executor="/home/vagrant/code/go/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
+	$ ./example_scheduler --master=127.0.0.1:5050 --executor="$GOPATH/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
 	```
 	
 	The scheduler receives one resource offer from Mesos and then appears to block. By not accepting the resource offer the scheduler has implicitly rejected the offer.  No tasks are launched.  A configurable timeout will eventually occur and the resource will again be offered to the scheduler.  The output should look like this:
@@ -133,7 +133,7 @@ In this step, the framework begins accepting offers from Mesos and launching tas
 
 	```
 	$ cd $GOPATH/src/github.com/mesosphere/mesos-framework-tutorial
-	$ ./example_scheduler --master=127.0.0.1:5050 --executor="/home/vagrant/code/go/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
+	$ ./example_scheduler --master=127.0.0.1:5050 --executor="$GOPATH/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
 	```
 
 	The executor launches the tasks, and reports status to Mesos indicating that the tasks are finished.  This frees the resources and they are offered to the scheduler again.  This loop continues endlessly as long as the scheduler process doesn't crash. A long running distributed service has now been completed.  'example_executor.go' indicates where the real work is done in it's 'LaunchTask' method.
@@ -177,7 +177,7 @@ In this step, we implement a simple batch image processing framework that shows 
 
 	```
 	$ cd $GOPATH/src/github.com/mesosphere/mesos-framework-tutorial
-	$ ./example_scheduler --master=127.0.0.1:5050 --executor="/home/vagrant/code/go/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
+	$ ./example_scheduler --master=127.0.0.1:5050 --executor="$GOPATH/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
 	```
 
 	The framework takes [a list of image URLs](https://github.com/mesosphere/mesos-framework-tutorial/blob/tutorial/images), assigns each URL to one task, and collects the results of the image processing.  In order for each task to know which image it should process we need to [encapsulate the URL in the task here](https://github.com/mesosphere/mesos-framework-tutorial/blob/tutorial/scheduler/example_scheduler.go#L104).  The executor then [reads this information on the other side](https://github.com/mesosphere/mesos-framework-tutorial/blob/tutorial/executor/example_executor.go#L65).  The executor then [processes the image and uploads it](https://github.com/mesosphere/mesos-framework-tutorial/blob/tutorial/executor/example_executor.go#L72-87) to the same HTTP server that previously served the executor binary.
