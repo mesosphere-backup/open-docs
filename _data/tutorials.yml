@@ -12,20 +12,6 @@ advanced:
       duration: 1 day
       path: https://open.mesosphere.com/intro-course/
 
-coreos:
-  name: Mesosphere on CoreOS
-  blurb: >
-     Tutorials on setting up Mesosphere on various CoreOS configurations.
-  icon: coreos
-  tutorials:
-    mesosphere-on-a-single-coreos-instance:
-      title: Mesosphere on a Single CoreOS Instance
-      blurb: >
-        This tutorial walks through setting up a Mesosphere cluster on a single CoreOS instance.
-      date: 2014-11-14
-      duration: 20 minutes
-      path: tutorials/mesosphere-on-a-single-coreos-instance.md
-
 mesos:
   name: Cluster Maintenance
   blurb: >

@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Mesosphere on a Single CoreOS Instance
+
+redirect_to:
+  - /tutorials/
 ---
 
 ## Introduction
