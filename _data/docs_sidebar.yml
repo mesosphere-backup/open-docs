@@ -33,7 +33,7 @@
   sub:
 
     - title: "Advanced Mesos Course"
-      href: "https://open.mesosphere.com/intro-course"
+      external: "https://open.mesosphere.com/intro-course"
 
     - title: "Building a Web App with Analytics Using Docker and Marathon"
       external: "https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/"
