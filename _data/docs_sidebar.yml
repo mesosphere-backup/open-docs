@@ -40,7 +40,7 @@
 
     - title: "Getting started with Kubernetes on Mesos"
       external: "https://docs.mesosphere.com/services/kubernetes/"
-      
+
     - title: "Creating a Mesos Framework with Go"
       href: "/tutorials/go-mesos-framework/"
 
