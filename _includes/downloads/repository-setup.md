@@ -2,16 +2,12 @@ Mesosphere has official package repositories which connect directly to the nativ
 
 ##### Supported Distributions
 
++ Ubuntu 15.04 (vivid)
 + Ubuntu 14.04 (trusty)
-+ Ubuntu 13.10 (saucy)
-+ Ubuntu 13.04 (raring)
-+ Ubuntu 12.10 (quantal)
 + Ubuntu 12.04 (precise)
-+ Debian 7 (wheezy)
-+ RedHat 6
-+ CentOS 6
-+ RedHat 7
-+ CentOS 7
++ Debian 8 (jessie)
++ Enterprise Linux 7 (RedHat/CentOS)
++ Enterprise Linux 6 (RedHat/CentOS)
 
 ##### Debian / Ubuntu
 
