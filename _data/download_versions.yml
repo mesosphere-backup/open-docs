@@ -1,6 +1,29 @@
 - name: mesos
   releases:
 
+    - name: 0.23.0
+      announcement: https://github.com/apache/mesos/blob/0.23.0/CHANGELOG
+      timestamp: 2015-07-22 00:00:00 +0000
+      packages:
+      - name: Ubuntu 15.04 (AMD 64)
+        path: ubuntu/15.04/mesos_0.23.0-1.0.ubuntu1504_amd64.deb
+        egg_path: ubuntu/15.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/14.04/mesos_0.23.0-1.0.ubuntu1404_amd64.deb
+        egg_path: ubuntu/14.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+      - name: Ubuntu 12.04 (AMD 64)
+        path: ubuntu/12.04/mesos_0.23.0-1.0.ubuntu1204_amd64.deb
+        egg_path: ubuntu/12.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+      - name: Debian 8 (AMD 64)
+        path: debian/8/mesos_0.23.0-1.0.debian81_amd64.deb
+        egg_path: debian/8/mesos-0.23.0-py2.7-linux-x86_64.egg
+      - name: CentOS 7 (x86_64)
+        path: centos/7/mesos-0.23.0-1.0.centos701406.x86_64.rpm
+        egg_path: centos/7/mesos-0.23.0-py2.7-linux-x86_64.egg
+      - name: CentOS 6 (x86_64)
+        path: centos/6/mesos-0.23.0-1.0.centos65.x86_64.rpm
+        egg_path: centos/6/mesos-0.23.0-py2.6-linux-x86_64.egg
+
     - name: 0.22.1
       announcement: https://github.com/apache/mesos/blob/0.22.1/CHANGELOG
       timestamp: 2015-05-12 00:00:00 +0000
