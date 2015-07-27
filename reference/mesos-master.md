@@ -5,7 +5,7 @@ title: Mesos Master Configuration
 
 ## Introduction
 
-The centerpiece of Mesosphere is Apache Mesos.  Mesos installs with two different components, the master and the slave.  The master is a process which runs on a node in the cluster and orchestrates the running of tasks on slaves by receiving resource offers from slaves and offering those resources to registered frameworks, such as Mesosphere Marathon.  It is expected that in production mode, there are 3 or more masters running each on a separate node.  Nodes in this context can be physical machines or virtual machines.   Details for installing a master differs by environment and can be found in our [getting started](/getting-started) section.
+The centerpiece of Mesosphere is Apache Mesos.  Mesos installs with two different components, the master and the slave.  The master is a process which runs on a node in the cluster and orchestrates the running of tasks on slaves by receiving resource offers from slaves and offering those resources to registered frameworks, such as Mesosphere Marathon.  It is expected that in High Availability (HA) mode, there are 3 or more masters running each on a separate node.  Nodes in this context can be physical machines or virtual machines.   Details for installing a master differs by environment and can be found in our [getting started](/getting-started) section.
 
 The Mesos master can take a variety of configuration options through command-line arguments, or environment variables. A list of the available options can be seen by running `mesos-master --help`. Each option can be set in two ways. Using an example flag of `--port`, the following are the available ways to set this option:
 
@@ -21,7 +21,7 @@ Configuration values are searched for first in the environment, then on the comm
 The environment variable flag is created by uppercasing the flag with a prefix of MESOS_.  So master equals MESOS_MASTER.
 </div>
 
-The startup initalization script `/usr/bin/mesos-init-wrapper` provides a few more configuration points for these options.
+The startup initialization script `/usr/bin/mesos-init-wrapper` provides a few more configuration points for these options.
 
 * The file `/etc/default/mesos` may contain a flag = value on multiple lines and will be used for the master and the slave.
 * The file `/etc/default/mesos-master` may contain the flag = value on multiple lines
