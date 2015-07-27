@@ -136,7 +136,7 @@ file in the <tt class="docutils literal"><span class="pre">vm-install</span></tt
 <a name="code--ex15--update_hosts.sh-jinja-idio.html-3"></a><span class="k">done</span>
 </pre></div><p>And that will fix all of them to have the correct IP addresses and host names.</p>
 <p>To install all the required software, I created a shell script named <tt class="docutils literal">installnode.sh</tt> to do create new nodes:</p>
-<div class="highlight"><pre><a name="code--ex15--installnode.sh-jinja-idio.html-1"></a>rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+<div class="highlight"><pre><a name="code--ex15--installnode.sh-jinja-idio.html-1"></a>rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
 <a name="code--ex15--installnode.sh-jinja-idio.html-2"></a>yum -y install mesos device-mapper-event-libs docker
 <a name="code--ex15--installnode.sh-jinja-idio.html-3"></a>
 <a name="code--ex15--installnode.sh-jinja-idio.html-4"></a><span class="c"># point this node at the mesos master</span>

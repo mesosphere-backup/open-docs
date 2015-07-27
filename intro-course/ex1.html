@@ -131,7 +131,7 @@ Create a virtual machine with Vagrant running the CentOS 7.0 Linux distro. This 
 <a name="code--ex1--edit_etc_hosts.sh-session-jinja-idio.html-4"></a><span class="go">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span>
 <a name="code--ex1--edit_etc_hosts.sh-session-jinja-idio.html-5"></a><span class="go">192.168.33.10 node1</span>
 </pre></div><p>Install the Mesosphere software packages:</p>
-<div class="highlight"><pre><a name="code--ex1--install_rpms.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+<div class="highlight"><pre><a name="code--ex1--install_rpms.sh-session-jinja-idio.html-1"></a><span class="gp">$</span> sudo rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
 <a name="code--ex1--install_rpms.sh-session-jinja-idio.html-2"></a><span class="gp">$</span> sudo yum -y install mesos marathon
 </pre></div><p><strong>Tip:</strong> You can use <tt class="docutils literal">cat</tt> to display the updated file.  The change is to remove <tt class="docutils literal">node1</tt> from the <tt class="docutils literal">127.0.0.1</tt> line and create a new line with <tt class="docutils literal">192.168.33.10 node1</tt> at the end.</p>
 </div>
