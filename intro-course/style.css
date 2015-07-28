@@ -1,4 +1,39 @@
+body {
+	background-color: rgb(242, 242, 243);
+	display: block;
+	padding-top: 20px;
+	position: relative;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+	font-weight: 200;
+	letter-spacing: 1px;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: rgb(205, 205, 205);
+}
+
 .section {
     padding-bottom: 0px;
     padding-top: 0px;
+}
+
+.video-lecture-container {
+	position:relative;
+	width: 100%;
+	height: 0px;
+	padding-bottom: 56%; /* proportional scaling */
+	padding-top: 50px; /* add constant */
+}
+.video-lecture-container .smart-player-embed-container-iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+footer {
+	margin-top: 25px;
 }
