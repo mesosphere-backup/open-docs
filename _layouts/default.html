@@ -12,11 +12,15 @@ layout: base
     '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WMVN2M');</script>
   {% comment %} End Google Tag Manager {% endcomment %}
-  {% include navbar.html %}
-  <div class="body-light">
-    <div class="container">
-      {{ content }}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        {% include navbar.html %}
+        <div class="body-light">
+          {{ content }}
+        </div>
+        {% include footer.html %}
+      </div>
     </div>
   </div>
-  {% include footer.html %}
 </body>
