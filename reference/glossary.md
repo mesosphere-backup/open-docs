@@ -20,7 +20,7 @@ DCOS Cluster
 
 DCOS Service
 
-: A DCOS service is a datacenter service that is installable from the public <a href="https://github.com/mesosphere/universe" target="_blank">Mesosphere repository</a>. For example, HDFS, Spark, and Cassandra are DCOS services. For more information, see [Managing DCOS Services](/services/overview/).
+: A DCOS service is a datacenter service that is installable from the public <a href="https://github.com/mesosphere/universe" target="_blank">Mesosphere repository</a>. For example, HDFS, Spark, and Cassandra are DCOS services. For more information, see [Managing DCOS Services](http://docs.mesosphere.com/services/overview/).
 
  
 Containerizer
