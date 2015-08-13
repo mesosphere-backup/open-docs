@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Service Discovery with Mesosphere
+title: Service Discovery
 ---
 
 Service discovery is an essential configuration step when running a modern application distributed across a data center to allow easy network communication between services.
@@ -43,7 +43,7 @@ If disaster strikes and Slave 1 goes offline, the next request to `localhost:222
 
 ## Prerequisites
 
-* Mesosphere cluster running Mesos 0.20.1+ and Marathon 0.7.3+
+* A cluster running Mesos 0.20.1+ and Marathon 0.7.3+
 
 * [HAProxy](http://www.haproxy.org/) installed and running on each Mesos node
 
@@ -55,9 +55,9 @@ If disaster strikes and Slave 1 goes offline, the next request to `localhost:222
 
 We will install the `haproxy-marathon-bridge` script on every node. This is for two purposes:
 
-* To allow services running on a Mesosphere cluster to discover other services also running on the cluster. This is accomplished by running the script on each slave node.
+* To allow services running on a cluster to discover other services also running on the cluster. This is accomplished by running the script on each slave node.
 
-* To allow external requests to be routed to services running on the Mesosphere cluster. This is accomplished by running the script on each master node. (This does not need to run on the master nodes, but for simplicity, we re-use them in this doc.)
+* To allow external requests to be routed to services running on the cluster. This is accomplished by running the script on each master node. (This does not need to run on the master nodes, but for simplicity, we re-use them in this doc.)
 
 To install the [`haproxy-marathon-bridge` script](https://github.com/mesosphere/marathon/blob/master/bin/haproxy-marathon-bridge) on each node:
 
@@ -100,8 +100,8 @@ At the very front of your cluster you will need a load balancing and availabilit
 
 ## Marathon Example Definitions
 
-Below are some example Marathon application definitions for typical services run on a Mesosphere cluster.
-To use these, [Docker](https://www.docker.com/) will need to be installed on each slave node. (See our tutorial, "[Launching a Docker Container on Mesosphere](/tutorials/launch-docker-container-on-mesosphere/)")
+Below are some example Marathon application definitions for typical services run on a cluster.
+To use these, [Docker](https://www.docker.com/) will need to be installed on each slave node. 
 
 These address containers that use *host* based networking. Using *bridge* networking requires some extra work to allow services inside the container to resolve the proxy (see [building your own bridge](https://docs.docker.com/articles/networking/#building-your-own-bridge) for how this might be accomplished).
 

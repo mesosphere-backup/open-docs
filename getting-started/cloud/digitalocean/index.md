@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Mesosphere on DigitalOcean
+
+redirect_to: http://docs.mesosphere.com/
 ---
 
 There are several ways to run a Mesosphere cluster on DigitalOcean

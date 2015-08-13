@@ -7,20 +7,11 @@
     - title: "Amazon Web Services"
       href: "/getting-started/cloud/amazon/"
 
-    - title: "DigitalOcean"
-      href: "/getting-started/cloud/digitalocean/"
-
     - title: "Google Cloud Platform"
       href: "/getting-started/cloud/google/"
 
-    - title: "Private Data Center"
-      href: "/getting-started/datacenter/"
-
     - title: "Service Discovery"
       href: "/getting-started/service-discovery/"
-
-    - title: "Running Locally"
-      href: "/getting-started/developer/"
 
     - title: "Provisioning Tools"
       href: "/getting-started/tools/"

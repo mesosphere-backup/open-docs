@@ -8,4 +8,3 @@ title: Getting Started
 
 {% include cloud/menu.md %}
 
-{% include mesosphere/getting-started/menu.md %}
