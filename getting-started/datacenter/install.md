@@ -1,13 +1,13 @@
 ---
 layout: doc
-title: Setting up a Mesosphere Cluster
+title: Setting up a Cluster on Mesos and Marathon
 ---
 
 ## Introduction
 
-This tutorial will walk you through setting up a Mesosphere cluster which includes [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://github.com/mesosphere/marathon).
+This tutorial will walk you through setting up a cluster which includes [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://github.com/mesosphere/marathon).
 
-In this tutorial, we assume that you are deploying masters and slaves in a fault-tolerant way to multiple discrete hosts. See [Setting up a Single Node Mesosphere Cluster](/getting-started/developer/single-node-install/) if you require a single node cluster for testing purposes.
+In this tutorial, we assume that you are deploying masters and slaves in a fault-tolerant way to multiple discrete hosts. 
 
 + [Master Node Setup](#master-setup)
 + [Slave Node Setup](#slave-setup)
@@ -18,13 +18,13 @@ In this tutorial, we assume that you are deploying masters and slaves in a fault
 
 ### Package Installation
 
-Highly-available Mesosphere clusters will typically have multiple master nodes and any number of slave nodes. Each master node runs Apache Mesos, Marathon and ZooKeeper (to provide leader election).
+Highly-available clusters will typically have multiple master nodes and any number of slave nodes. Each master node runs Apache Mesos, Marathon and ZooKeeper (to provide leader election).
 
 Running three ZooKeeper nodes will allow one to fail and for the service to still be available (see [ZooKeeper reliability](http://stackoverflow.com/questions/13022244/zookeeper-reliability-three-versus-five-nodes) for more information). We recommend running **at least three master nodes** for a highly-available configuration. Run the steps below on each master node.
 
 #### Setup Repositories
 
-The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/mesos) and install it manually.
+The easiest way to install Mesos is via the GitHub repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/mesos) and install it manually.
 
 {% include downloads/repository-setup.md %}
 
@@ -67,7 +67,7 @@ sudo yum -y install mesosphere-zookeeper
 
 ### Configuration
 
-For more details on the default configuration see [Mesosphere Packages](/reference/packages).
+For more details on the default configuration see [Mesos Packages](/reference/packages).
 
 
 #### ZooKeeper
@@ -181,11 +181,11 @@ sudo service marathon restart
 
 ### Package Installation
 
-Run a number of slaves that is proportional to your workload. It's very easy to add slaves later to a Mesosphere cluster.
+Run a number of slaves that is proportional to your workload. It's very easy to add slaves later to a Mesos cluster.
 
 #### Setup Repositories
 
-The easiest way to install Mesosphere is via the Mesosphere repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesosphere downloads page](/downloads/mesos) and install it manually.
+The easiest way to install Mesos is via the GitHub repositories. Alternatively, you can download the latest `deb` or `rpm` directly from the [Mesos downloads page](/downloads/mesos) and install it manually.
 
 {% include downloads/repository-setup.md %}
 
@@ -205,7 +205,7 @@ sudo yum -y install mesos
 
 ### Configuration
 
-For more details on the default configuration see [Mesosphere Packages](/reference/packages).
+For more details on the default configuration see [Mesos Packages](/reference/packages).
 
 
 #### Disable ZooKeeper
@@ -287,4 +287,4 @@ Besides the console output, which will show a task being created and changing st
 
 <h2 id="next-steps">Next Steps</h2>
 
-Check out the [Mesosphere tutorials](/tutorials/) to see how to enable Docker support, run popular web applications and big data frameworks like Spark and Hadoop. For more information on best practices in production, see [Mesosphere in Production](/getting-started/datacenter/production-setup).
+Check out the [tutorials](/tutorials/) to see how to enable Docker support, run popular web applications and big data frameworks like Spark and Hadoop. 

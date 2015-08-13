@@ -27,7 +27,7 @@ title: Frameworks On Mesos
     </div>
   </div>
 
-  <h2>Mesosphere Supported Frameworks</h2>
+ 
   <ul class="row learn-app-list list-unstyled">
 
     <li class="service-icon service-icon-marathon">
@@ -92,8 +92,6 @@ title: Frameworks On Mesos
     </li>
 
   </ul>
-
-  <h2>Other Mesos Frameworks</h2>
 <ul class="row learn-app-list list-unstyled">
     <li class="service-icon service-icon-aurora">
       <h4>

@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Getting Started with Mesosphere for DigitalOcean
+
+redirect_to: http://docs.mesosphere.com/
 ---
 
 ## Introduction

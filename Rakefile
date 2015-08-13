@@ -4,10 +4,10 @@ require 'rake/clean'
 # than upload the directory as "_build" in S3.
 BUILD_DIRECTORY = "_build/"
 
-S3_BUCKET = "s3://mesosphere.io"
+S3_BUCKET = "s3://mesosphere.com"
 S3_REGION = "us-east-1"
 
-STAGING_BUCKET = "s3://panda.mesosphere.io"
+STAGING_BUCKET = "s3://panda.mesosphere.com"
 
 CLEAN.add(BUILD_DIRECTORY)
 

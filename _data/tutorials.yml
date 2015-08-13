@@ -1,7 +1,7 @@
 advanced: 
   name: Advanced Mesos Course
   blurb: >
-    This course teaches all of the open source components used in the Mesosphere DCOS. 
+    This course teaches all of the open source components used in the <a href="mesosphere.com" target="_blank">Mesosphere DCOS</a>.
   icon: mesos
   tutorials:
     intro-course:
@@ -12,24 +12,6 @@ advanced:
       duration: 1 day
       path: https://open.mesosphere.com/intro-course/
 
-mesos:
-  name: Cluster Maintenance
-  blurb: >
-     Tutorials on common administrative tasks for Mesosphere clusters.
-  icon: mesos
-  tutorials:
-    debugging-a-mesosphere-cluster:
-      title: Debugging a Mesosphere Cluster
-      blurb: >
-        The basic workflow to debug tasks running on a Mesosphere cluster.
-      date: 2014-10-30
-      duration: 30 minutes
-      path: tutorials/debugging-a-mesosphere-cluster.md
-      resources:
-      - name: Google Cloud Platform
-        url: https://cloud.google.com/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
 
 docker:
   name: Docker on Mesosphere
@@ -37,20 +19,6 @@ docker:
      Docker is a popular container management tool that simplifies Linux Containers (LXC). Mesosphere makes scaling Docker containers easy.
   icon: docker
   tutorials:
-    launch-docker-container-on-mesosphere:
-      title: Launching a Docker Container on Mesosphere
-      blurb: >
-        Mesosphere provides an environment which can launch and scale Docker containers.
-        This tutorial helps you deploy a Docker container using Marathon 0.7.0+ and Mesos 0.20+.
-      date: 2014-08-18
-      duration: 30 minutes
-      path: tutorials/launch-docker-container-on-mesosphere.md
-      resources:
-      - name: Docker
-        url: http://www.docker.com/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-        
     docker-marathon-analytics:
       title: <a href="https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/" target="_blank">Building a Web Application with Analytics Using Docker and Marathon</a>
       blurb: >
@@ -65,13 +33,13 @@ docker:
         url: https://mesos.apache.org/
 
 rails:
-  name: Ruby on Rails on Mesosphere
+  name: Ruby on Rails on Mesos
   blurb: >
     Rails infrastructure management can be simplified by running it on Mesos; turn your Rails app into an elastic and highly-available web service.
   icon: rails
   tutorials:
     run-ruby-on-rails-on-mesos:
-      title: Run Ruby on Rails on Mesosphere
+      title: Run Ruby on Rails on Mesos
       blurb: >
         Marathon is a Mesos framework for long-running "always on" apps like Ruby on Rails. It ensures that an app stays up
         even when machines or entire racks fail.
@@ -88,13 +56,13 @@ rails:
         url: https://mesos.apache.org/
 
 play:
-  name: Play on Mesosphere
+  name: Play on Mesos
   blurb: >
-    Running Play on Mesosphere enables a highly-available compute tier perfectly matched to the power and scalability of the Play web framework.
+    Running Play on Mesos enables a highly-available compute tier perfectly matched to the power and scalability of the Play web framework.
   icon: play
   tutorials:
     run-play-on-mesos:
-      title: Run Play on Mesosphere
+      title: Run Play on Mesos
       blurb: >
         Marathon is a Mesos framework for long-running "always on" apps like Play. It ensures that an app stays up
         even when machines or entire racks fail.
@@ -111,13 +79,13 @@ play:
         url: https://mesos.apache.org/
 
 hadoop:
-  name: Hadoop on Mesosphere
+  name: Hadoop on Mesos
   blurb: >
-    A Mesosphere cluster is only as valuable as the data processed and stored, see how Hadoop can be used to store and distribute data across the cluster.
+    A Mesos cluster is only as valuable as the data processed and stored, see how Hadoop can be used to store and distribute data across the cluster.
   icon: hadoop
   tutorials:
     run-hadoop-on-mesos-using-installer:
-      title: Run Apache Hadoop on Mesosphere (Quickstart)
+      title: Run Apache Hadoop on Mesos (Quickstart)
       blurb: >
         Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
         entire cluster. In this tutorial, we use the Mesos Hadoop Installer to setup Hadoop on Mesos.
@@ -131,7 +99,7 @@ hadoop:
         url: https://mesos.apache.org/
 
     run-hadoop-on-mesos:
-      title: Run Apache Hadoop on Mesosphere
+      title: Run Apache Hadoop on Mesos
       blurb: >
         Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
         entire cluster. Here we show how to package and install Hadoop on a Mesos cluster,
@@ -146,17 +114,17 @@ hadoop:
         url: https://mesos.apache.org/
 
 spark:
-  name: Spark on Mesosphere
+  name: Spark on Mesos
   blurb: >
-    Spark is a next generation large-scale data processing engine. Use with Mesosphere to run multiple distributed systems technologies simultaneously.
+    Spark is a next generation large-scale data processing engine. Use with Mesos to run multiple distributed systems technologies simultaneously.
   icon: spark
   tutorials:
     run-spark-on-mesos:
-      title: Run Apache Spark on Mesosphere
+      title: Run Apache Spark on Mesos
       blurb: >
         Spark is a fast and general-purpose cluster computing system which makes
         parallel jobs easy to write.
-        This tutorial shows you how to run Spark on Mesosphere.
+        This tutorial shows you how to run Spark on Mesos.
       date: 2013-11-12
       duration: 30 minutes
       path: tutorials/run-spark-on-mesos.html
@@ -167,24 +135,11 @@ spark:
         url: http://spark.incubator.apache.org/
 
 chronos:
-  name: Chronos on Mesosphere
+  name: Chronos on Mesos
   blurb: >
     Make your cron jobs a first class citizen of your compute cluster. Chronos is a distributed, fault-tolerant job scheduler, and it will change the way you think about cron jobs.
   icon: chronos
   tutorials:
-    run-chronos-on-mesos:
-      title: Run Chronos on Mesosphere
-      blurb: >
-        Chronos is a distributed and fault-tolerant job scheduler that supports complex job topologies. This walkthrough shows how to install Chronos on a Mesosphere cluster, how to use Chronos' web UI to schedule a job, and how to navigate the Mesos web UI to find the job's output.
-      date: 2013-11-12
-      duration: 35 minutes
-      path: tutorials/run-chronos-on-mesos.html
-      resources:
-      - name: Chronos
-        url: https://github.com/airbnb/chronos
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
     etl-pipelines-with-chronos-and-hadoop:
       title: ETL with Chronos and Hadoop
       blurb: >
@@ -202,16 +157,16 @@ chronos:
         url: https://hadoop.apache.org/
 
 storm:
-  name: Storm on Mesosphere
+  name: Storm on Mesos
   blurb: >
-    Storm is a distributed and fault-tolerant realtime compute system. Start using it now with Mesosphere, which makes it possible to run multiple distributed systems technologies simultaneously.
+    Storm is a distributed and fault-tolerant realtime compute system. Start using it now with Mesos, which makes it possible to run multiple distributed systems technologies simultaneously.
   icon: storm
   tutorials:
     run-storm-on-mesos:
-      title: Run Storm on Mesosphere
+      title: Run Storm on Mesos
       blurb: >
         Storm is a distributed realtime computation system. Similar to how Hadoop provides a set of general primitives for doing batch processing, Storm provides a set of general primitives for doing realtime computation on a stream.
-        This tutorial shows you how to install Storm on a Mesosphere cluster and run a sample topology on it.
+        This tutorial shows you how to install Storm on a Mesos cluster and run a sample topology on it.
       date: 2013-12-09
       duration: 30 minutes
       path: tutorials/run-storm-on-mesos.html
