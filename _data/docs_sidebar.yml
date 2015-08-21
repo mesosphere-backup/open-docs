@@ -23,9 +23,6 @@
   href: "/tutorials/"
   sub:
 
-    - title: "Advanced Mesos Course"
-      external: "https://open.mesosphere.com/intro-course"
-
     - title: "Building a Web App with Analytics Using Docker and Marathon"
       external: "https://mesosphere.com/blog/2015/06/21/web-application-analytics-using-docker-and-marathon/"
 
@@ -34,6 +31,73 @@
 
     - title: "Creating a Mesos Framework with Go"
       href: "/tutorials/go-mesos-framework/"
+
+- title: "Advanced Mesos Course"
+  href: "/intro-course/"
+  sub:
+
+    - title: "Introduction"
+      href: "/intro-course/introduction/"
+
+    - title: "Installing Software"
+      href: "/intro-course/installing-software/"
+
+    - title: "Installing ZooKeeper"
+      href: "/intro-course/installing-zookeeper/"
+
+    - title: "Using Apache Mesos"
+      href: "/intro-course/using-apache-mesos/"
+
+    - title: "Starting Marathon"
+      href: "/intro-course/starting-marathon/"
+
+    - title: "Using the Marathon GUI"
+      href: "/intro-course/using-the-marathon-gui/"
+
+    - title: "Marathon REST API"
+      href: "/intro-course/marathon-rest-api/"
+
+    - title: "Building and Running Mesos DNS"
+      href: "/intro-course/building-and-running-mesos-dns/"
+
+    - title: "Installing Chronos"
+      href: "/intro-course/installing-chronos/"
+
+    - title: "Creating A Slave Node"
+      href: "/intro-course/creating-a-slave-node/"
+
+    - title: "Installing Mesos"
+      href: "/intro-course/installing-mesos/"
+
+    - title: "Scaling To Two Nodes"
+      href: "/intro-course/scaling-to-two-nodes/"
+
+    - title: "Deploying A Web App Using Docker"
+      href: "/intro-course/deploying-a-web-app-using-docker/"
+
+    - title: "Distributing Docker To Multiple Nodes"
+      href: "/intro-course/distributing-docker-to-multiple-nodes/"
+
+    - title: "Installing and Using Mesos CLI"
+      href: "/intro-course/installing-and-using-mesos-cli/"
+
+    - title: "Starting Four Nodes"
+      href: "/intro-course/starting-four-nodes/"
+
+    - title: "Recreating the Cluster Using Ansible"
+      href: "/intro-course/recreating-the-cluster-using-ansible/"
+
+    - title: "Advanced Usage of the Marathon"
+      href: "/intro-course/advanced-usage-of-the-marathon/"
+
+    - title: "Advanced Usage of Chronos"
+      href: "/intro-course/advanced-usage-of-chronos/"
+
+    - title: "Troubleshooting"
+      href: "/intro-course/troubleshooting/"
+
+    - title: "Advanced Cluster Building"
+      href: "/intro-course/advanced-cluster-building/"
 
 - title: "Frameworks"
   href: "/frameworks/"
