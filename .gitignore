@@ -1,0 +1,5 @@
+vendor
+.jekyll-assets-cache
+.idea
+.bundle
+_site
