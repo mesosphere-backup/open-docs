@@ -82,13 +82,13 @@ However that's not very useful because SRV records are disconnected from the hos
 
 {{ mesos.code("ex7/test.sh-session", section="api") }}
 
-There are more REST calls you can make, documented at `the Mesos-DNS API documentation <http://mesosphere.github.io/mesos-dns/docs/http.html>`_.
+There are more REST calls you can make, documented at [the Mesos-DNS API documentation](http://mesosphere.github.io/mesos-dns/docs/http.html).
 
 Further Study
 -------------
 
 * Take the Mesos DNS process down by using the ``kill`` command and see that Marathon brings it back.
 * Use Marathon to take Mesos DNS down and bring it back up.
-* Read the `Mesos DNS Reference Documentation <http://mesosphere.github.io/mesos-dns/docs/configuration-parameters.html>`_
+* Read the [Mesos DNS Reference Documentation](http://mesosphere.github.io/mesos-dns/docs/configuration-parameters.html)
 
 

@@ -15,7 +15,7 @@ command line tool.
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Lecture-6") }}
+{% mesos_video Mesos-Intro-Lecture-6 %}
 
 
 Quick Reference

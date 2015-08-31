@@ -19,7 +19,7 @@ In this exercise:
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Lecture-2") }}
+{% mesos_video Mesos-Intro-Lecture-2 %}
 
 
 Quick Reference
@@ -46,7 +46,7 @@ Validate that you can stop and restart ZooKeeper:
 Further Study
 -------------
 
-* `Read about ZooKeeper <http://zookeeper.apache.org/doc/r3.3.2/zookeeperAdmin.html>`_ and learn how to work with it by using the shell.
+* [Read about ZooKeeper](http://zookeeper.apache.org/doc/r3.3.2/zookeeperAdmin.html) and learn how to work with it by using the shell.
 * Try taking ZooKeeper down and then attempt to use the shell again.  This will show you some of the common error messages you get.
 * Find ZooKeeper in your process list, and find out where it is installed on the system.
 

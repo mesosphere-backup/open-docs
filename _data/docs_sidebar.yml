@@ -39,64 +39,64 @@
     - title: "Introduction"
       href: "/intro-course/introduction/"
 
-    - title: "Installing Software"
+    - title: "1: Installing Software"
       href: "/intro-course/installing-software/"
 
-    - title: "Installing ZooKeeper"
+    - title: "2: Installing ZooKeeper"
       href: "/intro-course/installing-zookeeper/"
 
-    - title: "Using Apache Mesos"
+    - title: "3: Using Apache Mesos"
       href: "/intro-course/using-apache-mesos/"
 
-    - title: "Starting Marathon"
+    - title: "4: Starting Marathon"
       href: "/intro-course/starting-marathon/"
 
-    - title: "Using the Marathon GUI"
+    - title: "5: Using the Marathon GUI"
       href: "/intro-course/using-the-marathon-gui/"
 
-    - title: "Marathon REST API"
+    - title: "6: Marathon REST API"
       href: "/intro-course/marathon-rest-api/"
 
-    - title: "Building and Running Mesos DNS"
+    - title: "7: Building and Running Mesos DNS"
       href: "/intro-course/building-and-running-mesos-dns/"
 
-    - title: "Installing Chronos"
+    - title: "8: Installing Chronos"
       href: "/intro-course/installing-chronos/"
 
-    - title: "Creating A Slave Node"
+    - title: "9: Creating A Slave Node"
       href: "/intro-course/creating-a-slave-node/"
 
-    - title: "Installing Mesos"
+    - title: "10: Installing Mesos"
       href: "/intro-course/installing-mesos/"
 
-    - title: "Scaling To Two Nodes"
+    - title: "11: Scaling To Two Nodes"
       href: "/intro-course/scaling-to-two-nodes/"
 
-    - title: "Deploying A Web App Using Docker"
+    - title: "12: Deploying A Web App Using Docker"
       href: "/intro-course/deploying-a-web-app-using-docker/"
 
-    - title: "Distributing Docker To Multiple Nodes"
+    - title: "13: Distributing Docker To Multiple Nodes"
       href: "/intro-course/distributing-docker-to-multiple-nodes/"
 
-    - title: "Installing and Using Mesos CLI"
+    - title: "14: Installing and Using Mesos CLI"
       href: "/intro-course/installing-and-using-mesos-cli/"
 
-    - title: "Starting Four Nodes"
+    - title: "15: Starting Four Nodes"
       href: "/intro-course/starting-four-nodes/"
 
-    - title: "Recreating the Cluster Using Ansible"
+    - title: "16: Recreating the Cluster Using Ansible"
       href: "/intro-course/recreating-the-cluster-using-ansible/"
 
-    - title: "Advanced Usage of the Marathon"
+    - title: "17: Advanced Usage of the Marathon"
       href: "/intro-course/advanced-usage-of-the-marathon/"
 
-    - title: "Advanced Usage of Chronos"
+    - title: "18: Advanced Usage of Chronos"
       href: "/intro-course/advanced-usage-of-chronos/"
 
-    - title: "Troubleshooting"
+    - title: "19: Troubleshooting"
       href: "/intro-course/troubleshooting/"
 
-    - title: "Advanced Cluster Building"
+    - title: "20: Advanced Cluster Building"
       href: "/intro-course/advanced-cluster-building/"
 
 - title: "Frameworks"

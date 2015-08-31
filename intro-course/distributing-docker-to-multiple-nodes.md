@@ -18,7 +18,7 @@ In this exercise:
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Lecture-13") }}
+{% mesos_video Mesos-Intro-Lecture-13 %}
 
 
 Quick Reference

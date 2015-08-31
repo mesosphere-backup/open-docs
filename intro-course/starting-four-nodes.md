@@ -23,7 +23,7 @@ do three nodes.
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Lecture-15") }}
+{% mesos_video Mesos-Intro-Lecture-15 %}
 
 
 Quick Reference

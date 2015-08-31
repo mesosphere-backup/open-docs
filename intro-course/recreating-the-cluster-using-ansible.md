@@ -3,7 +3,7 @@ layout: doc
 title: Exercise 16 – Recreating the Cluster Using Ansible
 ---
 
-You have a miniature Mesosphere cluster running on your computer, but what would happen if you had to destroy it and start over?  Luckily we have the `Ansible <http://www.ansible.com/home>`_ tool where you can run one command to recreate your entire little cluster.
+You have a miniature Mesosphere cluster running on your computer, but what would happen if you had to destroy it and start over?  Luckily we have the [Ansible](http://www.ansible.com/home) tool where you can run one command to recreate your entire little cluster.
 
 This exercise shows you how to create an Ansible playbook that can recreate the entire cluster
 that you manually created for the last 15 exercises.  You could have started with this, but then you wouldn't
@@ -20,7 +20,7 @@ In this exercise:
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Course-16") }}
+{% mesos_video Mesos-Intro-Course-16 %}
 
 
 Quick Reference

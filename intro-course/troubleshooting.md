@@ -15,7 +15,7 @@ rather than to the ``/var/log/messages`` file.
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Course-19") }}
+{% mesos_video Mesos-Intro-Course-19 %}
 
 
 Quick Reference

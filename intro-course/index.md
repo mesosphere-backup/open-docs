@@ -23,7 +23,7 @@ Module 1: The Beginning
 * [Exercise 9: Creating A Slave Node](/intro-course/creating-a-slave-node/)
 * [Exercise 10: Installing Mesos](/intro-course/installing-mesos/)
 * [Exercise 11: Scaling To Two Nodes](/intro-course/scaling-to-two-nodes/)
-* [Exercise 12: Deploying A Web App With Docker ](/intro-course/deploying-a-web-app-using-docker/)
+* [Exercise 12: Deploying A Web App With Docker](/intro-course/deploying-a-web-app-using-docker/)
 * [Exercise 13: Distributing Docker To Multiple Nodes](/intro-course/distributing-docker-to-multiple-nodes/)
 * [Exercise 14: Installing and Using Mesos CLI](/intro-course/installing-and-using-mesos-cli/)
 * [Exercise 15: Starting Four Nodes](/intro-course/starting-four-nodes/)

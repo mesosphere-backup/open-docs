@@ -17,7 +17,7 @@ In this exercise you will:
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Course-18") }}
+{% mesos_video Mesos-Intro-Course-18 %}
 
 
 Quick Reference
@@ -77,6 +77,6 @@ Add this to Ansible again so that it's included in the build.  These are the two
 Further Study
 -------------
 
-* Read the full documentation for Chronos at https://github.com/mesos/chronos.
+* Read the full documentation for Chronos at [https://github.com/mesos/chronos](https://github.com/mesos/chronos).
 
 

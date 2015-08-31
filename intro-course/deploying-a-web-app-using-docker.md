@@ -3,7 +3,7 @@ layout: doc
 title: Exercise 12 – Deploying A Web App Using Docker
 ---
 
-This exercise uses the Go project `Outyet <https://github.com/GeertJohan/outyet>`_ to deploy a simple Go-based web application inside a Docker.
+This exercise uses the Go project [Outyet](https://github.com/GeertJohan/outyet) to deploy a simple Go-based web application inside a Docker.
 
 In this exercise:
 
@@ -16,7 +16,7 @@ In this exercise:
 Video Lecture
 -------------
 
-{{ mesos.video("Mesos-Intro-Lecture-12") }}
+{% mesos_video Mesos-Intro-Lecture-12 %}
 
 
 Quick Reference
@@ -63,6 +63,6 @@ Further Study
 -------------
 
 * Try configuring an application that you have into Docker and deploy that as well.
-* Read the `Docker Documentation <https://docs.docker.com/>`_ to better understand how it works.
+* Read the [Docker Documentation](https://docs.docker.com/) to better understand how it works.
 
 
