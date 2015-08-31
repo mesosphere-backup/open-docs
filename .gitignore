@@ -1,3 +1,13 @@
-.DS_Store
+_build
+_site
 
-/.jekyll-assets-cache/
+bin
+.ssh
+.jekyll-assets-cache
+vendor
+.bundle/
+.DS_Store
+.*.sw*
+.divshot-cache/
+.idea
+services/kubernetes_revert.md
