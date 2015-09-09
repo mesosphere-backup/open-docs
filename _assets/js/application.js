@@ -4,3 +4,4 @@
 //= require mesosphere
 //= require tutorials
 //= require progress
+//= require libraries/embedded-smart-player.min.js
