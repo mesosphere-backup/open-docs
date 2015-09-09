@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Setting up VPN for Mesosphere
+
+redirect_to:
+- http://open.mesosphere.com
 ---
 
 ## Introduction
