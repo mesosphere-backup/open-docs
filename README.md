@@ -1,15 +1,15 @@
 Mesosphere Community Docs Site
 ==============================
 
-This repository containers the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
+This repository contains the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
 
 ### Deploy the site
 
-Deployment of the website is done automatically, but to prevent a catastrophe there's a few limitations:
+Deployment of the website is done automatically, but to prevent a catastrophe there are a few limitations:
 
 1. If you commit to the master branch, it only goes to [staging](http://open-staging.mesosphere.com.s3-website-us-east-1.amazonaws.com/).
 2. To move your changes to production, you need to merge from the master branch to the prod branch.
-3. We use github pull requests to do review of changes before they go live, so don't do merging on the command line.
+3. We use GitHub pull requests to do review of changes before they go live, so don't do merging on the command line.
 
 To get your changes into the staging website, do this:
 
@@ -25,7 +25,7 @@ Replace MESSAGE, with a description of your changes.  It has to have "" around i
 
 Just use -m instead of -am and list each file to commit.
 
-Finally, you do this to get your changes, in your branch, onto github:
+Finally, you do this to get your changes, in your branch, onto GitHub:
 
     git push origin BRANCHNAME
 
