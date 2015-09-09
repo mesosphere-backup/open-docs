@@ -29,33 +29,76 @@ You can find more information about Mesos DNS at http://mesosphere.github.io/mes
 
 Install the Go programming language:
 
-{{ mesos.code("ex7/install_mesos_dns.sh-session", section="yum") }}
+```
+$ sudo yum -y install golang git bind-utils
+```
+
 
 Then build the mesos-dns project:
 
-{{ mesos.code("ex7/install_mesos_dns.sh-session", section="build") }}
+```
+$ mkdir ~/go
+$ export GOPATH=$HOME/go
+$ export PATH=$PATH:$GOPATH/bin
+$ go get github.com/tools/godep
+$ go get github.com/mesosphere/mesos-dns
+$ cd $GOPATH/src/github.com/mesosphere/mesos-dns
+$ make restoredeps build
+```
 
 Add ``nameserver 192.168.33.10`` to the first line of the ``/etc/resolv.conf`` file:
 
-{{ mesos.code("ex7/resolv.conf.txt") }}
+```
+nameserver 192.168.33.10
+```
 
 Mesos DNS uses a file named ``config.json`` which you can copy a sample of:
 
-{{ mesos.code("ex7/run_mesos_dns.sh-session", section="config") }}
+```
+$ cp config.json.sample config.json
+```
 
 Modify the ``config.json`` to use the vagrant IP of 192.168.33.10 and change the port from 8053 to 53 so it looks like this:
 
-{{ mesos.code("ex7/config.json") }}
+```
+{
+  "zk": "zk://192.168.33.10:2181/mesos",
+  "masters": ["192.168.33.10:5050"],
+  "refreshSeconds": 60,
+  "ttl": 60,
+  "domain": "mesos",
+  "ns": "ns1",
+  "port": 53,
+  "resolvers": ["8.8.8.8"],
+  "timeout": 5,
+  "listener": "0.0.0.0",
+  "SOAMname": "root.ns1.mesos",
+  "SOARname": "ns1.mesos",
+  "SOARefresh": 60,
+  "SOARetry":   600,
+  "SOAExpire":  86400,
+  "SOAMinttl": 60,
+  "dnson": true,
+  "httpon": true,
+  "httpport": 8123,
+  "externalon": true,
+  "recurseon": true
+}
+```
 
 In this file the ``zk`` setting tells Mesos DNS where the ZooKeeper server is located, and the ``masters`` option acts as a backup list of masters in case ZooKeeper is down, or as an alternative to the ``zk`` setting.  The ``zk`` setting wins over the ``masters`` setting.
 
 Test that mesos-dns runs locally first:
 
-{{ mesos.code("ex7/run_mesos_dns.sh-session", section="run") }}
+```
+$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+```
 
 Create a mesos-dns launcher in Marathon by using the GUI with this command:
 
-{{ mesos.code("ex7/run_mesos_dns.sh-session", section="gui") }}
+```
+$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+```
 
 Add this in the ``Constraints`` field::
 
@@ -64,23 +107,33 @@ Add this in the ``Constraints`` field::
 This tells Marathon to only offer it to the ``node1`` host where you have installed the ``mesos-dns`` package.
 Validate that you can see the host command starts working again:
 
-{{ mesos.code("ex7/test.sh-session", section="host") }}
+```
+$ host google.com
+```
 
 Use the mesos-dns for service discovery with the dig command.  You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this this should work:
 
-{{ mesos.code("ex7/test.sh-session", section="digdns") }}
+```
+$ dig dns.marathon.mesos
+```
 
 If you installed the ``test`` app from previous exercises then this:
 
-{{ mesos.code("ex7/test.sh-session", section="digtest") }}
+```
+$ dig test.marathon.mesos
+```
 
 You can also use the SRV records to get ports by using the app name and the port type with underscores like ``_NAME._PORT`` so ``_test._tcp`` is for the ``test`` app's TCP port:
 
-{{ mesos.code("ex7/test.sh-session", section="srv") }}
+```
+$ dig _test._tcp.marathon.mesos SRV
+```
 
 However that's not very useful because SRV records are disconnected from the hosts they belong to.  A better way is to use the REST API to get an exact mapping:
 
-{{ mesos.code("ex7/test.sh-session", section="api") }}
+```
+$ curl http://192.168.33.10:8123/v1/hosts/dns.marathon.mesos
+```
 
 There are more REST calls you can make, documented at [the Mesos-DNS API documentation](http://mesosphere.github.io/mesos-dns/docs/http.html).
 

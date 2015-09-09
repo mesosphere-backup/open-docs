@@ -27,7 +27,10 @@ Quick Reference
 
 Install Chronos using ``yum`` and then start it with ``service``:
 
-{{ mesos.code("ex8/install_chronos.sh-session") }}
+```
+$ sudo yum -y install chronos
+$ sudo service chronos start
+```
 
 Now you can go to the web UI for Chronos at http://192.168.33.10:4400/ and start a job.  Create one called "sleeper" that sleeps for 10 seconds and goes off every 10 minutes.
 

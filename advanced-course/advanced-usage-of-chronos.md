@@ -25,19 +25,29 @@ Quick Reference
 
 Get an idea of the current jobs you have installed using ``curl``:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="listjobs") }}
+```
+$ curl -L -X GET http://192.168.33.10:4400/scheduler/jobs
+```
 
 Clone the Chronos GitHub project from git@github.com:mesos/chronos.git or from https://github.com/mesos/chronos.git to access the scripts in bin/ of the project:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="gitclone") }}
+```
+$ git clone https://github.com/mesos/chronos.git ~/chronos
+$ cp ~/chronos/bin/chronos-sync.rb .
+```
 
 This gets you the ``chronos-sync.rb`` script to use on your own.  To configure it you need to make a ``chronos`` directory where it stores the configurations it needs:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="setupsync") }}
+```
+$ mkdir chronos
+$ cd chronos
+```
 
 Use the ``chronos-sync.rb`` script from the chronos project ``bin/`` directory to pull down the current Chronos tasks you've configured:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="runsync") }}
+```
+$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD -c
+```
 
 This will make two directories ``dependent`` and ``scheduled`` and if you look inside you'll see nothing.
 
@@ -48,31 +58,84 @@ To see what the format should be for these directories:
 
 This is what that file looks like:
 
-{{ mesos.code("ex18/sleeper.yaml") }}
+```
+name: sleeper
+command: sleep 40
+shell: true
+epsilon: PT30M
+executor: ''
+executorFlags: ''
+retries: 2
+owner: zed@mesosphere.io
+async: false
+cpus: 0.1
+disk: 256.0
+mem: 128.0
+softError: false
+uris: []
+environmentVariables: []
+arguments: []
+highPriority: false
+runAsUser: root
+schedule: R1/2015-03-25T05:05:41Z/PT5M
+scheduleTimeZone: ''
+```
 
 Copy ``sleeper.yaml`` to a new file named ``scheduled/test.yaml`` and make it have this content:
 
-{{ mesos.code("ex18/test.yaml") }}
+```
+name: test
+command: date >> /tmp/job.log
+shell: true
+epsilon: PT30M
+executor: ''
+executorFlags: ''
+retries: 2
+owner: zed@mesosphere.io
+async: false
+cpus: 0.1
+disk: 256.0
+mem: 128.0
+softError: false
+uris: []
+environmentVariables: []
+arguments: []
+highPriority: false
+runAsUser: root
+schedule: R//PT5M
+scheduleTimeZone: ''
+```
 
 This will run the ``date`` command every 5 minutes starting now.
 
 This will run the ``date`` command every 5 minutes starting now.  Save that file and  run this regular variant of the sync command:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="runsync") }}
+```
+$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD -c
+```
 
 View the available jobs:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="listjobs") }}
+```
+$ curl -L -X GET http://192.168.33.10:4400/scheduler/jobs
+```
 
 Look on the nodes for the ``/tmp/job.log`` file to see if it's working.
 
 Delete the ``scheduled/sleeper.yaml`` file to and use the sync tool again to remove it:
 
-{{ mesos.code("ex18/setup_chronos.sh-session", section="deletejobs") }}
+```
+$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD --delete-missing
+```
 
 Add this to Ansible again so that it's included in the build.  These are the two lines to add to the master configuration in ``playbook.yml`` after your marathon configuration in the ``hosts: master`` section:
 
-{{ mesos.code("ex18/playbook.yml", section="startchronos") }}
+```
+      - name: install ruby
+        yum: pkg=ruby state=latest
+      - name: sync chronos jobs
+        shell: ruby /vagrant/chronos-sync.rb -u http://192.168.33.10:4400/ -p /vagrant/chronos
+```
 
 Further Study
 -------------

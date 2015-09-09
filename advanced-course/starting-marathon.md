@@ -26,17 +26,27 @@ Quick Reference
 
 Start Marathon by using the ``service`` command:
 
-{{ mesos.code('ex4/start_marathon.sh-session') }}
+```
+$ sudo service marathon start
+```
 
 Go to ``http://192.168.33.10:8080/`` to view the Marathon GUI.
 From the GUI, install a new app that Marathon will run.  In this example, we start by using the ``python -m SimpleHTTPServer`` app.:
 
 
-{{ mesos.code('ex4/test_python_http.sh-session', section='start') }}
+```
+# view the python SimpleHTTPServer web server is running
+$ netstat -nlp | grep 8000
+# use curl to play with the server
+$ curl http://192.168.33.10:8000/
+```
 
 Marathon and Mesos give you direct access to the ``stderr`` (standard error) and ``stdout`` (standard out) files for every process.  You can     use ``curl`` to view these files and see that they are the ``SimpleHTTPServer``'s logs, which you would normally see on your terminal when you start it:
 
-{{ mesos.code('ex4/test_python_http.sh-session', section='curl') }}
+```
+$ curl http://192.168.33.10:8000/stderr
+$ curl http://192.168.33.10:8000/stdout
+```
 
 Further Study
 -------------

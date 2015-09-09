@@ -25,11 +25,17 @@ Quick Reference
 
 When the Vagrant VM is ready, you can ``ssh`` into it with this command:
 
-{{ mesos.code("ex10/install.sh-session", section="vagrantup") }}
+```
+$ vagrant up node2
+$ vagrant ssh node2
+```
 
 Once ``node2`` starts Install Mesos by using:
 
-{{ mesos.code("ex10/install.sh-session", section="yum") }}
+```
+$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+$ sudo yum -y install mesos
+```
 
 Add the following lines to the ``/etc/hosts`` files::
 
@@ -38,13 +44,36 @@ Add the following lines to the ``/etc/hosts`` files::
 
 Make sure to remove the "node2" mentioned on the first line for the 127.0.0.1 address.  If you do a ``ping node2`` then you should see 192.168.33.11 like this:
 
-{{ mesos.code("ex10/node2_ping_test.sh-session") }}
+```
+$ ping node2
+PING node2 (192.168.33.11) 56(84) bytes of data.
+64 bytes from node2 (192.168.33.11): icmp_seq=1 ttl=64 time=0.043 ms
+64 bytes from node2 (192.168.33.11): icmp_seq=2 ttl=64 time=0.027 ms
+64 bytes from node2 (192.168.33.11): icmp_seq=3 ttl=64 time=0.026 ms
+^C
+--- node2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.026/0.032/0.043/0.007 ms
+$
+```
 
 If you see 127.0.0.1 then you have your first line wrong.  *Remove* node2 from the first line.
 
 Also do this for ``node1``:
 
-{{ mesos.code("ex10/node1_hosts.sh-session") }}
+```
+$ vagrant ssh node1
+$ sudo vi /etc/hosts
+$ ping node2
+PING node2 (192.168.33.11) 56(84) bytes of data.
+64 bytes from node2 (192.168.33.11): icmp_seq=1 ttl=64 time=1.44 ms
+64 bytes from node2 (192.168.33.11): icmp_seq=2 ttl=64 time=0.341 ms
+^C
+--- node2 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 0.341/0.892/1.443/0.551 ms
+$
+```
 
 Edit the ``/etc/mesos/zk`` file to point to the master node::
 
@@ -52,11 +81,16 @@ Edit the ``/etc/mesos/zk`` file to point to the master node::
 
 Start up Mesos as a slave with:
 
-{{ mesos.code("ex10/install.sh-session", section="start") }}
+```
+$ sudo service mesos-slave start
+```
 
 Validate that it restarts:
 
-{{ mesos.code("ex10/install.sh-session", section="chkconfig") }}
+```
+$ sudo chkconfig mesos-slave on
+$ sudo chkconfig mesos-master off
+```
 
 Further Study
 -------------

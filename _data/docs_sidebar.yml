@@ -33,71 +33,71 @@
       href: "/tutorials/go-mesos-framework/"
 
 - title: "Advanced Mesos Course"
-  href: "/intro-course/"
+  href: "/advanced-course/"
   sub:
 
     - title: "Introduction"
-      href: "/intro-course/introduction/"
+      href: "/advanced-course/introduction/"
 
     - title: "1: Installing Software"
-      href: "/intro-course/installing-software/"
+      href: "/advanced-course/installing-software/"
 
     - title: "2: Installing ZooKeeper"
-      href: "/intro-course/installing-zookeeper/"
+      href: "/advanced-course/installing-zookeeper/"
 
     - title: "3: Using Apache Mesos"
-      href: "/intro-course/using-apache-mesos/"
+      href: "/advanced-course/using-apache-mesos/"
 
     - title: "4: Starting Marathon"
-      href: "/intro-course/starting-marathon/"
+      href: "/advanced-course/starting-marathon/"
 
     - title: "5: Using the Marathon GUI"
-      href: "/intro-course/using-the-marathon-gui/"
+      href: "/advanced-course/using-the-marathon-gui/"
 
     - title: "6: Marathon REST API"
-      href: "/intro-course/marathon-rest-api/"
+      href: "/advanced-course/marathon-rest-api/"
 
     - title: "7: Building and Running Mesos DNS"
-      href: "/intro-course/building-and-running-mesos-dns/"
+      href: "/advanced-course/building-and-running-mesos-dns/"
 
     - title: "8: Installing Chronos"
-      href: "/intro-course/installing-chronos/"
+      href: "/advanced-course/installing-chronos/"
 
     - title: "9: Creating A Slave Node"
-      href: "/intro-course/creating-a-slave-node/"
+      href: "/advanced-course/creating-a-slave-node/"
 
     - title: "10: Installing Mesos"
-      href: "/intro-course/installing-mesos/"
+      href: "/advanced-course/installing-mesos/"
 
     - title: "11: Scaling To Two Nodes"
-      href: "/intro-course/scaling-to-two-nodes/"
+      href: "/advanced-course/scaling-to-two-nodes/"
 
     - title: "12: Deploying A Web App Using Docker"
-      href: "/intro-course/deploying-a-web-app-using-docker/"
+      href: "/advanced-course/deploying-a-web-app-using-docker/"
 
     - title: "13: Distributing Docker To Multiple Nodes"
-      href: "/intro-course/distributing-docker-to-multiple-nodes/"
+      href: "/advanced-course/distributing-docker-to-multiple-nodes/"
 
     - title: "14: Installing and Using Mesos CLI"
-      href: "/intro-course/installing-and-using-mesos-cli/"
+      href: "/advanced-course/installing-and-using-mesos-cli/"
 
     - title: "15: Starting Four Nodes"
-      href: "/intro-course/starting-four-nodes/"
+      href: "/advanced-course/starting-four-nodes/"
 
     - title: "16: Recreating the Cluster Using Ansible"
-      href: "/intro-course/recreating-the-cluster-using-ansible/"
+      href: "/advanced-course/recreating-the-cluster-using-ansible/"
 
     - title: "17: Advanced Usage of the Marathon"
-      href: "/intro-course/advanced-usage-of-the-marathon/"
+      href: "/advanced-course/advanced-usage-of-the-marathon/"
 
     - title: "18: Advanced Usage of Chronos"
-      href: "/intro-course/advanced-usage-of-chronos/"
+      href: "/advanced-course/advanced-usage-of-chronos/"
 
     - title: "19: Troubleshooting"
-      href: "/intro-course/troubleshooting/"
+      href: "/advanced-course/troubleshooting/"
 
     - title: "20: Advanced Cluster Building"
-      href: "/intro-course/advanced-cluster-building/"
+      href: "/advanced-course/advanced-cluster-building/"
 
 - title: "Frameworks"
   href: "/frameworks/"

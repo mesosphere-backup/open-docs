@@ -26,16 +26,46 @@ Quick Reference
 You need to do some cleanup before you can shut down and pacakge ``node1``.  Make sure that all of the services are
 properly set to start on boot with ``chkconfig``:
 
-{{ mesos.code("ex9/prepare_vagrant_package.sh-session", section="prep") }}
+```
+$ sudo chkconfig zookeeper-server on
+$ sudo chkconfig mesos-master on
+$ sudo chkconfig mesos-slave on
+$ sudo chkconfig marathon on
+ # if you are running chronos with marathon then do not do this
+$ sudo chkconfig chronos on
+```
 
 Once you do that we need to make a Vagrant box out of it so we can copy it over to our new setup:
 
-{{ mesos.code("ex9/prepare_vagrant_package.sh-session", section="package") }}
+```
+$ vagrant halt
+$ vagrant package default
+$ vagrant destroy default
+$ vagrant box add mesos-master package.box
+```
 
 
 Next you need to add a two node configuration to your ``Vagrantfile``.  The line that has your network config now needs this:
 
-{{ mesos.code("ex9/Vagrantfile.rb") }}
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "chef/centos-7.0"
+  config.vm.define "node1" do |node1|
+      node1.vm.network "private_network", ip: "192.168.33.10"
+      node1.vm.hostname = "node1"
+      node1.vm.box = "mesos-master"
+  end
+
+  config.vm.define "node2" do |node2|
+      node2.vm.network "private_network", ip: "192.168.33.11"
+      node2.vm.hostname = "node2"
+  end
+end
+```
+
 
 Once you have that in your ``Vagrantfile`` you can then do Vagrant up and it will recreate your original Vagrant master from the ``package.box`` file you created naming it ``node1``, and start a new VM named ``node2`` with no configuration in it.
 

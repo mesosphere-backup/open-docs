@@ -29,11 +29,29 @@ When there are problems they are stored here by default:
 To simplify troubleshooting, create a configuration file in ``/etc/rsyslog.d/`` that sorts the messages into four different message types: Marathon, Chronos, Mesos master, and Mesos slave.  Create the file ``/etc/rsyslog.d/mesos.conf`` with these contents:
 
 
-{{ mesos.code("ex19/mesos.conf.txt") }}
+```
+if $programname == 'marathon' then {
+   action(type="omfile" file="/var/log/mesos/marathon.log")
+}
+
+if $programname == 'chronos' then {
+   action(type="omfile" file="/var/log/mesos/chronos.log")
+}
+
+if $programname == 'mesos-master' then {
+   action(type="omfile" file="/var/log/mesos/mesos-master.log")
+}
+
+if $programname == 'mesos-slave' then {
+   action(type="omfile" file="/var/log/mesos/mesos-slave.log")
+}
+```
 
 Restart ``rsyslog`` to verify that this configuration works:
 
-{{ mesos.code("ex19/configure.sh-session", section="restart") }}
+```
+$ sudo service rsyslog restart
+```
 
 If successful, you should see new log files in ``/var/log/mesos/``:
 
@@ -46,11 +64,18 @@ In general you'll put this on the mesos master nodes you make, but you could cut
 
 Copy it to the ``/vagrant/mesos.conf.j2`` file:
 
-{{ mesos.code("ex19/configure.sh-session", section="copy") }}
+```
+$ cp /etc/rsyslog.d/mesos.conf /vagrant/mesos.conf.j2
+```
 
 Add this configuration to the Ansible ``playbook.yml`` so this is fixed in the Master:
 
-{{ mesos.code("ex19/playbook.yml", section="rsyslog") }}
+```
+      - name: update the rsyslog config
+        template: src=./mesos.conf.j2 dest=/etc/rsyslog.d/mesos.conf
+      - name: restart rsyslog
+        shell: service rsyslog restart
+```
 
 You should put this directly after you update the hosts file.
 

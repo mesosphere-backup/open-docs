@@ -29,19 +29,38 @@ You can start Zookeeper after completing exercise 1.
 
 Install Zookeeper and the Zookeeper server package by pointing to the RPM repository for ZooKeeper:
 
-{{ mesos.code("ex2/zookeeper_rpms.sh-session") }}
+```
+$ sudo rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
+$ sudo yum -y install zookeeper zookeeper-server
+```
 
 Initialize and start Zookeeper:
 
-{{ mesos.code("ex2/zookeeper_setup_start.sh-session") }}
+```
+$ sudo -u zookeeper zookeeper-server-initialize --myid=1
+$ sudo service zookeeper-server start
+```
 
 Use the interactive shell to test your installation:
 
-{{ mesos.code("ex2/zookeeper_test.sh-session") }}
+```
+$ /usr/lib/zookeeper/bin/zkCli.sh
+# sometimes at this point you get an error that java is missing.  This means yum did NOT install java for...reasons.  Start over.
+help
+create /test 1
+get /test 
+set /test 2
+get /test
+delete /test
+quit
+```
 
 Validate that you can stop and restart ZooKeeper:
 
-{{ mesos.code("ex2/zookeeper_restart.sh-session") }}
+```
+$ sudo service zookeeper-server stop
+$ sudo service zookeeper-server start
+```
 
 Further Study
 -------------

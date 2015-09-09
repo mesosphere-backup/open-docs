@@ -27,35 +27,70 @@ Borrowing from the Go instructions:
 
 Install Docker:
 
-{{ mesos.code("ex12/install_outyet.sh-session", section="start") }}
+```
+$ sudo yum install -y golang git device-mapper-event-libs docker
+$ sudo chkconfig docker on
+$ sudo service docker start
+$ export GOPATH=~/go
+$ go get github.com/golang/example/outyet
+```
 
 The outyet project comes with a ``Dockerfile`` you can use, so ``cd`` to the source directory:
 
-{{ mesos.code("ex12/install_outyet.sh-session", section="builddir") }}
+```
+$ cd $GOPATH/src/github.com/golang/example/outyet
+```
 
 Use the ``Dockerfile`` to build your docker image:
 
-{{ mesos.code("ex12/install_outyet.sh-session", section="build") }}
+```
+$ sudo docker build -t outyet .
+```
 
 Test the ``Dockerfile`` before adding it to Marathon by running this command:
 
-{{ mesos.code("ex12/install_outyet.sh-session", section="run") }}
+```
+$ sudo docker run --publish 6060:8080 --name test --rm outyet
+```
 
 Then go to http://192.168.33.10:6060/ with your browser to confirm it works.  Once it does you can hit CTRL-c to exit the outyet docker.
 
 Create a Marathon application that runs this command, but using the Marathon Docker support.  Once the ``outyet`` application
 is loaded onto the VM you can create a new app using JSON and ``curl``.  First make the file names ``/vagrant/outyet.json``:
 
-{{ mesos.code("ex12/outyet.json") }}
+```
+{
+  "id": "outyet",
+  "cpus": 0.2,
+  "mem": 20.0,
+  "instances": 1,
+  "constraints": [["hostname", "UNIQUE", ""]],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "outyet",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 8080, "hostPort": 0, "servicePort": 0, "protocol": "tcp" }
+      ]
+    }
+  }
+}
+```
 
 You will also need to tell mesos that it should allow Docker:
 
-{{ mesos.code("ex12/enable_docker.sh-session") }}
+```
+$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
+$ sudo service mesos-slave restart
+```
 
 This replicates the above ``docker`` command settings, but Marathon will configure and manage the container better.  Once you have that
 run this command:
 
-{{ mesos.code("ex12/post_config.sh-session") }}
+```
+$ curl -X POST http://192.168.33.10:8080/v2/apps -d @/vagrant/outyet.json -H "Content-type: application/json"
+```
 
 Later in this tutorial you will use this method to easily sync your configuration to Marathon.
 

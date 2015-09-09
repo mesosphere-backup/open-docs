@@ -31,18 +31,30 @@ Quick Reference
 
 Start the mesos-master and mesos-slave processes:
 
-{{ mesos.code("ex3/start_mesos.sh-session") }}
+```
+$ sudo service mesos-master start
+$ sudo service mesos-slave start
+$ sudo netstat -nlp | grep mesos
+```
 
 Access the Mesos user interface with your browser at ``http://192.168.33.10:5050`` and confirm that the IP address shown in the user interface is ``192.168.33.10``.  If not, start over by using ``vagrant destroy``.
 
 
 Test out mesos by using the ``mesos-execute`` command:
 
-{{ mesos.code("ex3/test_mesos.sh-session") }}
+```
+$ export MASTER=$(mesos-resolve `cat /etc/mesos/zk` 2>/dev/null)
+$ mesos help
+$ mesos-execute --master=$MASTER --name="cluster-test" --command="sleep 40"
+```
 
 With the ``mesos-execute`` command running,  enter ``ctrl-z`` to suspend the command. You can see how it appears in the web UI and command line:
 
-{{ mesos.code("ex3/suspend_execute.sh-session") }}
+```
+# hit ctrl-z
+$ bg # this sends the process into the background
+$ mesos ps --master=$MASTER
+```
 
 Further Study
 -------------

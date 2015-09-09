@@ -26,23 +26,38 @@ Quick Reference
 
 Save the Docker image:
 
-{{ mesos.code("ex13/install_docker_node2.sh-session", section="node1save") }}
+```
+$ sudo docker save --output=outyet.tar.gz outyet
+```
 
 Send the tar.gz file to ``node2``:
 
-{{ mesos.code("ex13/install_docker_node2.sh-session", section="node1copy") }}
+```
+$ cp outyet.tar.gz /vagrant/
+```
 
 Install Docker on ``node2``:
 
-{{ mesos.code("ex13/install_docker_node2.sh-session", section="node2install") }}
+```
+$ vagrant ssh node2
+$ sudo yum install -y device-mapper-event-libs docker
+$ sudo chkconfig docker on
+$ sudo service docker start
+$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
+$ sudo service mesos-slave restart
+```
 
 Import the ``outyet.tar.gz`` file that you made:
 
-{{ mesos.code("ex13/install_docker_node2.sh-session", section="import") }}
+```
+$ sudo docker load --input=/vagrant/outyet.tar.gz
+```
 
 Test that Docker is now installed on the ``node2`` VM:
 
-{{ mesos.code("ex13/install_docker_node2.sh-session", section="testrun") }}
+```
+$ sudo docker run --publish 6060:8080 --name test --rm outyet
+```
 
 Test that Docker is running on http://192.168.33.11:6060/.
 

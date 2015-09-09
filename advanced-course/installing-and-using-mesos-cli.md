@@ -27,11 +27,19 @@ Quick Reference
 
 Get ``mesos-cli``:
 
-{{ mesos.code("ex14/install_mesos_cli.sh-session") }}
+```
+$ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+$ sudo python get-pip.py
+$ sudo pip install virtualenv
+$ sudo pip install mesos.cli
+```
 
 Try these sample commands:
 
-{{ mesos.code("ex14/test_mesos_cli.sh-session") }}
+```
+$ mesos tail outyet stderr
+$ mesos tail outyet stdout
+```
 
 Further Study
 -------------
