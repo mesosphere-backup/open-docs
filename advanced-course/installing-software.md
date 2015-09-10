@@ -11,7 +11,7 @@ To begin, you must install the prequisite software into a virtual machine on you
 In this exercise:
 
 1. Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/). *MAKE SURE YOU HAVE THE LATEST ONE*. Older versions of Vagrant do not work.
-2. Install a simple Centos-7.0 Vagrant VM.
+2. Install a simple Centos-7.1 Vagrant VM.
 3. Configure your ``/etc/hosts`` file to have the correct hosts.
 4. Add the Mesosphere RPM repository.
 5. Install the ``mesos`` and ``marathon`` RPMs.
@@ -28,12 +28,12 @@ Quick Reference
 ---------------
 
 Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/). *MAKE SURE YOU HAVE THE LATEST ONE*. Older versions of Vagrant do not work.
-Create a virtual machine with Vagrant running the CentOS 7.0 Linux distro. This will download the image you need so it takes a little while:
+Create a virtual machine with Vagrant running the CentOS 7.1 Linux distro. This will download the image you need so it takes a little while:
 
 ```
 $ mkdir vm-install
 $ cd vm-install
-$ vagrant init chef/centos-7.0
+$ vagrant init bento/centos-7.1
 ```
 
 Edit the ``Vagrantfile`` to uncomment the line with ``config.vm.network "private_network", ip: "192.168.33.10"`` and add the line ``config.vm.hostname = "node1"`` right after that:
@@ -43,7 +43,7 @@ Edit the ``Vagrantfile`` to uncomment the line with ``config.vm.network "private
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "chef/centos-7.0"
+  config.vm.box = "bento/centos-7.1"
 
   config.vm.network "private_network", ip: "192.168.33.10"
   config.vm.hostname = "node1"
