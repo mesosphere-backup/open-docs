@@ -13,30 +13,30 @@ It's expected that you know the basics of managing a Linux system, are proficien
 Module 1: The Beginning
 =======================
 
-* [Introduction](/intro-course/introduction/)
-* [Exercise 1: Installing Software](/intro-course/installing-software/)
-* [Exercise 2: Installing ZooKeeper](/intro-course/installing-zookeeper/)
-* [Exercise 3: Using Apache Mesos](/intro-course/using-apache-mesos/)
-* [Exercise 4: Starting Marathon](/intro-course/starting-marathon/)
-* [Exercise 5: Using the Marathon GUI](/intro-course/using-the-marathon-gui/)
-* [Exercise 6: Marathon REST API](/intro-course/marathon-rest-api/)
-* [Exercise 7: Building and Running Mesos DNS](/intro-course/building-and-running-mesos-dns/)
-* [Exercise 8: Installing Chronos](/intro-course/installing-chronos/)
-* [Exercise 9: Creating A Slave Node](/intro-course/creating-a-slave-node/)
-* [Exercise 10: Installing Mesos](/intro-course/installing-mesos/)
-* [Exercise 11: Scaling To Two Nodes](/intro-course/scaling-to-two-nodes/)
-* [Exercise 12: Deploying A Web App With Docker](/intro-course/deploying-a-web-app-using-docker/)
-* [Exercise 13: Distributing Docker To Multiple Nodes](/intro-course/distributing-docker-to-multiple-nodes/)
-* [Exercise 14: Installing and Using Mesos CLI](/intro-course/installing-and-using-mesos-cli/)
-* [Exercise 15: Starting Four Nodes](/intro-course/starting-four-nodes/)
+* [Introduction](/advanced-course/introduction/)
+* [Exercise 1: Installing Software](/advanced-course/installing-software/)
+* [Exercise 2: Installing ZooKeeper](/advanced-course/installing-zookeeper/)
+* [Exercise 3: Using Apache Mesos](/advanced-course/using-apache-mesos/)
+* [Exercise 4: Starting Marathon](/advanced-course/starting-marathon/)
+* [Exercise 5: Using the Marathon GUI](/advanced-course/using-the-marathon-gui/)
+* [Exercise 6: Marathon REST API](/advanced-course/marathon-rest-api/)
+* [Exercise 7: Building and Running Mesos DNS](/advanced-course/building-and-running-mesos-dns/)
+* [Exercise 8: Installing Chronos](/advanced-course/installing-chronos/)
+* [Exercise 9: Creating A Slave Node](/advanced-course/creating-a-slave-node/)
+* [Exercise 10: Installing Mesos](/advanced-course/installing-mesos/)
+* [Exercise 11: Scaling To Two Nodes](/advanced-course/scaling-to-two-nodes/)
+* [Exercise 12: Deploying A Web App With Docker](/advanced-course/deploying-a-web-app-using-docker/)
+* [Exercise 13: Distributing Docker To Multiple Nodes](/advanced-course/distributing-docker-to-multiple-nodes/)
+* [Exercise 14: Installing and Using Mesos CLI](/advanced-course/installing-and-using-mesos-cli/)
+* [Exercise 15: Starting Four Nodes](/advanced-course/starting-four-nodes/)
 
 Module 2: Advanced Topics
 =========================
 
-* [Exercise 16: Recreating the Cluster Using Ansible](/intro-course/recreating-the-cluster-using-ansible/)
-* [Exercise 17: Advanced Usage of the Marathon](/intro-course/advanced-usage-of-the-marathon/)
-* [Exercise 18: Advanced Usage of Chronos](/intro-course/advanced-usage-of-chronos/)
-* [Exercise 19: Troubleshooting](/intro-course/troubleshooting/)
-* [Exercise 20: Advanced Cluster Building](/intro-course/advanced-cluster-building/)
+* [Exercise 16: Recreating the Cluster Using Ansible](/advanced-course/recreating-the-cluster-using-ansible/)
+* [Exercise 17: Advanced Usage of the Marathon](/advanced-course/advanced-usage-of-the-marathon/)
+* [Exercise 18: Advanced Usage of Chronos](/advanced-course/advanced-usage-of-chronos/)
+* [Exercise 19: Troubleshooting](/advanced-course/troubleshooting/)
+* [Exercise 20: Advanced Cluster Building](/advanced-course/advanced-cluster-building/)
 
 
