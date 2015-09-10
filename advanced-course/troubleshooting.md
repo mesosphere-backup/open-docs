@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 19 – Troubleshooting
+
+redirect_from:
+- /intro-course/ex19.html
 ---
 
 This exercise teaches you how to debug your tiny cluster when things go

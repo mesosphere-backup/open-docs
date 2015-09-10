@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 9 – Creating A Slave Node
+
+redirect_from:
+- /intro-course/ex9.html
 ---
 
 Using a single node is boring.  You'll now create a second node to learn how the Mesosphere stack

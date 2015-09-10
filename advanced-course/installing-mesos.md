@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 10 – Installing Mesos
+
+redirect_from:
+- /intro-course/ex10.html
 ---
 
 When the Vagrant VM is ready, you can install the necessary Mesos slave node software.  In this exercise:

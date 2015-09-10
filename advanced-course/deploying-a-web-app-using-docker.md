@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 12 – Deploying A Web App Using Docker
+
+redirect_from:
+- /intro-course/ex12.html
 ---
 
 This exercise uses the Go project [Outyet](https://github.com/GeertJohan/outyet) to deploy a simple Go-based web application inside a Docker.

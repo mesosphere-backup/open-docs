@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 11 – Scaling To Two Nodes
+
+redirect_from:
+- /intro-course/ex11.html
 ---
 
 After you have the ``mesos-slave`` running on ``node2``, you can use the Marathon GUI to expand the ``test`` Python web server out to ``node2`` and ``node1``.  This exercise is entirely video based.

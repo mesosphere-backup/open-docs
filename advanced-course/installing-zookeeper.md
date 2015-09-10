@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 2 – Installing ZooKeeper
+
+redirect_from:
+- /intro-course/ex2.html
 ---
 
 Apache Mesos uses ZooKeeper to operate.  Apache Mesos also works with ``etcd`` but it is currently (as of

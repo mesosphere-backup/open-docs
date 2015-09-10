@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Introduction
+
+redirect_from:
+- /intro-course/intro.html
 ---
 
 This course is designed to take you from having no knowledge of systems management by using Apache Mesos, to automatically building and deploying a complete cluster running Apache Mesos, Marathon, Mesos DNS, Chronos, Docker and Ansible.  This course is designed so that even if you don't know anything about the tools, you'll become familiar by completing the examples and exercises.  If you've always wanted to understand modern cloud infrastructure then this course is for you!

@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 3 – Using Apache Mesos
+
+redirect_from:
+- /intro-course/ex3.html
 ---
 
 Apache Mesos is the foundation of the Mesosphere technology stack and powers all of the communications and

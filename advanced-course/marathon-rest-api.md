@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 6 – Marathon REST API
+
+redirect_from:
+- /intro-course/ex6.html
 ---
 
 The GUI is the primary way to work with Marathon, but it's also good to

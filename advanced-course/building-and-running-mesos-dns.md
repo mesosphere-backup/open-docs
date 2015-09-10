@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 7 – Building and Running Mesos DNS
+
+redirect_from:
+- /intro-course/ex7.html
 ---
 
 After you have a basic system working that can start services and keep them running Mesos DNS. Mesos DNS provides dynamic DNS naming for services running on a

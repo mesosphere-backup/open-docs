@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 18 – Advanced Usage of Chronos
+
+redirect_from:
+- /intro-course/ex18.html
 ---
 
 You can access a more advanced set of Chronos features through the REST API than through the GUI.  This exercise is similar to the last one, but you'll use pre-built tools to manage your Chronos configuration JSON files.

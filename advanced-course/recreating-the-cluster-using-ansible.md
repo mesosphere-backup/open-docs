@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 16 – Recreating the Cluster Using Ansible
+
+redirect_from:
+- /intro-course/ex16.html
 ---
 
 You have a miniature Mesosphere cluster running on your computer, but what would happen if you had to destroy it and start over?  Luckily we have the [Ansible](http://www.ansible.com/home) tool where you can run one command to recreate your entire little cluster.
