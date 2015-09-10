@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 4 – Starting Marathon
+
+redirect_from:
+- /intro-course/ex4.html
 ---
 
 In Linux the cron utility manages all of the

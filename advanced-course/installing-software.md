@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 1 – Installing Software
+
+redirect_from:
+- /intro-course/ex1.html
 ---
 
 To begin, you must install the prequisite software into a virtual machine on your computer.  We use CentOS 7 for this course and it is recommended for this course.

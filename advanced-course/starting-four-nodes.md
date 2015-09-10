@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 15 – Starting Four Nodes
+
+redirect_from:
+- /intro-course/ex15.html
 ---
 
 This exercise adds two more slave nodes to our small

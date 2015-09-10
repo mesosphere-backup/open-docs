@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 14 – Installing and Using Mesos CLI
+
+redirect_from:
+- /intro-course/ex14.html
 ---
 
 This exercise gives you access to various files on the Apache Mesos cluster, among other features.

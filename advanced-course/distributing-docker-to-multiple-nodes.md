@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 13 – Distributing Docker To Multiple Nodes
+
+redirect_from:
+- /intro-course/ex13.html
 ---
 
 After building the Docker image in Exercise 12, you can easily deploy the Outyet web application to your ``node2`` server.

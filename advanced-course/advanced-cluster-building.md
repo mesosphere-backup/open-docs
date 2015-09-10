@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 20 – Advanced Cluster Building
+
+redirect_from:
+- /intro-course/ex20.html
 ---
 
 This final exercise teaches you how to use your Ansible configuration

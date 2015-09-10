@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-vendor
-.jekyll-assets-cache
-.idea
-.bundle
-_site
-=======
 _build
 _site
-
 bin
 .ssh
 .jekyll-assets-cache
@@ -18,4 +10,3 @@ vendor
 .divshot-cache/
 .idea
 services/kubernetes_revert.md
->>>>>>> feature/move-advanced-course

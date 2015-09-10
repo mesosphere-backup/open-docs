@@ -1,6 +1,9 @@
 ---
 layout: doc
 title: Exercise 5 – Using the Marathon GUI
+
+redirect_from:
+- /intro-course/ex5.html
 ---
 
 You can use the Marathon GUI to configure and deploy your applications. In this exercise you will learn how the GUI works and
