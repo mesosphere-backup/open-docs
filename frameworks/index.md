@@ -192,6 +192,15 @@ title: Frameworks On Mesos
         processing system for structured and unstructured data.
       </p>
     </li>
+
+    <li>
+      <h4>
+        <a href="http://docs.concord.io/">Concord</a>
+      </h4>
+      <p>
+        Concord is a real-time distributed stream processing framework. Concord empowers developers to process and react to their data in real-time, whether they're building real-time fraud detection, recommendation engine, ad targeting, or algorithmic trading systems. Concord is a native framework on Mesos built in C++ with RocksDB, Folly, and Apache Thrift.
+      </p>
+    </li>
   </ul>
   <hr>
 
