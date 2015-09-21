@@ -8,7 +8,7 @@ redirect_from:
 
 This is a 20 exercise course that teaches you all of the *open source* components that are used in the *Mesosphere DCOS*.  The course is designed to take you from no knowledge of systems management using Apache Mesos to being able to automatically build and deploy a complete cluster running Apache Mesos, Marathon, Mesos DNS, Chronos, Docker and Ansible.  While that seems like a large number of tools to learn, this course is structured such that someone with no knowledge of the tools becomes familiar with them through examples and exercises.  If you've always wanted to understand modern cloud infrastructure then this course is for you.
 
-It's expected that you know the basics of managing a Linux system, are proficient in Unix command line tools, have [Vagrant](https://www.vagrantup.com/>), and [VirtualBox](https://www.virtualbox.org/>) installed on your computer.  It's expected that your computer have about 8G of RAM, which hopefully is available to most people.  Finally, no programming experience is necessary, but it could help when understanding some of the REST APIs the course covers.
+It's expected that you know the basics of managing a Linux system, are proficient in Unix command line tools, have [Vagrant](https://www.vagrantup.com/), and [VirtualBox](https://www.virtualbox.org/) installed on your computer.  It's expected that your computer have about 8G of RAM, which hopefully is available to most people.  Finally, no programming experience is necessary, but it could help when understanding some of the REST APIs the course covers.
 
 Module 1: The Beginning
 =======================
