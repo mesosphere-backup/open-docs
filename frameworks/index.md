@@ -27,7 +27,7 @@ title: Frameworks On Mesos
     </div>
   </div>
 
- 
+
   <ul class="row learn-app-list list-unstyled">
 
     <li class="service-icon service-icon-marathon">
@@ -193,7 +193,7 @@ title: Frameworks On Mesos
       </p>
     </li>
 
-    <li>
+    <li class="service-icon service-icon-concord">
       <h4>
         <a href="http://docs.concord.io/">Concord</a>
       </h4>
