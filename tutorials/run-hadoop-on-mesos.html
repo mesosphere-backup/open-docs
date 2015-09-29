@@ -71,7 +71,7 @@ steps:
 
       root@ec2-184-72-188-41:~# wget https://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
 
-      --2013-11-03 22:50:56--  http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
+      --2013-11-03 22:50:56--  https://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
 
       Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 176.32.100.240
 
@@ -104,7 +104,7 @@ steps:
 
      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget https://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
 
-     --2013-11-03 22:52:30--  http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
+     --2013-11-03 22:52:30--  https://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
 
      Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 176.32.101.81
 
@@ -123,7 +123,7 @@ steps:
 
      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget https://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
 
-     --2013-11-03 23:00:52--  http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
+     --2013-11-03 23:00:52--  https://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
 
      Resolving downloads.mesosphere.io (downloads.mesosphere.io)... 72.21.211.168
 
@@ -152,12 +152,12 @@ steps:
     blackboard: >
       <pre class="terminal"><code>root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# cd ../conf/
 
-      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL https://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml
 
-      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre>
+      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/conf# curl -sSfL https://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre>
     instruction: >
       <p>Now we're ready to modify the configuration files to make sure that Hadoop and Mesos can be integrated. The two files which we need to modify inside this vanilla Hadoop can be found in the conf directory. Connect into this directory: <pre data-code><code class="codeblock">cd ../conf</code></pre></p>
-      <p>The two files of interest are <strong>mapred-site.xml</strong> and <strong>core-site.xml</strong>. In the vanilla Hadoop distribution, the config hasn't been completed yet. Replace them with files that contain already some of the configuration parameters. Then download the files: <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml ; <br/>curl -sSfL http://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre></p>
+      <p>The two files of interest are <strong>mapred-site.xml</strong> and <strong>core-site.xml</strong>. In the vanilla Hadoop distribution, the config hasn't been completed yet. Replace them with files that contain already some of the configuration parameters. Then download the files: <pre data-code><code class="codeblock">curl -sSfL https://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-core-site.xml --output core-site.xml ; <br/>curl -sSfL https://downloads.mesosphere.io/dcc/apps/hadoop/conf/sample-hom-mapred-site.xml --output mapred-site.xml</code></pre></p>
   - title: Get machine info for configuring Hadoop
     blurb: >
       Retrieve the IP address, two available ports, and HDFS namenode address of the machine where we want to run the JobTracker
