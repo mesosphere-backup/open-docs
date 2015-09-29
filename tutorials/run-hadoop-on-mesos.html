@@ -69,7 +69,7 @@ steps:
     blackboard: >
       <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ sudo -s
 
-      root@ec2-184-72-188-41:~# wget http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
+      root@ec2-184-72-188-41:~# wget https://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
 
       --2013-11-03 22:50:56--  http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz
 
@@ -93,7 +93,7 @@ steps:
 
       root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1#</code></pre>
     instruction: >
-      <p>For the next step, switch to the root user. <pre data-code class="clear"><code class="codeblock">sudo -s</code></pre></p><p>Now let's download a vanilla Hadoop distribution,  such as CDH 4.2.1 which we have mirrored for you:  <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre> After  downloading it, extract it with the tar command: <pre data-code><code class="codeblock">tar xzf mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre></p>
+      <p>For the next step, switch to the root user. <pre data-code class="clear"><code class="codeblock">sudo -s</code></pre></p><p>Now let's download a vanilla Hadoop distribution,  such as CDH 4.2.1 which we have mirrored for you:  <pre data-code><code class="codeblock">wget https://downloads.mesosphere.io/dcc/apps/hadoop/distros/mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre> After  downloading it, extract it with the tar command: <pre data-code><code class="codeblock">tar xzf mr1-2.0.0-mr1-cdh4.2.1.tar.gz</code></pre></p>
       </p>This extracts everything into the <code>hadoop-2.0.0-mr1-cdh4.2.1</code> directory. Next change into the extracted directory: <pre data-code><code class="codeblock">cd hadoop-2.0.0-mr1-cdh4.2.1</code></pre></p>
   - title: Download Mesos extensions
     blurb: >
@@ -102,7 +102,7 @@ steps:
     codeboard: >
      root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1# cd lib
 
-     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
+     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget https://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
 
      --2013-11-03 22:52:30--  http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar
 
@@ -121,7 +121,7 @@ steps:
      2013-11-03 22:52:30 (45.7 MB/s) - `hadoop-mesos-0.0.3.jar' saved [847004/847004]
 
 
-     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
+     root@ec2-184-72-188-41:~/hadoop-2.0.0-mr1-cdh4.2.1/lib# wget https://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
 
      --2013-11-03 23:00:52--  http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar
 
@@ -143,8 +143,8 @@ steps:
       <p>Hadoop on Mesos (HOM) requires downloading the Mesos extensions which consist of a Mesos Scheduler for managing the JobTracker, a Mesos Executor for launching TaskTrackers, plus as a couple of simple mods to the Hadoop configuration files.</p>
 
       <p>Now, let's connect into the <strong>lib</strong> directory inside the Hadoop distro which we've just downloaded: <pre data-code><code class="codeblock">cd lib</code></pre></p>
-      <p>Next we download the Hadoop/Mesos extension JAR file and save it in this directory: <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar</code></pre></p>
-      <p>The contents of this <strong>lib</strong> directory will be automatically loaded by the Hadoop classloader. While we're here, we also need to download the Mesos drivers -- required by every Java app that integrates directly with Mesos: <pre data-code><code class="codeblock">wget http://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar</code></pre></p>
+      <p>Next we download the Hadoop/Mesos extension JAR file and save it in this directory: <pre data-code><code class="codeblock">wget https://downloads.mesosphere.io/dcc/apps/hadoop/hadoop-mesos/hadoop-mesos-0.0.3.jar</code></pre></p>
+      <p>The contents of this <strong>lib</strong> directory will be automatically loaded by the Hadoop classloader. While we're here, we also need to download the Mesos drivers -- required by every Java app that integrates directly with Mesos: <pre data-code><code class="codeblock">wget https://downloads.mesosphere.io/maven/org/apache/mesos/mesos/0.14.0-rc4/mesos-0.14.0-rc4.jar</code></pre></p>
   - title: Download Mesos templates for Hadoop configuration files
     blurb: >
       Download the Mesos templates for Hadoop configuration files, which are needed so that Hadoop can find the Mesos scheduler and executor
