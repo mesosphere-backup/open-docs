@@ -114,7 +114,7 @@ Validate that you can see the host command starts working again:
 $ host google.com
 ```
 
-Use the mesos-dns for service discovery with the dig command.  You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this this should work:
+Use the mesos-dns for service discovery with the dig command. You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this should work:
 
 ```
 $ dig dns.marathon.mesos
