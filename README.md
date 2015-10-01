@@ -21,6 +21,8 @@ To add or change a page to the open documentation site:
 
 We prefer pull requests to be as few commits as possible and that the request itself (title and/or description as necessary) are sufficiently descriptive. The Mesosphere docs team will review and merge your pull request!
 
+**When showing commands to run, never make a reader download anything from http without verifying checksums.**
+
 # Running this site locally
 
 If you are developing against this site and wish to see a rendered version of your documentation locally.

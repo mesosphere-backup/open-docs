@@ -46,7 +46,7 @@ $ export PATH=$PATH:$GOPATH/bin
 $ go get github.com/tools/godep
 $ go get github.com/mesosphere/mesos-dns
 $ cd $GOPATH/src/github.com/mesosphere/mesos-dns
-$ make restoredeps build
+$ godep go build .
 ```
 
 Add ``nameserver 192.168.33.10`` to the first line of the ``/etc/resolv.conf`` file:
@@ -114,7 +114,7 @@ Validate that you can see the host command starts working again:
 $ host google.com
 ```
 
-Use the mesos-dns for service discovery with the dig command.  You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this this should work:
+Use the mesos-dns for service discovery with the dig command. You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this should work:
 
 ```
 $ dig dns.marathon.mesos
