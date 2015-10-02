@@ -80,7 +80,7 @@ mesos-slave.service                         enabled
 
 ``node2`` is now configured. 
 
-Finally, switch over to ``node1`` and update ``/etc/hosts`` to look the same as ``node2``, likewise ensuring that the "node1" name isn't present on the first line:
+Finally, switch over to ``node1`` and update ``/etc/hosts`` to look the same as on ``node2``, likewise ensuring that the "node1" name isn't present on the first line. Then verify the changes:
 
 ```
 $ vagrant ssh node1
