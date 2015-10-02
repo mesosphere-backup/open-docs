@@ -38,27 +38,29 @@ Now we can recreate everything with Ansible to automate the whole operation.  An
 ---
 - hosts: master
   remote_user: vagrant
-  sudo: yes
+  become: yes
+  become_method: sudo
   tasks:
-      - name: update the hosts file
+      - name: update hosts file
         template: src=./hosts.j2 dest=/etc/hosts
-      - name: install the mesosphere yum repo
-        shell: rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-      - name: install zookeeper repo
-        shell: rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
+      - name: install mesosphere yum repo
+        yum: name=http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm state=present
+      - name: install zookeeper yum repo
+        yum: name=http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm state=present
       - name: install zookeeper
         yum: pkg=zookeeper,zookeeper-server state=latest
       - name: configure zookeeper ID
-        shell: sudo -u zookeeper zookeeper-server-initialize --myid=1
-      - name: install the mesos, marathon, chronos, docker packages
+        become_user: zookeeper
+        shell: zookeeper-server-initialize --myid=1
+      - name: install mesos, marathon, chronos, and docker packages
         yum: pkg=device-mapper-event-libs,mesos,marathon,chronos,docker state=latest
       - name: configure containerizers
-        shell: echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
-      - name: start up zookeeper
+        lineinfile: dest=/etc/mesos-slave/containerizers create=yes line="docker,mesos"
+      - name: start zookeeper
         service: name=zookeeper-server state=started enabled=yes
-      - name: start up the mesos-master
+      - name: start mesos-master
         service: name=mesos-master state=started enabled=yes
-      - name: make sure mesos-slave is running
+      - name: start mesos-slave
         service: name=mesos-slave state=started enabled=yes
       - name: start marathon
         service: name=marathon state=started enabled=yes
@@ -66,12 +68,15 @@ Now we can recreate everything with Ansible to automate the whole operation.  An
         service: name=chronos state=started enabled=yes
       - name: start docker
         service: name=docker state=started enabled=yes
-      - name: install go and dns tools
+      - name: install go, git, and dnsutil packages
         yum: pkg=golang,git,bind-utils state=latest
-      - name: build mesos-dns
-        shell: sudo -u vagrant sh /vagrant/installdns.sh
+      - name: build/configure mesos-dns
+        become_user: vagrant
+        shell: sh /vagrant/installdns.sh
+      - name: configure dns
+        template: src=./resolv.conf.j2 dest=/etc/resolv.conf
       - name: install outyet
-        shell: sudo docker load --input=/vagrant/outyet.tar.gz
+        shell: docker load --input=/vagrant/outyet.tar.gz
 ```
 
 This playbook uses a simple script to install Mesos DNS called ``installdns.sh``:
@@ -200,33 +205,35 @@ $ vagrant up node1
 That should run every single thing necessary to get a master node up.  You should do the
 usual tests of Marathon, Chronos, and Mesos as you've learned in Module 1.
 
-Add a part of the ``playbook.yml`` that configures the slave nodes
-too:
+Append the configuration for the slave nodes (node2-4) to ``playbook.yml``:
 
 ```
 - hosts: nodes
   remote_user: vagrant
-  sudo: yes
+  become: yes
+  become_method: sudo
   tasks:
-      - name: update the hosts file
+      - name: update hosts file
         template: src=./hosts.j2 dest=/etc/hosts
-      - name: install the mesosphere yum repo
-        shell: rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-      - name: install the mesos and docker packages
+      - name: install mesosphere yum repo
+        yum: name=http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm state=present
+      - name: install mesos and docker packages
         yum: pkg=device-mapper-event-libs,mesos,docker state=latest
+      - name: configure dns
+        template: src=./resolv.conf.j2 dest=/etc/resolv.conf 
       - name: configure containerizers
-        shell: echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
-      - name: set the zookeeper master
-        shell: sed -i -e 's/localhost/192.168.33.10/g' /etc/mesos/zk
-      - name: make sure mesos-slave is running
+        lineinfile: dest=/etc/mesos-slave/containerizers create=yes line="docker,mesos"
+      - name: set zookeeper master
+        replace: dest=/etc/mesos/zk regexp="localhost" replace="192.168.33.10"
+      - name: start mesos-slave
         service: name=mesos-slave state=started enabled=yes
       - name: start docker
         service: name=docker state=started enabled=yes
       - name: install outyet
-        shell: sudo docker load --input=/vagrant/outyet.tar.gz
+        shell: docker load --input=/vagrant/outyet.tar.gz
 ```
 
-Run this command to bring your nodes up:
+Run this command to bring up your nodes:
 
 ```
 $ vagrant up
