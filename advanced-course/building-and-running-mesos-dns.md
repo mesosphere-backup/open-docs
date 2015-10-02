@@ -22,13 +22,13 @@ In this exercise:
 Video Lecture
 -------------
 
-Mesos-DNS is currently being updated to a new release out soon at which point we'll have a new video and instructions for it.
+A new release of Mesos-DNS will be coming soon, at which point we'll have a new video and instructions for it.
 
 
 Quick Reference
 ---------------
 
-You can find more information about Mesos DNS at http://mesosphere.github.io/mesos-dns/docs/.
+You can find more information about Mesos DNS, along with additional tutorials, by checking [the Mesos DNS docs](http://mesosphere.github.io/mesos-dns/docs/).
 
 Install the Go programming language:
 
@@ -97,10 +97,10 @@ Test that mesos-dns runs locally first:
 $ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
-Create a mesos-dns launcher in Marathon by using the GUI with this command:
+In the Marathon GUI, create a new launcher named ``dns`` which uses the command we just tested:
 
 ```
-$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
 Add this in the ``Constraints`` field::
