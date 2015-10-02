@@ -37,7 +37,14 @@ $ sudo pip install virtualenv
 $ sudo pip install mesos.cli
 ```
 
-Try these sample commands:
+If you see a "Requirement already satisfied" message when installing ``mesos.cli``, it means you currently have an old prepackaged version of the CLI installed. Perform an uninstall/reinstall to ensure that you get an up-to-date version of the CLI:
+
+```
+$ sudo pip uninstall mesos.cli
+$ sudo pip install mesos.cli
+```
+
+Try the following sample commands. If you see errors about missing flags (eg ``--master``), then you are using the wrong version of the CLI and should perform the previous step.
 
 ```
 $ mesos tail outyet stderr
