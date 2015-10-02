@@ -47,7 +47,7 @@ Update ``node2``'s ``/etc/hosts`` file to include entries for both nodes, *and* 
     192.168.33.10 node1
     192.168.33.11 node2
 
-Now, if you do a ``ping node2`` then you should see 192.168.33.11 like this:
+Now, if you do a ``ping node2`` then you should see ``192.168.33.11``:
 
 ```
 $ ping node2
@@ -80,7 +80,7 @@ mesos-slave.service                         enabled
 
 ``node2`` is now configured. 
 
-Finally, switch over to ``node1`` and add an entry so that it can reach ``node2``. You don't need to remove the "node1" name from the first line this time:
+Finally, switch over to ``node1`` and add an entry to ``/etc/hosts`` so that it can reach ``node2``. You don't need to remove the "node1" name from the first line this time:
 
 ```
 $ vagrant ssh node1
