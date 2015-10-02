@@ -80,11 +80,15 @@ mesos-slave.service                         enabled
 
 ``node2`` is now configured. 
 
-Finally, switch over to ``node1`` and add an entry to ``/etc/hosts`` so that it can reach ``node2``. You don't need to remove the "node1" name from the first line this time:
+Finally, switch over to ``node1`` and update ``/etc/hosts`` to look the same as on ``node2``, likewise ensuring that the "node1" name isn't present on the first line. Then verify the changes:
 
 ```
 $ vagrant ssh node1
 $ sudo vi /etc/hosts
+$ ping node1
+PING node1 (192.168.33.10) 56(84) bytes of data.
+64 bytes from node2 (192.168.33.10): icmp_seq=1 ttl=64 time=0.08 ms
+...
 $ ping node2
 PING node2 (192.168.33.11) 56(84) bytes of data.
 64 bytes from node2 (192.168.33.11): icmp_seq=1 ttl=64 time=1.44 ms
