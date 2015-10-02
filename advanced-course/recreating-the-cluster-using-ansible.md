@@ -8,10 +8,7 @@ redirect_from:
 
 You have a miniature Mesosphere cluster running on your computer, but what would happen if you had to destroy it and start over?  Luckily we have the [Ansible](http://www.ansible.com/home) tool where you can run one command to recreate your entire little cluster.
 
-This exercise shows you how to create an Ansible playbook that can recreate the entire cluster
-that you manually created for the last 15 exercises.  You could have started with this, but then you wouldn't
-have known all the core concepts of Meso, Marathon, Chronos, and would be lost when you run into
-trouble.
+This exercise shows you how to create an Ansible playbook that can recreate the entire cluster that you manually created for the last 15 exercises.  You could have started with this, but then you wouldn't have known all the core concepts of Meso, Marathon, Chronos, and would be lost when you run into trouble.
 
 In this exercise:
 
@@ -29,9 +26,11 @@ Video Lecture
 Quick Reference
 ---------------
 
-To begin this exercise you will run ``vagrant destroy`` to destroy the cluster you just built.  If you'd like to keep it around then feel free to make a  new directory for this exercise or backup the directory first.  Once you're ready do::
+To begin this exercise you will run ``vagrant destroy`` to destroy the cluster you just built.  If you'd like to keep it around then feel free to make a  new directory for this exercise or backup the directory first.  Once you're ready, run the following command at the host to destroy the cluster:
 
-    vagrant destroy -f
+```
+$ vagrant destroy -f
+```
 
 Now we can recreate everything with Ansible to automate the whole operation.  Ansible uses a YAML file to control how to build any Vagrant nodes, and Vagrant knows about Ansible configurations.  To get started, create a simple ``playbook.yml`` file with this:
 
@@ -145,7 +144,7 @@ ANSIBLE_GROUPS = {
 
 
 Vagrant.configure(2) do |config|
-    config.vm.box = "chef/centos-7.0"
+    config.vm.box = "bento/centos-7.1"
     config.vm.define "node1" do |node1|
         node1.vm.network "private_network", ip: "192.168.33.10"
         node1.vm.hostname = "node1"
