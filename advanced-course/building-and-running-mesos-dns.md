@@ -6,9 +6,7 @@ redirect_from:
 - /intro-course/ex7.html
 ---
 
-After you have a basic system working that can start services and keep them running Mesos DNS. Mesos DNS provides dynamic DNS naming for services running on a
-Mesos cluster.  It also acts as a stateless fault tolerant DNS proxy so that you can
-use it for normal DNS queries as well as Mesos name lookups.
+After the last few exercises, you now have a basic system that can start services and keep them running. We will now set up Mesos DNS to run within this system. Mesos DNS provides dynamic DNS naming for services running on a Mesos cluster.  It also acts as a stateless fault tolerant DNS proxy so that you can use it for normal DNS queries as well as Mesos name lookups.
 
 In this exercise:
 
