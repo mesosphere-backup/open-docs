@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Exercise 17 – Advanced Usage of the Marathon
+title: Exercise 17 – Advanced Usage of Marathon
 
 redirect_from:
 - /intro-course/ex17.html
@@ -165,4 +165,4 @@ This automates your Marathon configuration and adds it to the Ansible ``playbook
 Further Study
 -------------
 
-* Read more about the API endpoints available for Marathon at https://mesosphere.github.io/marathon/docs/rest-api.html
+* Read more about the [API endpoints](https://mesosphere.github.io/marathon/docs/rest-api.html) available for Marathon.
