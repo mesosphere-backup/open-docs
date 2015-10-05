@@ -4,6 +4,7 @@ title: Exercise 17 – Advanced Usage of Marathon
 
 redirect_from:
 - /intro-course/ex17.html
+- /advanced-course/advanced-usage-of-the-marathon
 ---
 
 After you have Ansible creating a repeatable build of your four node mini-cluster you'll want to also rebuild your Marathon configuration.  The Marathon GUI is good for basic Marathon usage, but the real power comes from using the Marathon REST API.  Using the REST API you can keep track of your configurations in a ``git`` repository, providing you with version control and use the API to change or rebuild your configurations as needed.
