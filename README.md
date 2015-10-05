@@ -23,6 +23,13 @@ We prefer pull requests to be as few commits as possible and that the request it
 
 **When showing commands to run, never make a reader download anything from http without verifying checksums.**
 
+
+## 3) View on staging environment
+
+After a few minutes, an automated build will deploy changes to master to [the staging site](http://open-staging.mesosphere.com.s3-website-us-east-1.amazonaws.com/).
+
+Periodically these changes will be pushed to the production site.
+
 # Running this site locally
 
 If you are developing against this site and wish to see a rendered version of your documentation locally.

@@ -34,7 +34,7 @@ Module 2: Advanced Topics
 =========================
 
 * [Exercise 16: Recreating the Cluster Using Ansible](/advanced-course/recreating-the-cluster-using-ansible/)
-* [Exercise 17: Advanced Usage of the Marathon](/advanced-course/advanced-usage-of-the-marathon/)
+* [Exercise 17: Advanced Usage of Marathon](/advanced-course/advanced-usage-of-marathon/)
 * [Exercise 18: Advanced Usage of Chronos](/advanced-course/advanced-usage-of-chronos/)
 * [Exercise 19: Troubleshooting](/advanced-course/troubleshooting/)
 * [Exercise 20: Advanced Cluster Building](/advanced-course/advanced-cluster-building/)
