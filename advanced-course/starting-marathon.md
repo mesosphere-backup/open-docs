@@ -6,9 +6,9 @@ redirect_from:
 - /intro-course/ex4.html
 ---
 
-In Linux the cron utility manages all of the
+In Linux the init/systemd/upstart program manages all of the
 processes running on your system.  The Mesosphere stack uses Marathon to manage the processes and services.
-Marathon is the technology that plays the role of ``init`` in the analogy of an operating system.
+Marathon is the technology that plays the role of ``init/systemd/upstart`` in the analogy of an operating system.
 Marathon provides both a simple GUI and an extensive REST API that you can work with if you need
 more capability.
 

@@ -15,7 +15,7 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 
 - The executor knows how to run the tasks that the scheduler launches.  A more detailed explanation is [available here](http://mesos.apache.org/documentation/latest/mesos-architecture/).
 
-- The file server provides Mesos a location from which it can retrieve the executor binary.  This component is usually not explicitly called out as a requirement of a framework and while t is not technically a component of the framework, it is required for a framework to run end-to-end.  Of course, multiple frameworks can share the same server.
+- The file server provides Mesos a location from which it can retrieve the executor binary.  This component is usually not explicitly called out as a requirement of a framework and while it is not technically a component of the framework, it is required for a framework to run end-to-end.  Of course, multiple frameworks can share the same server.
 
 
 ### Step 1:  Setup the environment
@@ -65,7 +65,7 @@ The minimum requirements for a framework are a scheduler, executor, and file ser
 	$ git checkout -b tutorial origin/tutorial
 	```
 
-	You should now have all of the tutorial code and be in the 'tutorial' branch.  This next steps perform add framework functionality as we go and commit to the `tutorial` branch.
+	You should now have all of the tutorial code and be in the 'tutorial' branch.  This next steps add framework functionality as we go and commit to the `tutorial` branch.
 		
 ### Step 3: Initialize the framework configuration 
 
@@ -112,7 +112,7 @@ In this step, the framework is initialized.
 
 ### Step 4.  Accept offers and launch tasks
 
-In this step, the framework begins accepting offers from Mesos and launching tasks.  The framework can now iterates across the offers provided by Mesos and launch tasks until we run out of resources.
+In this step, the framework begins accepting offers from Mesos and launching tasks.  The framework can now iterate across the offers provided by Mesos and launch tasks until we run out of resources.
 
 1.  Checkout the branch:
     
@@ -136,7 +136,7 @@ In this step, the framework begins accepting offers from Mesos and launching tas
 	$ ./example_scheduler --master=127.0.0.1:5050 --executor="$GOPATH/src/github.com/mesosphere/mesos-framework-tutorial/executor/example_executor" --logtostderr=true
 	```
 
-	The executor launches the tasks, and reports status to Mesos indicating that the tasks are finished.  This frees the resources and they are offered to the scheduler again.  This loop continues endlessly as long as the scheduler process doesn't crash. A long running distributed service has now been completed.  'example_executor.go' indicates where the real work is done in it's 'LaunchTask' method.
+	The executor launches the tasks and reports status to Mesos indicating that the tasks are finished.  This frees the resources and they are offered to the scheduler again.  This loop continues endlessly as long as the scheduler process doesn't crash. A long-running distributed service has now been completed.  'example_executor.go' indicates where the real work is done in its 'LaunchTask' method.
 
 	The output indicates that tasks are running:
 
