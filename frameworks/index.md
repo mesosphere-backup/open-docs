@@ -179,7 +179,7 @@ title: Frameworks On Mesos
         Linear scalability and proven fault-tolerance on commodity hardware
         or cloud infrastructure make it the perfect platform for
         mission-critical data.
-        <a href="/2014/02/12/cassandra-on-mesos-scalable-enterprise-storage/">Try a Tutorial <i class="fa fa-angle-double-right"></i></a>
+        <a href="https://docs.mesosphere.com/services/cassandra/">Learn more <i class="fa fa-angle-double-right"></i></a>
       </p>
     </li>
 
