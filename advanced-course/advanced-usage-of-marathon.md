@@ -1,9 +1,10 @@
 ---
 layout: doc
-title: Exercise 17 – Advanced Usage of the Marathon
+title: Exercise 17 – Advanced Usage of Marathon
 
 redirect_from:
 - /intro-course/ex17.html
+- /advanced-course/advanced-usage-of-the-marathon
 ---
 
 After you have Ansible creating a repeatable build of your four node mini-cluster you'll want to also rebuild your Marathon configuration.  The Marathon GUI is good for basic Marathon usage, but the real power comes from using the Marathon REST API.  Using the REST API you can keep track of your configurations in a ``git`` repository, providing you with version control and use the API to change or rebuild your configurations as needed.
@@ -26,15 +27,13 @@ Video Lecture
 Quick Reference
 ---------------
 
-In your VM directory make a ``marathon`` directory and get it started with ``git init``:
+In your VM directory, create a ``marathon`` subdirectory and go into it:
 
 ```
-$ mkdir marathon
-$ cd marathon
-$ git init marathon
+$ mkdir marathon; cd marathon
 ```
 
-Make a ``webapp.json`` file:
+Within the ``marathon`` directory, create a new configuration file named ``webapp.json``:
 
 ```
 {
@@ -60,28 +59,27 @@ Make a ``webapp.json`` file:
 }
 ```
 
-Use this simple ``post.sh`` bash script to make it easier to load JSON files into Marathon:
+Create a ``post.sh`` helper script for loading JSON-formatted service configuration data into Marathon:
 
 ```
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 MARATHON=http://192.168.33.10:8080
 
-for i in *.json
+for file in *.json
 do
-    curl -X POST $MARATHON/v2/apps -d @$i -H "Content-type: application/json"
+  echo "Installing $file..."
+  curl -X POST "$MARATHON/v2/apps" -d @"$file" -H "Content-type: application/json"
+  echo ""
 done
 ```
 
-This is simply using ``curl`` to loop through every .json file and then send it to Marathon with a POST HTTP request.
-Run this to add your webapp to it:
+The script will iterate over every ``.json`` file in the current directory, adding each to Marathon with an HTTP POST request. Execute the script now to submit the ``webapp.json`` configuration which was created earlier:
 
 ```
-$ cd marathon
-$ chmod u+x post.sh
-$ ./post.sh
+$ sh post.sh
 ```
 
-Create the ``dns.json`` file for Mesos DNS:
+With that working, we can add configurations for the other Marathon services we want to run. Create a Marathon service config named ``dns.json`` for Mesos DNS:
 
 ```
 {
@@ -97,7 +95,7 @@ Create the ``dns.json`` file for Mesos DNS:
 }
 ```
 
-Create this ``outyet.json`` file to setup the outyet application:
+Create a Marathon service config named ``outyet.json`` for the Outyet Docker application. This configuration includes a ``heathChecks`` section for automatically restarting unresponsive instances:
 
 ```
 {
@@ -129,23 +127,23 @@ Create this ``outyet.json`` file to setup the outyet application:
 }
 ```
 
-Run ``post.sh`` from the ``marathon`` directory to have it install your applications:
+Add the above Mesos DNS and Outyet services to Marathon by running ``post.sh`` once more:
 
 ```
-$ ./post.sh
+$ sh post.sh
 ```
 
-Add this to your Ansible ``playbook.yml`` in the ``hosts: master`` section so that it's done during your build:
+Now, add an entry to the bottom of the ``hosts: master`` section of your Ansible ``playbook.yml`` file. This will ensure that Marathon service configurations are automatically created as a part of Ansible setup:
 
 ```
-- name: start marathon services
+- name: configure marathon services
   shell: cd /vagrant/marathon && sh post.sh
 ```
 
 Additional Commands
 -------------------
 
-This automates your Marathon configuration and adds it to the Ansible ``playbook.yml`` file so that you can repeat it.  You'll also need to know the following common commands::
+Marathon supports many HTTP commands to read current status and to make configuration changes:
 
     # list out the apps availale
     curl http://192.168.33.10:8080/v2/apps
@@ -165,4 +163,4 @@ This automates your Marathon configuration and adds it to the Ansible ``playbook
 Further Study
 -------------
 
-* Read more about the API endpoints available for Marathon at https://mesosphere.github.io/marathon/docs/rest-api.html
+* Read more about Marathon's [API endpoints and config schema](https://mesosphere.github.io/marathon/docs/rest-api.html).

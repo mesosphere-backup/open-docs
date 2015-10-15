@@ -1,4 +1,4 @@
-{% capture pkg_url %}http://downloads.mesosphere.io/master/{{ pkg.path }}{% endcapture %}
-{% capture egg_url %}http://downloads.mesosphere.io/master/{{ pkg.egg_path }}{% endcapture %}
+{% capture pkg_url %}https://downloads.mesosphere.io/master/{{ pkg.path }}{% endcapture %}
+{% capture egg_url %}https://downloads.mesosphere.io/master/{{ pkg.egg_path }}{% endcapture %}
 {% capture tutorial_params %}master-ip=1.1.1.1&amp;mesos-pkg={{ pkg_url | cgi_escape }}&amp;mesos-egg={{ egg_url | cgi_escape }}{% endcapture %}
 /{{ pkg.instructions }}/?{{ tutorial_params }}

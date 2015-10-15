@@ -87,8 +87,8 @@
     - title: "16: Recreating the Cluster Using Ansible"
       href: "/advanced-course/recreating-the-cluster-using-ansible/"
 
-    - title: "17: Advanced Usage of the Marathon"
-      href: "/advanced-course/advanced-usage-of-the-marathon/"
+    - title: "17: Advanced Usage of Marathon"
+      href: "/advanced-course/advanced-usage-of-marathon/"
 
     - title: "18: Advanced Usage of Chronos"
       href: "/advanced-course/advanced-usage-of-chronos/"

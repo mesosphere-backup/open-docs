@@ -55,7 +55,7 @@ Next you need to add a two node configuration to your ``Vagrantfile``.  The line
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "chef/centos-7.0"
+  config.vm.box = "bento/centos-7.1"
   config.vm.define "node1" do |node1|
       node1.vm.network "private_network", ip: "192.168.33.10"
       node1.vm.hostname = "node1"

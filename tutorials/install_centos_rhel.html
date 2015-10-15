@@ -18,7 +18,7 @@ steps:
       <pre class="terminal"><code>$ curl -sSfL http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm --output /tmp/cdh.rpm
 
 
-      $ curl -sSfL http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera --output /tmp/cdh.key
+      $ curl -sSfL https://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera --output /tmp/cdh.key
 
 
       $ sudo rpm --import /tmp/cdh.key
@@ -31,7 +31,7 @@ steps:
       <p>There are a few steps necessary to properly install our pre-built Apache Mesos packages. Soon, this process will be replaced by APT and YUM repos. In the meantime, please follow these simple instructions.</p>
       <p>Install the <a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/4.2.0/CDH4-Installation-Guide/cdh4ig_topic_4_4.html">CDH repository</a> to gain access to a Zookeeper package.</p>
       <p><pre data-code class="clear"><code class="codeblock">curl -sSfL http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm --output /tmp/cdh.rpm</code></pre></p>
-      <p><pre data-code class="clear"><code class="codeblock">curl -sSfL http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera --output /tmp/cdh.key</code></pre></p>
+      <p><pre data-code class="clear"><code class="codeblock">curl -sSfL https://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera --output /tmp/cdh.key</code></pre></p>
       <p><pre data-code class="clear"><code class="codeblock">sudo rpm --import /tmp/cdh.key</code></pre></p>
       <p><pre data-code class="clear"><code class="codeblock">sudo yum localinstall -y -q /tmp/cdh.rpm</code></pre></p>
   - title: Install zookeeper

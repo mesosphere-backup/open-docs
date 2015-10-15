@@ -6,9 +6,7 @@ redirect_from:
 - /intro-course/ex7.html
 ---
 
-After you have a basic system working that can start services and keep them running Mesos DNS. Mesos DNS provides dynamic DNS naming for services running on a
-Mesos cluster.  It also acts as a stateless fault tolerant DNS proxy so that you can
-use it for normal DNS queries as well as Mesos name lookups.
+After the last few exercises, you now have a basic system that can start services and keep them running. We will now set up Mesos DNS to run within this system. Mesos DNS provides dynamic DNS naming for services running on a Mesos cluster.  It also acts as a stateless fault tolerant DNS proxy so that you can use it for normal DNS queries as well as Mesos name lookups.
 
 In this exercise:
 
@@ -22,13 +20,13 @@ In this exercise:
 Video Lecture
 -------------
 
-Mesos-DNS is currently being updated to a new release out soon at which point we'll have a new video and instructions for it.
+A new release of Mesos-DNS will be coming soon, at which point we'll have a new video and instructions for it.
 
 
 Quick Reference
 ---------------
 
-You can find more information about Mesos DNS at http://mesosphere.github.io/mesos-dns/docs/.
+You can find more information about Mesos DNS, along with additional tutorials, by checking [the Mesos DNS docs](http://mesosphere.github.io/mesos-dns/docs/).
 
 Install the Go programming language:
 
@@ -46,7 +44,7 @@ $ export PATH=$PATH:$GOPATH/bin
 $ go get github.com/tools/godep
 $ go get github.com/mesosphere/mesos-dns
 $ cd $GOPATH/src/github.com/mesosphere/mesos-dns
-$ make restoredeps build
+$ godep go build .
 ```
 
 Add ``nameserver 192.168.33.10`` to the first line of the ``/etc/resolv.conf`` file:
@@ -97,10 +95,10 @@ Test that mesos-dns runs locally first:
 $ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
-Create a mesos-dns launcher in Marathon by using the GUI with this command:
+In the Marathon GUI, create a new launcher named ``dns`` which uses the command we just tested:
 
 ```
-$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
 Add this in the ``Constraints`` field::
@@ -114,7 +112,7 @@ Validate that you can see the host command starts working again:
 $ host google.com
 ```
 
-Use the mesos-dns for service discovery with the dig command.  You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this this should work:
+Use the mesos-dns for service discovery with the dig command. You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this should work:
 
 ```
 $ dig dns.marathon.mesos

@@ -45,7 +45,7 @@ steps:
       Download and unpack Marathon
     icon: fa-cloud-download
     blackboard: >
-      <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz
+      <pre class="terminal"><code>ubuntu@ec2-184-72-188-41:~$ curl -sSfL https://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz
 
       ubuntu@ec2-184-72-188-41:~$ tar xzf marathon.tgz
 
@@ -55,7 +55,7 @@ steps:
       </code></pre>
     instruction: >
       <p>Now, download the public tar archive for Marathon.</p>
-      <pre data-code><code class="codeblock">curl -sSfL http://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz</code></pre>
+      <pre data-code><code class="codeblock">curl -sSfL https://downloads.mesosphere.io/marathon/marathon-0.4.0.tgz --output marathon.tgz</code></pre>
       <p>Then unpack it and change to the unpacked directory.</p>
       <pre data-code><code class="codeblock">tar xzf marathon.tgz &amp;&amp; cd marathon</code></pre>
       <p>If you don't want to download the tar archive, you can git clone the repo from <a href="https://github.com/mesosphere/marathon">Github</a> and follow the build instructions.</p>
@@ -208,7 +208,7 @@ steps:
       <h6>INSTANCES</h6>
       <pre data-code><code class="codeblock">1</code></pre>
       <h6>URIS</h6>
-      <pre data-code><code class="codeblock">http://downloads.mesosphere.io/tutorials/RailsHello.tgz</code></pre>
+      <pre data-code><code class="codeblock">https://downloads.mesosphere.io/tutorials/RailsHello.tgz</code></pre>
       <p>Click the start button to launch your app.</p>
   - title: Explore the Marathon UI
     blurb: >
