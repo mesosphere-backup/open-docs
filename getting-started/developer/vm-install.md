@@ -96,4 +96,5 @@ When you are finished working with the virtual machine, you can bring it down by
 
 ## Next Steps
 
-{% include mesosphere/getting-started/next-steps-single-node.md %}
+Check out the [Mesosphere tutorials](/tutorials/) to see how to enable Docker support, run popular web applications and big data frameworks like Spark and Hadoop. To set up a fault-tolerant and highly available cluster, see [Setting up a Mesos and Marathon Cluster](/getting-started/datacenter/install/). For more information on best practices in production, see [Mesosphere in Production](/getting-started/datacenter/production-setup/)
+
