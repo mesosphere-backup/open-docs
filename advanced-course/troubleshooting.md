@@ -53,7 +53,7 @@ if $programname == 'mesos-slave' then {
 Restart ``rsyslog`` to verify that this configuration works:
 
 ```
-$ sudo service rsyslog restart
+[node1]$ sudo service rsyslog restart
 ```
 
 If successful, you should see new log files in ``/var/log/mesos/``:
@@ -68,7 +68,7 @@ In general you'll put this on the mesos master nodes you make, but you could cut
 Copy it to the ``/vagrant/mesos.conf.j2`` file:
 
 ```
-$ cp /etc/rsyslog.d/mesos.conf /vagrant/mesos.conf.j2
+[node1]$ cp /etc/rsyslog.d/mesos.conf /vagrant/mesos.conf.j2
 ```
 
 Add this configuration to the Ansible ``playbook.yml`` so this is fixed in the Master:

@@ -28,19 +28,19 @@ The Marathon REST API is documented at http://mesosphere.github.io/marathon/docs
 
 ```
 # get metrics on the running apps
-$ curl http://0.0.0.0:8080/metrics | python -m json.tool | less
+[node1]$ curl http://0.0.0.0:8080/metrics | python -m json.tool | less
 
 # look at the apps you have installed
-$ curl http://0.0.0.0:8080/v2/apps | python -m json.tool
+[node1]$ curl http://0.0.0.0:8080/v2/apps | python -m json.tool
 
 # look at a specific app, named test from Ex4 and Ex5
-$ curl http://0.0.0.0:8080/v2/apps/test | python -m json.tool
+[node1]$ curl http://0.0.0.0:8080/v2/apps/test | python -m json.tool
 
 # delete that app
-$ curl -X DELETE http://0.0.0.0:8080/v2/apps/test | python -m json.tool
+[node1]$ curl -X DELETE http://0.0.0.0:8080/v2/apps/test | python -m json.tool
 
 # show that the app is gone
-$ curl http://0.0.0.0:8080/v2/apps/test | python -m json.tool
+[node1]$ curl http://0.0.0.0:8080/v2/apps/test | python -m json.tool
 ```
 
 Confirm that these commands cause changes in the Marathon GUI as you run them.  After that bring back the ``python`` test application using either the GUI, or for extra point, the API and ``curl``.

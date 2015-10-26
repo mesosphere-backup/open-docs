@@ -31,24 +31,24 @@ Quick Reference
 Get ``mesos-cli``:
 
 ```
-$ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-$ sudo python get-pip.py
-$ sudo pip install virtualenv
-$ sudo pip install mesos.cli
+[node1]$ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+[node1]$ sudo python get-pip.py
+[node1]$ sudo pip install virtualenv
+[node1]$ sudo pip install mesos.cli
 ```
 
 If you see a "Requirement already satisfied" message when installing ``mesos.cli``, it means you currently have an old prepackaged version of the CLI installed. Perform an uninstall/reinstall to ensure that you get an up-to-date version of the CLI:
 
 ```
-$ sudo pip uninstall mesos.cli
-$ sudo pip install mesos.cli
+[node1]$ sudo pip uninstall mesos.cli
+[node1]$ sudo pip install mesos.cli
 ```
 
 Try the following sample commands. If you see errors about missing flags (eg ``--master``), then you are using the wrong version of the CLI and should perform the previous step.
 
 ```
-$ mesos tail outyet stderr
-$ mesos tail outyet stdout
+[node1]$ mesos tail outyet stderr
+[node1]$ mesos tail outyet stdout
 ```
 
 Further Study

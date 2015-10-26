@@ -30,12 +30,12 @@ You need to do some cleanup before you can shut down and pacakge ``node1``.  Mak
 properly set to start on boot with ``chkconfig``:
 
 ```
-$ sudo chkconfig zookeeper-server on
-$ sudo chkconfig mesos-master on
-$ sudo chkconfig mesos-slave on
-$ sudo chkconfig marathon on
+[node1]$ sudo chkconfig zookeeper-server on
+[node1]$ sudo chkconfig mesos-master on
+[node1]$ sudo chkconfig mesos-slave on
+[node1]$ sudo chkconfig marathon on
  # if you are running chronos with marathon then do not do this
-$ sudo chkconfig chronos on
+[node1]$ sudo chkconfig chronos on
 ```
 
 Once you do that we need to make a Vagrant box out of it so we can copy it over to our new setup:
