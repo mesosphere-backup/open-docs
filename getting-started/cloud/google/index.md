@@ -23,27 +23,17 @@ This web application allows users to create anything from a simple, single maste
 
 Mesosphere for Google Cloud Platform currently deploys and configures:
 
-{% include cloud/em_features.md %}
+* Apache Mesos with in-built Docker support
+* Mesosphere Marathon
+* Chronos
+* Spark
+* Apache ZooKeeper
+* HAProxy
+* OpenVPN
+* HDFS
 
 See our [Getting Started with Mesosphere for Google Cloud Platform](mesosphere) guide for more information.
 
-### Click-to-Deploy Mesosphere
-
- Coming soon!
-
-
-<!--
-
-[Mesosphere Click-to-deploy on Google Compute Engine](https://developers.google.com/cloud/mesos) is hosted directly from the Google Compute Engine web console and provides the ability to create a Mesosphere cluster.  It will provision:
-
-* Apache Mesos 0.20
-* Apache ZooKeeper
-* Mesosphere Marathon 0.7.0
-
-Provisioning Mesosphere this way gives you the convenience of deploying directly from the Google Compute Engine. However it does not provide the convenience of provisioning a secure connection to your cluster from your laptop nor does it not provide you with the convenience of using the Mesosphere launch console.
-
-Read more detail on [click-to-deploy](click-to-deploy).
- -->
 ### Do it Yourself
 
 Instructions on installing Mesosphere manually can be found in our [Setting up a Mesosphere Cluster](/getting-started/datacenter/install) guide.
