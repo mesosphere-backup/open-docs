@@ -12,7 +12,7 @@ intelligent task distribution across a cluster of machines without worrying abou
 scheduled.  In this module Mesos is used to run and manage services on a four
 node cluster.  To get started you must set up the ``mesos-master`` on ``node1``.
 
-**Prerequisite:**
+**Prerequisite** (see Exercise 1):
 Edit your /etc/hosts file to set node1 to the IP address 192.168.33.10.
 
 In this exercise:
