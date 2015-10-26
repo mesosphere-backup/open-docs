@@ -51,6 +51,9 @@ Offer
 
 : An offer represents available resources (e.g. cpu, disk, memory) which a slave offers to the master and the master hands to the registered frameworks in some order. 
 
+Scheduler
+
+: The part of a Mesos framework responsible for the deployment scheduling policies and resource assignment of tasks.
 
 Slave
 
