@@ -12,7 +12,7 @@ intelligent task distribution across a cluster of machines without worrying abou
 scheduled.  In this module Mesos is used to run and manage services on a four
 node cluster.  To get started you must set up the ``mesos-master`` on ``node1``.
 
-**Prerequisite:**
+**Prerequisite** (see Exercise 1):
 Edit your /etc/hosts file to set node1 to the IP address 192.168.33.10.
 
 In this exercise:
@@ -35,9 +35,9 @@ Quick Reference
 Start the mesos-master and mesos-slave processes:
 
 ```
-$ sudo service mesos-master start
-$ sudo service mesos-slave start
-$ sudo netstat -nlp | grep mesos
+[node1]$ sudo service mesos-master start
+[node1]$ sudo service mesos-slave start
+[node1]$ sudo netstat -nlp | grep mesos
 ```
 
 Access the Mesos user interface with your browser at ``http://192.168.33.10:5050`` and confirm that the IP address shown in the user interface is ``192.168.33.10``.  If not, start over by using ``vagrant destroy``.
@@ -46,17 +46,17 @@ Access the Mesos user interface with your browser at ``http://192.168.33.10:5050
 Test out mesos by using the ``mesos-execute`` command:
 
 ```
-$ export MASTER=$(mesos-resolve `cat /etc/mesos/zk` 2>/dev/null)
-$ mesos help
-$ mesos-execute --master=$MASTER --name="cluster-test" --command="sleep 40"
+[node1]$ export MASTER=$(mesos-resolve `cat /etc/mesos/zk` 2>/dev/null)
+[node1]$ mesos help
+[node1]$ mesos-execute --master=$MASTER --name="cluster-test" --command="sleep 40"
 ```
 
 With the ``mesos-execute`` command running,  enter ``ctrl-z`` to suspend the command. You can see how it appears in the web UI and command line:
 
 ```
 # hit ctrl-z
-$ bg # this sends the process into the background
-$ mesos ps --master=$MASTER
+[node1]$ bg # this sends the process into the background
+[node1]$ mesos ps --master=$MASTER
 ```
 
 Further Study

@@ -36,8 +36,8 @@ $ vagrant ssh node2
 On ``node2``, install Mesos:
 
 ```
-$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-$ sudo yum -y install mesos
+[node2]$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+[node2]$ sudo yum -y install mesos
 ```
 
 Update ``node2``'s ``/etc/hosts`` file to include entries for both nodes, *and* remove the "node2" name from the ``127.0.0.1`` entry on the first line. The file should look like this:
@@ -50,7 +50,7 @@ Update ``node2``'s ``/etc/hosts`` file to include entries for both nodes, *and* 
 Now, if you do a ``ping node2`` then you should see ``192.168.33.11``:
 
 ```
-$ ping node2
+[node2]$ ping node2
 PING node2 (192.168.33.11) 56(84) bytes of data.
 64 bytes from node2 (192.168.33.11): icmp_seq=1 ttl=64 time=0.043 ms
 ...
@@ -65,15 +65,15 @@ Edit the ``/etc/mesos/zk`` file on ``node2`` to point to the master node:
 Start up Mesos as a slave with:
 
 ```
-$ sudo service mesos-slave start
+[node2]$ sudo service mesos-slave start
 ```
 
 Ensure that ``mesos-slave`` will be kept running across reboots/failures:
 
 ```
-$ sudo chkconfig mesos-slave on
-$ sudo chkconfig mesos-master off
-$ systemctl list-unit-files | grep mesos
+[node2]$ sudo chkconfig mesos-slave on
+[node2]$ sudo chkconfig mesos-master off
+[node2]$ systemctl list-unit-files | grep mesos
 mesos-master.service                        disabled
 mesos-slave.service                         enabled
 ```
@@ -84,12 +84,12 @@ Finally, switch over to ``node1`` and update ``/etc/hosts`` to look the same as 
 
 ```
 $ vagrant ssh node1
-$ sudo vi /etc/hosts
-$ ping node1
+[node1]$ sudo vi /etc/hosts
+[node1]$ ping node1
 PING node1 (192.168.33.10) 56(84) bytes of data.
 64 bytes from node2 (192.168.33.10): icmp_seq=1 ttl=64 time=0.08 ms
 ...
-$ ping node2
+[node1]$ ping node2
 PING node2 (192.168.33.11) 56(84) bytes of data.
 64 bytes from node2 (192.168.33.11): icmp_seq=1 ttl=64 time=1.44 ms
 ...
