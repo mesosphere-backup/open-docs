@@ -78,41 +78,6 @@ play:
       - name: Apache Mesos
         url: https://mesos.apache.org/
 
-hadoop:
-  name: Hadoop on Mesos
-  blurb: >
-    A Mesos cluster is only as valuable as the data processed and stored, see how Hadoop can be used to store and distribute data across the cluster.
-  icon: hadoop
-  tutorials:
-    run-hadoop-on-mesos-using-installer:
-      title: Run Apache Hadoop on Mesos (Quickstart)
-      blurb: >
-        Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
-        entire cluster. In this tutorial, we use the Mesos Hadoop Installer to setup Hadoop on Mesos.
-      date: 2013-11-12
-      duration: 25 minutes
-      path: tutorials/run-hadoop-on-mesos-using-installer.html
-      resources:
-      - name: Apache Hadoop
-        url: https://hadoop.apache.org/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
-    run-hadoop-on-mesos:
-      title: Run Apache Hadoop on Mesos
-      blurb: >
-        Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
-        entire cluster. Here we show how to package and install Hadoop on a Mesos cluster,
-        then run a Hadoop job and find its output.
-      date: 2013-11-12
-      duration: 40 minutes
-      path: tutorials/run-hadoop-on-mesos.html
-      resources:
-      - name: Apache Hadoop
-        url: https://hadoop.apache.org/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
 spark:
   name: Spark on Mesos
   blurb: >
