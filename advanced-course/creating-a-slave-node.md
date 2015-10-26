@@ -70,7 +70,7 @@ end
 ```
 
 
-Once you have that in your ``Vagrantfile`` you can then do Vagrant up and it will recreate your original Vagrant master from the ``package.box`` file you created naming it ``node1``, and start a new VM named ``node2`` with no configuration in it.
+Once you have that in your ``Vagrantfile`` you can then do ``vagrant up`` and it will recreate your original Vagrant master from the ``package.box`` file you created naming it ``node1``, and start a new VM named ``node2`` with no configuration in it.
 
 Further Study
 -------------
