@@ -1,7 +1,6 @@
 ---
 layout: doc
 title: Mesosphere in the Cloud
+redirect_to: /getting-started/
 ---
-
-{% include cloud/menu.md %}
 
