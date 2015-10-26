@@ -30,36 +30,36 @@ Quick Reference
 Save the Docker image:
 
 ```
-$ sudo docker save --output=outyet.tar.gz outyet
+[node1]$ sudo docker save --output=outyet.tar.gz outyet
 ```
 
 Send the tar.gz file to ``node2``:
 
 ```
-$ cp outyet.tar.gz /vagrant/
+[node1]$ cp outyet.tar.gz /vagrant/
 ```
 
 Install Docker on ``node2``:
 
 ```
 $ vagrant ssh node2
-$ sudo yum install -y device-mapper-event-libs docker
-$ sudo chkconfig docker on
-$ sudo service docker start
-$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
-$ sudo service mesos-slave restart
+[node2]$ sudo yum install -y device-mapper-event-libs docker
+[node2]$ sudo chkconfig docker on
+[node2]$ sudo service docker start
+[node2]$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
+[node2]$ sudo service mesos-slave restart
 ```
 
 Import the ``outyet.tar.gz`` file that you made:
 
 ```
-$ sudo docker load --input=/vagrant/outyet.tar.gz
+[node2]$ sudo docker load --input=/vagrant/outyet.tar.gz
 ```
 
 Test that Docker is now installed on the ``node2`` VM:
 
 ```
-$ sudo docker run --publish 6060:8080 --name test --rm outyet
+[node2]$ sudo docker run --publish 6060:8080 --name test --rm outyet
 ```
 
 Test that Docker is running on http://192.168.33.11:6060/.

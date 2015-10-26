@@ -33,21 +33,21 @@ You can start Zookeeper after completing exercise 1.
 Install Zookeeper and the Zookeeper server package by pointing to the RPM repository for ZooKeeper:
 
 ```
-$ sudo rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
-$ sudo yum -y install zookeeper zookeeper-server
+[node1]$ sudo rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm
+[node1]$ sudo yum -y install zookeeper zookeeper-server
 ```
 
 Initialize and start Zookeeper:
 
 ```
-$ sudo -u zookeeper zookeeper-server-initialize --myid=1
-$ sudo service zookeeper-server start
+[node1]$ sudo -u zookeeper zookeeper-server-initialize --myid=1
+[node1]$ sudo service zookeeper-server start
 ```
 
 Use the interactive shell to test your installation:
 
 ```
-$ /usr/lib/zookeeper/bin/zkCli.sh
+[node1]$ /usr/lib/zookeeper/bin/zkCli.sh
 # sometimes at this point you get an error that java is missing.  This means yum did NOT install java for...reasons.  Start over.
 help
 create /test 1
@@ -61,8 +61,8 @@ quit
 Validate that you can stop and restart ZooKeeper:
 
 ```
-$ sudo service zookeeper-server stop
-$ sudo service zookeeper-server start
+[node1]$ sudo service zookeeper-server stop
+[node1]$ sudo service zookeeper-server start
 ```
 
 Further Study

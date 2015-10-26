@@ -93,13 +93,13 @@ Save this to ``installnode.sh`` in your host directory and then on ``node3`` you
 
 ```
 $ vagrant ssh node3
-$ sudo sh /vagrant/installnode.sh
+[node3]$ sudo sh /vagrant/installnode.sh
 ```
 
 Run the Docker command to test the node:
 
 ```
-$ sudo docker run --publish 6060:8080 --name test --rm outyet
+[node3]$ sudo docker run --publish 6060:8080 --name test --rm outyet
 ```
 
 Repeat these steps for ``node4`` and then you can go into Marathon and again expand it out to 4 instances of this web application running.
