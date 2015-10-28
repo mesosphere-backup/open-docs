@@ -43,8 +43,10 @@ rails:
       blurb: >
         Marathon is a Mesos framework for long-running "always on" apps like Ruby on Rails. It ensures that an app stays up
         even when machines or entire racks fail.
-        This tutorial shows you how to install Marathon on a Mesos cluster and run a Ruby on Rails app with it.
-      date: 2014-01-11
+        This tutorial shows you how to run a Ruby on Rails app using Marathon on a Mesos cluster.
+          <p>To run a <a href="http://www.rubyonrails.org/">Ruby on Rails</a> app on Mesos, we'll use <a href="https://github.com/mesosphere/marathon">Marathon</a>. Marathon makes it easy to run any long-lived "always on" application on Mesos.</p>
+              <p>To get started with the latest Marathon, please follow the <a href="https://mesosphere.github.io/marathon/docs">Getting Started</a> guide.
+      date: 2015-28-10
       duration: 20 minutes
       path: tutorials/run-ruby-on-rails-on-mesos.html
       resources:
