@@ -26,7 +26,7 @@ We’re constantly trying to improve our Services, so we may need to change this
 
 We receive and store any information you knowingly provide to us.  For example, through the registration process and/or through your account settings, we may collect Personal Information such as your name, email address, phone number, and third-party account credentials (for example, your log-in credentials for Amazon Web Services or other third party sites). If you provide your third-party account credentials to us, you understand some content and/or information in those accounts (“Third Party Account Information”) may be transmitted into your account with us, and that Third Party Account Information transmitted to our Services is covered by this Privacy Policy. Certain information may be required to register with us or to take advantage of some of our features.
 
-We may communicate with you if you’ve provided us the means to do so. For example, if you’ve given us your email address, we may send you promotional email offers on behalf of other businesses, or email you about your use of the Services.  Also, we may receive a confirmation when you open an email from us. This confirmation helps us make our communications with you more interesting and improve our services. If you do not want to receive communications from us, please indicate your preference by emailing us at <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
+We may communicate with you if you’ve provided us the means to do so. For example, if you’ve given us your email address, we may send you promotional email offers on behalf of other businesses, or email you about your use of the Services.  Also, we may receive a confirmation when you open an email from us. This confirmation helps us make our communications with you more interesting and improve our services. If you do not want to receive communications from us, please indicate your preference by contacting us through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>.
 
 
 <em>Information Collected Automatically</em>
@@ -76,18 +76,18 @@ Through your email addrees, you may access, and, in some cases, edit or delete t
   <li>browser cookies</li>
 </ul>
 
-The information you can view, update, and delete may change as the Services change.  If you have any questions about viewing or updating information we have on file about you, please contact us at <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
+The information you can view, update, and delete may change as the Services change.  If you have any questions about viewing or updating information we have on file about you, please contact us through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>.
 
-Under California Civil Code Sections 1798.83-1798.84, California residents are entitled to ask us for a notice identifying the categories of Personal Information which we share with our affiliates and/or third parties for marketing purposes, and providing contact information for such affiliates and/or third parties. If you are a California resident and would like a copy of this notice, please submit a written request to: <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
+Under California Civil Code Sections 1798.83-1798.84, California residents are entitled to ask us for a notice identifying the categories of Personal Information which we share with our affiliates and/or third parties for marketing purposes, and providing contact information for such affiliates and/or third parties. If you are a California resident and would like a copy of this notice, please submit a written request through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>.
 
 ### What choices do I have?
 
 You can always opt not to disclose information to us, but keep in mind some information may be needed to register with us or to take advantage of some of our features.
 
-You may be able to add, update, or delete information as explained above.  When you update information, however, we may maintain a copy of the unrevised information in our records.  You may request deletion of your account by sending an email to <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>. Some information may remain in our records after your deletion of such information from your account. We may use any aggregated data derived from or incorporating your Personal Information after you update or delete it, but not in a manner that would identify you personally.
+You may be able to add, update, or delete information as explained above.  When you update information, however, we may maintain a copy of the unrevised information in our records.  You may request deletion of your account by contacting us through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>. Some information may remain in our records after your deletion of such information from your account. We may use any aggregated data derived from or incorporating your Personal Information after you update or delete it, but not in a manner that would identify you personally.
 
 
 ### What if I have questions about this policy?
 
 
-If you have any questions or concerns regarding our privacy policies, please send us a detailed message to <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>, and we will try to resolve your concerns.
+If you have any questions or concerns regarding our privacy policies, please send us a detailed message through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>, and we will try to resolve your concerns.
