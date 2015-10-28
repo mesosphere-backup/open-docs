@@ -8,9 +8,9 @@
       function fillError()
       {
         var params = { msg: 'oops' };
-        var msg = { oops: {title: "Oops! Something went wrong.", msg: "Our team in mission control is on it as we speak! In the meantime, try refreshing the page or drop us a line at <a href='mailto:support@mesosphere.io'>support@mesosphere.io</a>."},
+        var msg = { oops: {title: "Oops! Something went wrong.", msg: "Our team in mission control is on it as we speak! In the meantime, try refreshing the page or contact us through one of our <a href='https://docs.mesosphere.com/support/'>support channels</a>."},
                     backshortly: {title: "We'll be back shortly.", msg: "Our team in mission control is currently performing scheduled maintenance. We'll be back online on %datetime. We apologize for the inconvenience!"},
-                    tempunav: {title: "Sorry! This page is temporarily unavailable.", msg: "Our team in mission control is on it as we speak! In the meantime, try refreshing the page or drop us a line at <a href='mailto:support@mesosphere.io'>support@mesosphere.io</a>."}
+                    tempunav: {title: "Sorry! This page is temporarily unavailable.", msg: "Our team in mission control is on it as we speak! In the meantime, try refreshing the page or contact us through one of our <a href='https://docs.mesosphere.com/support/'>support channels</a>."}
                   };
         hash = window.location.hash.replace('#','');
         hash.split('&').forEach(function(p) {
