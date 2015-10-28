@@ -78,8 +78,8 @@
     - title: "13: Distributing Docker To Multiple Nodes"
       href: "/advanced-course/distributing-docker-to-multiple-nodes/"
 
-    - title: "14: Installing and Using Mesos CLI"
-      href: "/advanced-course/installing-and-using-mesos-cli/"
+    - title: "14: Installing and Using DCOS CLI"
+      href: "/advanced-course/installing-and-using-dcos-cli/"
 
     - title: "15: Starting Four Nodes"
       href: "/advanced-course/starting-four-nodes/"
