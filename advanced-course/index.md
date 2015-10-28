@@ -27,7 +27,7 @@ Module 1: The Beginning
 * [Exercise 11: Scaling To Two Nodes](/advanced-course/scaling-to-two-nodes/)
 * [Exercise 12: Deploying A Web App With Docker](/advanced-course/deploying-a-web-app-using-docker/)
 * [Exercise 13: Distributing Docker To Multiple Nodes](/advanced-course/distributing-docker-to-multiple-nodes/)
-* [Exercise 14: Installing and Using Mesos CLI](/advanced-course/installing-and-using-mesos-cli/)
+* [Exercise 14: Installing and Using DCOS CLI](/advanced-course/installing-and-using-dcos-cli/)
 * [Exercise 15: Starting Four Nodes](/advanced-course/starting-four-nodes/)
 
 Module 2: Advanced Topics

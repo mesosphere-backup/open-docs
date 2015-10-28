@@ -90,7 +90,7 @@ on.  The Marathon messages are no longer mixed together with Mesos and Chronos e
 
 Another place to look is in the Mesos web UI at http://192.168.33.10:5050/ where you can see each node's Sandbox.  Watch the video for more information on this.
 
-You can also use the ``mesos tail`` command from the Mesos CLI to watch the ``stderr/stdout`` of any listed command while you're trying to debug a problem.
+You can also use the ``dcos task log --follow <task> <file>`` command from the DCOS CLI to watch the ``stderr/stdout`` of any listed command while you're trying to debug a problem.
 
 
 Further Study
