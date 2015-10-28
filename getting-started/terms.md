@@ -14,8 +14,8 @@ ALL OF THE FOLLOWING, YOU MAY NOT USE OR ACCESS THE SERVICES IN ANY
 MANNER.
 </pre>
 
-Welcome to Mesosphere. Please read on to learn the rules and restrictions that govern your use of our website(s), products, services and applications (the “Services”). If you have any questions, comments, or concerns regarding these terms or the Services, please contact us at
-<a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
+Welcome to Mesosphere. Please read on to learn the rules and restrictions that govern your use of our website(s), products, services and applications (the “Services”). If you have any questions, comments, or concerns regarding these terms or the Services, please contact us through
+one of our <a href="https://docs.mesosphere.com/support/">support channels</a>.
 
 These Terms of Use (the “Terms”) are a binding contract between you and Mesosphere, Inc.. (“Company,” “we” and “us”).   You must agree to and accept all of the Terms, or you don’t have the right to use the Services.  Your use of the Services in any way means that you agree to all of these Terms, and these Terms will remain in effect while you use the Services.  These Terms include the provisions in this document, as well as those in the <a href="/getting-started/privacy">Privacy Policy</a>.
 
@@ -32,7 +32,7 @@ Except for changes by us as described here, no other amendment or modification o
 
 Mesosphere takes the privacy of its users very seriously. For the current Mesosphere Privacy Policy, please <a href="/getting-started/privacy">click here</a>.
 
-The Children’s Online Privacy Protection Act (“COPPA”) requires that online service providers obtain parental consent before they knowingly collect personally identifiable information online from children who are under 13.  We do not knowingly collect or solicit personally identifiable information from children under 13; if you are a child under 13, please do not attempt to register for the Services or send any personal information about yourself to us.  If we learn we have collected personal information from a child under 13, we will delete that information as quickly as possible.  If you believe that a child under 13 may have provided us personal information, please contact us at <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
+The Children’s Online Privacy Protection Act (“COPPA”) requires that online service providers obtain parental consent before they knowingly collect personally identifiable information online from children who are under 13.  We do not knowingly collect or solicit personally identifiable information from children under 13; if you are a child under 13, please do not attempt to register for the Services or send any personal information about yourself to us.  If we learn we have collected personal information from a child under 13, we will delete that information as quickly as possible.  If you believe that a child under 13 may have provided us personal information, please contact us through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>.
 
 ### What are the basics of using Mesosphere?
 
@@ -91,11 +91,11 @@ We reserve the right to charge for certain or all Services.  We will notify you 
 
 ### What if I want to stop using Mesosphere?
 
-You’re free to do that at any time, by contacting us at <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>; please refer to our <a href="/getting-started/privacy">Privacy Policy</a>, as well as the licenses above, to understand how we treat information you provide to us after you have stopped using our Services.
+You’re free to do that at any time, by contacting us through one of our <a href="https://docs.mesosphere.com/support/">support channels</a>; please refer to our <a href="/getting-started/privacy">Privacy Policy</a>, as well as the licenses above, to understand how we treat information you provide to us after you have stopped using our Services.
 
 Mesosphere is also free to terminate (or suspend access to) your use of the Services or your account, for any reason in our discretion, including your breach of these Terms.   Mesosphere has the sole right to decide whether you are in violation of any of the restrictions set forth in these Terms.
 
-If you have deleted your account by mistake, contact us immediately at <a href="mailto:support@mesosphere.io">support@mesosphere.io</a> – we will try to help, but unfortunately, we can’t promise that we can recover or restore anything.
+If you have deleted your account by mistake, contact us immediately through one of our <a href="https://docs.mesosphere.com/support/">support channels</a> – we will try to help, but unfortunately, we can’t promise that we can recover or restore anything.
 
 Provisions that, by their nature, should survive termination of these Terms shall survive termination.  By way of example, all of the following will survive termination: any obligation you have to pay us or indemnify us, any limitations on our liability, any terms regarding ownership or intellectual property rights, and terms regarding disputes between us.
 
