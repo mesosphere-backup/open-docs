@@ -4,6 +4,8 @@ title: Tutorials
 redirect_from: 
 - /tutorials/etl-pipelines-with-chronos-and-hadoop/ 
 - /tutorials/mesosphere-on-a-single-coreos-instance/
+- /learn/run-play-on-mesos/
+- /tutorials/run-play-on-mesos/
 ---
 
 <div class="body-light">
