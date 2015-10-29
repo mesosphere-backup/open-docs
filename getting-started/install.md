@@ -1,6 +1,7 @@
 ---
 layout: doc
-title: Setting up a Cluster on Mesos and Marathon
+title: Setting up a Mesos and Marathon Cluster
+redirect_from: /getting-started/datacenter/install/
 ---
 
 ## Introduction

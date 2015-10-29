@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Service Discovery
+redirect_from: /getting-started/service-discovery/
 ---
 
 Service discovery is an essential configuration step when running a modern application distributed across a data center to allow easy network communication between services.

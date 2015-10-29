@@ -4,6 +4,7 @@ title: Exercise 8 – Installing Chronos
 
 redirect_from:
 - /intro-course/ex8.html
+- /tutorials/run-chronos-on-mesos/
 ---
 
 Chronos is the cron of the Mesos ecosystem.  Chronos is used to schedule jobs
@@ -31,8 +32,8 @@ Quick Reference
 Install Chronos using ``yum`` and then start it with ``service``:
 
 ```
-$ sudo yum -y install chronos
-$ sudo service chronos start
+[node1]$ sudo yum -y install chronos
+[node1]$ sudo service chronos start
 ```
 
 Now you can go to the web UI for Chronos at http://192.168.33.10:4400/ and start a job.  Create one called "sleeper" that sleeps for 10 seconds and goes off every 10 minutes.

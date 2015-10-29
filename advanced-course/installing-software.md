@@ -4,6 +4,8 @@ title: Exercise 1 – Installing Software
 
 redirect_from:
 - /intro-course/ex1.html
+- /getting-started/developer/vm-install/
+- /getting-started/developer/
 ---
 
 To begin, you must install the prequisite software into a virtual machine on your computer.  We use CentOS 7 for this course and it is recommended for this course.
@@ -60,8 +62,8 @@ $ vagrant ssh
 Modify the ``/etc/hosts`` file to make the ``node1`` name map to the IP address in the ``Vagrantfile``:
 
 ```
-$ sudo vi /etc/hosts
-$ cat /etc/hosts
+[node1]$ sudo vi /etc/hosts
+[node1]$ cat /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 192.168.33.10 node1
@@ -70,8 +72,8 @@ $ cat /etc/hosts
 Install the Mesosphere software packages:
 
 ```
-$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-$ sudo yum -y install mesos marathon
+[node1]$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+[node1]$ sudo yum -y install mesos marathon
 ```
 
 **Tip:** You can use ``cat`` to display the updated file.  The change is to remove ``node1`` from the ``127.0.0.1`` line and create a new line with ``192.168.33.10 node1`` at the end.

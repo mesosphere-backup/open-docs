@@ -1,9 +1,14 @@
 ---
 layout: doc
 title: Overview
+redirect_from:
+- /getting-started/cloud/digitalocean/mesosphere/
+- /getting-started/cloud/digitalocean/
 ---
 
 Welcome to the Mesosphere Community Documentation website! This site contains documentation and tutorials for the community projects supported by Mesosphere, including [Apache Mesos](http://mesos.apache.org/), [Marathon](https://github.com/mesosphere/marathon) and [Chronos](https://github.com/mesos/chronos).
+
+This site also contains [a listing of Apache Mesos packages by version](/downloads/mesos). These are also available through your distribution's package manager ([setup instructions](https://mesosphere.com/downloads/)).
 
 For product documentation related to [Mesosphere's DCOS](https://mesosphere.com/learn/), please see the [Mesosphere documentation](http://docs.mesosphere.com).
 

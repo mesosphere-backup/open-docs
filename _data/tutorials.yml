@@ -1,4 +1,4 @@
-advanced: 
+advanced:
   name: Advanced Mesos Course
   blurb: >
     This course teaches all of the open source components that are used in the <a href="http://mesosphere.com" target="_blank">Mesosphere DCOS</a>.
@@ -12,6 +12,20 @@ advanced:
       duration: 1 day
       path: https://open.mesosphere.com/advanced-course/
 
+
+service-discovery:
+  name: HAProxy
+  blurb: >
+    HAProxy is a high performance TCP/HTTP load balancer that is commonly used for service discovery.
+  icon: mesos
+  tutorials:
+    service-discovery:
+      title: Service Discovery using HAProxy
+      blurb: >
+        A tutorial on using HAProxy with Mesos and Marathon to enable service discovery between your applications.
+      date: 2015-06-15
+      duration: 1 day
+      path: https://open.mesosphere.com/advanced-course/
 
 docker:
   name: Docker on Mesosphere
@@ -43,8 +57,10 @@ rails:
       blurb: >
         Marathon is a Mesos framework for long-running "always on" apps like Ruby on Rails. It ensures that an app stays up
         even when machines or entire racks fail.
-        This tutorial shows you how to install Marathon on a Mesos cluster and run a Ruby on Rails app with it.
-      date: 2014-01-11
+        This tutorial shows you how to run a Ruby on Rails app using Marathon on a Mesos cluster.
+          <p>To run a <a href="http://www.rubyonrails.org/">Ruby on Rails</a> app on Mesos, we'll use <a href="https://github.com/mesosphere/marathon">Marathon</a>. Marathon makes it easy to run any long-lived "always on" application on Mesos.</p>
+              <p>To get started with the latest Marathon, please follow the <a href="https://mesosphere.github.io/marathon/docs">Getting Started</a> guide.
+      date: 2015-28-10
       duration: 20 minutes
       path: tutorials/run-ruby-on-rails-on-mesos.html
       resources:
@@ -75,41 +91,6 @@ play:
         url: http://www.playframework.com
       - name: Marathon
         url: https://github.com/mesosphere/marathon
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
-hadoop:
-  name: Hadoop on Mesos
-  blurb: >
-    A Mesos cluster is only as valuable as the data processed and stored, see how Hadoop can be used to store and distribute data across the cluster.
-  icon: hadoop
-  tutorials:
-    run-hadoop-on-mesos-using-installer:
-      title: Run Apache Hadoop on Mesos (Quickstart)
-      blurb: >
-        Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
-        entire cluster. In this tutorial, we use the Mesos Hadoop Installer to setup Hadoop on Mesos.
-      date: 2013-11-12
-      duration: 25 minutes
-      path: tutorials/run-hadoop-on-mesos-using-installer.html
-      resources:
-      - name: Apache Hadoop
-        url: https://hadoop.apache.org/
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
-    run-hadoop-on-mesos:
-      title: Run Apache Hadoop on Mesos
-      blurb: >
-        Running Hadoop on Mesos distributes MapReduce jobs efficiently across an
-        entire cluster. Here we show how to package and install Hadoop on a Mesos cluster,
-        then run a Hadoop job and find its output.
-      date: 2013-11-12
-      duration: 40 minutes
-      path: tutorials/run-hadoop-on-mesos.html
-      resources:
-      - name: Apache Hadoop
-        url: https://hadoop.apache.org/
       - name: Apache Mesos
         url: https://mesos.apache.org/
 

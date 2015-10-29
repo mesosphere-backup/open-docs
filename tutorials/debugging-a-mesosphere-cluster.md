@@ -75,9 +75,9 @@ One common issue is that your cluster runs out of resources, causing tasks to be
 * To debug this in Marathon, go to the Marathon console, [http://marathonip:8080/v2/queue](http://10.76.210.236:8080/v2/queue), to check the task queue.
 
 
-### Mesos Command Line Interface
+### DCOS Command Line Interface
 
-The Mesos CLI is an incredibly useful utility to access the same information that the Mesos console provides from the command line. It outputs information in same way as standard command line utilities, allowing for the output to be programmatically parsed. See the [Mesos CLI README](https://github.com/mesosphere/mesos-cli) for installation instructions and documentation.
+The DCOS CLI is an incredibly useful utility to access the same information that the Mesos console provides from the command line. It outputs information in same way as standard command line utilities, allowing for the output to be programmatically parsed. See the [DCOS CLI README](https://github.com/mesosphere/dcos-cli) for installation instructions and documentation.
 
 ***
 

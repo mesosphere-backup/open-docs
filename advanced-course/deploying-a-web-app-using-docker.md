@@ -31,29 +31,29 @@ Borrowing from the Go instructions:
 Install Docker:
 
 ```
-$ sudo yum install -y golang git device-mapper-event-libs docker
-$ sudo chkconfig docker on
-$ sudo service docker start
-$ export GOPATH=~/go
-$ go get github.com/golang/example/outyet
+[node1]$ sudo yum install -y golang git device-mapper-event-libs docker
+[node1]$ sudo chkconfig docker on
+[node1]$ sudo service docker start
+[node1]$ export GOPATH=~/go
+[node1]$ go get github.com/golang/example/outyet
 ```
 
 The outyet project comes with a ``Dockerfile`` you can use, so ``cd`` to the source directory:
 
 ```
-$ cd $GOPATH/src/github.com/golang/example/outyet
+[node1]$ cd $GOPATH/src/github.com/golang/example/outyet
 ```
 
 Use the ``Dockerfile`` to build your docker image:
 
 ```
-$ sudo docker build -t outyet .
+[node1]$ sudo docker build -t outyet .
 ```
 
 Test the ``Dockerfile`` before adding it to Marathon by running this command:
 
 ```
-$ sudo docker run --publish 6060:8080 --name test --rm outyet
+[node1]$ sudo docker run --publish 6060:8080 --name test --rm outyet
 ```
 
 Then go to http://192.168.33.10:6060/ with your browser to confirm it works.  Once it does you can hit CTRL-c to exit the outyet docker.
@@ -84,15 +84,15 @@ is loaded onto the VM you can create a new app using JSON and ``curl``.  First m
 You will also need to tell mesos that it should allow Docker:
 
 ```
-$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
-$ sudo service mesos-slave restart
+[node1]$ echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
+[node1]$ sudo service mesos-slave restart
 ```
 
 This replicates the above ``docker`` command settings, but Marathon will configure and manage the container better.  Once you have that
 run this command:
 
 ```
-$ curl -X POST http://192.168.33.10:8080/v2/apps -d @/vagrant/outyet.json -H "Content-type: application/json"
+[node1]$ curl -X POST http://192.168.33.10:8080/v2/apps -d @/vagrant/outyet.json -H "Content-type: application/json"
 ```
 
 Later in this tutorial you will use this method to easily sync your configuration to Marathon.

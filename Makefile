@@ -31,6 +31,7 @@ publish.assets:
 		--content-type "text/html; charset=utf-8" \
 		--exclude "*" \
 		--include "*.html" \
+		--delete \
 		$(PUBLIC_DIR) $(deploy_bucket)
 
 	aws s3 sync \

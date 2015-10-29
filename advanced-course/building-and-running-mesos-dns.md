@@ -31,20 +31,20 @@ You can find more information about Mesos DNS, along with additional tutorials, 
 Install the Go programming language:
 
 ```
-$ sudo yum -y install golang git bind-utils
+[node1]$ sudo yum -y install golang git bind-utils
 ```
 
 
 Then build the mesos-dns project:
 
 ```
-$ mkdir ~/go
-$ export GOPATH=$HOME/go
-$ export PATH=$PATH:$GOPATH/bin
-$ go get github.com/tools/godep
-$ go get github.com/mesosphere/mesos-dns
-$ cd $GOPATH/src/github.com/mesosphere/mesos-dns
-$ godep go build .
+[node1]$ mkdir ~/go
+[node1]$ export GOPATH=$HOME/go
+[node1]$ export PATH=$PATH:$GOPATH/bin
+[node1]$ go get github.com/tools/godep
+[node1]$ go get github.com/mesosphere/mesos-dns
+[node1]$ cd $GOPATH/src/github.com/mesosphere/mesos-dns
+[node1]$ godep go build .
 ```
 
 Add ``nameserver 192.168.33.10`` to the first line of the ``/etc/resolv.conf`` file:
@@ -56,7 +56,7 @@ nameserver 192.168.33.10
 Mesos DNS uses a file named ``config.json`` which you can copy a sample of:
 
 ```
-$ cp config.json.sample config.json
+[node1]$ cp config.json.sample config.json
 ```
 
 Modify the ``config.json`` to use the vagrant IP of 192.168.33.10 and change the port from 8053 to 53 so it looks like this:
@@ -92,13 +92,13 @@ In this file the ``zk`` setting tells Mesos DNS where the ZooKeeper server is lo
 Test that mesos-dns runs locally first:
 
 ```
-$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+[node1]$ sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
 In the Marathon GUI, create a new launcher named ``dns`` which uses the command we just tested:
 
 ```
-sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+[node1]sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
 Add this in the ``Constraints`` field::
@@ -109,31 +109,31 @@ This tells Marathon to only offer it to the ``node1`` host where you have instal
 Validate that you can see the host command starts working again:
 
 ```
-$ host google.com
+[node1]$ host google.com
 ```
 
 Use the mesos-dns for service discovery with the dig command. You can search against Marathon apps by using the name of the app at the ``marathon.mesos`` domain.  If you installed Mesos DNS in Marathon as ``dns`` this should work:
 
 ```
-$ dig dns.marathon.mesos
+[node1]$ dig dns.marathon.mesos
 ```
 
 If you installed the ``test`` app from previous exercises then this:
 
 ```
-$ dig test.marathon.mesos
+[node1]$ dig test.marathon.mesos
 ```
 
 You can also use the SRV records to get ports by using the app name and the port type with underscores like ``_NAME._PORT`` so ``_test._tcp`` is for the ``test`` app's TCP port:
 
 ```
-$ dig _test._tcp.marathon.mesos SRV
+[node1]$ dig _test._tcp.marathon.mesos SRV
 ```
 
 However that's not very useful because SRV records are disconnected from the hosts they belong to.  A better way is to use the REST API to get an exact mapping:
 
 ```
-$ curl http://192.168.33.10:8123/v1/hosts/dns.marathon.mesos
+[node1]$ curl http://192.168.33.10:8123/v1/hosts/dns.marathon.mesos
 ```
 
 There are more REST calls you can make, documented at [the Mesos-DNS API documentation](http://mesosphere.github.io/mesos-dns/docs/http.html).
