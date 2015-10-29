@@ -62,9 +62,6 @@ title: Frameworks On Mesos
       <p>
         Running Hadoop on Mesos distributes MapReduce jobs efficiently
         across an entire cluster.
-        <a href="/tutorials/run-hadoop-on-mesos-using-installer/">
-          Try a Tutorial <i class="fa fa-angle-double-right"></i>
-        </a>
       </p>
     </li>
 
@@ -111,7 +108,7 @@ title: Frameworks On Mesos
       <p>
         SSSP is a simple web application that provides a white-label
         "Megaupload" for storing and sharing files in S3.
-        <a href="/2014/01/29/megaupload-on-mesos/">
+        <a href="https://mesosphere.com/blog/2014/01/29/megaupload-on-mesos/">
           Try a Tutorial <i class="fa fa-angle-double-right"></i>
         </a>
       </p>
