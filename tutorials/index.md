@@ -8,6 +8,8 @@ redirect_from:
 - /tutorials/run-play-on-mesos/
 - /learn/run-spark-on-mesos/
 - /tutorials/run-spark-on-mesos/
+- /learn/run-storm-on-mesos/
+- /tutorials/run-storm-on-mesos/
 ---
 
 <div class="body-light">
