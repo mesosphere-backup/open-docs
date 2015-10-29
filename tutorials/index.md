@@ -6,6 +6,8 @@ redirect_from:
 - /tutorials/mesosphere-on-a-single-coreos-instance/
 - /learn/run-play-on-mesos/
 - /tutorials/run-play-on-mesos/
+- /learn/run-spark-on-mesos/
+- /tutorials/run-spark-on-mesos/
 ---
 
 <div class="body-light">
