@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Tutorials
-redirect_from: /tutorials/etl-pipelines-with-chronos-and-hadoop/
+redirect_from: 
+- /tutorials/etl-pipelines-with-chronos-and-hadoop/ 
+- /tutorials/mesosphere-on-a-single-coreos-instance/
 ---
 
 <div class="body-light">
