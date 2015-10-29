@@ -1,7 +1,15 @@
 ---
 layout: doc
 title: Tutorials
-redirect_from: /tutorials/etl-pipelines-with-chronos-and-hadoop/
+redirect_from: 
+- /tutorials/etl-pipelines-with-chronos-and-hadoop/ 
+- /tutorials/mesosphere-on-a-single-coreos-instance/
+- /learn/run-play-on-mesos/
+- /tutorials/run-play-on-mesos/
+- /learn/run-spark-on-mesos/
+- /tutorials/run-spark-on-mesos/
+- /learn/run-storm-on-mesos/
+- /tutorials/run-storm-on-mesos/
 ---
 
 <div class="body-light">
