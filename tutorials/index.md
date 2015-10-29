@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Tutorials
+redirect_from: /tutorials/etl-pipelines-with-chronos-and-hadoop/
 ---
 
 <div class="body-light">
