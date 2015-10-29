@@ -4,6 +4,7 @@ title: Exercise 4 – Starting Marathon
 
 redirect_from:
 - /intro-course/ex4.html
+- /tutorials/run-services-with-marathon/
 ---
 
 In Linux the init/systemd/upstart program manages all of the
