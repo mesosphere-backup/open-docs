@@ -4,18 +4,9 @@ title: Getting Started
 
 ---
 
-## Mesosphere in the Cloud
+## Mesos in the Cloud
 
-It's easy to deploy Mesosphere onto the most popular IaaS cloud providers. Mesosphere provides multiple ways to provision a full cluster. Check out the guide for your favorite provider below!
-
-### Mesosphere and Amazon Web Services
-
-+ [Mesosphere on Amazon Web Services](/getting-started/cloud/amazon)
-
-### Mesosphere and Google Cloud Platform
-
-+ [Mesosphere on Google Cloud Platform](/getting-started/cloud/google)
-
+You can easily deploy Mesosphere DCOS into the cloud. Currently [Amazon Web Services](http://mesosphere.com/amazon) is supported but [Azure](https://mesosphere.com/azure/) and [Google](https://mesosphere.com/google/) support are coming soon!
 
 ## DIY Mesos
 
