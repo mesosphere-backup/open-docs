@@ -4,14 +4,9 @@
 - title: "Getting Started"
   href: "/getting-started/"
   sub:
-    - title: "Amazon Web Services"
-      href: "/getting-started/cloud/amazon/"
 
-    - title: "Google Cloud Platform"
-      href: "/getting-started/cloud/google/"
-
-    - title: "Service Discovery"
-      href: "/getting-started/service-discovery/"
+    - title: "Setting up a Cluster"
+      href: "/getting-started/install/"
 
     - title: "Provisioning Tools"
       href: "/getting-started/tools/"
@@ -31,6 +26,9 @@
 
     - title: "Creating a Mesos Framework with Go"
       href: "/tutorials/go-mesos-framework/"
+
+    - title: "Service Discovery using HAProxy"
+      href: "/tutorials/service-discovery/"
 
 - title: "Advanced Mesos Course"
   href: "/advanced-course/"
@@ -112,12 +110,6 @@
 - title: "Reference"
   href: "/reference/"
   sub:
-
-    - title: "Administration"
-      href: "/reference/#adminstration"
-
-    - title: "Misc"
-      href: "/reference/#misc"
 
     - title: "Glossary"
       href: "/reference/glossary/"

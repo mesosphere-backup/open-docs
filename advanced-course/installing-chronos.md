@@ -4,6 +4,7 @@ title: Exercise 8 – Installing Chronos
 
 redirect_from:
 - /intro-course/ex8.html
+- /tutorials/run-chronos-on-mesos/
 ---
 
 Chronos is the cron of the Mesos ecosystem.  Chronos is used to schedule jobs

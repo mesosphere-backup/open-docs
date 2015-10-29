@@ -1,4 +1,4 @@
-advanced: 
+advanced:
   name: Advanced Mesos Course
   blurb: >
     This course teaches all of the open source components that are used in the <a href="http://mesosphere.com" target="_blank">Mesosphere DCOS</a>.
@@ -12,6 +12,20 @@ advanced:
       duration: 1 day
       path: https://open.mesosphere.com/advanced-course/
 
+
+service-discovery:
+  name: HAProxy
+  blurb: >
+    HAProxy is a high performance TCP/HTTP load balancer that is commonly used for service discovery.
+  icon: mesos
+  tutorials:
+    service-discovery:
+      title: Service Discovery using HAProxy
+      blurb: >
+        A tutorial on using HAProxy with Mesos and Marathon to enable service discovery between your applications.
+      date: 2015-06-15
+      duration: 1 day
+      path: https://open.mesosphere.com/advanced-course/
 
 docker:
   name: Docker on Mesosphere

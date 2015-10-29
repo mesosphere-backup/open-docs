@@ -4,6 +4,8 @@ title: Exercise 1 – Installing Software
 
 redirect_from:
 - /intro-course/ex1.html
+- /getting-started/developer/vm-install/
+- /getting-started/developer/
 ---
 
 To begin, you must install the prequisite software into a virtual machine on your computer.  We use CentOS 7 for this course and it is recommended for this course.
