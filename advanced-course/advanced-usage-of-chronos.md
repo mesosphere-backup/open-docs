@@ -114,7 +114,7 @@ This will run the ``date`` command every 5 minutes starting now.
 This will run the ``date`` command every 5 minutes starting now.  Save that file and  run this regular variant of the sync command:
 
 ```
-$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD -c
+$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD
 ```
 
 View the available jobs:
