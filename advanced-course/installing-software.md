@@ -19,11 +19,11 @@ In this exercise:
 5. Install the ``mesos`` and ``marathon`` RPMs.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
 
-{% mesos_video Mesos-Intro-Lecture-1 %}
+{% mesos_video Mesos-Intro-Lecture-1 %} -->
 
 
 Quick Reference

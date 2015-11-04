@@ -13,10 +13,10 @@ In this exercise:
 1. Use the Marathon GUI to scale up to 4 nodes.
 2. Observe how ``node2`` now has the ``test`` application running in the Mesos GUI.
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-11 %}
+{% mesos_video Mesos-Intro-Lecture-11 %} -->
 
 
 Quick Reference

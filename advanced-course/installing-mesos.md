@@ -15,12 +15,12 @@ When the Vagrant VM is ready, you can install the necessary Mesos slave node sof
 5. Point the ``/etc/mesos/zk`` file at the ``node1`` master.
 6. Start the slave service and make sure it starts on reboot.
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
 Video lecture going through the information and demo.
 
-{% mesos_video Mesos-Intro-Lecture-10 %}
+{% mesos_video Mesos-Intro-Lecture-10 %} -->
 
 
 Quick Reference
