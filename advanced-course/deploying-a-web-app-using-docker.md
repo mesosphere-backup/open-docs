@@ -16,10 +16,10 @@ In this exercise:
 4. Get the Docker container running in Marathon on ``node1``.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-12 %}
+{% mesos_video Mesos-Intro-Lecture-12 %} -->
 
 
 Quick Reference

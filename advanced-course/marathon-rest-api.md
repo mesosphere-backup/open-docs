@@ -15,10 +15,10 @@ exercise, just a basic understanding of the ``curl`` command line HTTP tool.
 In this exercise you'll see how these REST calls map to the Marathon GUI and the Marathon
 command line tool.
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-6 %}
+{% mesos_video Mesos-Intro-Lecture-6 %} -->
 
 
 Quick Reference
