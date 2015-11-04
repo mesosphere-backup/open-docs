@@ -17,10 +17,10 @@ In this exercise you will:
 
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Course-18 %}
+{% mesos_video Mesos-Intro-Course-18 %} -->
 
 
 Quick Reference

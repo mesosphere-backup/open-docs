@@ -15,10 +15,10 @@ In this exercise:
 rather than to the ``/var/log/messages`` file.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Course-19 %}
+{% mesos_video Mesos-Intro-Course-19 %} -->
 
 
 Quick Reference

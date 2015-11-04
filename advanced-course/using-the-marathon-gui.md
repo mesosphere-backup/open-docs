@@ -18,10 +18,10 @@ This exercise is entirely video based. In this exercise:
 5. Scale the apps further than 1 node using randomly assigned ports.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-5 %}
+{% mesos_video Mesos-Intro-Lecture-5 %} -->
 
 
 Quick Reference

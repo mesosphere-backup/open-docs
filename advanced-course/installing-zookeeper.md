@@ -19,10 +19,10 @@ In this exercise:
 5. Shutdown and restart the ``zookeper-server`` down and validate that it works.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-2 %}
+{% mesos_video Mesos-Intro-Lecture-2 %} -->
 
 
 Quick Reference

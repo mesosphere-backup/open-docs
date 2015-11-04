@@ -17,10 +17,10 @@ In this exercise you will:
 3. Use that copy to create a new master node with a new two node ``Vagrantfile``.
 
 
-Video Lecture
+<!-- Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-9 %}
+{% mesos_video Mesos-Intro-Lecture-9 %} -->
 
 
 Quick Reference
