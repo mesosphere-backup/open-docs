@@ -71,50 +71,6 @@ rails:
       - name: Apache Mesos
         url: https://mesos.apache.org/
 
-play:
-  name: Play on Mesos
-  blurb: >
-    Running Play on Mesos enables a highly-available compute tier perfectly matched to the power and scalability of the Play web framework.
-  icon: play
-  tutorials:
-    run-play-on-mesos:
-      title: Run Play on Mesos
-      blurb: >
-        Marathon is a Mesos framework for long-running "always on" apps like Play. It ensures that an app stays up
-        even when machines or entire racks fail.
-        This tutorial shows you how to install Marathon on a Mesos cluster and run a Play app with it.
-      date: 2014-01-11
-      duration: 20 minutes
-      path: tutorials/run-play-on-mesos.html
-      resources:
-      - name: Play Framework
-        url: http://www.playframework.com
-      - name: Marathon
-        url: https://github.com/mesosphere/marathon
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-
-spark:
-  name: Spark on Mesos
-  blurb: >
-    Spark is a next generation large-scale data processing engine. Use with Mesos to run multiple distributed systems technologies simultaneously.
-  icon: spark
-  tutorials:
-    run-spark-on-mesos:
-      title: Run Apache Spark on Mesos
-      blurb: >
-        Spark is a fast and general-purpose cluster computing system which makes
-        parallel jobs easy to write.
-        This tutorial shows you how to run Spark on Mesos.
-      date: 2013-11-12
-      duration: 30 minutes
-      path: tutorials/run-spark-on-mesos.html
-      resources:
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-      - name: Apache Spark
-        url: http://spark.incubator.apache.org/
-
 chronos:
   name: Chronos on Mesos
   blurb: >
@@ -136,26 +92,6 @@ chronos:
         url: https://mesos.apache.org/
       - name: Apache Hadoop
         url: https://hadoop.apache.org/
-
-storm:
-  name: Storm on Mesos
-  blurb: >
-    Storm is a distributed and fault-tolerant realtime compute system. Start using it now with Mesos, which makes it possible to run multiple distributed systems technologies simultaneously.
-  icon: storm
-  tutorials:
-    run-storm-on-mesos:
-      title: Run Storm on Mesos
-      blurb: >
-        Storm is a distributed realtime computation system. Similar to how Hadoop provides a set of general primitives for doing batch processing, Storm provides a set of general primitives for doing realtime computation on a stream.
-        This tutorial shows you how to install Storm on a Mesos cluster and run a sample topology on it.
-      date: 2013-12-09
-      duration: 30 minutes
-      path: tutorials/run-storm-on-mesos.html
-      resources:
-      - name: Apache Storm (incubating)
-        url: http://storm-project.net/
-      - name: Storm Mesos Integration
-        url: https://github.com/mesosphere/storm-mesos
 
 package:
   hide: yes
