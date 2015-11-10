@@ -27,4 +27,4 @@ Video Lecture
 
 _Please note: this video lecture covers installing DCOS CLI's predecessor, the Mesos CLI and might not be accurate_
 
-{% mesos_video Meos-Intro-Lecture-14 %}
+{% mesos_video Mesos-Intro-Lecture-14 %}
