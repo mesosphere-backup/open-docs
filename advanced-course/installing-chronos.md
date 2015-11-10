@@ -21,10 +21,10 @@ In this exercise:
 
 
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-8 %} -->
+{% mesos_video Mesos-Intro-Lecture-8 %}
 
 Quick Reference
 ---------------

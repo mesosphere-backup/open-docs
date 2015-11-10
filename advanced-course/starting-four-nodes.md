@@ -23,10 +23,10 @@ Be forewarned that your computer processor might only be able to
 do three nodes.
 
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-15 %} -->
+{% mesos_video Mesos-Intro-Lecture-15 %}
 
 
 Quick Reference

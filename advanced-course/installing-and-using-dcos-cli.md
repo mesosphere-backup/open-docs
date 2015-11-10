@@ -10,7 +10,7 @@ This exercise gives you access to various files on the Apache Mesos cluster, amo
 The best tool for doing this is the [DCOS CLI](https://github.com/mesosphere/dcos-cli) project which leverages
 the latest APIs to give you a full suite of tools.
 
-In this exercise:
+In this exercise: 
 
 1. Follow the installation instructions as described in the DCOS CLI project's [Setup instructions](https://github.com/mesosphere/dcos-cli#setup) 
 2. Use the new ``dcos`` command to work with the cluster in various scenarios.
