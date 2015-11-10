@@ -25,7 +25,7 @@ service-discovery:
         A tutorial on using HAProxy with Mesos and Marathon to enable service discovery between your applications.
       date: 2015-06-15
       duration: 1 day
-      path: https://open.mesosphere.com/advanced-course/
+      path: tutorials/service-discovery/
 
 docker:
   name: Docker on Mesosphere
