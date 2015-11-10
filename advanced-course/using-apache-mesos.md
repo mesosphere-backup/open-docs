@@ -23,10 +23,10 @@ In this exercise:
 4. Observe the command's progress from both the command line and a web GUI.
 
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-3 %} -->
+{% mesos_video Mesos-Intro-Lecture-3 %}
 
 
 Quick Reference

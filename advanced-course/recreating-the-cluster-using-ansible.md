@@ -17,10 +17,10 @@ In this exercise:
 3. Augment the ``playbook.yml`` and ``Vagrantfile`` to provision nodes 2-4.
 4. Destroy everything and confirm you can rebuild everything with one command.
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Course-16 %} -->
+{% mesos_video Mesos-Intro-Course-16 %}
 
 
 Quick Reference

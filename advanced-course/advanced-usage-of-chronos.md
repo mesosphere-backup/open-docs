@@ -17,10 +17,10 @@ In this exercise you will:
 
 
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Course-18 %} -->
+{% mesos_video Mesos-Intro-Course-18 %}
 
 
 Quick Reference
@@ -114,7 +114,7 @@ This will run the ``date`` command every 5 minutes starting now.
 This will run the ``date`` command every 5 minutes starting now.  Save that file and  run this regular variant of the sync command:
 
 ```
-$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD
+$ ruby ../chronos-sync.rb -u http://192.168.33.10:4400/ -p $PWD -c
 ```
 
 View the available jobs:
