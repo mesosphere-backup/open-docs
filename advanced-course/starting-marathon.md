@@ -20,10 +20,10 @@ In this exercise:
 3. Install an app and start a simple Python web server by using Marathon.
 4. Test that the Python web server is live.
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Lecture-4 %} -->
+{% mesos_video Mesos-Intro-Lecture-4 %}
 
 Quick Reference
 ---------------

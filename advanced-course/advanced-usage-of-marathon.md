@@ -18,10 +18,10 @@ In this exercise:
 5. Review the Marathon documentation to learn about other advanced topics.
 
 
-<!-- Video Lecture
+Video Lecture
 -------------
 
-{% mesos_video Mesos-Intro-Course-17 %} -->
+{% mesos_video Mesos-Intro-Course-17 %}
 
 
 Quick Reference
