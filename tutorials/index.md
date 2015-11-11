@@ -34,16 +34,17 @@ redirect_from:
             {% for entry in platform.tutorials %}
               {% assign tutorial=entry[1] %}
               {% assign tutorial_page=nil %}
+              {% assign url=tutorial.path %}
               {% for p in site.pages %}
                 {% if tutorial.path == p.path %}
-                  {% assign tutorial_page=p %}
+                  {% assign url=p.url %}
                 {% endif %}
               {% endfor %}
 
               <li class="row media">
                 <div class="col-sm-8 col-sm-offset-1">
                   <h3 class="media-heading">
-                    <a href="{{ tutorial_page.url }}">{{ tutorial.title }}</a>
+                    <a href="{{ url }}">{{ tutorial.title }}</a>
                   </h3>
                   <time datetime="{{ tutorial.date }}"
                       class="text-muted learn-tutorial-timestamp">
