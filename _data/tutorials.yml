@@ -25,7 +25,7 @@ service-discovery:
         A tutorial on using HAProxy with Mesos and Marathon to enable service discovery between your applications.
       date: 2015-06-15
       duration: 1 day
-      path: tutorials/service-discovery/
+      path: /tutorials/service-discovery/
 
 docker:
   name: Docker on Mesosphere
@@ -70,28 +70,6 @@ rails:
         url: https://github.com/mesosphere/marathon
       - name: Apache Mesos
         url: https://mesos.apache.org/
-
-chronos:
-  name: Chronos on Mesos
-  blurb: >
-    Make your cron jobs a first class citizen of your compute cluster. Chronos is a distributed, fault-tolerant job scheduler, and it will change the way you think about cron jobs.
-  icon: chronos
-  tutorials:
-    etl-pipelines-with-chronos-and-hadoop:
-      title: ETL with Chronos and Hadoop
-      blurb: >
-        This tutorial shows you how to use Chronos to schedule a typical ETL pipeline
-        that downloads some data, runs a Hadoop job, and prints the output, all on the same cluster.
-      date: 2013-11-12
-      duration: 35 minutes
-      path: tutorials/etl-pipelines-with-chronos-and-hadoop.html
-      resources:
-      - name: Chronos
-        url: https://github.com/airbnb/chronos
-      - name: Apache Mesos
-        url: https://mesos.apache.org/
-      - name: Apache Hadoop
-        url: https://hadoop.apache.org/
 
 package:
   hide: yes
