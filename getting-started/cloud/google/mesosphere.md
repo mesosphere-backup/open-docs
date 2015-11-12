@@ -76,7 +76,7 @@ In order to provision instances, your Google Compute project must have billing s
 
 <a name="vpn-setup"></a>
 ### Configure VPN
-Once Mesosphere for Google Cloud Platform has successfully provisioned your cluster, it is necessary to install and configure OpenVPN. This allows secure access to your Mesosphere cluster and requires the installation of a local client and configuration using VPN credentials provided in the Launchpad.  Full details of how to configure OpenVPN for your cluster are outlined on [this page](/getting-started/cloud/setting-up-mesosphere-vpn).
+Once Mesosphere for Google Cloud Platform has successfully provisioned your cluster, it is necessary to install and configure OpenVPN. This allows secure access to your Mesosphere cluster and requires the installation of a local client and configuration using VPN credentials provided in the Launchpad.
 
 ***
 ## SSHing into a Cluster
