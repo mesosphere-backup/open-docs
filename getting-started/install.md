@@ -150,14 +150,21 @@ sudo service mesos-slave stop
 sudo sh -c "echo manual > /etc/init/mesos-slave.override"
 ```
 
-On Debian / RedHat 6 / Centos 6
+On Debian:
 
 ```sh
 sudo service mesos-slave stop
 sudo update-rc.d -f mesos-slave remove
 ```
 
-On RedHat 7 / Centos 7
+On RedHat 6 / Centos 6:
+
+```sh
+sudo stop mesos-slave
+sudo sh -c "echo manual > /etc/init/mesos-slave.override"
+```
+
+On RedHat 7 / Centos 7:
 
 ```sh
 systemctl stop mesos-slave.service
@@ -168,14 +175,27 @@ systemctl disable mesos-slave.service
 
 You need to bring each service up on the set of master nodes at roughly the same time. Bring up Mesos master:
 
+On Ubuntu / Debian / Redhat 7 / Centos 7:
 ```sh
 sudo service mesos-master restart
 ```
 
+On Redhat 6 / Centos 6:
+```sh
+sudo restart mesos-master
+```
+
 Then restart Marathon:
 
+
+On Ubuntu / Debian / Redhat 7 / Centos 7:
 ```sh
 sudo service marathon restart
+```
+
+On Redhat 6 / Centos 6:
+```sh
+sudo restart marathon 
 ```
 
 <h2 id="slave-setup">Slave Node Setup </h2>
@@ -251,11 +271,18 @@ sudo service mesos-master stop
 sudo sh -c "echo manual > /etc/init/mesos-master.override"
 ```
 
-On Debian / RedHat 6 / CentOS 6:
+On Debian:
 
 ```sh
 sudo service mesos-master stop
 sudo update-rc.d -f mesos-master remove
+```
+
+On RedHat 6 / CentOS 6:
+
+```sh
+sudo stop mesos-master
+sudo sh -c "echo manual > /etc/init/mesos-master.override"
 ```
 
 On RedHat 7 / CentOS 7:
@@ -269,8 +296,14 @@ sudo systemctl disable mesos-master.service
 
 Restart mesos-slave on each node to use the new configuration:
 
+On Ubuntu / Debian / Redhat 7 / Centos 7:
 ```sh
 sudo service mesos-slave restart
+```
+
+On Redhat 6 / Centos 6:
+```sh
+sudo restart mesos-slave
 ```
 
 <h2 id="verifying-installation">Verifying Installation</h2>
