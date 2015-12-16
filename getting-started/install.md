@@ -176,11 +176,13 @@ systemctl disable mesos-slave.service
 You need to bring each service up on the set of master nodes at roughly the same time. Bring up Mesos master:
 
 On Ubuntu / Debian / Redhat 7 / Centos 7:
+
 ```sh
 sudo service mesos-master restart
 ```
 
 On Redhat 6 / Centos 6:
+
 ```sh
 sudo restart mesos-master
 ```
@@ -189,11 +191,13 @@ Then restart Marathon:
 
 
 On Ubuntu / Debian / Redhat 7 / Centos 7:
+
 ```sh
 sudo service marathon restart
 ```
 
 On Redhat 6 / Centos 6:
+
 ```sh
 sudo restart marathon 
 ```
@@ -260,8 +264,6 @@ zk://1.1.1.1:2181,2.2.2.2:2181,3.3.3.3:2181/mesos
 
 If you're unable to resolve the hostname of the machine directly (e.g., if on a different network or using a VPN), set `/etc/mesos-slave/hostname` to a value that you can resolve, for example, an externally accessible IP address or DNS hostname. This will ensure all links from the Mesos console work correctly.
 
-You will also want to set this property in `/etc/marathon/conf/hostname`.
-
 ##### Disable `mesos-master` service
 
 On Ubuntu:
@@ -297,11 +299,13 @@ sudo systemctl disable mesos-master.service
 Restart mesos-slave on each node to use the new configuration:
 
 On Ubuntu / Debian / Redhat 7 / Centos 7:
+
 ```sh
 sudo service mesos-slave restart
 ```
 
 On Redhat 6 / Centos 6:
+
 ```sh
 sudo restart mesos-slave
 ```
