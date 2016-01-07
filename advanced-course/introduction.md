@@ -27,7 +27,7 @@ The exercises have a consistent format that is designed to teach and act as a re
 
 To complete the course you simply start at Exercise 1 and do each exercise in
 order, watching the lectures and completing the homework.  When you're done
-you'll have a very solid understanding of everything in the Mesos and should be able to
+you'll have a very solid understanding of everything in Mesos and should be able to
 build your own deployments and applications with it.
 
 The exercises are designed to take between 15-60 minutes, and the entire course should take only a few days to complete.
