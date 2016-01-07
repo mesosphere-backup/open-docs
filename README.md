@@ -38,11 +38,14 @@ If you are developing against this site and wish to see a rendered version of yo
 2. Install Bundler
 
         sudo gem install bundler
-3. Add the default gems from the root of the project (you may need libxml2 - see [here](http://nokogiri.org/tutorials/installing_nokogiri.html) for instructions)
+3. Update bundler
+
+		bundle update
+4. Add the default gems from the root of the project (you may need libxml2 - see [here](http://nokogiri.org/tutorials/installing_nokogiri.html) for instructions)
 
         bundle install --path vendor/bundle
-4. Run Jekyll from the root of the project
+5. Run Jekyll from the root of the project
 
         # Run Jekyll and watch for changes
         bundle exec rake dev
-5. View the site in your browser: [http://localhost:4000](http://localhost:4000)
+6. View the site in your browser: [http://localhost:4000](http://localhost:4000)
