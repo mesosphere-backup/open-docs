@@ -35,4 +35,4 @@ The exercises are designed to take between 15-60 minutes, and the entire course 
 Getting Help
 ============
 
-To keep thing simple, please stick to the 7.0 version of CentOS being used in the exercises.  While you may have a more preferred version of Linux, educational goals mean we have to standardize on one and use that to teach.  After you complete the course you should be able to extrapolate this information to any version of Linux you prefer.
+To keep thing simple, please stick to the 7.1 version of CentOS being used in the exercises.  While you may have a more preferred version of Linux, educational goals mean we have to standardize on one and use that to teach.  After you complete the course you should be able to extrapolate this information to any version of Linux you prefer.
