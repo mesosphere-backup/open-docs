@@ -10,17 +10,6 @@ This course is designed to take you from having no knowledge of systems manageme
 
 This course assumes that you have basic knowledge of managing a Linux system and are proficient in Unix command line tools. A minimum of 8G of RAM is required on your system.
 
-The exercises are structured as follows:
-
-1. An introductory section that describes the exercise.
-2. A video lecture that introduces the topic and teaches the subject.
-3. Hands-on checkpoints to complete the exercise.
-4. References for further study on related topics.
-5. A Disqus comments section.
-
-
-The exercises are designed to take between 15-60 minutes, and the entire course should take only a few days to complete.
-
 How To Complete This Course
 ===========================
 
@@ -41,6 +30,7 @@ order, watching the lectures and completing the homework.  When you're done
 you'll have a very solid understanding of everything in the Mesos and should be able to
 build your own deployments and applications with it.
 
+The exercises are designed to take between 15-60 minutes, and the entire course should take only a few days to complete.
 
 Getting Help
 ============
