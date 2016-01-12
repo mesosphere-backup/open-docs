@@ -98,7 +98,7 @@ Test that mesos-dns runs locally first:
 In the Marathon GUI, create a new launcher named ``dns`` which uses the command we just tested:
 
 ```
-[node1]sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
+sudo /home/vagrant/go/src/github.com/mesosphere/mesos-dns/mesos-dns -v=1 -config=/home/vagrant/go/src/github.com/mesosphere/mesos-dns/config.json
 ```
 
 Add this in the ``Constraints`` field::
