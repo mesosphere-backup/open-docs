@@ -1,7 +1,11 @@
 ---
 layout: doc
 title: Getting Started
-redirect_from: /getting-started/datacenter/
+redirect_from: 
+- /getting-started/datacenter/
+- /getting-started/cloud/google/click-to-deploy/
+- /getting-started/cloud/google/mesosphere/
+- /getting-started/cloud/whats-next/
 ---
 
 ## Mesos in the Cloud
