@@ -6,7 +6,7 @@
       timestamp: 2016-02-01 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.27.0-0.2.190.ubuntu1504_amd64
+        path: ubuntu/15.04/mesos_0.27.0-0.2.190.ubuntu1504_amd64.deb
         egg_path: ubuntu/15.04/mesos-0.27.0-py2.7-linux-x86_64.egg
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/14.04/mesos_0.27.0-0.2.190.ubuntu1404_amd64.deb
