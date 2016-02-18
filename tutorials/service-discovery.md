@@ -12,7 +12,7 @@ This document outlines a common approach to service discovery for web services r
 
 This approach to service discovery for Marathon applications makes use of the popular [HAProxy](http://www.haproxy.org/) TCP/HTTP load balancer along with an assistant script that uses [Marathon’s REST API](https://mesosphere.github.io/marathon/docs/rest-api.html) to periodically re-generate an HAProxy configuration file.
 
-Mesos slaves are configured to provide a range of ports as a resource (the default range is 31,000 - 32,000). When a new instance of a task is started by Marathon on a Mesos slave, it binds to one or more arbitrary ports within this range.
+Mesos agent nodes are configured to provide a range of ports as a resource (the default range is 31,000 - 32,000). When a new instance of a task is started by Marathon on a Mesos agent node, it binds to one or more arbitrary ports within this range.
 
 <div class="alert alert-info">
   Note the distinction between the actual port that the application binds to and the port that is configured for the application in Marathon. The configured port in Marathon (commonly known as the application port) is merely a way of namespacing applications run by Marathon and is not directly bound to. It is intended to be used by a secondary load balancer or proxy system, such as HAProxy. For example, this prevents a user from configuring two services on the same cluster that they eventually intend to both run on port 80.
@@ -28,8 +28,6 @@ HAProxy will then route the request to a host and port where an instance of the 
 
 The approach described in the following sections employs marathon-lb. Marathon-lb is a Dockerized application that includes both HAProxy and an application that uses Marathon's REST API to regenerate the HAProxy configuration. It supports advanced functionality like SSL offloading, sticky connections and VHost based load balancing, allowing you to specify virtual hosts for your Marathon applications. 
 
-
-
 Marathon-lb connects to Marathon to retrieve the current hostnames, the actually bound ports of the running application instances and the configured application ports. Typically this is run at a 60 second schedule, using `cron`. HAProxy does not need to be restarted; the script checks if there is a diff between the new config and the active config and will signal HAProxy to reload its config if necessary. See the [marathon-lb repository](https://github.com/mesosphere/marathon-lb) for more information or check out the [tutorial on the Mesosphere blog](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/).
 
 The diagram below shows how this might look for a cluster where we run two services, SVC1 and SVC2, and configure two instances of each with applications ports of 1111 and 2222 respectively.
@@ -38,11 +36,11 @@ The actual task ports allocated by Mesos are 31100 and 31200 respectively. Howev
 
 <img src="{% asset_path service-discovery/1.png %}" alt ="" width="100%">
 
-If SVC2 on Slave 2 then attempts to connect to SVC1 at `localhost:2222`, HAProxy will route the request to the first configured SVC1 instance. In this case, the one running on Slave 1.
+If SVC2 on Agent 2 then attempts to connect to SVC1 at `localhost:2222`, HAProxy will route the request to the first configured SVC1 instance. In this case, the one running on Agent 1.
 
 <img src="{% asset_path service-discovery/2.png %}" alt="" width="100%">
 
-If disaster strikes and Slave 1 goes offline, the next request to `localhost:2222` will be routed to Slave 2.
+If disaster strikes and Agent 1 goes offline, the next request to `localhost:2222` will be routed to Agent 2.
 
 <img src="{% asset_path service-discovery/3.png %}" alt="" width="100%">
 
@@ -56,7 +54,7 @@ If disaster strikes and Slave 1 goes offline, the next request to `localhost:222
 
 See the [marathon-lb repository[(https://github.com/mesosphere/marathon-lb) for deployment options.
 
-Once you have deployed the application, a cron job will run every minute and update the haproxy configuration at `/etc/haproxy/haproxy.cfg`. If this changes, HAProxy will reload its configuration.
+Once you have deployed the application, a cron job will run every minute and update the HAproxy configuration within the marathon-lb container at `/etc/haproxy/haproxy.cfg`. If this changes, HAProxy will reload its configuration.
 
 ### DNS Configuration for Incoming External Traffic
 
@@ -76,7 +74,7 @@ At the very front of your cluster you will need a load balancing and availabilit
 ## Marathon Example Definitions
 
 Below are some example Marathon application definitions for typical services run on a cluster.
-To use these, [Docker](https://www.docker.com/) will need to be installed on each slave node. 
+To use these, [Docker](https://www.docker.com/) will need to be installed on each agent node. 
 
 These address containers that use *host* based networking. Using *bridge* networking requires some extra work to allow services inside the container to resolve the proxy (see [building your own bridge](https://docs.docker.com/articles/networking/#building-your-own-bridge) for how this might be accomplished).
 
@@ -159,11 +157,11 @@ The configuration below is for a typical web service that operates on port 8081.
 
 ### What happens if a node is added to the cluster?
 
-As long as marathon-lb is configured and a Mesos slave process is running the node will join the cluster and function the same way as other nodes. As and when Marathon starts application instances on it, HAProxy will update to route traffic to it.
+As long as marathon-lb is configured and a Mesos agent process is running, the node will join the cluster and function the same way as other nodes. As and when Marathon starts application instances on it, HAProxy will update to route traffic to it.
 
 ### What happens if the number of instances of my application are increased in Marathon?
 
-Marathon will deploy the new instances to cluster nodes as and where there is spare capacity. The next time the HAProxy configuration is updated the new instances will be available for traffic to route to.
+Marathon will deploy the new instances to cluster nodes as and where there is spare capacity. The next time the HAProxy configuration is updated, the new instances will be available for traffic to route to.
 
 ### What happens if an instance goes down?
 
@@ -201,13 +199,13 @@ As with any service discovery solution, there are some specific nuances to the b
 
     * marathon-lb cron interval (default: 60 seconds)
 
-* The dockerized application must bind to the dynamic ports provided by Marathon using the environment variables $PORT0, $PORT1, …
+* The Dockerized application must bind to the dynamic ports provided by Marathon using the environment variables $PORT0, $PORT1, … See the (Marathon ports documentation)[https://mesosphere.github.io/marathon/docs/ports.html] for more information.
 
 
 ## Alternative Approaches
 
-* ### haproxy-marathon-bridge (DEPRECATED)
-    Marathon ships with a simple shell script called [`haproxy-marathon-bridge`](https://github.com/mesosphere/marathon/blob/master/examples/haproxy-marathon-bridge), which uses Marathon's REST API to create a config file for HAProxy. `haproxy-marathon-bridge` provides a minimum set of functionality and is easier to understand for beginners or may be a good starting point for a custom implementation. Note that this script itself is now deprecated and should not be used as-is in production. For production use, please consider using Marathon-lb, above.
-
 * ### Qubit
     [Qubit](http://qubitproducts.com/) provides Bamboo, a "web daemon that automatically configures HAProxy for web services deployed on Apache Mesos and Marathon". See the [Bamboo GitHub repository](https://github.com/QubitProducts/bamboo) for more.
+
+* ### Mesos-DNS
+    [Mesos-DNS](https://mesosphere.github.io/mesos-dns/) allows applications and services running on Mesos to find each other through the domain name system (DNS).
