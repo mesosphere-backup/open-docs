@@ -30,6 +30,7 @@ The approach described in the following sections employs marathon-lb. Marathon-l
 
 Marathon-lb connects to Marathon to retrieve the current hostnames, the actually bound ports of the running application instances and the configured application ports. Typically this is run at a 60 second schedule, using `cron`. HAProxy does not need to be restarted; the script checks if there is a diff between the new config and the active config and will signal HAProxy to reload its config if necessary. See the [marathon-lb repository](https://github.com/mesosphere/marathon-lb) for more information or check out the [tutorial on the Mesosphere blog](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/).
 
+<!-- 
 The diagram below shows how this might look for a cluster where we run two services, SVC1 and SVC2, and configure two instances of each with applications ports of 1111 and 2222 respectively.
 
 The actual task ports allocated by Mesos are 31100 and 31200 respectively. However, HAProxy is configured to route requests to the application port configured by the user to the actual task port allocated by Mesos.
@@ -43,6 +44,8 @@ If SVC2 on Agent 2 then attempts to connect to SVC1 at `localhost:2222`, HAProxy
 If disaster strikes and Agent 1 goes offline, the next request to `localhost:2222` will be routed to Agent 2.
 
 <img src="{% asset_path service-discovery/3.png %}" alt="" width="100%">
+
+-->
 
 ## Prerequisites
 
