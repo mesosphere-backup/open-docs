@@ -69,14 +69,14 @@ Modify the ``/etc/hosts`` file to make the ``node1`` name map to the IP address 
 192.168.33.10 node1
 ```
 
+**Tip:** You can use ``cat`` to display the updated file.  The change is to remove ``node1`` from the ``127.0.0.1`` line and create a new line with ``192.168.33.10 node1`` at the end.
+
 Install the Mesosphere software packages:
 
 ```
 [node1]$ sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
 [node1]$ sudo yum -y install mesos marathon
 ```
-
-**Tip:** You can use ``cat`` to display the updated file.  The change is to remove ``node1`` from the ``127.0.0.1`` line and create a new line with ``192.168.33.10 node1`` at the end.
 
 Further Study
 -------------
