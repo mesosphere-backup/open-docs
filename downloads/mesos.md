@@ -49,7 +49,6 @@ base: //downloads.mesosphere.io/master
   <tr>
     <td>Apache Mesos {{rel.name}} for
       <a href="http:{{ page.base }}/{{ pkg.path }}" title="Apache Mesos {{rel.name}} for {{pkg.name}}">{{pkg.name}}</a>
-      and <a href="http:{{ page.base }}/{{ pkg.egg_path }}" title="Apache Mesos Python Egg {{rel.name}} for {{pkg.name}}">Python egg</a>
     </td>
     <td align="right">
       <a href="http:{{ page.base }}/{{ pkg.path }}.sha256" title="SHA 256 for Apache Mesos {{rel.name}} for {{pkg.name}}">SHA 256</a>
