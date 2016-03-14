@@ -47,12 +47,23 @@ base: //downloads.mesosphere.io/master
 
   {% for pkg in rel.packages %}
   <tr>
-    <td>Apache Mesos {{rel.name}} for
-      <a href="http:{{ page.base }}/{{ pkg.path }}" title="Apache Mesos {{rel.name}} for {{pkg.name}}">{{pkg.name}}</a>
-      and <a href="http:{{ page.base }}/{{ pkg.egg_path }}" title="Apache Mesos Python Egg {{rel.name}} for {{pkg.name}}">Python egg</a>
+    <td style="vertical-align:middle;">Apache Mesos {{rel.name}} for
+      <a href="http://repos.mesosphere.com/{{ pkg.path }}" title="Apache Mesos {{rel.name}} for {{pkg.name}}">{{pkg.name}}</a>
     </td>
     <td align="right">
-      <a href="http:{{ page.base }}/{{ pkg.path }}.sha256" title="SHA 256 for Apache Mesos {{rel.name}} for {{pkg.name}}">SHA 256</a>
+      {% if pkg.sha256 %}
+        {% assign sha = "SHA 256" %}
+        {% assign sha_val = pkg.sha256 %}
+      {% else %}
+        {% assign sha = "SHA" %}
+        {% assign sha_val = pkg.sha %}
+      {% endif %}
+      <button class="btn btn-link" data-toggle="collapse" data-target="#{{ sha_val }}" aria-expanded="false" aria-controls="{{ sha_val }}">
+        {{ sha }}
+      </button>
+      <div class="collapse" id="{{ sha_val }}">
+        <small style="font-family:monospace"> {{ sha_val }} </small>
+      </div>
     </td>
   </tr>
   {% endfor %}

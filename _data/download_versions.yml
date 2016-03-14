@@ -1,569 +1,360 @@
 - name: mesos
   releases:
 
+    - name: 0.27.1
+      announcement: https://github.com/apache/mesos/blob/0.27.1/CHANGELOG
+      timestamp: 2016-02-22 00:00:00 +0000
+      packages:
+      - name: Ubuntu 15.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.1-2.0.226.ubuntu1504_amd64.deb
+        sha256: 9c5823cbe3c2bc48e18832634864481ac36c16661c359203d3c07225addadaab
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.1-2.0.226.ubuntu1404_amd64.deb
+        sha256: 3fb7ea96fff6ceff883eb04cf65d14e9138cae6ae10281547029629685ee22cc
+      - name: Ubuntu 12.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.1-2.0.226.ubuntu1204_amd64.deb
+        sha256: 933876cb51a46678067df9997a78189c85d797ea5da5084a88ab178406c22ad6
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_0.27.1-2.0.226.debian81_amd64.deb
+        sha256: fa1a3dd310d5efc0394589791d6b75b593b529d9411806f452445a844fdd5bc8
+      - name: CentOS 7 (x86_64)
+        path: el/7/x86_64/RPMS/mesos-0.27.1-2.0.226.centos701406.x86_64.rpm
+        sha256: 62ed591b18f72901c0a9cef26c2768f2e91244e3181d25aad13df729a95df806
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-0.27.1-2.0.226.centos65.x86_64.rpm
+        sha256: 319187736c7ee04f6819e560fadff04b747cd75a7fcfb5c0f4db20dae1c1ab55
+
     - name: 0.27.0
       announcement: https://github.com/apache/mesos/blob/0.27.0/CHANGELOG
       timestamp: 2016-02-01 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.27.0-0.2.190.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.27.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.0-0.2.190.ubuntu1504_amd64.deb
+        sha256: 76b188bf2cd67e7823bdee8a3755475539fd55c47d2756402fcf234596495ce2
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.27.0-0.2.190.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.27.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.0-0.2.190.ubuntu1404_amd64.deb
+        sha256: 47ba25bfb946f342857256690e73f621138061ca5ee16824d4fdabc43db1a4c5
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.27.0-0.2.190.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.27.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.27.0-0.2.190.ubuntu1204_amd64.deb
+        sha256: 398c6148a5f7d8a5748b17deb2b2f257de639966d0fb329fbe38d027090825c1
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.27.0-0.2.190.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.27.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.27.0-0.2.190.debian81_amd64.deb
+        sha256: 5b723c0a42bd6456855eb1b5e6cb5f619b7d05fff775f52e3d40475b6c196726
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.27.0-0.2.190.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.27.0-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.27.0-0.2.190.centos701406.x86_64.rpm
+        sha256: 6669fb3f6823dab50b0b399c00b588c5014d32385afd84bc5e6107d4d7607425
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.27.0-0.2.190.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.27.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.27.0-0.2.190.centos65.x86_64.rpm
+        sha256: 3fe5d9dfd023ca5f4fef0e80267c8f16153558631b023f8dfd01b809551c4ab5
 
     - name: 0.26.0
       announcement: https://github.com/apache/mesos/blob/0.26.0/CHANGELOG
       timestamp: 2015-12-16 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.26.0-0.2.145.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.26.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.26.0-0.2.145.ubuntu1504_amd64.deb
+        sha256: fc3e552dd1a4d8dc11be546eaa9e97026832a3ee3d07994e60cd2d7e7e6efefe
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.26.0-0.2.145.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.26.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.26.0-0.2.145.ubuntu1404_amd64.deb
+        sha256: 1be0321d2d469b72bb8a3d0dd41197a8941c16c1db15f1f2feb5627ec261a76d
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.26.0-0.2.145.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.26.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.26.0-0.2.145.ubuntu1204_amd64.deb
+        sha256: 6135cea9f91637393a0e6e7ab18342f9ba5eed46b56f2761ab0fdf46294a5a33
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.26.0-0.2.145.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.26.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.26.0-0.2.145.debian81_amd64.deb
+        sha256: d0870a9b4cb25232af11fd6900ccad8f692b5e9edbb8930542c19423c9632d60
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.26.0-0.2.145.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.26.0-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.26.0-0.2.145.centos701406.x86_64.rpm
+        sha256: 9f6de1003b6319da30c66acccc107eba34bb6d230881263a9dad05d784f2ce1d
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.26.0-0.2.145.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.26.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.26.0-0.2.145.centos65.x86_64.rpm
+        sha256: b6c518569228b8b6e1d9ebaaa9ad6e31e2d3810b3c3894bc9680c8d848be7be2
 
     - name: 0.25.0
       announcement: https://github.com/apache/mesos/blob/0.25.0/CHANGELOG
       timestamp: 2015-10-12 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.25.0-0.2.70.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.25.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.25.0-0.2.70.ubuntu1504_amd64.deb
+        sha256: 774c126258015ae4bf126bd9160715f7f3b7f85068ae995fb377a37b72960e26
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.25.0-0.2.70.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.25.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.25.0-0.2.70.ubuntu1404_amd64.deb
+        sha256: c18edbcd9424d7b1636bd6a374aa245614f198ba51d3641192d55968652d87e4
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.25.0-0.2.70.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.25.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.25.0-0.2.70.ubuntu1204_amd64.deb
+        sha256: 1a7810e4be693e05e010a4f6a023f483bd08c23089dc48d5f2b094cf688b03f3
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.25.0-0.2.70.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.25.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.25.0-0.2.70.debian81_amd64.deb
+        sha256: 99705c0deb6e8a50ce12919f63410649249ae0548355fc0afca60da16fac1daa
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.25.0-0.2.70.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.25.0-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.25.0-0.2.70.centos701406.x86_64.rpm
+        sha256: aa3de79375a3ee0c3eda68d8abded1bfe4d8a9e50bd205dd7325f31c9ecae926
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.25.0-0.2.70.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.25.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.25.0-0.2.70.centos65.x86_64.rpm
+        sha256: ff8198aec3720d8274bcba81715436039beceb5359ce47825365c8c043b180e9
 
     - name: 0.24.1
       announcement: https://github.com/apache/mesos/blob/0.24.1/CHANGELOG
       timestamp: 2015-09-25 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.24.1-0.2.35.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.24.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.1-0.2.35.ubuntu1504_amd64.deb
+        sha256: 0d3eb730850be2f7d137accd8bd489fc0627121aa75e7890e6290229e109298d
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.24.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb
+        sha256: bf0c7186db7cdd340b5854d13613c7c2e5b6c56d1b2ff066ab3b5d0934c31b7a
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.24.1-0.2.35.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.24.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.1-0.2.35.ubuntu1204_amd64.deb
+        sha256: 09c0790be0691f6be96ce4fa0704676aebeacdb1287904178ba584eaa4c0a61e
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.24.1-0.2.35.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.24.1-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.24.1-0.2.35.debian81_amd64.deb
+        sha256: dc70ea94cad0e55f957791dc539d66d99d41c51aad790d46c06f021d581822ce
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.24.1-0.2.35.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.24.1-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.24.1-0.2.35.centos701406.x86_64.rpm
+        sha256: 53826bca77b3cc9a55c9b9a40a0b342c163c2446fc9959fd885fcb27956b38e3
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.24.1-0.2.35.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.24.1-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.24.1-0.2.35.centos65.x86_64.rpm
+        sha256: 63ae66019f3685558261becff0de632e4de6c598e4ab157849f9b8fe4d56f71d
 
     - name: 0.24.0
       announcement: https://github.com/apache/mesos/blob/0.24.0/CHANGELOG
       timestamp: 2015-09-24 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.24.0-1.0.33.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.24.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.0-1.0.33.ubuntu1504_amd64.deb
+        sha256: acd223ffe8bc1b001579e80d43c92e9c164e692ef1c7c807327dcc4b3ffe16d3
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.24.0-1.0.27.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.24.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.0-1.0.27.ubuntu1404_amd64.deb
+        sha256: b00bfad479629f51342101e7aa7579dad28542a720b01bfd0ed48ffb1e7a509e
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.24.0-1.0.27.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.24.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.24.0-1.0.27.ubuntu1204_amd64.deb
+        sha256: 62415c55889d53ebb722292a86de0692d27e924410b9147a2d2082c7fd4911ea
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.24.0-1.0.33.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.24.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.24.0-1.0.33.debian81_amd64.deb
+        sha256: 7943cd760df47ae439f1be981f900a22cf883360db378feb1ee8d1b0d1ecdf5b
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.24.0-1.0.27.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.24.0-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.24.0-1.0.27.centos701406.x86_64.rpm
+        sha256: 48c76c73820c298f077b0e1b0eef2b11d5c8b5564d9c418727c66d542cc778da
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.24.0-1.0.27.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.24.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.24.0-1.0.27.centos65.x86_64.rpm
+        sha256: 5dc6702abadd28483703aba01cfd08b2663a06509eecd22827051d94c2000de3
 
     - name: 0.23.0
       announcement: https://github.com/apache/mesos/blob/0.23.0/CHANGELOG
       timestamp: 2015-07-22 00:00:00 +0000
       packages:
       - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/15.04/mesos_0.23.0-1.0.ubuntu1504_amd64.deb
-        egg_path: ubuntu/15.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.23.0-1.0.ubuntu1504_amd64.deb
+        sha256: 4bb42f0a72db13c5dce259500521d2675b55961e1639c64ee19683283afee2e3
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.23.0-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.23.0-1.0.ubuntu1404_amd64.deb
+        sha256: 36517cfef97195a746fb41d5a677e649ef7d89f0de112de9153a1d9a17d3f757
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.23.0-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.23.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.23.0-1.0.ubuntu1204_amd64.deb
+        sha256: d13e4b029688e527e191a1432f83288e1a2a43dd298dc627aa11abee145c829b
       - name: Debian 8 (AMD 64)
-        path: debian/8/mesos_0.23.0-1.0.debian81_amd64.deb
-        egg_path: debian/8/mesos-0.23.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.23.0-1.0.debian81_amd64.deb
+        sha256: 87bdc3b597af040fcdfe5fd2c994b29049e414e0e5725fd7435b4c507174ac2f
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.23.0-1.0.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.23.0-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.23.0-1.0.centos701406.x86_64.rpm
+        sha256: 68334bd9c4b5b7bdf1fddf0f7c021f6dbd518bb6be84c13ba1a61f0f9b71290d
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.23.0-1.0.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.23.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.23.0-1.0.centos65.x86_64.rpm
+        sha256: be0081d0df07dfa0b4dc869a81b4a728721e8c37090b1847a3860756600bb64d
 
     - name: 0.22.1
       announcement: https://github.com/apache/mesos/blob/0.22.1/CHANGELOG
       timestamp: 2015-05-12 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.22.1-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.1-1.0.ubuntu1404_amd64.deb
+        sha256: 4384bdb84ea946b79bcec70f0954f60793b6dcd9193318c99bd1c178a7941e44
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.22.1-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.1-1.0.ubuntu1310_amd64.deb
+        sha256: 74dcc486bb9bd5e49e04a33f3cb67e3a7b944e9b32415be7dd055c03a602efb7
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.22.1-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.1-1.0.ubuntu1304_amd64.deb
+        sha256: 7b0c9e4d7351fc256f4f230d46ae1fb4e2f1c67f742bceb1021b511432f9f84c
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.22.1-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.1-1.0.ubuntu1210_amd64.deb
+        sha256: 8030ee4822ed64e070ba9b790509f5209d57ca3ea7742ca584baebfe33896e8f
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.22.1-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.1-1.0.ubuntu1204_amd64.deb
+        sha256: 71b35ec3d2b4e40ec4590d930125c4eb0ece82979dd4816b8bc58b65c72f0818
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.22.1-1.0.debian78_amd64.deb
-        egg_path: debian/7/mesos-0.22.1-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.22.1-1.0.debian78_amd64.deb
+        sha256: 735db7fbb81c2bf812b9e60eaf7ba512c02295f6f33328dcaea831dd202f7803
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.22.1-1.0.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.22.1-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.22.1-1.0.centos65.x86_64.rpm
+        sha256: 5744e418cf0d696d48de0b60725703db7f9b78083d8471b1dc23b85a7ad2576a
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.22.1-1.0.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.22.1-py2.7-linux-x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.22.1-1.0.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.22.1-py2.6-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.22.1-1.0.centos701406.x86_64.rpm
+        sha256: 68c15affc9c9451f196e49e90cc5b9cfd78458945174bf339f2d844c371c13ad
 
     - name: 0.22.0
       announcement: https://github.com/apache/mesos/blob/0.22.0/CHANGELOG
       timestamp: 2015-03-26 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
+        sha256: dd9b43a75723cf4930af97eb3bf7f19cb84b1415cc6a585b8d2145a1435bdaac
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.22.0-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.0-1.0.ubuntu1310_amd64.deb
+        sha256: 493d7413a2b981da94a63849f11ccfe580068317ebb796cdccb23b68b73c8026
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.22.0-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.0-1.0.ubuntu1304_amd64.deb
+        sha256: 85881eb39f97c444e8b05893b8304373c3f60e9a426af398641086e812b5bf11
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.22.0-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.0-1.0.ubuntu1210_amd64.deb
+        sha256: dace7c23db7d7e816862f88990551ba9a96067841c4ee11362c81170450fcd0e
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.22.0-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.22.0-1.0.ubuntu1204_amd64.deb
+        sha256: 5034ec04ea7181c7503bc17d09cc0abe791bddaf7ad61842d9dab49d694e99bc
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.22.0-1.0.debian78_amd64.deb
-        egg_path: debian/7/mesos-0.22.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.22.0-1.0.debian78_amd64.deb
+        sha256: 81c6ae2d19b91b1dd656d47c2d760fa42045699e316d0fe38ebfb8b5a1054f01
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.22.0-1.0.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.22.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.22.0-1.0.centos65.x86_64.rpm
+        sha256: c49e6cefa713276d063c30aab6695e7e6602978f1f2efdd033e2b34ec1052915
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.22.0-1.2.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.22.0-py2.7-linux-x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.22.0-1.0.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.22.0-py2.6-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.22.0-1.2.centos701406.x86_64.rpm
+        sha256: 32a17b41b8b961213cd520020eb6ede3048d4f1603ae9bcb288a230d1667ced1
 
     - name: 0.21.1
       announcement: https://github.com/apache/mesos/blob/0.21.1/CHANGELOG
       timestamp: 2015-01-08 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.21.1-1.1.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.1-1.1.ubuntu1404_amd64.deb
+        sha256: 76091a4d27e3a00727a7977d9913d10acdfac9b95e36fea400260d89749ee48e
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.21.1-1.1.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.1-1.1.ubuntu1310_amd64.deb
+        sha256: 0192a2b4a028600e1a720388fdcd4dd697df64ff5445a0d60d3475625aea51ca
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.21.1-1.1.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.1-1.1.ubuntu1304_amd64.deb
+        sha256: 013e5b0367223239627dcf73104114bd19947505d67ffd81aad211e2010ead92
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.21.1-1.1.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.1-1.1.ubuntu1210_amd64.deb
+        sha256: 325737999a43ac2067228cf422db383fcb0028841e4c7339240663193d29685e
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.21.1-1.1.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.1-1.1.ubuntu1204_amd64.deb
+        sha256: 99f46533eb2254d4025952a9f34ae01f6dfea3219760454e326791f22ccb090f
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.21.1-1.2.debian77_amd64.deb
-        egg_path: debian/7/mesos-0.21.1-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.21.1-1.2.debian77_amd64.deb
+        sha256: 0c65a6671a712ecfca3bad05af0831f20b3a949a3beb0dd25be3a3f9b2d250b0
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.21.1-1.1.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.21.1-py2.6.egg
+        path: el/6/x86_64/RPMS/mesos-0.21.1-1.1.centos65.x86_64.rpm
+        sha: 0a33f2a1934807cafcc9b8046c25a5b8cd6c5143
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.21.1-1.1.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.21.1-py2.7-linux-x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.21.1-1.1.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.21.1-py2.6-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.21.1-1.1.centos701406.x86_64.rpm
+        sha: 7b77060d25297bce917b4fba63e0af3887ebfa22
 
     - name: 0.21.0
       announcement: https://github.com/apache/mesos/blob/0.21.0/CHANGELOG
       timestamp: 2014-11-21 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.21.0-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.0-1.0.ubuntu1404_amd64.deb
+        sha256: f8f8b1646c0bbca2980e842d1a39246a344a1abf68118067264033353568805c
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.21.0-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.0-1.0.ubuntu1310_amd64.deb
+        sha256: ca5d68e6f3e75b773d0ab31c5522720c0159cd4f0a3186286bb119777bd992a5
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.21.0-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.0-1.0.ubuntu1304_amd64.deb
+        sha256: cb26f78da703a8eb97fc48314bf1a5a37aa06e4bcff73aeb318e3bf3c11796dd
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.21.0-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.0-1.0.ubuntu1210_amd64.deb
+        sha256: 2e35de8af2edab43e2c8a01c93d3f5560476d9d8e6d9ba44560fd9a0a445d03e
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.21.0-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.21.0-1.0.ubuntu1204_amd64.deb
+        sha256: 67be6546737d63fe8a1c34deda2c1b3767feb926432fe77713db2539af8219ba
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.21.0-1.0.debian77_amd64.deb
-        egg_path: debian/7/mesos-0.21.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.21.0-1.0.debian77_amd64.deb
+        sha256: 49fdff7a4b86a7a6eb1afb6431f4542b51bb7417a4896b58869fa1bcd1343720
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.21.0-1.0.centos65.x86_64.rpm
-        egg_path: centos/6/mesos-0.21.0-py2.6.egg
+        path: el/6/x86_64/RPMS/mesos-0.21.0-1.0.centos65.x86_64.rpm
+        sha: c715d0689a600296e011def980987a6ce8d46aa9
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.21.0-1.0.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.21.0-py2.7-linux-x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.21.0-1.0.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.21.0-py2.6-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.21.0-1.0.centos701406.x86_64.rpm
+        sha: 3a3cecb983eef86a433afad68cd9cc9c81e40ea5
 
     - name: 0.20.1
       announcement: https://github.com/apache/mesos/blob/0.20.1/CHANGELOG
       timestamp: 2014-09-24 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.20.1-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.1-1.0.ubuntu1404_amd64.deb
+        sha256: 26c02f7fbf4b595568b9e7ebbe4023344ab780971e56b01830df8a50a1c333b7
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.20.1-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.1-1.0.ubuntu1310_amd64.deb
+        sha256: 49f394bfce6fc920821fd93cd661d51cdbfcb7672187bdab633b380aba178b49
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.20.1-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.1-1.0.ubuntu1304_amd64.deb
+        sha256: a39f07708ac67ec97e9c5582b4ac58ee75e8860be86f33b1906388f09217cda8
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.20.1-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.1-1.0.ubuntu1210_amd64.deb
+        sha256: 36c75dae8bf9ed0ab5f027c9c873cee78eb5cdd34b588bc0ed8a2e5edcc2bbcb
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.20.1-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.1-1.0.ubuntu1204_amd64.deb
+        sha256: 4136e11a8e0a78be64b0e6c137e98ea9ddf7d59f56403edfaec07309c1e04ca3
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.20.1-1.0.debian75_amd64.deb
-        egg_path: debian/7/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.20.1-1.0.debian75_amd64.deb
+        sha256: 3f9bb722c088a457abbc49b67c4fea6d662930141dedfafbc87a353c099855b5
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.20.1-1.0.centos64.x86_64.rpm
-        egg_path: centos/6/mesos-0.20.1-py2.6.egg
+        path: el/6/x86_64/RPMS/mesos-0.20.1-1.0.centos64.x86_64.rpm
+        sha: acdcc4e760c677dc15eb1a59fd179d9bcec81123
       - name: CentOS 7 (x86_64)
-        path: centos/7/mesos-0.20.1-1.0.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.20.1-py2.7-linux-x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.20.1-1.0.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.20.1-py2.6-linux-x86_64.egg
-      - name: Red Hat 7 (x86_64)
-        path: centos/7/mesos-0.20.1-1.0.centos701406.x86_64.rpm
-        egg_path: centos/7/mesos-0.20.1-py2.7-linux-x86_64.egg
+        path: el/7/x86_64/RPMS/mesos-0.20.1-1.0.centos701406.x86_64.rpm
+        sha: 8ae880f5b2daae6747aac8d7c19879f0f6610f62
 
     - name: 0.20.0
       announcement: https://github.com/apache/mesos/blob/0.20.0/CHANGELOG
       timestamp: 2014-08-22 00:00:00 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.20.0-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.0-1.0.ubuntu1404_amd64.deb
+        sha256: 3abb31197fb63403c811b428df7bc780641d9ab7fd1adc488d86facda4d2db37
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.20.0-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.0-1.0.ubuntu1310_amd64.deb
+        sha256: 57976560d105b653b9b4c9390fd7ad3a531f5ff051f62e951a895ee1240ba5a5
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.20.0-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.0-1.0.ubuntu1304_amd64.deb
+        sha256: 0430feadb39888971b76cb6d4779c0dba503fff8bc9856440726f1b52fddcc3b
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.20.0-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.0-1.0.ubuntu1210_amd64.deb
+        sha256: b2ece55ef797907ead1e9015fdf19f2fd690252a96bcca3ec1ca22219c134961
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.20.0-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.20.0-1.0.ubuntu1204_amd64.deb
+        sha256: c43ed926567c44f5c730bda3e4c75320dc9990ad6fc7b4ec280f47d97a56cd20
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.20.0-1.0.debian75_amd64.deb
-        egg_path: debian/7/mesos-0.20.0-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.20.0-1.0.debian75_amd64.deb
+        sha256: 91fcdeaaf0c6e32558f8fbdbeb51646776e1a06ce34935ebdeabb83739783d45
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.20.0-1.0.centos64.x86_64.rpm
-        egg_path: centos/6/mesos-0.20.0-py2.6.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.20.0-1.0.redhat65.x86_64.rpm
-        egg_path: redhat/6/mesos-0.20.0-py2.6-linux-x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.20.0-1.0.centos64.x86_64.rpm
+        sha: 7e4d4ecb8f86510e45abb4d098b5e8c96ba24409
 
     - name: 0.19.1
       announcement: https://github.com/apache/mesos/blob/0.19.1/CHANGELOG
       timestamp: 2014-07-18 18:40:08 +0000
       packages:
       - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.19.1-1.0.ubuntu1404_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.19.1-1.0.ubuntu1404_amd64.deb
+        sha256: fed60e529b03d37703772b92de888ac72036e08dccd78dd3efc415dc32b033e5
       - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.19.1-1.0.ubuntu1310_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.19.1-1.0.ubuntu1310_amd64.deb
+        sha256: 25037f519aa35b8131009503d2de955bfa9975415a0dbf655320a632f2491090
       - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.19.1-1.0.ubuntu1304_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.19.1-1.0.ubuntu1304_amd64.deb
+        sha256: d3a392cf19f55bf2e1b105000271397978fa122f2d3b27031887a952df39ae66
       - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.19.1-1.0.ubuntu1210_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.19.1-1.0.ubuntu1210_amd64.deb
+        sha256: f7ae256a55b235da4b9bb6a0f7db09ed884f5a255540acd3c4c51c4309f72e6d
       - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.19.1-1.0.ubuntu1204_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: ubuntu/pool/main/m/mesos/mesos_0.19.1-1.0.ubuntu1204_amd64.deb
+        sha256: d139d9b7f1353e6a8ca400a19388f41a34553517c640483ea7893ad69346b2e2
       - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.19.1-1.0.debian75_amd64.deb
-        egg_path: debian/7/mesos-0.19.1-py2.7-linux-x86_64.egg
+        path: debian/pool/main/m/mesos/mesos_0.19.1-1.0.debian75_amd64.deb
+        sha256: 3dc823e3682a617f86c83580df8c54a13bcda2967469df223be6105cb702274d
       - name: CentOS 6 (x86_64)
-        path: centos/6/mesos-0.19.1-1.0.centos64.x86_64.rpm
-        egg_path: centos/6/mesos-0.19.1-py2.6.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos-0.19.1-1.0.redhat64.x86_64.rpm
-        egg_path: redhat/6/mesos-0.19.1-py2.6-linux-x86_64.egg
-
-    - name: 0.19.0
-      announcement: https://github.com/apache/mesos/blob/0.19.0/CHANGELOG
-      timestamp: 2014-06-09 12:00:00 +0000
-      packages:
-      - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/14.04/mesos_0.19.0~ubuntu14.04%2B1_amd64.deb
-        egg_path: ubuntu/14.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.19.0~ubuntu13.10%2B1_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.19.0~ubuntu13.04%2B1_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.19.0~ubuntu12.10%2B1_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.19.0~ubuntu12.04%2B1_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.19.0~debian7.1%2B1_amd64.deb
-        egg_path: debian/7/mesos-0.19.0_rc2-py2.7-linux-x86_64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.19.0_x86_64.rpm
-        egg_path: centos/6/mesos-0.19.0_rc2-py2.6.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.19.0_x86_64.rpm
-        egg_path: redhat/6/mesos-0.19.0_rc2-py2.6-linux-x86_64.egg
-
-    - name: 0.18.2
-      announcement: https://github.com/apache/mesos/blob/0.18.2/CHANGELOG
-      timestamp: 2014-05-19 12:00:00 +0000
-      packages:
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.18.2_amd64.deb
-        egg_path: ubuntu/13.10/mesos-0.18.2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.18.2_amd64.deb
-        egg_path: ubuntu/13.04/mesos-0.18.2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.18.2_amd64.deb
-        egg_path: ubuntu/12.10/mesos-0.18.2-py2.7-linux-x86_64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.18.2_amd64.deb
-        egg_path: ubuntu/12.04/mesos-0.18.2-py2.7-linux-x86_64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.18.2_amd64.deb
-        egg_path: debian/7/mesos-0.18.2-py2.7-linux-x86_64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.18.2_x86_64.rpm
-        egg_path: centos/6/mesos-0.18.2-py2.6.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.18.2_x86_64.rpm
-        egg_path: redhat/6/mesos-0.18.2-py2.6-linux-x86_64.egg
-
-    - name: 0.18.0
-      announcement: https://github.com/apache/mesos/blob/0.18.0/CHANGELOG
-      timestamp: 2014-04-09 12:00:00 +0000
-      packages:
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.18.0_amd64.deb
-        egg_path: ubuntu/13.10/mesos_0.18.0_amd64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.18.0_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.18.0_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.18.0_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.18.0_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.18.0_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.18.0_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.18.0_amd64.deb
-        egg_path: debian/7/mesos_0.18.0_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.18.0_x86_64.rpm
-        egg_path: centos/6/mesos_0.18.0_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.18.0_x86_64.rpm
-        egg_path: redhat/6/mesos_0.18.0_x86_64.egg
-      - name: OS X 10.9 Mavericks
-        path: osx/10.9/mesos-0.18.0.pkg
-        egg_path: osx/10.9/mesos-0.18.0-py2.7-macosx-10.9-intel.egg
-
-    - name: 0.17.0
-      announcement: https://github.com/apache/mesos/blob/0.17.0/CHANGELOG
-      timestamp: 2014-02-27 12:00:00 +0000
-      packages:
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.17.0_amd64.deb
-        egg_path: ubuntu/13.10/mesos_0.17.0_amd64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.17.0_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.17.0_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.17.0_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.17.0_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.17.0_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.17.0_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.17.0_amd64.deb
-        egg_path: debian/7/mesos_0.17.0_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.17.0_x86_64.rpm
-        egg_path: centos/6/mesos_0.17.0_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.17.0_x86_64.rpm
-        egg_path: redhat/6/mesos_0.17.0_x86_64.egg
-
-    - name: 0.16.0
-      announcement: https://github.com/apache/mesos/blob/0.16.0-rc5/CHANGELOG
-      timestamp: 2014-02-06 12:00:00 -0800
-      packages:
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.16.0_amd64.deb
-        egg_path: ubuntu/13.10/mesos_0.16.0_amd64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.16.0_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.16.0_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.16.0_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.16.0_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.16.0_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.16.0_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.16.0_amd64.deb
-        egg_path: debian/7/mesos_0.16.0_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.16.0_x86_64.rpm
-        egg_path: centos/6/mesos_0.16.0_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.16.0_x86_64.rpm
-        egg_path: redhat/6/mesos_0.16.0_x86_64.egg
-
-    - name: 0.15.0
-      announcement: https://github.com/apache/mesos/blob/0.15.0/CHANGELOG
-      timestamp: 2014-01-09 12:00:00 -0800
-      packages:
-      - name: Ubuntu 13.10 (AMD 64)
-        path: ubuntu/13.10/mesos_0.15.0_amd64.deb
-        egg_path: ubuntu/13.10/mesos_0.15.0_amd64.egg
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.15.0_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.15.0_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.15.0_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.15.0_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.15.0_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.15.0_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.15.0_amd64.deb
-        egg_path: debian/7/mesos_0.15.0_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.15.0_x86_64.rpm
-        egg_path: centos/6/mesos_0.15.0_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.15.0_x86_64.rpm
-        egg_path: redhat/6/mesos_0.15.0_x86_64.egg
-
-    - name: 0.14.2
-      announcement: http://mesos.apache.org/blog/mesos-0-14-2-released/
-      timestamp: 2013-11-03 18:03:28 -0800
-      packages:
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.14.2_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.14.2_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.14.2_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.14.2_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.14.2_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.14.2_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.14.2_amd64.deb
-        egg_path: debian/7/mesos_0.14.2_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.14.2_x86_64.rpm
-        egg_path: centos/6/mesos_0.14.2_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.14.2_x86_64.rpm
-        egg_path: redhat/6/mesos_0.14.2_x86_64.egg
-
-    - name: 0.14.1
-      announcement: http://mesos.apache.org/blog/slave-recovery-in-apache-mesos/
-      timestamp: 2013-10-09 15:53:41 -0700
-      packages:
-      - name: Ubuntu 13.04 (AMD 64)
-        path: ubuntu/13.04/mesos_0.14.1_amd64.deb
-        egg_path: ubuntu/13.04/mesos_0.14.1_amd64.egg
-      - name: Ubuntu 12.10 (AMD 64)
-        path: ubuntu/12.10/mesos_0.14.1_amd64.deb
-        egg_path: ubuntu/12.10/mesos_0.14.1_amd64.egg
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/12.04/mesos_0.14.1_amd64.deb
-        egg_path: ubuntu/12.04/mesos_0.14.1_amd64.egg
-      - name: Debian 7 (AMD 64)
-        path: debian/7/mesos_0.14.1_amd64.deb
-        egg_path: debian/7/mesos_0.14.1_amd64.egg
-      - name: CentOS 6 (x86_64)
-        path: centos/6/mesos_0.14.1_x86_64.rpm
-        egg_path: centos/6/mesos_0.14.1_x86_64.egg
-      - name: Red Hat 6 (x86_64)
-        path: redhat/6/mesos_0.14.1_x86_64.rpm
-        egg_path: redhat/6/mesos_0.14.1_x86_64.egg
+        path: el/6/x86_64/RPMS/mesos-0.19.1-1.0.centos64.x86_64.rpm
+        sha: e0996d2e802561ddc058f615e7fc95104b6c51eb
