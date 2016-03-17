@@ -37,7 +37,7 @@ This page contains information about Apache Mesos release candidate (RC) builds.
   <thead>
     <tr>
       <th valign="bottom" align="left">
-        <span class="h4">Apache Mesos {{ rel.name }}</span>
+        <span class="h4">Apache Mesos {{ rel.name | upcase }}</span>
         <small style="font-weight:normal;">
           <a href="{{ rel.announcement }}" title="Release notes for Apache Mesos {{ rel.name }}">Release notes</a>
         </small>
