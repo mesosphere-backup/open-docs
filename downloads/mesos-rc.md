@@ -16,7 +16,8 @@ This page contains information about Apache Mesos release candidate (RC) builds.
 
 {% for package in site.data.download_rc_versions %}
 {% if package.name == "mesos" %}
-{% for rel in package.releases %}
+{% assign releases = package.releases | sort:"name" | reverse%}
+{% for rel in releases %}
 <h4>
   <a href="#apache-mesos-{{ rel.name }}" title="Show packages for Apache Mesos {{ rel.name }}">Apache Mesos {{ rel.name }}</a>&nbsp;&nbsp;&nbsp;
   <small>released
@@ -29,7 +30,8 @@ This page contains information about Apache Mesos release candidate (RC) builds.
 
 {% for package in site.data.download_rc_versions %}
 {% if package.name == "mesos" %}
-{% for rel in package.releases %}
+{% assign releases = package.releases | sort:"name" | reverse%}
+{% for rel in releases %}
 <div id="apache-mesos-{{ rel.release_group }}"></div>
 <table class="table table-striped" id="apache-mesos-{{ rel.name }}">
   <thead>
