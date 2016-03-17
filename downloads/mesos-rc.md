@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Download Apache Mesos Packages
+title: Download Apache Mesos RC Packages
 base: //downloads.mesosphere.io/master
 ---
 
 <div class="page-header">
-  <h1>Download Apache Mesos Packages</h1>
+  <h1>Download Apache Mesos RC Packages</h1>
 </div>
 
 <em>
-This page contains information about Apache Mesos release builds. For release candidate builds, see the [release-candidates](/downloads/mesos-rc/) page.
+This page contains information about Apache Mesos release candidate (RC) builds. For official releases, see the [releases](/downloads/mesos/) page.
 </em>
 
-### All releases
+### All Release Candidates
 
-{% for package in site.data.download_versions %}
+{% for package in site.data.download_rc_versions %}
 {% if package.name == "mesos" %}
 {% assign releases = package.releases | sort:"name" | reverse%}
 {% for rel in releases %}
@@ -28,7 +28,7 @@ This page contains information about Apache Mesos release builds. For release ca
 {% endif %}
 {% endfor %}
 
-{% for package in site.data.download_versions %}
+{% for package in site.data.download_rc_versions %}
 {% if package.name == "mesos" %}
 {% assign releases = package.releases | sort:"name" | reverse%}
 {% for rel in releases %}
