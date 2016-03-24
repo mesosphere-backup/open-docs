@@ -9,7 +9,7 @@ base: //downloads.mesosphere.io/master
 </div>
 
 <em>
-This page contains information about Apache Mesos release builds. For release candidate builds, see the [release-candidates](/downloads/mesos-rc/) page.
+This page contains information about Apache Mesos release builds. For release candidate builds, see the [mesos-rc](/downloads/mesos-rc/) page. For nightly builds, see the [mesos-nightly](/downloads/mesos-nightly/) page.
 </em>
 
 ### All releases
