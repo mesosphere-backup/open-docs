@@ -44,14 +44,14 @@ sudo apt-get -y update
 
 ```sh
 # Add the repository
-sudo rpm -Uvh http://repos.mesosphere.com/el/6/noarch/RPMS/mesosphere-el-unstable-repo-6-2.noarch.rpm
+sudo rpm -Uvh http://repos.mesosphere.com/el/6/noarch/RPMS/mesosphere-el-repo-6-3.noarch.rpm
 ```
 
 #### RedHat 7 / CentOS 7
 
 ```sh
 # Add the repository
-sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-unstable-repo-7-1.noarch.rpm
+sudo rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-3.noarch.rpm
 ```
 
 ### Install from package
