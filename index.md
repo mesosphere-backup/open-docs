@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Overview
+
 redirect_to:
 - https://dcos.io/
 ---
