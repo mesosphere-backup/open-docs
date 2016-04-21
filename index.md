@@ -6,6 +6,10 @@ redirect_to:
 - https://dcos.io/
 ---
 
+This site is now deprecated. Please visit [dcos.io](https://dcos.io/) for the latest DC/OS community projects and documentation!
+
+
+
 Welcome to the Mesosphere Community Documentation website! This site contains documentation and tutorials for the community projects supported by Mesosphere, including [Apache Mesos](http://mesos.apache.org/), [Marathon](https://github.com/mesosphere/marathon) and [Chronos](https://github.com/mesos/chronos).
 
 This site also contains [a listing of Apache Mesos packages by version](/downloads/mesos). These are also available through your distribution's package manager ([setup instructions](https://mesosphere.com/downloads/)).
