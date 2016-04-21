@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Tutorials
+
 redirect_from: 
 - /tutorials/etl-pipelines-with-chronos-and-hadoop/ 
 - /tutorials/mesosphere-on-a-single-coreos-instance/
@@ -10,7 +11,12 @@ redirect_from:
 - /tutorials/run-spark-on-mesos/
 - /learn/run-storm-on-mesos/
 - /tutorials/run-storm-on-mesos/
+
+redirect_to:
+- https://dcos.io/
 ---
+
+This site is now deprecated. Please visit [dcos.io](https://dcos.io/) for the latest DC/OS community projects and documentation!
 
 <div class="body-light">
   <div id="tutorials">

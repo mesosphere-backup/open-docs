@@ -1,7 +1,12 @@
 ---
 layout: doc
 title: Frameworks On Mesos
+
+redirect_to:
+- https://dcos.io/
 ---
+
+This site is now deprecated. Please visit [dcos.io](https://dcos.io/) for the latest DC/OS community projects and documentation!
 
 <div class="learn-developer-resources" id="apps">
 
