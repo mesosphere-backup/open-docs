@@ -1,12 +1,12 @@
 ---
 layout: doc
 title: Getting Started
-redirect_from: 
-- /getting-started/datacenter/
-- /getting-started/cloud/google/click-to-deploy/
-- /getting-started/cloud/google/mesosphere/
-- /getting-started/cloud/whats-next/
+
+redirect_to:
+- https://dcos.io/
 ---
+
+This site is now deprecated. Please visit [dcos.io](https://dcos.io/) for the latest DC/OS community projects and documentation!
 
 ## Mesos in the Cloud
 
