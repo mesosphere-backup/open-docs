@@ -82,36 +82,6 @@
         path: el-testing/6/x86_64/RPMS/mesos-0.27.3-1.0.54.rc1.centos65.x86_64.rpm
         sha256: 1c82d514f2951944266b699417d75c6432ec49db9c690f129f9efbf9bc543ff9
 
-    - name: 1.0.0-rc1
-      announcement: https://github.com/apache/mesos/blob/1.0.0-rc1/CHANGELOG
-      timestamp: 2016-06-01 01:12:36 -0600
-      packages:
-
-      - name: Ubuntu 16.04 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.ubuntu1604_amd64.deb
-        sha256: e5ed4759384963be3fd4c718003efb2a9310c43eb79901390c091cc022ba14f7
-      - name: Ubuntu 15.10 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.ubuntu1510_amd64.deb
-        sha256: c6e51272c18b6778c7067133023622614d2c443322800eadc25fc248b6087f77
-      - name: Ubuntu 15.04 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.ubuntu1504_amd64.deb
-        sha256: 0ce20e03bf0fa952ac717ea01d1a496d7ce06cb96c271f1010acf3bad7fc1156
-      - name: Ubuntu 14.04 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.ubuntu1404_amd64.deb
-        sha256: 032dd94d10c4f43cef8320883346b3bafe5e8269a2f89104d2ac43be904478d8
-      - name: Ubuntu 12.04 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.ubuntu1204_amd64.deb
-        sha256: ad4306bf038f4d857f18c9cef266a7df58385b70aa3294ed92ed27875b2f65da
-      - name: Debian 8 (AMD 64)
-        path: debian/pool/main/m/mesos/mesos_1.0.0-1.0.52.rc1.debian81_amd64.deb
-        sha256: bcc4446468ca220196f0336d1168c28b16c0a95851759d4d9a5a47d8f44c5f6a
-      - name: CentOS 7 (x86_64)
-        path: el-testing/7/x86_64/RPMS/mesos-1.0.0-1.0.52.rc1.centos701406.x86_64.rpm
-        sha256: d4fd265076b1fce32171508204dff37c0cc8c3d08d0215f3fc656e582f1eee0d
-      - name: CentOS 6 (x86_64)
-        path: el-testing/6/x86_64/RPMS/mesos-1.0.0-1.0.52.rc1.centos65.x86_64.rpm
-        sha256: d7e8c2352099e7bbfdc7b1d76d56cd17ff40832a24932b53b15d241d788207b5
-
     - name: 0.28.2-rc1
       announcement: https://github.com/apache/mesos/blob/0.28.2-rc1/CHANGELOG
       timestamp: 2016-05-25 08:21:24 -0700
