@@ -67,7 +67,7 @@ sudo apt-get -y install mesos
 #### RedHat / CentOS:
 
 ```sh
-sudo yum  -y install --enable-repo=mesosphere-unstable mesos
+sudo yum -y install --enablerepo=mesosphere-unstable mesos
 ```
 
 ---
