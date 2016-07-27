@@ -3,7 +3,7 @@
 
     - name: 1.0.0
       announcement: https://github.com/apache/mesos/blob/1.0.0/CHANGELOG
-      timestamp: 2016-07-27
+      timestamp: 2016-07-22 16:51:58 -0700
       packages:
       - name: Ubuntu 16.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.0.0-2.0.86.ubuntu1604_amd64.deb
