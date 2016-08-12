@@ -1,5 +1,7 @@
-Mesosphere Community Docs Site
+[DEPRECATED] Mesosphere Community Docs Site
 ==============================
+
+**THIS CONTENT IS DEPRECATED. FOR THE LATEST INFORMATION, SEE <a href="dcos.io">dcos.io</a>.**
 
 This repository contains the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
 
