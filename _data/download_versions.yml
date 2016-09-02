@@ -6,8 +6,8 @@
       timestamp: 2016-08-10 16:57:40 -0700
       packages:
       - name: Ubuntu 16.04 (AMD 64)
-        path: ubuntu/pool/main/m/mesos/mesos_1.0.1-2.0.93.ubuntu1604_amd64.deb
-        sha256: 2a67205575db4b093670d6feb3ffb011b1ea7d0110e2d5387b1c086c5d1d9191 
+        path: ubuntu/pool/main/m/mesos/mesos_1.0.1-2.0.94.ubuntu1604_amd64.deb
+        sha256: 41048c79bb9af4b2c6011bf71118ffc090ba7d2197c645bf3091f13f756218e1
       - name: Ubuntu 15.10 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.0.1-2.0.93.ubuntu1510_amd64.deb
         sha256: 3a134c7c02c5a4a6f9668123604f8b3768d219c7a03608a4a518a2d9350796ed 
