@@ -5,6 +5,14 @@
       announcement: https://github.com/apache/mesos/blob/1.0.1/CHANGELOG
       timestamp: 2016-08-10 16:57:40 -0700
       packages:
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-1.0.1-2.0.96.centos65.x86_64.rpm
+        sha256: 70ad22071beb6596407c9fee2d7549f53e76ea5b34c9d3d558a08af694a72919 
+
+    - name: 1.0.1
+      announcement: https://github.com/apache/mesos/blob/1.0.1/CHANGELOG
+      timestamp: 2016-08-10 16:57:40 -0700
+      packages:
       - name: Ubuntu 16.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.0.1-2.0.94.ubuntu1604_amd64.deb
         sha256: 41048c79bb9af4b2c6011bf71118ffc090ba7d2197c645bf3091f13f756218e1
