@@ -152,7 +152,7 @@ Marathon supports many HTTP commands to read current status and to make configur
     curl -X DELETE http://192.168.33.10:8080/v2/apps/webapp
 
     # update the configuration of an app
-    curl -X PUT http://192.168.33.10:8080/v2/apps/webapp -dwebapp.json -H "Content-type: application/json"
+    curl -X PUT http://192.168.33.10:8080/v2/apps/webapp -d@webapp.json -H "Content-type: application/json"
 
     # list the tasks of an app
     curl http://192.168.33.10:8080/v2/apps/webapp/tasks
