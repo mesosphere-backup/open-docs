@@ -10,7 +10,7 @@ This site is now deprecated. Please visit [dcos.io](https://dcos.io/) for the la
 
 ## Mesos in the Cloud
 
-You can easily deploy Mesosphere DCOS into the cloud. Currently [Amazon Web Services](http://mesosphere.com/amazon) is supported but [Azure](https://mesosphere.com/azure/) and [Google](https://mesosphere.com/google/) support are coming soon!
+You can easily deploy Mesosphere DCOS into the cloud. Currently [Amazon Web Services](http://mesosphere.com/amazon) is supported but [Azure](https://mesosphere.com/azure/) and [Google](https://mesosphere.com/google/) support are coming soon!!
 
 ## DIY Mesos
 
