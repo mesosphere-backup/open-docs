@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Generating ssh Keys
+redirect_to:
+- https://dcos.io/
 ---
 
 Before generating ssh keys, you should first check to make sure you don’t already have a key.  By default, a user’s ssh keys are stored in that user’s `~/.ssh` directory. You can easily check to see if you have a key already by going to that directory and listing the contents:

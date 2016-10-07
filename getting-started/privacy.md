@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Mesosphere Cloud Privacy Policy
+redirect_to:
+- https://dcos.io/
 ---
 
 # Privacy Policy
