@@ -10,7 +10,7 @@ redirect_to:
 
 This tutorial will walk you through setting up a cluster which includes [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://github.com/mesosphere/marathon).
 
-In this tutorial, we assume that you are deploying masters and slaves in a fault-tolerant way to multiple discrete hosts. 
+In this tutorial, we assume that you are deploying masters and agents in a fault-tolerant way to multiple discrete hosts. 
 
 + [Master Node Setup](#master-setup)
 + [Slave Node Setup](#slave-setup)
