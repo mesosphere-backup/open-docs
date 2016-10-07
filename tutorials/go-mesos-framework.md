@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Creating a Mesos Framework with Go
-
+redirect_to:
+- https://dcos.io/
 ---
  
 This tutorial creates a Mesos framework in the Go programming language and launches from within a Vagrant VM. 

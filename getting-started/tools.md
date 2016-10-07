@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Provisioning Tools for Mesos
-redirect_from: /getting-started/datacenter/automation/
+redirect_to:
+- https://dcos.io/
 ---
 
 

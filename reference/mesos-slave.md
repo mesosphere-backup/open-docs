@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Mesos Slave Configuration
+redirect_to:
+- https://dcos.io/
 ---
 
 ## Introduction
