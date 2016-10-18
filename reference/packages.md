@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Mesosphere Packages
+redirect_to:
+- https://dcos.io/
 ---
 
 ## Introduction

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Service Discovery
-redirect_from: /getting-started/service-discovery/
+redirect_to:
+- https://dcos.io/
 ---
 
 Service discovery allows network communication between services. It is an essential configuration step when you wish to run an application distributed across a data center.

@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Developer Resources
+redirect_to:
+- https://dcos.io/
 ---
 
 Mesos makes it easy to develop distributed systems by providing

@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: Mesosphere Cloud Terms of Use
+redirect_to:
+- https://dcos.io/
 ---
 
 Terms of Use

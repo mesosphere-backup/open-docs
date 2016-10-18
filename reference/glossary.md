@@ -1,6 +1,8 @@
 ---
 layout: doc
 title: DCOS Terminology 
+redirect_to:
+- https://dcos.io/
 ---
 
 Datacenter operating system
