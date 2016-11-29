@@ -1,0 +1,193 @@
+#!/usr/bin/env python
+# Generate Yaml for Mesos releases.
+import argparse
+import datetime
+import gzip
+import re
+import subprocess
+import sys
+import StringIO
+import urllib2
+import xml.etree.ElementTree as ElementTree
+
+baseurl = 'http://repos.mesosphere.com/'
+package = 'mesos'
+
+distros = [
+    'ubuntu1610',
+    'ubuntu1604',
+    #'ubuntu1510',
+    #'ubuntu1504',
+    'ubuntu1404',
+    'ubuntu1204',
+    'debian8',
+    'centos7',
+    'centos6']
+
+distroName = {}
+distroName['ubuntu1610'] = 'Ubuntu 16.10 (AMD 64)'
+distroName['ubuntu1604'] = 'Ubuntu 16.04 (AMD 64)'
+#distroName['ubuntu1510'] = 'Ubuntu 15.10 (AMD 64)'
+#distroName['ubuntu1504'] = 'Ubuntu 15.04 (AMD 64)'
+distroName['ubuntu1404'] = 'Ubuntu 14.04 (AMD 64)'
+distroName['ubuntu1204'] = 'Ubuntu 12.04 (AMD 64)'
+
+distroName['debian8']    = 'Debian 8 (AMD 64)'
+
+distroName['centos7']    = 'CentOS 7 (x86_64)'
+distroName['centos6']    = 'CentOS 6 (x86_64)'
+
+
+def getRepoPath(version, distro):
+    suffix = ''
+    if 'rc' in version:
+        suffix = '-testing'
+    elif 'git' in version:
+        suffix = '-unstable'
+
+    repoPath = {}
+    repoPath['ubuntu1610']   = 'ubuntu/dists/yakkete'  + suffix
+    repoPath['ubuntu1604']   = 'ubuntu/dists/xenial'  + suffix
+    #repoPath['ubuntu1510']   = 'ubuntu/dists/wily'    + suffix
+    #repoPath['ubuntu1504']   = 'ubuntu/dists/vivid'   + suffix
+    repoPath['ubuntu1404']   = 'ubuntu/dists/trusty'  + suffix
+    repoPath['ubuntu1204']   = 'ubuntu/dists/precise' + suffix
+
+    repoPath['debian8']      = 'debian/dists/jessie'  + suffix
+
+    repoPath['centos7']      = 'el' + suffix + '/7/x86_64'
+    repoPath['centos6']      = 'el' + suffix + '/6/x86_64'
+
+    return repoPath[distro]
+
+def getRPMSHA256(version, distro):
+
+    def getPrimaryXmlUrl(repomdPath):
+        repomdData = urllib2.urlopen(repoUrl + '/repodata/repomd.xml').read()
+        repomdRoot = ElementTree.fromstring(repomdData)
+
+        ns = {'ns':"http://linux.duke.edu/metadata/repo"}
+
+        primaryXmlLocation = repomdRoot.find(
+            './ns:data[@type="primary"]/ns:location',ns).attrib['href']
+        return repoUrl + '/' + primaryXmlLocation
+
+    def getSHA(primaryXmlUrl, version):
+        primaryXmlGzData = urllib2.urlopen(primaryXmlUrl).read()
+        fileobj = StringIO.StringIO(primaryXmlGzData)
+        primaryXmlData = gzip.GzipFile(mode='rb', fileobj=fileobj).read()
+
+        primaryXmlRoot = ElementTree.fromstring(primaryXmlData)
+
+        ns = {'ns':"http://linux.duke.edu/metadata/common"}
+
+        # Create regex to handle build versions.
+        # (e.g., '1.1.0-rc1' -> '1.1.0-1.0.192.rc1')
+        regex = version.replace('.', '\.').replace('-', '-\d+\.\d+\.\d+\.')
+
+        for pkg in primaryXmlRoot:
+            filename = pkg.find('./ns:location',ns).attrib['href']
+            if pkg.find('./ns:name',ns).text == package and \
+               re.search(regex, filename):
+                sha256 = pkg.find('./ns:checksum',ns).text
+                return filename, sha256
+        return None, None
+
+
+    repoUrl = baseurl + getRepoPath(version, distro)
+
+    primaryXmlURL = getPrimaryXmlUrl(repoUrl)
+
+    return getSHA(primaryXmlURL, version)
+
+
+def getDebSHA256(version, distro):
+    def genDict(arg):
+        result = {}
+        for line in arg.split("\n"):
+            if line[0] == ' ':
+                continue
+            fields = line.split(": ", 1)
+            result[fields[0]] = fields[1]
+        return result
+
+    # Create regex to handle build versions.
+    # (e.g., '1.1.0-rc1' -> '1.1.0-1.0.192.rc1')
+    regex = version.replace('.', '\.').replace('-', '-\d+\.\d+\.\d+\.')
+
+    distroPath = getRepoPath(version, distro)
+
+    packagesUrl = baseurl + distroPath + '/main/binary-amd64/Packages'
+    packagesData = urllib2.urlopen(packagesUrl).read()
+    packages = packagesData.split("\n\n")
+    for pkg in packages:
+        if len(pkg) == 0:
+            continue
+        p = genDict(pkg)
+        if p['Package'] == package and re.search(regex, p['Filename']):
+            return p['Filename'], p['SHA256']
+
+    sys.stderr.write("SHA256 not found for " + version + ' in ' + distro)
+    return None, None
+
+def getYamlBlock(distro, filename, sha256, version):
+    keys = {}
+    keys['distro_name'] = distroName[distro]
+    keys['sha256'] = sha256
+
+    if 'centos' in distro:
+        keys['pkg_url'] = getRepoPath(version, distro) + "/" + filename
+    elif 'debian' in distro:
+        keys['pkg_url'] = "debian/" + filename
+    elif 'ubuntu' in distro:
+        keys['pkg_url'] = "ubuntu/" + filename
+
+    return \
+    """
+      - name: {distro_name}
+        path: {pkg_url}
+        sha256: {sha256} """.format(**keys)
+
+def generateYaml(version, timestamp):
+    keys = {}
+    keys['version'] = version
+    keys['timestamp'] = timestamp
+
+    yamlString = \
+    """
+    - name: {version}
+      announcement: https://github.com/apache/mesos/blob/{version}/CHANGELOG
+      timestamp: {timestamp}
+      packages:""".format(**keys)
+
+    for distro in distros:
+        if 'centos' in distro:
+            getSHA256 = getRPMSHA256
+        elif 'debian' in distro or 'ubuntu' in distro:
+            getSHA256 = getDebSHA256
+        else:
+            print "Invalid distro name: " + distro
+            sys.exit(1)
+
+        try:
+            filename, sha256 = getSHA256(version, distro)
+        except IOError, e:
+            sys.stderr.write('Failed to lookup ' + version + ' in ' + distro)
+            continue
+
+        if sha256:
+            yamlString += getYamlBlock(distro, filename, sha256, version)
+
+    return yamlString
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Generate Yaml block for Mesos\
+                                     releases.')
+    parser.add_argument('--version', help='Mesos version string '
+                        '(e.g., 1.0.1, 1.0.1-rc1)', required=True)
+    parser.add_argument('--timestamp', help='Release timetamp', default='')
+
+    args = parser.parse_args()
+
+    print generateYaml(args.version, args.timestamp)
