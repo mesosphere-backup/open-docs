@@ -24,6 +24,29 @@
         path: el-testing/6/x86_64/RPMS/mesos-1.0.3-1.0.1.rc1.el6.x86_64.rpm
         sha256: 247c5bc43659278c978b6f808d98a8ecfa04eb51608c4a3804fe981083b4d80d 
 
+    - name: 1.0.3-rc1
+      announcement: https://github.com/apache/mesos/blob/1.0.3-rc1/CHANGELOG
+      timestamp: 2017-01-19 16:43:30 +0100
+      packages:
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.0.3-1.0.1.rc1.ubuntu1604_amd64.deb
+        sha256: a86a8e76e1ae19da69ee2079c397b276cbdde26a4ae66aa3dcf10a9acb1d2f41 
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.0.3-1.0.1.rc1.ubuntu1404_amd64.deb
+        sha256: a83308c4530125d036b24572c31d966ee9a8bd1c4a57950778e832b32bf9c42d 
+      - name: Ubuntu 12.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.0.3-1.0.1.rc1.ubuntu1204_amd64.deb
+        sha256: 7e54a70d96b738fa185d6a3949cfa91f7b97d9400da771f20a90c1fc857762c6 
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.0.3-1.0.1.rc1.debian8_amd64.deb
+        sha256: f94bfaf85ba7ee8acc731e098ef2ece11a7e704c7b2791528bed71a6cc47b5f7 
+      - name: CentOS 7 (x86_64)
+        path: el-testing/7/x86_64/RPMS/mesos-1.0.3-1.0.1.rc1.el7.x86_64.rpm
+        sha256: 514cd0e559b46907068c16ed5c18b2407a0c00b8318e8c71cb5dcbed6c57e546 
+      - name: CentOS 6 (x86_64)
+        path: el-testing/6/x86_64/RPMS/mesos-1.0.3-1.0.1.rc1.el6.x86_64.rpm
+        sha256: 247c5bc43659278c978b6f808d98a8ecfa04eb51608c4a3804fe981083b4d80d 
+
     - name: 1.1.0-rc3
       announcement: https://github.com/apache/mesos/blob/1.1.0-rc3/CHANGELOG
       timestamp: 2016-11-03 22:51:32 +0100
