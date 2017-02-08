@@ -46,7 +46,7 @@ def getRepoPath(version, distro):
         suffix = '-unstable'
 
     repoPath = {}
-    repoPath['ubuntu1610']   = 'ubuntu/dists/yakkete'  + suffix
+    repoPath['ubuntu1610']   = 'ubuntu/dists/yakkety'  + suffix
     repoPath['ubuntu1604']   = 'ubuntu/dists/xenial'  + suffix
     #repoPath['ubuntu1510']   = 'ubuntu/dists/wily'    + suffix
     #repoPath['ubuntu1504']   = 'ubuntu/dists/vivid'   + suffix
