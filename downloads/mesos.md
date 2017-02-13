@@ -10,6 +10,8 @@ base: //downloads.mesosphere.io/master
 
 <em>
 This page contains information about Apache Mesos release builds. For release candidate builds, see the [mesos-rc](/downloads/mesos-rc/) page. For nightly builds, see the [mesos-nightly](/downloads/mesos-nightly/) page.
+
+See <a href="#installation">below</a> for installation instruction.
 </em>
 
 ### All releases
@@ -80,7 +82,7 @@ This page contains information about Apache Mesos release builds. For release ca
 {% endfor %}
 
 ---
-
+<div id="installation"></div>
 ## Installing Mesos packages
 
 Mesosphere has official package repositories which connect directly to the native package management tools of your favorite Linux distribution — namely apt-get and yum — to install Mesos on top of the most common Linux distributions (RedHat, CentOS, Ubuntu and Debian).
