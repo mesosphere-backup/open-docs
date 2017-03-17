@@ -1,6 +1,11 @@
 - name: mesos
   releases:
 
+    - name: 1.2.0
+      announcement: https://github.com/apache/mesos/blob/1.2.0/CHANGELOG
+      timestamp: 2017-02-23 19:12:28 -0800
+      packages:
+
     - name: 1.0.3
       announcement: https://github.com/apache/mesos/blob/1.0.3/CHANGELOG
       timestamp: 2017-01-25 17:59:04 -0500
