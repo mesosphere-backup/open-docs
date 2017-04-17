@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /jobs/challenges/
 Disallow: /
+Disallow: /advanced-course/
