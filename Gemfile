@@ -27,8 +27,7 @@ gem 'libxml-ruby', '~> 2.8.0'
 
 # --- LESS
 gem 'therubyracer', '~> 0.12.1'
-gem 'less', git: 'https://github.com/pyronicide/less.rb.git',
-  branch: 'less-1.6.2', submodules: true
+gem 'less', '~> 2.6.0'
 
 # --- Build
 gem 'yui-compressor', '~> 0.12.0'
