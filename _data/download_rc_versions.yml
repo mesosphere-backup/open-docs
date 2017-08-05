@@ -1,6 +1,32 @@
 - name: mesos
   releases:
 
+    - name: 1.2.2-rc1
+      announcement: https://github.com/apache/mesos/blob/1.2.2-rc1/CHANGELOG
+      timestamp: 2017-08-02 01:26:52 -0700
+      packages:
+      - name: Ubuntu 16.10 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.2.2-1.0.1.rc1.ubuntu1610_amd64.deb
+        sha256: e7d38ed4db129fd59a7c437a60002721e20a2ff624fb16885806614c5c63fd1d 
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.2.2-1.0.1.rc1.ubuntu1604_amd64.deb
+        sha256: a1a8eed96f114b29b911afc3b186d6b9b307610f991efbbccebcc1d9c1a74cc7 
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.2.2-1.0.1.rc1.ubuntu1404_amd64.deb
+        sha256: 37b0306e9f6cb32d9a9f721a998d54dd0242fa78194e8fc1b182ce445b2380f3 
+      - name: Ubuntu 12.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.2.2-1.0.1.rc1.ubuntu1204_amd64.deb
+        sha256: 47145a87e82511a74a0d34acac62d69ce14d641efa0f5741014c72bd72859703 
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.2.2-1.0.1.rc1.debian8_amd64.deb
+        sha256: b9767fb1e2fbced8b53bf85b95b67e71df1fd8f260c88f223362ba54cc81e547 
+      - name: CentOS 7 (x86_64)
+        path: el-testing/7/x86_64/RPMS/mesos-1.2.2-1.0.1.rc1.el7.x86_64.rpm
+        sha256: 80fef2da13e5bfcff3749ec1768f72d129a33fa15a052da150f16fba20b0efae 
+      - name: CentOS 6 (x86_64)
+        path: el-testing/6/x86_64/RPMS/mesos-1.2.2-1.0.1.rc1.el6.x86_64.rpm
+        sha256: 9a3e28f91647436356744ee45cde2e3c7f28cd48fbd696ce8c69323d8403fe0f 
+
     - name: 1.3.0-rc3
       announcement: https://github.com/apache/mesos/blob/1.3.0-rc3/CHANGELOG
       timestamp: 2017-05-24 15:20:28 -0700
