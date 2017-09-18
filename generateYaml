@@ -14,10 +14,9 @@ baseurl = 'http://repos.mesosphere.com/'
 package = 'mesos'
 
 distros = [
-    'ubuntu1610',
+    'ubuntu1710',
+    'ubuntu1704',
     'ubuntu1604',
-    #'ubuntu1510',
-    #'ubuntu1504',
     'ubuntu1404',
     'ubuntu1204',
     'debian8',
@@ -25,10 +24,9 @@ distros = [
     'centos6']
 
 distroName = {}
-distroName['ubuntu1610'] = 'Ubuntu 16.10 (AMD 64)'
+distroName['ubuntu1710'] = 'Ubuntu 17.10 (AMD 64)'
+distroName['ubuntu1704'] = 'Ubuntu 17.04 (AMD 64)'
 distroName['ubuntu1604'] = 'Ubuntu 16.04 (AMD 64)'
-#distroName['ubuntu1510'] = 'Ubuntu 15.10 (AMD 64)'
-#distroName['ubuntu1504'] = 'Ubuntu 15.04 (AMD 64)'
 distroName['ubuntu1404'] = 'Ubuntu 14.04 (AMD 64)'
 distroName['ubuntu1204'] = 'Ubuntu 12.04 (AMD 64)'
 
@@ -46,10 +44,9 @@ def getRepoPath(version, distro):
         suffix = '-unstable'
 
     repoPath = {}
-    repoPath['ubuntu1610']   = 'ubuntu/dists/yakkety'  + suffix
+    repoPath['ubuntu1710']   = 'ubuntu/dists/artful'  + suffix
+    repoPath['ubuntu1704']   = 'ubuntu/dists/zesty'  + suffix
     repoPath['ubuntu1604']   = 'ubuntu/dists/xenial'  + suffix
-    #repoPath['ubuntu1510']   = 'ubuntu/dists/wily'    + suffix
-    #repoPath['ubuntu1504']   = 'ubuntu/dists/vivid'   + suffix
     repoPath['ubuntu1404']   = 'ubuntu/dists/trusty'  + suffix
     repoPath['ubuntu1204']   = 'ubuntu/dists/precise' + suffix
 
