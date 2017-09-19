@@ -3,7 +3,7 @@
 
     - name: 1.4.0
       announcement: https://github.com/apache/mesos/blob/1.4.0/CHANGELOG
-      timestamp: 2017-09-18
+      timestamp: 2017-09-18 16:30:00 -0400
       packages:
       - name: Ubuntu 17.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.4.0-2.0.1.ubuntu1704_amd64.deb
