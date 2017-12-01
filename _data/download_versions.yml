@@ -14,6 +14,9 @@
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.4.1-2.0.1.ubuntu1404_amd64.deb
         sha256: 6918a55052557cf3330095ea2a43e57b3fb690076a8570d0e61dd687db25c32f 
+      - name: Debian 9 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.4.1-2.0.1.debian9_amd64.deb
+        sha256: 64e93bc1e4f732bd13c3391027fd9538abb2fc1655e6a7077254bae8855de391
       - name: Debian 8 (AMD 64)
         path: debian/pool/main/m/mesos/mesos_1.4.1-2.0.1.debian8_amd64.deb
         sha256: 7a6dd9682c24994a8a8ac8b12f67776d9d4bc51e8515cabdf3be267be521c20c 
