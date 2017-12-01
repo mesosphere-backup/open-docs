@@ -19,6 +19,7 @@ distros = [
     'ubuntu1604',
     'ubuntu1404',
     'ubuntu1204',
+    'debian9',
     'debian8',
     'centos7',
     'centos6']
@@ -30,6 +31,7 @@ distroName['ubuntu1604'] = 'Ubuntu 16.04 (AMD 64)'
 distroName['ubuntu1404'] = 'Ubuntu 14.04 (AMD 64)'
 distroName['ubuntu1204'] = 'Ubuntu 12.04 (AMD 64)'
 
+distroName['debian9']    = 'Debian 9 (AMD 64)'
 distroName['debian8']    = 'Debian 8 (AMD 64)'
 
 distroName['centos7']    = 'CentOS 7 (x86_64)'
@@ -50,6 +52,7 @@ def getRepoPath(version, distro):
     repoPath['ubuntu1404']   = 'ubuntu/dists/trusty'  + suffix
     repoPath['ubuntu1204']   = 'ubuntu/dists/precise' + suffix
 
+    repoPath['debian9']      = 'debian/dists/stretch'  + suffix
     repoPath['debian8']      = 'debian/dists/jessie'  + suffix
 
     repoPath['centos7']      = 'el' + suffix + '/7/x86_64'

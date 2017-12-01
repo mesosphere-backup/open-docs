@@ -93,6 +93,7 @@ Mesosphere has official package repositories which connect directly to the nativ
 + Ubuntu 16.04 (xenial)
 + Ubuntu 14.04 (trusty)
 + Ubuntu 12.04 (precise)
++ Debian 9 (stretch)
 + Debian 8 (jessie)
 + Enterprise Linux 7 (RedHat/CentOS)
 + Enterprise Linux 6 (RedHat/CentOS)
