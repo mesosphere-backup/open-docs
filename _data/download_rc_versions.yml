@@ -1,6 +1,26 @@
 - name: mesos
   releases:
 
+    - name: 1.5.0-rc1
+      announcement: https://github.com/apache/mesos/blob/1.5.0-rc1/CHANGELOG
+      timestamp: tag 1.5.0-rc1
+      packages:
+      - name: Ubuntu 17.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.5.0-1.0.1.rc1.ubuntu1704_amd64.deb
+        sha256: 011c6c9f74ef6401e362f14824acc8b5334dba12a25eb2db7f13602372c6cdfc 
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.5.0-1.0.1.rc1.ubuntu1604_amd64.deb
+        sha256: 7277dbe80ad96bdd60163cafeb84854a1ac3056d0159325fd14dd3264ad8d88a 
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.5.0-1.0.1.rc1.ubuntu1404_amd64.deb
+        sha256: b4cf1b93c241c8f50a43d5226d77d145393c4d746b3339a72f3c79db6211856d 
+      - name: Debian 9 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.5.0-1.0.1.rc1.debian9_amd64.deb
+        sha256: ac191db73544a4b6ca724513231cf07a91861d54c03526f8ce28b5e1674f2a12 
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.5.0-1.0.1.rc1.debian8_amd64.deb
+        sha256: dfc8f57530cfb8d482e3601f0275bb8754562723ce9fbcb1dd3ffc20484472c5 
+
     - name: 1.0.4-rc2
       announcement: https://github.com/apache/mesos/blob/1.0.4-rc2/CHANGELOG
       timestamp: 2017-04-25 03:11:15 +0200
