@@ -41,16 +41,6 @@
         path: debian/pool/main/m/mesos/mesos_1.2.3-2.0.1.debian8_amd64.deb
         sha256: 79fe6f19a42950a0aeb0583eb04ec5d242098d547d81fbc43535e59b5a2e61b3 
 
-    - name: 1.3.2
-      announcement: https://github.com/apache/mesos/blob/1.3.2/CHANGELOG
-      timestamp: 2017-12-07 10:47:58 -0800
-      packages:
-
-    - name: 1.2.3
-      announcement: https://github.com/apache/mesos/blob/1.2.3/CHANGELOG
-      timestamp: 2017-12-1 9:40:13 -0500
-      packages:
-
     - name: 1.4.1
       announcement: https://github.com/apache/mesos/blob/1.4.1/CHANGELOG
       timestamp: 2017-11-15 20:09:14 +0000
