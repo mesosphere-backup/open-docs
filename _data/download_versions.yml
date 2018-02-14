@@ -3,7 +3,7 @@
 
     - name: 1.5.0
       announcement: https://github.com/apache/mesos/blob/1.5.0/CHANGELOG
-      timestamp: tag 1.5.0
+      timestamp: 2018-02-08 08:04:40 -0800
       packages:
       - name: Ubuntu 17.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.5.0-2.0.1.ubuntu1704_amd64.deb
