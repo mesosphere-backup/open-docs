@@ -1,9 +1,8 @@
-[DEPRECATED] Mesosphere Community Docs Site
-==============================
+[DEPRECATED] This is currently used only for publishing [Mesos deb/rpm binaries](open.mesosphere.com/downloads/mesos) and is owned by the Mesos Core Team.
 
 Build is here: https://jenkins.mesosphere.com/service/jenkins/job/open-docs/
 
-**THIS CONTENT IS DEPRECATED. FOR THE LATEST INFORMATION, SEE <a href="dcos.io">dcos.io</a>.**
+**THE REST OF THE CONTENT IS DEPRECATED. FOR THE LATEST INFORMATION, SEE <a href="dcos.io">dcos.io</a>.**
 
 This repository contains the Markdown files that comprise the [Mesosphere open documentation site](http://open.mesosphere.com).
 
