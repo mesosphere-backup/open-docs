@@ -14,6 +14,7 @@ baseurl = 'http://repos.mesosphere.com/'
 package = 'mesos'
 
 distros = [
+    'ubuntu1804',
     'ubuntu1710',
     'ubuntu1704',
     'ubuntu1604',
@@ -25,6 +26,7 @@ distros = [
     'centos6']
 
 distroName = {}
+distroName['ubuntu1804'] = 'Ubuntu 18.04 (AMD 64)'
 distroName['ubuntu1710'] = 'Ubuntu 17.10 (AMD 64)'
 distroName['ubuntu1704'] = 'Ubuntu 17.04 (AMD 64)'
 distroName['ubuntu1604'] = 'Ubuntu 16.04 (AMD 64)'
@@ -46,6 +48,7 @@ def getRepoPath(version, distro):
         suffix = '-unstable'
 
     repoPath = {}
+    repoPath['ubuntu1804']   = 'ubuntu/dists/bionic'  + suffix
     repoPath['ubuntu1710']   = 'ubuntu/dists/artful'  + suffix
     repoPath['ubuntu1704']   = 'ubuntu/dists/zesty'  + suffix
     repoPath['ubuntu1604']   = 'ubuntu/dists/xenial'  + suffix
