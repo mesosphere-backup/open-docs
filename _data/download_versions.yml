@@ -14,6 +14,9 @@
       - name: Debian 8 (AMD 64)
         path: debian/pool/main/m/mesos/mesos_1.7.0-2.0.3.debian8_amd64.deb
         sha256: 6a4da2be8916354e1a136a61bce9f29f971ca9af8cf1484cdced817518e3085f 
+      - name: Debian 9 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.7.0-2.0.3.debian9_amd64.deb
+        sha256: 42d34ca336a6a76c6dc9571d53b586dc18e3e9a71bb4d3ca03839d385ce9e2b2
       - name: CentOS 7 (x86_64)
         path: el/7/x86_64/RPMS/mesos-1.7.0-2.0.1.el7.x86_64.rpm
         sha256: 83403ec263205f9b2dd9be047fb047fa0f3252d0ff1726c1de87071d1ecbd600 
