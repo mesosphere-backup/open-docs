@@ -1,6 +1,20 @@
 - name: mesos
   releases:
 
+    - name: 1.5.2
+      announcement: https://github.com/apache/mesos/blob/1.5.2/CHANGELOG
+      timestamp: 2019-01-15 00:32:28 -0800
+      packages:
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.5.2-2.0.1.ubuntu1604_amd64.deb
+        sha256: 77ca0a43764a4a92b82c838a7f5981782fcd766c7ed526d95a6c11faa708353e 
+      - name: CentOS 7 (x86_64)
+        path: el/7/x86_64/RPMS/mesos-1.5.2-2.0.1.el7.x86_64.rpm
+        sha256: a4890d08e8927d0b562119bc38f225f841bd8475335965587a6348b0d18a8db5 
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-1.5.2-2.0.1.el6.x86_64.rpm
+        sha256: 6432e25595d4ef10d61bdf7586fa6f8078c43728b5e071a10358fbcdb4ab4254 
+
     - name: 1.7.0
       announcement: https://github.com/apache/mesos/blob/1.7.0/CHANGELOG
       timestamp: 2018-09-07 16:29:35 -0700
