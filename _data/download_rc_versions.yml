@@ -7,6 +7,17 @@
       packages:
       - name: CentOS 7 (x86_64)
         path: el-testing/7/x86_64/RPMS/mesos-1.4.3-1.0.1.rc2.el7.x86_64.rpm
+        sha256: 9e4dfe6335140d6ad70f849a49e56c55465957696fce20f0f46cd466e7aa95b3 
+      - name: CentOS 6 (x86_64)
+        path: el-testing/6/x86_64/RPMS/mesos-1.4.3-1.0.1.rc2.el6.x86_64.rpm
+        sha256: e4a9344aa3d85a617d6ed85a007139aea67ac057edeb1bb4f674193c19bba4be 
+
+    - name: 1.4.3-rc2
+      announcement: https://github.com/apache/mesos/blob/1.4.3-rc2/CHANGELOG
+      timestamp: 2019-02-12 15:44:00 -0800
+      packages:
+      - name: CentOS 7 (x86_64)
+        path: el-testing/7/x86_64/RPMS/mesos-1.4.3-1.0.1.rc2.el7.x86_64.rpm
         sha256: 800b43bf83a4b590b539e0584daec8bf806965b184f1f52f0d0fc58ffde7159a 
       - name: CentOS 6 (x86_64)
         path: el-testing/6/x86_64/RPMS/mesos-1.4.3-1.0.1.rc2.el6.x86_64.rpm
