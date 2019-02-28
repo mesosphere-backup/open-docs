@@ -1,6 +1,17 @@
 - name: mesos
   releases:
 
+    - name: 1.7.2
+      announcement: https://github.com/apache/mesos/blob/1.7.2/CHANGELOG
+      timestamp: 2019-02-15 15:59:20 -0800
+      packages:
+      - name: CentOS 7 (x86_64)
+        path: el/7/x86_64/RPMS/mesos-1.7.2-2.0.1.el7.x86_64.rpm
+        sha256: 7085456714975c52cb8372f75cb5ab9abec51fabc7c5489609c97f7e36e69f86 
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-1.7.2-2.0.1.el6.x86_64.rpm
+        sha256: f2071a47a61eaded62ddfd34794b3fc513a2ee849d9f12638ee2dffd7ead104e 
+
     - name: 1.4.3
       announcement: https://github.com/apache/mesos/blob/1.4.3/CHANGELOG
       timestamp: 2019-02-12 15:44:00 -0800
