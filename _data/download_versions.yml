@@ -7,6 +7,17 @@
       packages:
       - name: CentOS 7 (x86_64)
         path: el/7/x86_64/RPMS/mesos-1.6.2-2.0.1.el7.x86_64.rpm
+        sha256: ac77121518faeae053ca3a3f014214d746acac7ce0702616c553827864e23eef 
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-1.6.2-2.0.1.el6.x86_64.rpm
+        sha256: a9f8d1d4a0493c4a3a9af9f08d909066b9f4c16e05cdcd89db6ee011bfef03b0 
+
+    - name: 1.6.2
+      announcement: https://github.com/apache/mesos/blob/1.6.2/CHANGELOG
+      timestamp: 2019-02-15 17:19:12 -0800
+      packages:
+      - name: CentOS 7 (x86_64)
+        path: el/7/x86_64/RPMS/mesos-1.6.2-2.0.1.el7.x86_64.rpm
         sha256: 3d20f8ee2cbf29473989114320dfca5646e855ee4c7049e371475010644932c6 
       - name: CentOS 6 (x86_64)
         path: el/6/x86_64/RPMS/mesos-1.6.2-2.0.1.el6.x86_64.rpm
