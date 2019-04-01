@@ -5,6 +5,20 @@
       announcement: https://github.com/apache/mesos/blob/1.5.3/CHANGELOG
       timestamp: 2019-03-05 21:58:33 -0800
       packages:
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.5.3-2.0.1.ubuntu1604_amd64.deb
+        sha256: da82738e86955a6f68c2de9dff0f0d02a46f9aed8ee4299c3535eabc8929c8ab 
+      - name: CentOS 7 (x86_64)
+        path: el/7/x86_64/RPMS/mesos-1.5.3-2.0.1.el7.x86_64.rpm
+        sha256: 7ad6590d4189410ebab1f2e266253e1d5102ceb7a51f0da3b9a32f7927e10f07 
+      - name: CentOS 6 (x86_64)
+        path: el/6/x86_64/RPMS/mesos-1.5.3-2.0.1.el6.x86_64.rpm
+        sha256: 3152dc3c9bfc9cf8eb771afdc1d6c590212a1709e5725284d32e9522f005db4c 
+
+    - name: 1.5.3
+      announcement: https://github.com/apache/mesos/blob/1.5.3/CHANGELOG
+      timestamp: 2019-03-05 21:58:33 -0800
+      packages:
       - name: CentOS 7 (x86_64)
         path: el/7/x86_64/RPMS/mesos-1.5.3-2.0.1.el7.x86_64.rpm
         sha256: 9da4af59f71edc4b1038d54760abb455c4a9845f2be3fc3a3c08ee1590b6278e 
