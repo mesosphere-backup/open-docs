@@ -1,6 +1,26 @@
 - name: mesos
   releases:
 
+    - name: 1.8.0-rc3
+      announcement: https://github.com/apache/mesos/blob/1.8.0-rc3/CHANGELOG
+      timestamp: 2019-04-26 16:53:41 +0200
+      packages:
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.ubuntu1604_amd64.deb
+        sha256: 541bc4e4a66d0d6857cfc3d6e4cfedd7f35fe5bc5e096852fb6205de8cceb9ec 
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.ubuntu1404_amd64.deb
+        sha256: fccebe4ad36f31fe04dc709f836bb61e3d1eb26891a0ce72272e364fe03d0f35 
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.debian8_amd64.deb
+        sha256: c5af68492b48e50fae51299154ecba95f29e0ab263674c6242dc55d3ecd19912 
+      - name: CentOS 7 (x86_64)
+        path: el-testing/7/x86_64/RPMS/mesos-1.8.0-1.0.1.rc3.el7.x86_64.rpm
+        sha256: 800eb2f36f17e19cdb88deea68bfa23fff3b4e135400b7a24490a28792ebdf76 
+      - name: CentOS 6 (x86_64)
+        path: el-testing/6/x86_64/RPMS/mesos-1.8.0-1.0.1.rc3.el6.x86_64.rpm
+        sha256: d05981f6dc2f2f628b1d89170d7295aa3b8757daff2d8ad300067168a5aa5ce0 
+
     - name: 1.8.0-rc2
       announcement: https://github.com/apache/mesos/blob/1.8.0-rc2/CHANGELOG
       timestamp: 2019-04-17 22:27:36 -0600
