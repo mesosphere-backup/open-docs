@@ -11,6 +11,29 @@
       - name: Ubuntu 14.04 (AMD 64)
         path: ubuntu/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.ubuntu1404_amd64.deb
         sha256: fccebe4ad36f31fe04dc709f836bb61e3d1eb26891a0ce72272e364fe03d0f35 
+      - name: Debian 9 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.debian9_amd64.deb
+        sha256: 739faf3aee101e30ea56ee0738de6a3923b8b8f569a687c29aaf2a4251fc1d0c 
+      - name: Debian 8 (AMD 64)
+        path: debian/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.debian8_amd64.deb
+        sha256: c5af68492b48e50fae51299154ecba95f29e0ab263674c6242dc55d3ecd19912 
+      - name: CentOS 7 (x86_64)
+        path: el-testing/7/x86_64/RPMS/mesos-1.8.0-1.0.1.rc3.el7.x86_64.rpm
+        sha256: f5a3e1b9265d44b36c95c5747b86b0f57cee39e8f604413be95aa3f38d50f075 
+      - name: CentOS 6 (x86_64)
+        path: el-testing/6/x86_64/RPMS/mesos-1.8.0-1.0.1.rc3.el6.x86_64.rpm
+        sha256: 537689eddd27a6b6ca39ef3d3c14cff1e25e707aa973278100adb07dd904ebd0 
+
+    - name: 1.8.0-rc3
+      announcement: https://github.com/apache/mesos/blob/1.8.0-rc3/CHANGELOG
+      timestamp: 2019-04-26 16:53:41 +0200
+      packages:
+      - name: Ubuntu 16.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.ubuntu1604_amd64.deb
+        sha256: 541bc4e4a66d0d6857cfc3d6e4cfedd7f35fe5bc5e096852fb6205de8cceb9ec 
+      - name: Ubuntu 14.04 (AMD 64)
+        path: ubuntu/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.ubuntu1404_amd64.deb
+        sha256: fccebe4ad36f31fe04dc709f836bb61e3d1eb26891a0ce72272e364fe03d0f35 
       - name: Debian 8 (AMD 64)
         path: debian/pool/main/m/mesos/mesos_1.8.0-1.0.1.rc3.debian8_amd64.deb
         sha256: c5af68492b48e50fae51299154ecba95f29e0ab263674c6242dc55d3ecd19912 
